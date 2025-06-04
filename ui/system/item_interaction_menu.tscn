@@ -1,0 +1,68 @@
+[gd_scene load_steps=2 format=3 uid="uid://blljgtweepoi3"]
+
+[ext_resource type="Script" path="res://code/ui/ItemInteractionMenu.cs" id="1_3giwx"]
+
+[node name="ItemInteractionMenu" type="PanelContainer"]
+size_flags_vertical = 0
+script = ExtResource("1_3giwx")
+
+[node name="InteractionList" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="SelectItem" type="Button" parent="InteractionList"]
+layout_mode = 2
+mouse_filter = 1
+text = "HEADER_ITEM_SELECT"
+
+[node name="EquipItem" type="Button" parent="InteractionList"]
+layout_mode = 2
+mouse_filter = 1
+text = "HEADER_ITEM_EQUIP"
+
+[node name="UnequipItem" type="Button" parent="InteractionList"]
+layout_mode = 2
+mouse_filter = 1
+text = "HEADER_ITEM_UNEQUIP"
+
+[node name="UseItem" type="Button" parent="InteractionList"]
+layout_mode = 2
+mouse_filter = 1
+text = "HEADER_ITEM_USE"
+
+[node name="OpenItem" type="Button" parent="InteractionList"]
+layout_mode = 2
+mouse_filter = 1
+text = "HEADER_ITEM_OPEN"
+
+[node name="CloseItem" type="Button" parent="InteractionList"]
+layout_mode = 2
+mouse_filter = 1
+text = "HEADER_ITEM_CLOSE"
+
+[node name="SplitItem" type="Button" parent="InteractionList"]
+layout_mode = 2
+mouse_filter = 1
+text = "HEADER_ITEM_SPLIT"
+
+[node name="RenameItem" type="Button" parent="InteractionList"]
+layout_mode = 2
+mouse_filter = 1
+text = "HEADER_ITEM_RENAME"
+
+[node name="DropItem" type="Button" parent="InteractionList"]
+layout_mode = 2
+mouse_filter = 1
+text = "HEADER_ITEM_DROP"
+
+[connection signal="mouse_entered" from="." to="." method="ToogleSelection" binds= [true]]
+[connection signal="mouse_exited" from="." to="." method="ToogleSelection" binds= [false]]
+[connection signal="pressed" from="InteractionList/SelectItem" to="." method="SelectItem"]
+[connection signal="pressed" from="InteractionList/EquipItem" to="." method="EquipItem"]
+[connection signal="pressed" from="InteractionList/UnequipItem" to="." method="UnequipItem"]
+[connection signal="pressed" from="InteractionList/UseItem" to="." method="UseItem"]
+[connection signal="pressed" from="InteractionList/OpenItem" to="." method="OpenItem"]
+[connection signal="pressed" from="InteractionList/CloseItem" to="." method="CloseItem"]
+[connection signal="pressed" from="InteractionList/SplitItem" to="." method="SplitItem"]
+[connection signal="pressed" from="InteractionList/RenameItem" to="." method="RenameItem"]
+[connection signal="pressed" from="InteractionList/DropItem" to="." method="DropItem"]

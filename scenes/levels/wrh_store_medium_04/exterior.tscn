@@ -1,0 +1,43 @@
+[gd_scene load_steps=8 format=3 uid="uid://caauswojm5mxu"]
+
+[ext_resource type="PackedScene" uid="uid://cwfo20aii2a6s" path="res://prefabs/triggers/sub_level_trigger.tscn" id="1_xf2ox"]
+[ext_resource type="PackedScene" uid="uid://cesgfh4faom02" path="res://assets/models/buildings/wrh_store_medium_04/exterior_roof.glb" id="2_1xwf1"]
+[ext_resource type="PackedScene" uid="uid://dcqjuwc08rr4h" path="res://assets/models/buildings/wrh_store_medium_04/exterior_walls_01.glb" id="3_jhr3y"]
+[ext_resource type="PackedScene" uid="uid://c5rlps7xwdn7q" path="res://assets/models/buildings/wrh_store_medium_04/exterior_walls_02.glb" id="4_aisko"]
+[ext_resource type="PackedScene" uid="uid://qyo0r7u2xwoc" path="res://prefabs/props/sidewalk_01/sidewalk_default_base_2x2.tscn" id="5_lkkmd"]
+[ext_resource type="PackedScene" uid="uid://c42ygkf35sird" path="res://assets/models/buildings/wrh_store_medium_04/temp_details.glb" id="5_r71pm"]
+[ext_resource type="PackedScene" uid="uid://be0ldjs0odsbq" path="res://prefabs/props/stairs_03/stairs_03_1m.tscn" id="7_mobe0"]
+
+[node name="WrhStoreMedium04" type="Node3D"]
+
+[node name="LevelSpawner" parent="." instance=ExtResource("1_xf2ox")]
+_levelID = "wrh_store_medium_04/Interior"
+
+[node name="ExteriorGeometry" type="Node3D" parent="."]
+
+[node name="exterior_roof" parent="ExteriorGeometry" instance=ExtResource("2_1xwf1")]
+
+[node name="exterior_walls_01" parent="ExteriorGeometry" instance=ExtResource("3_jhr3y")]
+
+[node name="exterior_walls_02" parent="ExteriorGeometry" instance=ExtResource("4_aisko")]
+
+[node name="temp_details" parent="ExteriorGeometry" instance=ExtResource("5_r71pm")]
+
+[node name="Walkways" type="Node3D" parent="ExteriorGeometry"]
+
+[node name="SidewalkDefaultBase2x11" parent="ExteriorGeometry/Walkways" instance=ExtResource("5_lkkmd")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.002, -0.2, -6.015)
+
+[node name="Stairs02_1m" parent="ExteriorGeometry/Walkways" instance=ExtResource("7_mobe0")]
+transform = Transform3D(1, 0, 0, 0, 0.999, 0, 0, 0, 0.999, 4.75, 0.8, -1.85)
+
+[node name="Stairs02_1m2" parent="ExteriorGeometry/Walkways" instance=ExtResource("7_mobe0")]
+transform = Transform3D(1, 0, 0, 0, 0.999, 0, 0, 0, 0.999, 4.75, -0.2, -3.1)
+
+[node name="Stairs02_1m3" parent="ExteriorGeometry/Walkways" instance=ExtResource("7_mobe0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.25, 0.8, -1.85)
+
+[node name="Stairs02_1m4" parent="ExteriorGeometry/Walkways" instance=ExtResource("7_mobe0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.25, -0.2, -3.1)
+
+[node name="UnloadedDetails" type="Node3D" parent="."]

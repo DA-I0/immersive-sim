@@ -1,0 +1,101 @@
+[gd_scene load_steps=23 format=3 uid="uid://c4tnn5yvmcofx"]
+
+[ext_resource type="PackedScene" uid="uid://bfm0rx70j6ie4" path="res://assets/models/buildings/bs_store_medium_02/elevator_shaft.glb" id="1_n0lxw"]
+[ext_resource type="PackedScene" uid="uid://cj6itfnwigqh0" path="res://prefabs/furniture/wardrobe_02.tscn" id="2_jukle"]
+[ext_resource type="PackedScene" uid="uid://bggywd1yb3a4g" path="res://assets/models/buildings/bs_store_medium_02/floor_01_floor.glb" id="2_k2jeu"]
+[ext_resource type="PackedScene" uid="uid://et08s72mxo2b" path="res://prefabs/triggers/npc_wait_interaction.tscn" id="3_04gjs"]
+[ext_resource type="PackedScene" uid="uid://1d7m5qhffwnf" path="res://assets/models/buildings/bs_store_medium_02/floor_01_ceiling.glb" id="3_j682v"]
+[ext_resource type="PackedScene" uid="uid://ghj7g073hoko" path="res://assets/models/buildings/bs_store_medium_02/floor_00_hallway_walls.glb" id="4_5x5oa"]
+[ext_resource type="PackedScene" uid="uid://chqgebekafjd8" path="res://assets/models/buildings/bs_store_medium_02/floor_00_walls.glb" id="5_xmja7"]
+[ext_resource type="PackedScene" uid="uid://ctcs38rh4lrm7" path="res://assets/models/buildings/bs_store_medium_02/floor_00_walls_02.glb" id="6_2gonj"]
+[ext_resource type="PackedScene" uid="uid://ck11d34x5h6nu" path="res://assets/models/buildings/bs_store_medium_02/floor_00_walls_03.glb" id="7_il3jx"]
+[ext_resource type="PackedScene" uid="uid://c4quhff2hxo8b" path="res://assets/models/buildings/bs_store_medium_02/floor_01_hallway_walls.glb" id="8_ryg6f"]
+[ext_resource type="PackedScene" uid="uid://7urh6au54bss" path="res://assets/models/buildings/bs_store_medium_02/floor_01_walls.glb" id="9_le483"]
+[ext_resource type="PackedScene" uid="uid://bmy2p0xw82yxq" path="res://assets/models/buildings/bs_store_medium_02/floor_02_hallway_walls.glb" id="10_gq0wv"]
+[ext_resource type="PackedScene" uid="uid://c8cpnh8c83pvu" path="res://assets/models/buildings/bs_store_medium_02/floor_02_temp_wall.glb" id="11_8oo4g"]
+[ext_resource type="PackedScene" uid="uid://r0b5h0hhyyim" path="res://assets/models/buildings/bs_store_medium_02/floor_02_walls.glb" id="12_xgywj"]
+[ext_resource type="PackedScene" uid="uid://bhrskuoin16no" path="res://assets/models/buildings/bs_store_medium_02/floor_02_walls_02.glb" id="13_q06f0"]
+[ext_resource type="PackedScene" uid="uid://bmp7u50fl7om7" path="res://assets/models/buildings/bs_store_medium_02/floor_00_floor.glb" id="14_rjw2a"]
+[ext_resource type="PackedScene" uid="uid://cs5uxy61htwmy" path="res://assets/models/buildings/bs_store_medium_02/floor_00_ceiling.glb" id="15_8kmph"]
+[ext_resource type="PackedScene" uid="uid://dfroyvhxa6p3j" path="res://assets/models/buildings/bs_store_medium_02/floor_02_floor.glb" id="16_a1dys"]
+[ext_resource type="PackedScene" uid="uid://bwbpyhook18p7" path="res://assets/models/buildings/bs_store_medium_02/floor_02_ceiling.glb" id="17_khp4t"]
+[ext_resource type="PackedScene" uid="uid://dfau0c84tc4kv" path="res://prefabs/building_parts/door/door_single_01.tscn" id="18_uonsu"]
+[ext_resource type="Script" uid="uid://ch01c7865ldya" path="res://code/systems/EntityReparentTrigger.cs" id="21_r7vrs"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_po1m4"]
+vertices = PackedVector3Array(-0.85, 0.499998, 0.324999, -0.85, 0.499998, -0.175001, -1.35, 0.499998, -0.425001, -2.6, 0.499998, 0.574999, -1.35, 0.499998, -1.675, -0.85, 0.499998, -1.925, -0.85, 0.499998, -2.425, -4.6, 0.499998, -5.925, -4.6, 0.499998, -6.675, -5.35, 0.499998, -6.675, -4.6, 0.499998, -4.675, -4.1, 0.499998, -4.925, -4.1, 0.499998, -5.675, -1.35, 0.499998, -2.925, -4.35, 0.499998, -2.925, -4.85, 0.499998, -1.175, -2.85, 0.499998, -1.425, -3.35, 0.499998, 1.575, -3.6, 0.499998, -0.425001, -4.6, 0.499998, -0.425001, -5.35, 0.499998, 6.575, -1.1, 0.499998, 6.575, -1.35, 0.499998, 1.575, -4.6, 4.75, -4.675, -4.1, 4.75, -4.925, -4.1, 4.75, -5.675, -4.6, 4.75, -6.425, -5.35, 4.75, -6.425, 5.4, 4.75, -6.425, -0.35, 4.75, -6.425, -0.35, 4.75, -2.675, 5.4, 4.75, -1.925, -1.1, 4.75, -2.425, -1.35, 4.75, -1.425, -0.85, 4.75, -1.925, -1.35, 4.75, -2.925, -4.35, 4.75, -2.925, -5.35, 4.75, -1.425, -0.85, 9, -1.925, -0.85, 9, -2.425, -1.35, 9, -2.925, -4.35, 9, -2.925, -4.85, 9, -1.175, -1.35, 9, -1.425, -4.35, 9, -5.925, -4.6, 9, -6.425, -5.35, 9, -6.425, -1.1, 9, 6.575, -1.35, 9, -0.425001, -4.6, 9, -0.425001, -5.35, 9, 6.575, -0.35, 0.499998, -2.675, -0.35, 0.499998, -1.425, 5.4, 0.499998, -1.425, 5.4, 0.499998, -6.425, -0.35, 0.499998, -6.425, -0.35, 9, -1.675, -0.35, 9, -2.675, -0.35, 9, 4.825, 5.4, 9, 4.575, 5.4, 9, -6.425, -0.35, 9, -6.425, -0.35, 4.75, -1.675, -0.35, 4.75, -0.925001, -0.1, 4.75, 4.825, 5.4, 4.75, 4.575, -5.35, 4.75, 6.575, -1.35, 4.75, 6.575, -1.35, 4.75, 4.825, -0.6, 4.75, -0.425001, -5.35, 4.75, -0.425001, -0.35, 0.499998, 0.574999, 5.4, 0.499998, -0.425001, -0.35, 0.499998, 4.825, 5.4, 0.499998, 4.575)
+polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(5, 4, 6), PackedInt32Array(9, 8, 7), PackedInt32Array(11, 10, 12), PackedInt32Array(12, 10, 7), PackedInt32Array(6, 4, 13), PackedInt32Array(13, 4, 16), PackedInt32Array(13, 16, 14), PackedInt32Array(14, 16, 15), PackedInt32Array(18, 17, 19), PackedInt32Array(19, 17, 20), PackedInt32Array(9, 7, 10), PackedInt32Array(4, 2, 16), PackedInt32Array(16, 2, 3), PackedInt32Array(22, 21, 17), PackedInt32Array(17, 21, 20), PackedInt32Array(14, 15, 10), PackedInt32Array(10, 15, 9), PackedInt32Array(15, 19, 20), PackedInt32Array(15, 20, 9), PackedInt32Array(24, 23, 25), PackedInt32Array(25, 23, 26), PackedInt32Array(26, 23, 27), PackedInt32Array(29, 28, 30), PackedInt32Array(30, 28, 31), PackedInt32Array(33, 32, 34), PackedInt32Array(32, 33, 35), PackedInt32Array(35, 33, 36), PackedInt32Array(36, 33, 37), PackedInt32Array(36, 37, 23), PackedInt32Array(23, 37, 27), PackedInt32Array(32, 30, 34), PackedInt32Array(34, 30, 31), PackedInt32Array(38, 43, 39), PackedInt32Array(39, 43, 40), PackedInt32Array(40, 43, 41), PackedInt32Array(41, 43, 42), PackedInt32Array(45, 44, 46), PackedInt32Array(46, 44, 41), PackedInt32Array(46, 41, 42), PackedInt32Array(48, 47, 49), PackedInt32Array(49, 47, 50), PackedInt32Array(42, 50, 46), PackedInt32Array(50, 42, 49), PackedInt32Array(6, 51, 5), PackedInt32Array(5, 51, 52), PackedInt32Array(52, 51, 53), PackedInt32Array(55, 54, 51), PackedInt32Array(51, 54, 53), PackedInt32Array(39, 57, 38), PackedInt32Array(38, 57, 56), PackedInt32Array(58, 56, 59), PackedInt32Array(59, 56, 60), PackedInt32Array(57, 61, 60), PackedInt32Array(56, 57, 60), PackedInt32Array(62, 34, 31), PackedInt32Array(62, 31, 63), PackedInt32Array(63, 31, 65), PackedInt32Array(63, 65, 64), PackedInt32Array(68, 67, 66), PackedInt32Array(63, 64, 69), PackedInt32Array(69, 64, 68), PackedInt32Array(69, 68, 70), PackedInt32Array(70, 68, 66), PackedInt32Array(0, 1, 71), PackedInt32Array(71, 1, 72), PackedInt32Array(73, 71, 74), PackedInt32Array(74, 71, 72)]
+geometry_parsed_geometry_type = 1
+geometry_source_geometry_mode = 1
+agent_height = 1.75
+agent_radius = 0.25
+
+[node name="Interior" type="NavigationRegion3D"]
+navigation_mesh = SubResource("NavigationMesh_po1m4")
+
+[node name="BuildingGeometry" type="Node3D" parent="."]
+
+[node name="elevator_shaft" parent="BuildingGeometry" instance=ExtResource("1_n0lxw")]
+
+[node name="floor_01_floor" parent="BuildingGeometry" groups=["navigation_mesh_source_group"] instance=ExtResource("2_k2jeu")]
+
+[node name="floor_01_ceiling" parent="BuildingGeometry" instance=ExtResource("3_j682v")]
+
+[node name="floor_00_hallway_walls" parent="BuildingGeometry" groups=["navigation_mesh_source_group"] instance=ExtResource("4_5x5oa")]
+
+[node name="floor_00_walls" parent="BuildingGeometry" groups=["navigation_mesh_source_group"] instance=ExtResource("5_xmja7")]
+
+[node name="floor_00_walls_02" parent="BuildingGeometry" groups=["navigation_mesh_source_group"] instance=ExtResource("6_2gonj")]
+
+[node name="floor_00_walls_03" parent="BuildingGeometry" groups=["navigation_mesh_source_group"] instance=ExtResource("7_il3jx")]
+
+[node name="floor_01_hallway_walls" parent="BuildingGeometry" groups=["navigation_mesh_source_group"] instance=ExtResource("8_ryg6f")]
+
+[node name="floor_01_walls" parent="BuildingGeometry" groups=["navigation_mesh_source_group"] instance=ExtResource("9_le483")]
+
+[node name="floor_02_hallway_walls" parent="BuildingGeometry" groups=["navigation_mesh_source_group"] instance=ExtResource("10_gq0wv")]
+
+[node name="floor_02_temp_wall" parent="BuildingGeometry" instance=ExtResource("11_8oo4g")]
+
+[node name="floor_02_walls" parent="BuildingGeometry" groups=["navigation_mesh_source_group"] instance=ExtResource("12_xgywj")]
+
+[node name="floor_02_walls_02" parent="BuildingGeometry" groups=["navigation_mesh_source_group"] instance=ExtResource("13_q06f0")]
+
+[node name="floor_00_floor" parent="BuildingGeometry" groups=["navigation_mesh_source_group"] instance=ExtResource("14_rjw2a")]
+
+[node name="floor_00_ceiling" parent="BuildingGeometry" instance=ExtResource("15_8kmph")]
+
+[node name="floor_02_floor" parent="BuildingGeometry" groups=["navigation_mesh_source_group"] instance=ExtResource("16_a1dys")]
+
+[node name="floor_02_ceiling" parent="BuildingGeometry" instance=ExtResource("17_khp4t")]
+
+[node name="Usables" type="Node3D" parent="."]
+
+[node name="DoorSingle01" parent="Usables" instance=ExtResource("18_uonsu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.98331, 0, -6.89749)
+
+[node name="DoorSingle02" parent="Usables" instance=ExtResource("18_uonsu")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.931028, 0, -2.18308)
+
+[node name="DoorSingle03" parent="Usables" instance=ExtResource("18_uonsu")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.931028, 0, -0.00349647)
+
+[node name="DoorSingle04" parent="Usables" instance=ExtResource("18_uonsu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.98331, 0, -0.93358)
+
+[node name="Wardrobe02" parent="." instance=ExtResource("2_jukle")]
+transform = Transform3D(-1, 0, 8.9407e-08, 0, 1, 0, -8.9407e-08, 0, -1, 4.02031, 4.3, -6.38158)
+
+[node name="WaitInteraction2" parent="." instance=ExtResource("3_04gjs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.364, 0, -2.827)
+
+[node name="ReparentTriggers" type="Node3D" parent="."]
+
+[node name="EntityReparentTrigger" type="Area3D" parent="ReparentTriggers"]
+script = ExtResource("21_r7vrs")
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="ReparentTriggers/EntityReparentTrigger"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 6.25, 0)
+depth = 12.5
+polygon = PackedVector2Array(-5.855, 6.855, -0.86, 6.855, -0.86, 5.01, 5.86, 5.01, 5.86, -6.86, -5.855, -6.86)
+debug_color = Color(0.793491, 0.0739923, 1, 0.42)

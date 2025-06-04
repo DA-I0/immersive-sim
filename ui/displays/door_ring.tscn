@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://ymfw2k5iksfs"]
+
+[ext_resource type="Script" path="res://code/ui/displays/DoorRing.cs" id="1_vxjbx"]
+[ext_resource type="Texture2D" uid="uid://b5mgdqqxpaswc" path="res://assets/textures/ui/door_ring.png" id="2_3xgkf"]
+[ext_resource type="Texture2D" uid="uid://cwwgifg0jaq7o" path="res://assets/textures/ui/door_lock_closed.png" id="2_6onqg"]
+[ext_resource type="Texture2D" uid="uid://dyhccrdg6ukuw" path="res://assets/textures/ui/door_ring_hover.png" id="3_u3cmm"]
+[ext_resource type="Texture2D" uid="uid://cke3ikq6v78ww" path="res://assets/textures/ui/door_lock_closed_selected.png" id="5_xq486"]
+
+[node name="DoorRingScreen" type="Control"]
+custom_minimum_size = Vector2(256, 512)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 512.0
+offset_bottom = 512.0
+script = ExtResource("1_vxjbx")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+clip_contents = true
+layout_mode = 1
+offset_right = 256.0
+offset_bottom = 512.0
+
+[node name="TriggerRing" type="TextureButton" parent="VBoxContainer"]
+custom_minimum_size = Vector2(254, 254)
+layout_mode = 2
+texture_normal = ExtResource("2_3xgkf")
+texture_hover = ExtResource("3_u3cmm")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="MainButton" type="TextureButton" parent="VBoxContainer"]
+custom_minimum_size = Vector2(254, 254)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture_normal = ExtResource("2_6onqg")
+texture_hover = ExtResource("5_xq486")
+ignore_texture_size = true
+stretch_mode = 5
+
+[connection signal="pressed" from="VBoxContainer/TriggerRing" to="." method="TriggerRing"]
+[connection signal="pressed" from="VBoxContainer/MainButton" to="." method="ToggleDoor"]

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0v1u5wp2ww1t"]
+
+[ext_resource type="PackedScene" uid="uid://dfbk6xfljyq7h" path="res://assets/models/props/fence_03/fence_03_5m.glb" id="1_tci2k"]
+[ext_resource type="Material" uid="uid://bx51uk5arjbcn" path="res://assets/materials/dev/dev_black.tres" id="2_h4yhp"]
+
+[node name="Fence03_5m" instance=ExtResource("1_tci2k")]
+
+[node name="fence_03_5m" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_h4yhp")

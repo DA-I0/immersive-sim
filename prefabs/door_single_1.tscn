@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://w0t62yg6rj7k"]
+
+[ext_resource type="PackedScene" uid="uid://kix7lkwscloa" path="res://assets/models/doors/door_single_1.glb" id="1_5x2cs"]
+[ext_resource type="Script" path="res://code/interactables/Door.cs" id="2_hhq6t"]
+[ext_resource type="PackedScene" uid="uid://cr267y47ltxlg" path="res://prefabs/electronic_door_lock.tscn" id="3_we6j8"]
+[ext_resource type="PackedScene" uid="uid://bulbvrt1jh4v3" path="res://prefabs/electronic_door_ring.tscn" id="4_sv7t8"]
+
+[node name="door_single_1" type="Node3D"]
+
+[node name="door_entity" parent="." instance=ExtResource("1_5x2cs")]
+script = ExtResource("2_hhq6t")
+_doorAxis = 3
+_openRange = 1.0
+
+[node name="CameraFeed" type="SubViewport" parent="."]
+
+[node name="VisorCamera" type="Camera3D" parent="CameraFeed"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.691655, 1.38156, 0.131732)
+
+[node name="door_lock" parent="." instance=ExtResource("3_we6j8")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.691, 1.319, -0.116)
+
+[node name="Model" parent="door_lock" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Screen" parent="door_lock" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00228864, 0.0183666, 0.0392215)
+
+[node name="DoorLockScreen" parent="door_lock/Screen/UIViewport" index="0" node_paths=PackedStringArray("_targetDoor", "_cameraSource")]
+_targetDoor = NodePath("../../../../door_entity")
+_cameraSource = NodePath("../../../../CameraFeed/VisorCamera")
+
+[node name="door_ring" parent="." instance=ExtResource("4_sv7t8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.651574, 1.49475, 0.00600533)
+
+[node name="Model" parent="door_ring" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.039184, -0.175774, 0.108323)
+
+[node name="DoorRingScreen" parent="door_ring/Screen/UIViewport" index="0" node_paths=PackedStringArray("_targetDoor")]
+_targetDoor = NodePath("../../../../door_entity")
+
+[node name="SpatialAudio3D" parent="door_ring" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.069396, -0.226061, -0.192362)
+
+[editable path="door_lock"]
+[editable path="door_ring"]

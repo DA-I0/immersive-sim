@@ -1,0 +1,52 @@
+[gd_scene load_steps=2 format=3 uid="uid://cjq3ac23dv6cy"]
+
+[ext_resource type="Script" path="res://code/ui/ItemEntry.cs" id="1_p6bhd"]
+
+[node name="Item" type="Control"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 110.0
+offset_bottom = 25.0
+script = ExtResource("1_p6bhd")
+
+[node name="ItemName" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.4
+anchor_bottom = 1.0
+text = "item_name"
+vertical_alignment = 1
+
+[node name="ItemCategory" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_right = 0.6
+anchor_bottom = 1.0
+offset_top = 1.0
+text = "item_category"
+vertical_alignment = 1
+
+[node name="ItemSize" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.6
+anchor_right = 0.8
+anchor_bottom = 1.0
+text = "x"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="ItemWeight" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.8
+anchor_right = 1.0
+anchor_bottom = 1.0
+text = "x"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[connection signal="mouse_entered" from="." to="." method="ToggleSelection" binds= [true]]
+[connection signal="mouse_exited" from="." to="." method="ToggleSelection" binds= [false]]

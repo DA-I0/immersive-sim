@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://sk3wjh6d7xvx"]
+
+[ext_resource type="PackedScene" uid="uid://b3fs3h27ggeyh" path="res://assets/models/building_parts/walls/wall_1x2.glb" id="1_lnj8m"]
+[ext_resource type="Material" uid="uid://cex23krx5xu8h" path="res://assets/materials/pixel_art/bricks_1.tres" id="2_dqkh4"]
+
+[node name="wall_1x22" instance=ExtResource("1_lnj8m")]
+
+[node name="wall_1x2" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_dqkh4")

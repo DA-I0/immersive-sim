@@ -1,0 +1,100 @@
+[gd_scene load_steps=16 format=3 uid="uid://bsev4ydi8qjju"]
+
+[ext_resource type="PackedScene" uid="uid://cgeya17ud6qwu" path="res://assets/models/buildings/mr_store_medium_06/exterior_elevator_roof.glb" id="1_jxwar"]
+[ext_resource type="PackedScene" uid="uid://3oj0cqly87b5" path="res://assets/models/buildings/mr_store_medium_06/exterior_landing_floor.glb" id="2_7f5a3"]
+[ext_resource type="PackedScene" uid="uid://dkyuekdufppda" path="res://assets/models/buildings/mr_store_medium_06/exterior_landing_walls.glb" id="3_54k10"]
+[ext_resource type="Material" uid="uid://c0hj7haymkpjh" path="res://assets/materials/dev/dev_gray_light.tres" id="3_laqk5"]
+[ext_resource type="Material" uid="uid://b5i8t0xammn0b" path="res://assets/materials/dev/dev_orange.tres" id="4_admka"]
+[ext_resource type="PackedScene" uid="uid://dgxcqahcqho72" path="res://assets/models/buildings/mr_store_medium_06/exterior_stairs_01.glb" id="4_tym30"]
+[ext_resource type="PackedScene" uid="uid://bwoekrgkfasr1" path="res://assets/models/buildings/mr_store_medium_06/exterior_stairs_landing_top.glb" id="5_332bf"]
+[ext_resource type="PackedScene" uid="uid://cwfo20aii2a6s" path="res://prefabs/triggers/sub_level_trigger.tscn" id="5_bqlfq"]
+[ext_resource type="Material" uid="uid://cmgvdn03psf5u" path="res://assets/materials/dev/dev_gray.tres" id="6_matbx"]
+[ext_resource type="PackedScene" uid="uid://cvctq2ywbhimr" path="res://assets/models/buildings/mr_store_medium_06/exterior_stairs_side_landing.glb" id="6_o7qyj"]
+[ext_resource type="PackedScene" uid="uid://cwf8ju85jlcse" path="res://assets/models/buildings/mr_store_medium_06/exterior_stairs_side_sides.glb" id="7_dkplp"]
+[ext_resource type="PackedScene" uid="uid://c2urbnsejl0tg" path="res://assets/models/buildings/mr_store_medium_06/exterior_walls.glb" id="8_r2nlq"]
+[ext_resource type="PackedScene" uid="uid://dtrq50mqrx1dw" path="res://assets/models/buildings/mr_store_medium_06/roof.glb" id="9_5abhd"]
+[ext_resource type="Material" uid="uid://cd374gk86tfva" path="res://assets/materials/dev_glass_opaque.tres" id="11_hlydf"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_pm2eg"]
+size = Vector2(5, 2)
+
+[node name="MRStoreMedium06" type="Node3D"]
+
+[node name="LevelSpawner" parent="." instance=ExtResource("5_bqlfq")]
+_levelID = "mr_store_medium_06/Interior"
+
+[node name="ExteriorGeometry" type="Node3D" parent="."]
+
+[node name="exterior_elevator_roof" parent="ExteriorGeometry" instance=ExtResource("1_jxwar")]
+
+[node name="exterior_landing_floor" parent="ExteriorGeometry" instance=ExtResource("2_7f5a3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.4, 0)
+
+[node name="exterior_landing_floor" parent="ExteriorGeometry/exterior_landing_floor" index="0"]
+surface_material_override/0 = ExtResource("3_laqk5")
+surface_material_override/1 = ExtResource("4_admka")
+
+[node name="exterior_landing_walls" parent="ExteriorGeometry" instance=ExtResource("3_54k10")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.4, 0)
+
+[node name="exterior_landing_walls" parent="ExteriorGeometry/exterior_landing_walls" index="0"]
+surface_material_override/0 = ExtResource("6_matbx")
+
+[node name="exterior_landing_floor2" parent="ExteriorGeometry" instance=ExtResource("2_7f5a3")]
+
+[node name="exterior_landing_floor" parent="ExteriorGeometry/exterior_landing_floor2" index="0"]
+surface_material_override/0 = ExtResource("3_laqk5")
+surface_material_override/1 = ExtResource("4_admka")
+
+[node name="exterior_landing_walls2" parent="ExteriorGeometry" instance=ExtResource("3_54k10")]
+
+[node name="exterior_landing_walls" parent="ExteriorGeometry/exterior_landing_walls2" index="0"]
+surface_material_override/0 = ExtResource("6_matbx")
+
+[node name="exterior_stairs_01" parent="ExteriorGeometry" instance=ExtResource("4_tym30")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -8.174, 3.4, 1.4)
+
+[node name="exterior_stairs_landing_top" parent="ExteriorGeometry" instance=ExtResource("5_332bf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.025, 0, 4.80145)
+
+[node name="exterior_stairs_side_landing" parent="ExteriorGeometry" instance=ExtResource("6_o7qyj")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -8.174, 3.4, 1.4)
+
+[node name="exterior_stairs_02" parent="ExteriorGeometry" instance=ExtResource("4_tym30")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.025, 0, 4.80145)
+
+[node name="exterior_stairs_03" parent="ExteriorGeometry" instance=ExtResource("4_tym30")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -1.975, 0, -6.8)
+
+[node name="exterior_stairs_04" parent="ExteriorGeometry" instance=ExtResource("4_tym30")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -1.975, 3.4, -6.8)
+
+[node name="exterior_stairs_side_landing2" parent="ExteriorGeometry" instance=ExtResource("6_o7qyj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.025, 0, 4.80145)
+
+[node name="exterior_stairs_side_sides" parent="ExteriorGeometry" instance=ExtResource("7_dkplp")]
+
+[node name="exterior_walls" parent="ExteriorGeometry" instance=ExtResource("8_r2nlq")]
+
+[node name="exterior_walls" parent="ExteriorGeometry/exterior_walls" index="0"]
+surface_material_override/0 = ExtResource("6_matbx")
+
+[node name="roof" parent="ExteriorGeometry" instance=ExtResource("9_5abhd")]
+
+[node name="UnloadedDetails" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="UnloadedDetails"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 3.125, 5.4, -8.164)
+mesh = SubResource("PlaneMesh_pm2eg")
+surface_material_override/0 = ExtResource("11_hlydf")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="UnloadedDetails"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 3.125, 8.8, -8.164)
+mesh = SubResource("PlaneMesh_pm2eg")
+surface_material_override/0 = ExtResource("11_hlydf")
+
+[editable path="ExteriorGeometry/exterior_landing_floor"]
+[editable path="ExteriorGeometry/exterior_landing_walls"]
+[editable path="ExteriorGeometry/exterior_landing_floor2"]
+[editable path="ExteriorGeometry/exterior_landing_walls2"]
+[editable path="ExteriorGeometry/exterior_walls"]

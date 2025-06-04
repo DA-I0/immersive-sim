@@ -1,0 +1,70 @@
+[gd_scene load_steps=13 format=3 uid="uid://gj2l412h5q4k"]
+
+[ext_resource type="PackedScene" uid="uid://yg04eqolgqda" path="res://ui/displays/radio_display.tscn" id="1_aol3e"]
+[ext_resource type="Script" uid="uid://n5tkysg6fohp" path="res://code/devices/Radio.cs" id="1_dhu5h"]
+[ext_resource type="AudioStream" uid="uid://cah4itp2f402c" path="res://assets/audio/Nine_Jack.mp3" id="2_1w737"]
+[ext_resource type="AudioStream" uid="uid://qqb5ngdikwwy" path="res://assets/audio/Trick_style.mp3" id="3_ughej"]
+[ext_resource type="AudioStream" uid="uid://ckfj4etfqd2qy" path="res://assets/audio/カナリアスキップ.mp3" id="4_btmcs"]
+[ext_resource type="Script" uid="uid://0b4pkomt5llm" path="res://code/interactables/InteractiveScreen.cs" id="4_tm5oq"]
+[ext_resource type="PackedScene" uid="uid://ba3fot8sfh2sv" path="res://prefabs/light_switch.tscn" id="6_us2ls"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_be4qr"]
+size = Vector3(0.3, 0.2, 0.15)
+
+[sub_resource type="BoxMesh" id="BoxMesh_di7wg"]
+size = Vector3(0.3, 0.2, 0.15)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pk5tj"]
+emission_enabled = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_fg0fx"]
+material = SubResource("StandardMaterial3D_pk5tj")
+size = Vector2(0.25, 0.15)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vn0jo"]
+size = Vector3(0.25, 0.15, 0.01)
+
+[node name="Radio" type="Node3D"]
+script = ExtResource("1_dhu5h")
+_audioContent = Array[AudioStream]([ExtResource("2_1w737"), ExtResource("3_ughej"), ExtResource("4_btmcs")])
+_initialState = 1
+
+[node name="Collider" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collider"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+shape = SubResource("BoxShape3D_be4qr")
+
+[node name="Model" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+mesh = SubResource("BoxMesh_di7wg")
+
+[node name="Screen" type="Node3D" parent="." node_paths=PackedStringArray("_sourceViewport", "_screenModel", "_screenCollider")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0.08)
+script = ExtResource("4_tm5oq")
+_sourceViewport = NodePath("../SubViewport")
+_screenModel = NodePath("Display")
+_screenCollider = NodePath("Area3D")
+
+[node name="Display" type="MeshInstance3D" parent="Screen"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.001)
+mesh = SubResource("QuadMesh_fg0fx")
+skeleton = NodePath("../..")
+
+[node name="Area3D" type="Area3D" parent="Screen" groups=["interactive_screen"]]
+monitoring = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Screen/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.005)
+shape = SubResource("BoxShape3D_vn0jo")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+
+[node name="RadioDisplay" parent="SubViewport" instance=ExtResource("1_aol3e")]
+
+[node name="AudioSource" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.122365, 0.115912)
+
+[node name="light_switch" parent="." node_paths=PackedStringArray("_connectedDevices") instance=ExtResource("6_us2ls")]
+transform = Transform3D(-1, 0, -8.74228e-08, 8.74228e-08, -4.37114e-08, -1, -3.82137e-15, -1, 4.37114e-08, -0.0958479, 0.201453, 0.00649435)
+_connectedDevices = [NodePath("..")]

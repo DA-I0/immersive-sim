@@ -1,0 +1,60 @@
+[gd_scene load_steps=7 format=3 uid="uid://dwg2dqvvhl1f3"]
+
+[ext_resource type="PackedScene" uid="uid://ct8bfcyd1t66e" path="res://assets/models/furniture/desk.glb" id="1_j8duu"]
+[ext_resource type="PackedScene" uid="uid://bk0mnu4sxu36f" path="res://assets/models/furniture/desk_drawer.glb" id="2_m5idi"]
+[ext_resource type="Script" path="res://code/interactables/Door.cs" id="4_ovlmg"]
+[ext_resource type="Script" path="res://code/interactables/ToggleSwitch.cs" id="5_ciqgk"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wuf3c"]
+size = Vector3(0.025, 0.22, 0.4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mjnj5"]
+size = Vector3(0.47, 0.01, 0.38)
+
+[node name="desk_01" type="Node3D"]
+
+[node name="desk2" parent="." instance=ExtResource("1_j8duu")]
+
+[node name="Drawer" type="AnimatableBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.005, 0.04, 0.418)
+script = ExtResource("4_ovlmg")
+_doorAxis = 3
+_openRange = -0.3
+
+[node name="Model" parent="Drawer" instance=ExtResource("2_m5idi")]
+
+[node name="InteractionCollider" type="Node3D" parent="Drawer" node_paths=PackedStringArray("_connectedDevices")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.245, 0.11, 0)
+script = ExtResource("5_ciqgk")
+_connectedDevices = [NodePath("..")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Drawer/InteractionCollider"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Drawer/InteractionCollider/StaticBody3D"]
+shape = SubResource("BoxShape3D_wuf3c")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Drawer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0183836, 0)
+shape = SubResource("BoxShape3D_mjnj5")
+
+[node name="Drawer2" type="AnimatableBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.005, 0.3, 0.418)
+script = ExtResource("4_ovlmg")
+_doorAxis = 3
+_openRange = -0.3
+
+[node name="Model" parent="Drawer2" instance=ExtResource("2_m5idi")]
+
+[node name="InteractionCollider" type="Node3D" parent="Drawer2" node_paths=PackedStringArray("_connectedDevices")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.245, 0.11, 0)
+script = ExtResource("5_ciqgk")
+_connectedDevices = [NodePath("..")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Drawer2/InteractionCollider"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Drawer2/InteractionCollider/StaticBody3D"]
+shape = SubResource("BoxShape3D_wuf3c")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Drawer2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0183836, 0)
+shape = SubResource("BoxShape3D_mjnj5")

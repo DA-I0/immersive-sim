@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://et08s72mxo2b"]
+
+[ext_resource type="Script" uid="uid://c3e3jru1ujuv5" path="res://code/interactables/NPCInteractionTarget.cs" id="1_y417e"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sewgw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fubs4"]
+albedo_color = Color(1, 0, 1, 1)
+
+[sub_resource type="PrismMesh" id="PrismMesh_4oq74"]
+material = SubResource("StandardMaterial3D_fubs4")
+size = Vector3(0.2, 0.2, 0.2)
+
+[node name="WaitInteraction" type="Area3D"]
+collision_layer = 524304
+collision_mask = 524306
+script = ExtResource("1_y417e")
+_interactionType = 2
+_staminaChange = -5
+_maxStaminaChange = -10
+_npcPresetID = "all_npcs"
+
+[node name="TriggerCollider" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_sewgw")
+
+[node name="TriggerMarker" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("PrismMesh_4oq74")
+
+[connection signal="body_exited" from="." to="." method="ClearUser"]

@@ -1,0 +1,529 @@
+[gd_scene load_steps=6 format=3 uid="uid://bv3hv4cfobv4l"]
+
+[ext_resource type="Script" path="res://code/ui/settings/SettingsMenu.cs" id="1_cxvrh"]
+[ext_resource type="Script" path="res://code/ui/settings/GeneralSettings.cs" id="2_awbj2"]
+[ext_resource type="Script" path="res://code/ui/settings/VideoSettings.cs" id="3_hugqg"]
+[ext_resource type="Script" path="res://code/ui/settings/AudioSettings.cs" id="4_wksjr"]
+[ext_resource type="Script" path="res://code/ui/settings/ControlSettings.cs" id="5_ru4wi"]
+
+[node name="SettingsMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchor_left = 0.25
+anchor_right = 0.75
+anchor_bottom = 1.0
+offset_top = 10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cxvrh")
+
+[node name="SettingsContainer" type="TabContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -35.0
+current_tab = 0
+
+[node name="HEADER_GENERAL" type="ScrollContainer" parent="SettingsContainer"]
+layout_mode = 2
+script = ExtResource("2_awbj2")
+metadata/_tab_index = 0
+
+[node name="SettingsList" type="VBoxContainer" parent="SettingsContainer/HEADER_GENERAL"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Language" type="HBoxContainer" parent="SettingsContainer/HEADER_GENERAL/SettingsList"]
+layout_mode = 2
+
+[node name="Header" type="Label" parent="SettingsContainer/HEADER_GENERAL/SettingsList/Language"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "HEADER_LANGUAGE"
+
+[node name="List" type="OptionButton" parent="SettingsContainer/HEADER_GENERAL/SettingsList/Language"]
+layout_mode = 2
+
+[node name="Font" type="HBoxContainer" parent="SettingsContainer/HEADER_GENERAL/SettingsList"]
+layout_mode = 2
+
+[node name="Header" type="Label" parent="SettingsContainer/HEADER_GENERAL/SettingsList/Font"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "HEADER_FONT"
+
+[node name="List" type="OptionButton" parent="SettingsContainer/HEADER_GENERAL/SettingsList/Font"]
+layout_mode = 2
+
+[node name="FontSize" type="HBoxContainer" parent="SettingsContainer/HEADER_GENERAL/SettingsList"]
+layout_mode = 2
+
+[node name="Header" type="Label" parent="SettingsContainer/HEADER_GENERAL/SettingsList/FontSize"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+text = "HEADER_FONT_SIZE"
+
+[node name="Slider" type="HSlider" parent="SettingsContainer/HEADER_GENERAL/SettingsList/FontSize"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+min_value = 10.0
+max_value = 50.0
+value = 30.0
+rounded = true
+
+[node name="CrosshairScale" type="HBoxContainer" parent="SettingsContainer/HEADER_GENERAL/SettingsList"]
+layout_mode = 2
+
+[node name="Header" type="Label" parent="SettingsContainer/HEADER_GENERAL/SettingsList/CrosshairScale"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+text = "HEADER_CROSSHAIR_SCALE"
+
+[node name="Slider" type="HSlider" parent="SettingsContainer/HEADER_GENERAL/SettingsList/CrosshairScale"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+min_value = 0.5
+max_value = 2.0
+step = 0.1
+value = 1.0
+
+[node name="DisplayInteractionKeybinds" type="HBoxContainer" parent="SettingsContainer/HEADER_GENERAL/SettingsList"]
+layout_mode = 2
+
+[node name="Header" type="Label" parent="SettingsContainer/HEADER_GENERAL/SettingsList/DisplayInteractionKeybinds"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "SETTING_GENERAL_DISPLAY_INTERACTION_KEYBINDS"
+
+[node name="CheckButton" type="CheckButton" parent="SettingsContainer/HEADER_GENERAL/SettingsList/DisplayInteractionKeybinds"]
+layout_mode = 2
+
+[node name="DisplayItemInteractions" type="HBoxContainer" parent="SettingsContainer/HEADER_GENERAL/SettingsList"]
+layout_mode = 2
+
+[node name="Header" type="Label" parent="SettingsContainer/HEADER_GENERAL/SettingsList/DisplayItemInteractions"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "SETTING_GENERAL_DISPLAY_ITEM_INTERACTIONS"
+
+[node name="CheckButton" type="CheckButton" parent="SettingsContainer/HEADER_GENERAL/SettingsList/DisplayItemInteractions"]
+layout_mode = 2
+
+[node name="MaxNotificationNumber" type="HBoxContainer" parent="SettingsContainer/HEADER_GENERAL/SettingsList"]
+layout_mode = 2
+
+[node name="Header" type="Label" parent="SettingsContainer/HEADER_GENERAL/SettingsList/MaxNotificationNumber"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+text = "HEADER_MAX_NOTIFICATION_NUMBER"
+
+[node name="Slider" type="HSlider" parent="SettingsContainer/HEADER_GENERAL/SettingsList/MaxNotificationNumber"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+max_value = 20.0
+value = 5.0
+rounded = true
+
+[node name="NotificationDisplayTime" type="HBoxContainer" parent="SettingsContainer/HEADER_GENERAL/SettingsList"]
+layout_mode = 2
+
+[node name="Header" type="Label" parent="SettingsContainer/HEADER_GENERAL/SettingsList/NotificationDisplayTime"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+text = "HEADER_NOTIFICATION_DISPLAY_TIME"
+
+[node name="Slider" type="HSlider" parent="SettingsContainer/HEADER_GENERAL/SettingsList/NotificationDisplayTime"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+min_value = 1.0
+max_value = 30.0
+value = 3.0
+rounded = true
+
+[node name="FrameCounter" type="HBoxContainer" parent="SettingsContainer/HEADER_GENERAL/SettingsList"]
+layout_mode = 2
+
+[node name="Header" type="Label" parent="SettingsContainer/HEADER_GENERAL/SettingsList/FrameCounter"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "SETTING_GENERAL_FRAME_COUNTER"
+
+[node name="CheckButton" type="CheckButton" parent="SettingsContainer/HEADER_GENERAL/SettingsList/FrameCounter"]
+layout_mode = 2
+
+[node name="StreamingDistance" type="HBoxContainer" parent="SettingsContainer/HEADER_GENERAL/SettingsList"]
+layout_mode = 2
+
+[node name="Header" type="Label" parent="SettingsContainer/HEADER_GENERAL/SettingsList/StreamingDistance"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+text = "HEADER_STREAMING_DISTANCE"
+
+[node name="Slider" type="HSlider" parent="SettingsContainer/HEADER_GENERAL/SettingsList/StreamingDistance"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+min_value = 50.0
+max_value = 500.0
+value = 100.0
+rounded = true
+
+[node name="HEADER_VIDEO" type="ScrollContainer" parent="SettingsContainer"]
+visible = false
+layout_mode = 2
+script = ExtResource("3_hugqg")
+metadata/_tab_index = 1
+
+[node name="SettingsList" type="VBoxContainer" parent="SettingsContainer/HEADER_VIDEO"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="FullScreen" type="HBoxContainer" parent="SettingsContainer/HEADER_VIDEO/SettingsList"]
+layout_mode = 2
+
+[node name="Header" type="Label" parent="SettingsContainer/HEADER_VIDEO/SettingsList/FullScreen"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "SETTING_VIDEO_FULLSCREEN"
+
+[node name="CheckButton" type="CheckButton" parent="SettingsContainer/HEADER_VIDEO/SettingsList/FullScreen"]
+layout_mode = 2
+
+[node name="ResolutionScalingMode" type="HBoxContainer" parent="SettingsContainer/HEADER_VIDEO/SettingsList"]
+layout_mode = 2
+
+[node name="Header" type="Label" parent="SettingsContainer/HEADER_VIDEO/SettingsList/ResolutionScalingMode"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "SETTING_VIDEO_RESOLUTION_SCALING_MODE"
+
+[node name="List" type="OptionButton" parent="SettingsContainer/HEADER_VIDEO/SettingsList/ResolutionScalingMode"]
+layout_mode = 2
+item_count = 3
+popup/item_0/text = "HEADER_BILINEAR"
+popup/item_1/text = "HEADER_FSR1"
+popup/item_1/id = 1
+popup/item_2/text = "HEADER_FSR2"
+popup/item_2/id = 2
+
+[node name="ResolutionScale" type="HBoxContainer" parent="SettingsContainer/HEADER_VIDEO/SettingsList"]
+layout_mode = 2
+
+[node name="Header" type="Label" parent="SettingsContainer/HEADER_VIDEO/SettingsList/ResolutionScale"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+text = "SETTING_VIDEO_RESOLUTION_SCALE"
+
+[node name="Slider" type="HSlider" parent="SettingsContainer/HEADER_VIDEO/SettingsList/ResolutionScale"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+min_value = 0.5
+max_value = 2.0
+step = 0.1
+value = 1.0
+
+[node name="FrameLimit" type="HBoxContainer" parent="SettingsContainer/HEADER_VIDEO/SettingsList"]
+layout_mode = 2
+
+[node name="Header" type="Label" parent="SettingsContainer/HEADER_VIDEO/SettingsList/FrameLimit"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "SETTING_VIDEO_FRAME_LIMIT"
+
+[node name="CheckButton" type="CheckButton" parent="SettingsContainer/HEADER_VIDEO/SettingsList/FrameLimit"]
+layout_mode = 2
+
+[node name="MaxFPS" type="HBoxContainer" parent="SettingsContainer/HEADER_VIDEO/SettingsList"]
+layout_mode = 2
+
+[node name="Header" type="Label" parent="SettingsContainer/HEADER_VIDEO/SettingsList/MaxFPS"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+text = "SETTING_VIDEO_MAX_FPS"
+
+[node name="Slider" type="HSlider" parent="SettingsContainer/HEADER_VIDEO/SettingsList/MaxFPS"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+min_value = 30.0
+max_value = 240.0
+value = 60.0
+rounded = true
+
+[node name="FoV" type="HBoxContainer" parent="SettingsContainer/HEADER_VIDEO/SettingsList"]
+layout_mode = 2
+
+[node name="Header" type="Label" parent="SettingsContainer/HEADER_VIDEO/SettingsList/FoV"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+text = "SETTING_VIDEO_FOV"
+
+[node name="Slider" type="HSlider" parent="SettingsContainer/HEADER_VIDEO/SettingsList/FoV"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+min_value = 50.0
+value = 75.0
+rounded = true
+
+[node name="AntiAliasing" type="HBoxContainer" parent="SettingsContainer/HEADER_VIDEO/SettingsList"]
+layout_mode = 2
+
+[node name="Header" type="Label" parent="SettingsContainer/HEADER_VIDEO/SettingsList/AntiAliasing"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "SETTING_VIDEO_AA"
+
+[node name="List" type="OptionButton" parent="SettingsContainer/HEADER_VIDEO/SettingsList/AntiAliasing"]
+layout_mode = 2
+item_count = 6
+popup/item_0/text = "HEADER_DISABLED"
+popup/item_1/text = "MSAA x2"
+popup/item_1/id = 1
+popup/item_2/text = "MSAA x4"
+popup/item_2/id = 2
+popup/item_3/text = "MSAA x8"
+popup/item_3/id = 3
+popup/item_4/text = "TAA"
+popup/item_4/id = 4
+popup/item_5/text = "SSAA"
+popup/item_5/id = 5
+
+[node name="SSAO" type="HBoxContainer" parent="SettingsContainer/HEADER_VIDEO/SettingsList"]
+layout_mode = 2
+
+[node name="Header" type="Label" parent="SettingsContainer/HEADER_VIDEO/SettingsList/SSAO"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "SETTING_VIDEO_SSAO"
+
+[node name="CheckButton" type="CheckButton" parent="SettingsContainer/HEADER_VIDEO/SettingsList/SSAO"]
+layout_mode = 2
+
+[node name="SDFGI" type="HBoxContainer" parent="SettingsContainer/HEADER_VIDEO/SettingsList"]
+layout_mode = 2
+
+[node name="Header" type="Label" parent="SettingsContainer/HEADER_VIDEO/SettingsList/SDFGI"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "SETTING_VIDEO_SDFGI"
+
+[node name="CheckButton" type="CheckButton" parent="SettingsContainer/HEADER_VIDEO/SettingsList/SDFGI"]
+layout_mode = 2
+
+[node name="HEADER_AUDIO" type="ScrollContainer" parent="SettingsContainer"]
+visible = false
+layout_mode = 2
+script = ExtResource("4_wksjr")
+metadata/_tab_index = 2
+
+[node name="SettingsList" type="VBoxContainer" parent="SettingsContainer/HEADER_AUDIO"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MasterVolume" type="HBoxContainer" parent="SettingsContainer/HEADER_AUDIO/SettingsList"]
+layout_mode = 2
+
+[node name="Header" type="Label" parent="SettingsContainer/HEADER_AUDIO/SettingsList/MasterVolume"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+text = "SETTING_VOLUME_MASTER"
+
+[node name="Slider" type="HSlider" parent="SettingsContainer/HEADER_AUDIO/SettingsList/MasterVolume"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+min_value = -60.0
+max_value = 6.0
+rounded = true
+
+[node name="MusicVolume" type="HBoxContainer" parent="SettingsContainer/HEADER_AUDIO/SettingsList"]
+layout_mode = 2
+
+[node name="Header" type="Label" parent="SettingsContainer/HEADER_AUDIO/SettingsList/MusicVolume"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+size_flags_stretch_ratio = 3.0
+text = "SETTING_VOLUME_MUSIC"
+
+[node name="Slider" type="HSlider" parent="SettingsContainer/HEADER_AUDIO/SettingsList/MusicVolume"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+min_value = -60.0
+max_value = 6.0
+rounded = true
+
+[node name="EffectsVolume" type="HBoxContainer" parent="SettingsContainer/HEADER_AUDIO/SettingsList"]
+layout_mode = 2
+
+[node name="Header" type="Label" parent="SettingsContainer/HEADER_AUDIO/SettingsList/EffectsVolume"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+text = "SETTING_VOLUME_EFFECTS"
+
+[node name="Slider" type="HSlider" parent="SettingsContainer/HEADER_AUDIO/SettingsList/EffectsVolume"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+min_value = -60.0
+max_value = 6.0
+rounded = true
+
+[node name="HEADER_CONTROLS" type="ScrollContainer" parent="SettingsContainer"]
+visible = false
+layout_mode = 2
+script = ExtResource("5_ru4wi")
+metadata/_tab_index = 3
+
+[node name="SettingsList" type="VBoxContainer" parent="SettingsContainer/HEADER_CONTROLS"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CameraSensitivity" type="HBoxContainer" parent="SettingsContainer/HEADER_CONTROLS/SettingsList"]
+layout_mode = 2
+
+[node name="Header" type="Label" parent="SettingsContainer/HEADER_CONTROLS/SettingsList/CameraSensitivity"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+text = "HEADER_CAMERA_SENSITIVITY"
+
+[node name="Slider" type="HSlider" parent="SettingsContainer/HEADER_CONTROLS/SettingsList/CameraSensitivity"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+min_value = 0.1
+max_value = 2.0
+step = 0.1
+value = 1.0
+
+[node name="CameraDirectionVertical" type="HBoxContainer" parent="SettingsContainer/HEADER_CONTROLS/SettingsList"]
+layout_mode = 2
+
+[node name="Header" type="Label" parent="SettingsContainer/HEADER_CONTROLS/SettingsList/CameraDirectionVertical"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "SETTING_VIDEO_INVERT_CAMERA_VERTICAL"
+
+[node name="CheckButton" type="CheckButton" parent="SettingsContainer/HEADER_CONTROLS/SettingsList/CameraDirectionVertical"]
+layout_mode = 2
+
+[node name="KeybindList" type="VBoxContainer" parent="SettingsContainer/HEADER_CONTROLS/SettingsList"]
+layout_mode = 2
+
+[node name="ToggleKeyboardInputs" type="Button" parent="SettingsContainer/HEADER_CONTROLS/SettingsList/KeybindList"]
+layout_mode = 2
+text = "BUTTON_KEYBOARD_MOUSE"
+alignment = 0
+
+[node name="KeyboardMouse" type="VBoxContainer" parent="SettingsContainer/HEADER_CONTROLS/SettingsList/KeybindList"]
+layout_mode = 2
+
+[node name="ToggleJoypadInputs" type="Button" parent="SettingsContainer/HEADER_CONTROLS/SettingsList/KeybindList"]
+layout_mode = 2
+text = "BUTTON_JOYPAD"
+alignment = 0
+
+[node name="Joypad" type="VBoxContainer" parent="SettingsContainer/HEADER_CONTROLS/SettingsList/KeybindList"]
+layout_mode = 2
+
+[node name="Buttons" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -31.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Return" type="Button" parent="Buttons"]
+layout_mode = 2
+text = "BUTTON_RETURN"
+
+[node name="Control" type="Control" parent="Buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Default" type="Button" parent="Buttons"]
+layout_mode = 2
+text = "BUTTON_DEFAULT"
+
+[node name="Confirm" type="Button" parent="Buttons"]
+layout_mode = 2
+text = "BUTTON_CONFIRM"
+
+[node name="KeyRebindPopup" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="PanelContainer" parent="KeyRebindPopup"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -70.0
+offset_top = -20.0
+offset_right = 70.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Content" type="Label" parent="KeyRebindPopup/Background"]
+layout_mode = 2
+text = "INFO_KEY_REBIND"
+
+[connection signal="item_selected" from="SettingsContainer/HEADER_GENERAL/SettingsList/Language/List" to="." method="FlagSettingsAsUnmodifiedAlt"]
+[connection signal="item_selected" from="SettingsContainer/HEADER_GENERAL/SettingsList/Font/List" to="." method="FlagSettingsAsUnmodifiedAlt"]
+[connection signal="value_changed" from="SettingsContainer/HEADER_GENERAL/SettingsList/FontSize/Slider" to="SettingsContainer/HEADER_GENERAL" method="UpdateTextValues" unbinds=1]
+[connection signal="value_changed" from="SettingsContainer/HEADER_GENERAL/SettingsList/CrosshairScale/Slider" to="SettingsContainer/HEADER_GENERAL" method="UpdateTextValues" unbinds=1]
+[connection signal="toggled" from="SettingsContainer/HEADER_GENERAL/SettingsList/DisplayInteractionKeybinds/CheckButton" to="SettingsContainer/HEADER_GENERAL" method="UpdateTextValues" unbinds=1]
+[connection signal="toggled" from="SettingsContainer/HEADER_GENERAL/SettingsList/DisplayItemInteractions/CheckButton" to="SettingsContainer/HEADER_GENERAL" method="UpdateTextValues" unbinds=1]
+[connection signal="value_changed" from="SettingsContainer/HEADER_GENERAL/SettingsList/MaxNotificationNumber/Slider" to="SettingsContainer/HEADER_GENERAL" method="UpdateTextValues" unbinds=1]
+[connection signal="value_changed" from="SettingsContainer/HEADER_GENERAL/SettingsList/NotificationDisplayTime/Slider" to="SettingsContainer/HEADER_GENERAL" method="UpdateTextValues" unbinds=1]
+[connection signal="toggled" from="SettingsContainer/HEADER_GENERAL/SettingsList/FrameCounter/CheckButton" to="SettingsContainer/HEADER_GENERAL" method="UpdateTextValues" unbinds=1]
+[connection signal="value_changed" from="SettingsContainer/HEADER_GENERAL/SettingsList/StreamingDistance/Slider" to="SettingsContainer/HEADER_GENERAL" method="UpdateTextValues" unbinds=1]
+[connection signal="toggled" from="SettingsContainer/HEADER_VIDEO/SettingsList/FullScreen/CheckButton" to="SettingsContainer/HEADER_VIDEO" method="ToggleFramelimitSlider" unbinds=1]
+[connection signal="item_selected" from="SettingsContainer/HEADER_VIDEO/SettingsList/ResolutionScalingMode/List" to="." method="AdjustScalingRange"]
+[connection signal="value_changed" from="SettingsContainer/HEADER_VIDEO/SettingsList/ResolutionScale/Slider" to="SettingsContainer/HEADER_VIDEO" method="UpdateTextValues" unbinds=1]
+[connection signal="toggled" from="SettingsContainer/HEADER_VIDEO/SettingsList/FrameLimit/CheckButton" to="SettingsContainer/HEADER_VIDEO" method="ToggleFramelimitSlider" unbinds=1]
+[connection signal="value_changed" from="SettingsContainer/HEADER_VIDEO/SettingsList/MaxFPS/Slider" to="SettingsContainer/HEADER_VIDEO" method="UpdateTextValues" unbinds=1]
+[connection signal="value_changed" from="SettingsContainer/HEADER_VIDEO/SettingsList/FoV/Slider" to="SettingsContainer/HEADER_VIDEO" method="UpdateTextValues" unbinds=1]
+[connection signal="item_selected" from="SettingsContainer/HEADER_VIDEO/SettingsList/AntiAliasing/List" to="." method="FlagSettingsAsUnmodifiedAlt"]
+[connection signal="toggled" from="SettingsContainer/HEADER_VIDEO/SettingsList/SSAO/CheckButton" to="SettingsContainer/HEADER_VIDEO" method="ToggleFramelimitSlider" unbinds=1]
+[connection signal="toggled" from="SettingsContainer/HEADER_VIDEO/SettingsList/SDFGI/CheckButton" to="SettingsContainer/HEADER_VIDEO" method="ToggleFramelimitSlider" unbinds=1]
+[connection signal="value_changed" from="SettingsContainer/HEADER_AUDIO/SettingsList/MasterVolume/Slider" to="SettingsContainer/HEADER_AUDIO" method="UpdateTextValues" unbinds=1]
+[connection signal="value_changed" from="SettingsContainer/HEADER_AUDIO/SettingsList/MusicVolume/Slider" to="SettingsContainer/HEADER_AUDIO" method="UpdateTextValues" unbinds=1]
+[connection signal="value_changed" from="SettingsContainer/HEADER_AUDIO/SettingsList/EffectsVolume/Slider" to="SettingsContainer/HEADER_AUDIO" method="UpdateTextValues" unbinds=1]
+[connection signal="value_changed" from="SettingsContainer/HEADER_CONTROLS/SettingsList/CameraSensitivity/Slider" to="SettingsContainer/HEADER_CONTROLS" method="UpdateTextValues" unbinds=1]
+[connection signal="toggled" from="SettingsContainer/HEADER_CONTROLS/SettingsList/CameraDirectionVertical/CheckButton" to="SettingsContainer/HEADER_CONTROLS" method="UpdateTextValues" unbinds=1]
+[connection signal="pressed" from="SettingsContainer/HEADER_CONTROLS/SettingsList/KeybindList/ToggleKeyboardInputs" to="SettingsContainer/HEADER_CONTROLS" method="ToggleKeyboardMouseInputs"]
+[connection signal="pressed" from="SettingsContainer/HEADER_CONTROLS/SettingsList/KeybindList/ToggleJoypadInputs" to="SettingsContainer/HEADER_CONTROLS" method="ToggleJoypadInputs"]
+[connection signal="pressed" from="Buttons/Return" to="." method="Return"]
+[connection signal="pressed" from="Buttons/Default" to="." method="RestoreDefaultSettings"]
+[connection signal="pressed" from="Buttons/Confirm" to="." method="ApplySettings"]

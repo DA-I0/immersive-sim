@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dkvnn0cagtnd3"]
+
+[ext_resource type="PackedScene" uid="uid://byo54g583rjdq" path="res://assets/models/props/sidewalk/sidewalk_base_5x10.glb" id="1_73axj"]
+[ext_resource type="Material" uid="uid://bqvrjaaxri3vm" path="res://assets/materials/concrete_placeholder.tres" id="2_2oh51"]
+
+[node name="SidewalkBase5x10" instance=ExtResource("1_73axj")]
+
+[node name="sidewalk_base_5x10" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_2oh51")

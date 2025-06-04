@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://cont4qdqkb834"]
+
+[ext_resource type="PackedScene" uid="uid://cpa76mvcac73n" path="res://assets/models/props/wall_03/wall_03_2m.glb" id="1_8uyyc"]
+[ext_resource type="Material" uid="uid://bqvrjaaxri3vm" path="res://assets/materials/concrete_placeholder.tres" id="2_t0mev"]
+[ext_resource type="Material" uid="uid://cex23krx5xu8h" path="res://assets/materials/pixel_art/bricks_1.tres" id="3_j5lnt"]
+
+[node name="Wall03_2m" instance=ExtResource("1_8uyyc")]
+
+[node name="wall_03_2m" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_t0mev")
+surface_material_override/1 = ExtResource("3_j5lnt")

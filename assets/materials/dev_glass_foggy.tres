@@ -1,0 +1,21 @@
+[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://cab8lcinpse47"]
+
+[sub_resource type="Gradient" id="Gradient_o2df1"]
+colors = PackedColorArray(0.851769, 0.851769, 0.851769, 1, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_m3d52"]
+seed = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_0n0bc"]
+color_ramp = SubResource("Gradient_o2df1")
+noise = SubResource("FastNoiseLite_m3d52")
+
+[resource]
+transparency = 4
+cull_mode = 2
+albedo_color = Color(0.784314, 0.784314, 0.784314, 0.611765)
+albedo_texture = SubResource("NoiseTexture2D_0n0bc")
+roughness = 0.85
+emission = Color(0, 0.0941176, 0, 1)
+rim_enabled = true
+clearcoat_roughness = 0.38

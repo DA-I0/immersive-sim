@@ -1,0 +1,58 @@
+[gd_scene load_steps=4 format=3 uid="uid://veov7xt1cusr"]
+
+[ext_resource type="Script" uid="uid://dpcv13vsxrc1f" path="res://code/ui/MainMenu.cs" id="1_emdmd"]
+[ext_resource type="PackedScene" uid="uid://d1r3ph3xu113x" path="res://ui/system/save_load_menu.tscn" id="2_80gqd"]
+[ext_resource type="PackedScene" uid="uid://bv3hv4cfobv4l" path="res://ui/system/settings_menu.tscn" id="3_ifo4p"]
+
+[node name="Menu" type="ColorRect"]
+process_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.41598, 0.41598, 0.41598, 1)
+script = ExtResource("1_emdmd")
+
+[node name="MainButtons" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -59.5
+offset_top = -33.0
+offset_right = 59.5
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StartGame" type="Button" parent="MainButtons"]
+layout_mode = 2
+text = "BUTTON_PLAY"
+
+[node name="Load" type="Button" parent="MainButtons"]
+layout_mode = 2
+text = "BUTTON_LOAD"
+
+[node name="Settings" type="Button" parent="MainButtons"]
+layout_mode = 2
+text = "BUTTON_SETTINGS"
+
+[node name="QuitGame" type="Button" parent="MainButtons"]
+layout_mode = 2
+text = "BUTTON_QUIT"
+
+[node name="SaveLoadMenu" parent="." instance=ExtResource("2_80gqd")]
+layout_mode = 1
+
+[node name="SettingsMenu" parent="." instance=ExtResource("3_ifo4p")]
+visible = false
+layout_mode = 1
+_inMenu = true
+
+[connection signal="pressed" from="MainButtons/StartGame" to="." method="StartGame"]
+[connection signal="pressed" from="MainButtons/Load" to="." method="ShowLoadMenu"]
+[connection signal="pressed" from="MainButtons/Settings" to="." method="ShowOptionsMenu"]
+[connection signal="pressed" from="MainButtons/QuitGame" to="." method="QuitGame"]

@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bsibdj5c8a6c3"]
+
+[ext_resource type="Script" path="res://code/interactables/items/Container.cs" id="1_t4k21"]
+[ext_resource type="PackedScene" uid="uid://derwuik01f2ja" path="res://assets/models/equipment/backpack_1.glb" id="2_f8pw2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0dwqq"]
+size = Vector3(0.35, 0.55, 0.22)
+
+[node name="Backpack" type="RigidBody3D"]
+collision_layer = 4
+collision_mask = 7
+script = ExtResource("1_t4k21")
+_templateID = "backpack_1"
+
+[node name="Collider" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_0dwqq")
+
+[node name="Model" parent="." instance=ExtResource("2_f8pw2")]
+
+[node name="Contents" type="Node" parent="."]

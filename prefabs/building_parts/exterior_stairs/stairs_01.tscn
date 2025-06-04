@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://d1g4fds6fyw5a"]
+
+[ext_resource type="PackedScene" uid="uid://qchbsmtrgw5u" path="res://assets/models/building_parts/exterior_stairs/stairs_01.glb" id="1_6ro1i"]
+[ext_resource type="Material" uid="uid://cmgvdn03psf5u" path="res://assets/materials/dev/dev_gray.tres" id="2_thjvn"]
+[ext_resource type="Material" uid="uid://c0hj7haymkpjh" path="res://assets/materials/dev/dev_gray_light.tres" id="3_pqs5n"]
+
+[node name="Stairs01" instance=ExtResource("1_6ro1i")]
+
+[node name="stairs_exterior_005" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_thjvn")
+surface_material_override/1 = ExtResource("3_pqs5n")

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6y4mt0xhaeuv"]
+
+[ext_resource type="PackedScene" uid="uid://buw2acrpr4hch" path="res://assets/models/props/sidewalk/sidewalk_corner_in.glb" id="1_qnkvq"]
+[ext_resource type="Material" uid="uid://bcg0dxxapdnjt" path="res://assets/materials/grass_stylised.tres" id="2_waxx8"]
+
+[node name="GrassTiledCornerIn" instance=ExtResource("1_qnkvq")]
+
+[node name="sidewalk_corner_in" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_waxx8")

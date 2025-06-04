@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://cihp2ownokj4p"]
+
+[ext_resource type="Script" path="res://code/interactables/Door.cs" id="1_c83mq"]
+[ext_resource type="PackedScene" uid="uid://yysg54hmxemm" path="res://assets/models/building_parts/windows/window_0.8m_03.glb" id="2_nvbyg"]
+[ext_resource type="PackedScene" uid="uid://dqmx7l8r41bxi" path="res://assets/models/building_parts/windows/window_hinge_bottom.glb" id="3_nf37w"]
+[ext_resource type="PackedScene" uid="uid://bfqql2xjye0jm" path="res://assets/models/building_parts/windows/window_handle.glb" id="4_t0ehp"]
+[ext_resource type="Script" path="res://code/interactables/ToggleSwitch.cs" id="5_vccxa"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_o6pdn"]
+size = Vector3(0.74, 1.91977, 0.03)
+
+[node name="Window08m03Right" type="AnimatableBody3D"]
+script = ExtResource("1_c83mq")
+_openRange = 5.0
+
+[node name="WindowBase" parent="." instance=ExtResource("2_nvbyg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.38, 0, 0)
+
+[node name="WindowHingeDown" parent="." instance=ExtResource("3_nf37w")]
+
+[node name="WindowHandle" parent="." instance=ExtResource("4_t0ehp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.715, 0.96, 0.01)
+
+[node name="InteractionTrigger" type="Node3D" parent="." node_paths=PackedStringArray("_connectedDevices")]
+script = ExtResource("5_vccxa")
+_connectedDevices = [NodePath("..")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="InteractionTrigger"]
+collision_layer = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionTrigger/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.38, 0.94, 0.005)
+shape = SubResource("BoxShape3D_o6pdn")

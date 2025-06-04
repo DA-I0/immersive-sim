@@ -1,0 +1,91 @@
+[gd_scene load_steps=15 format=3 uid="uid://3viwedb4gia"]
+
+[ext_resource type="PackedScene" uid="uid://bkgonbbfgod7e" path="res://assets/models/buildings/bs_store_medium_01/ceiling.glb" id="1_pnrlb"]
+[ext_resource type="PackedScene" uid="uid://4p5q3prvy7gr" path="res://assets/models/buildings/bs_store_medium_01/floor_00_room1_walls.glb" id="2_qpj03"]
+[ext_resource type="PackedScene" uid="uid://nsk2orsn04wb" path="res://assets/models/buildings/bs_store_medium_01/floor_00_room2_walls.glb" id="3_6r5ou"]
+[ext_resource type="PackedScene" uid="uid://bqtrd4aldok3o" path="res://assets/models/buildings/bs_store_medium_01/floor_00_room3_walls.glb" id="4_r20dd"]
+[ext_resource type="PackedScene" uid="uid://cg0hegjyeea04" path="res://assets/models/buildings/bs_store_medium_01/floor_00_room4_walls.glb" id="5_ej8ik"]
+[ext_resource type="PackedScene" uid="uid://c7k1hcg1fiutx" path="res://assets/models/buildings/bs_store_medium_01/floor_00_room5_walls.glb" id="6_24w22"]
+[ext_resource type="PackedScene" uid="uid://jnubw2v1ar4i" path="res://assets/models/buildings/bs_store_medium_01/floor_00_room6_walls.glb" id="7_bbd8t"]
+[ext_resource type="PackedScene" uid="uid://caq0sgpuwkuok" path="res://assets/models/buildings/bs_store_medium_01/floor_00_room7_walls.glb" id="8_crbwf"]
+[ext_resource type="PackedScene" uid="uid://4yu0s6dhabil" path="res://assets/models/buildings/bs_store_medium_01/floor_main.glb" id="9_bd753"]
+[ext_resource type="PackedScene" uid="uid://7e5e1nrs4cef" path="res://prefabs/props/wall_01/wall_01_1m_2m.tscn" id="10_hw1ju"]
+[ext_resource type="PackedScene" uid="uid://cbxukhvgtxcm3" path="res://prefabs/characters/character_npc_konbini_01.tscn" id="11_icwao"]
+[ext_resource type="PackedScene" uid="uid://et08s72mxo2b" path="res://prefabs/triggers/npc_wait_interaction.tscn" id="12_52hwk"]
+[ext_resource type="Script" uid="uid://ch01c7865ldya" path="res://code/systems/EntityReparentTrigger.cs" id="13_52hwk"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_c548s"]
+vertices = PackedVector3Array(-12.1236, 0.8, -3.675, -12.1236, 0.8, -1.925, -9.37356, 0.8, -1.675, -10.1236, 0.8, -5.675, 1.12644, 0.8, 0.0749993, 1.37644, 0.8, 0.0749993, 12.1264, 0.8, -0.175001, 12.1264, 0.8, -5.675, -9.62356, 0.8, -0.425001, -12.1236, 0.8, -0.175001, 0.876436, 0.8, 1.325, 1.62644, 0.8, 1.325, 3.12644, 0.8, 1.575, 3.37644, 0.8, 5.825, 12.1264, 0.8, 5.825, 12.1264, 0.8, 1.325, -12.1236, 0.8, 1.325, -12.1236, 0.8, 1.825, -12.1236, 0.8, 3.075, -12.1236, 0.8, 5.825, -9.37356, 0.8, 5.825, -9.37356, 0.8, 3.075, -8.12356, 0.8, 3.075, -8.12356, 0.8, 5.825, -6.37356, 0.8, 5.825, -6.37356, 0.8, 3.075, -4.87356, 0.8, 3.075, -4.87356, 0.8, 5.825, -2.12356, 0.8, 5.825, -2.12356, 0.8, 3.075, -0.623564, 0.8, 3.075, -0.623564, 0.8, 5.825, 2.12644, 0.8, 5.825, 2.12644, 0.8, 3.075)
+polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(0, 3, 2), PackedInt32Array(2, 3, 4), PackedInt32Array(4, 3, 5), PackedInt32Array(5, 3, 6), PackedInt32Array(6, 3, 7), PackedInt32Array(8, 4, 9), PackedInt32Array(2, 4, 8), PackedInt32Array(5, 11, 4), PackedInt32Array(4, 11, 10), PackedInt32Array(10, 11, 12), PackedInt32Array(13, 12, 14), PackedInt32Array(14, 12, 15), PackedInt32Array(16, 10, 17), PackedInt32Array(17, 10, 12), PackedInt32Array(11, 15, 12), PackedInt32Array(21, 20, 18), PackedInt32Array(18, 20, 19), PackedInt32Array(25, 24, 22), PackedInt32Array(22, 24, 23), PackedInt32Array(29, 28, 26), PackedInt32Array(26, 28, 27), PackedInt32Array(33, 32, 30), PackedInt32Array(30, 32, 31)]
+geometry_parsed_geometry_type = 1
+geometry_source_geometry_mode = 1
+agent_height = 1.8
+agent_radius = 0.3
+vertices_per_polygon = 10.0
+
+[node name="Interior" type="NavigationRegion3D"]
+navigation_mesh = SubResource("NavigationMesh_c548s")
+
+[node name="BuildingGeometry" type="Node3D" parent="."]
+
+[node name="ceiling" parent="BuildingGeometry" instance=ExtResource("1_pnrlb")]
+
+[node name="floor_00_room1_walls" parent="BuildingGeometry" groups=["navigation_mesh_source_group"] instance=ExtResource("2_qpj03")]
+
+[node name="floor_00_room2_walls" parent="BuildingGeometry" groups=["navigation_mesh_source_group"] instance=ExtResource("3_6r5ou")]
+
+[node name="floor_00_room3_walls" parent="BuildingGeometry" groups=["navigation_mesh_source_group"] instance=ExtResource("4_r20dd")]
+
+[node name="floor_00_room4_walls" parent="BuildingGeometry" groups=["navigation_mesh_source_group"] instance=ExtResource("5_ej8ik")]
+
+[node name="floor_00_room5_walls" parent="BuildingGeometry" groups=["navigation_mesh_source_group"] instance=ExtResource("6_24w22")]
+
+[node name="floor_00_room6_walls" parent="BuildingGeometry" groups=["navigation_mesh_source_group"] instance=ExtResource("7_bbd8t")]
+
+[node name="floor_00_room7_walls" parent="BuildingGeometry" groups=["navigation_mesh_source_group"] instance=ExtResource("8_crbwf")]
+
+[node name="floor_main" parent="BuildingGeometry" groups=["navigation_mesh_source_group"] instance=ExtResource("9_bd753")]
+
+[node name="Props" type="Node3D" parent="." groups=["navigation_mesh_source_group"]]
+
+[node name="Wall01_1m_2m" parent="Props" instance=ExtResource("10_hw1ju")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.8902, 0.3, -1.03249)
+
+[node name="NPCTriggers" type="Node3D" parent="."]
+
+[node name="CharacterNPCKonbini01" parent="NPCTriggers" instance=ExtResource("11_icwao")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.8388, 0.3, -0.585279)
+
+[node name="WaitInteraction" parent="NPCTriggers" instance=ExtResource("12_52hwk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.55131, 0.325014, -5.44384)
+_duration = 5.0
+_conditionName = "action_Think"
+
+[node name="WaitInteraction2" parent="NPCTriggers" instance=ExtResource("12_52hwk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.08515, 0.325, -5.44384)
+_duration = 5.0
+_conditionName = "action_Think"
+
+[node name="WaitInteraction3" parent="NPCTriggers" instance=ExtResource("12_52hwk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.45254, 0.325, -5.44384)
+_duration = 5.0
+_conditionName = "action_Think"
+
+[node name="WaitInteraction4" parent="NPCTriggers" instance=ExtResource("12_52hwk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.560853, 0.325, -5.44384)
+_duration = 5.0
+_conditionName = "action_Think"
+
+[node name="ReparentTriggers" type="Node3D" parent="."]
+
+[node name="EntityReparentTrigger" type="Area3D" parent="ReparentTriggers"]
+collision_layer = 0
+collision_mask = 7
+monitorable = false
+script = ExtResource("13_52hwk")
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="ReparentTriggers/EntityReparentTrigger"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 2.05, 0)
+depth = 3.5
+polygon = PackedVector2Array(-12.85, 6.34, 12.85, 6.34, 12.85, -6.36, -10.46, -6.36, -12.85, -3.95)
+debug_color = Color(0.793491, 0.0739923, 1, 0.42)

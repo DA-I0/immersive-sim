@@ -1,0 +1,86 @@
+[gd_scene load_steps=9 format=3 uid="uid://dpfqcdd4mpapx"]
+
+[ext_resource type="Script" path="res://code/interactables/ElectronicDeviceSwitch.cs" id="1_64bte"]
+[ext_resource type="Script" path="res://code/interactables/InteractiveScreen.cs" id="3_bxdvl"]
+[ext_resource type="PackedScene" uid="uid://di58tcifisp1p" path="res://assets/models/light_switch.glb" id="4_nn2du"]
+[ext_resource type="Texture2D" uid="uid://cwwgifg0jaq7o" path="res://assets/textures/ui/door_lock_closed.png" id="5_oh6pj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7tgqf"]
+size = Vector3(0.22, 0.22, 0.05)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7fju0"]
+size = Vector3(0.1, 0.12, 0.01)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w2ly2"]
+emission_enabled = true
+emission = Color(0.136826, 0.136826, 0.136826, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_4d018"]
+material = SubResource("StandardMaterial3D_w2ly2")
+size = Vector2(0.1, 0.12)
+
+[node name="electronic_light_switch" type="Node3D" node_paths=PackedStringArray("_slider", "_connectedDevices")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.648396, 1.49364, 0)
+script = ExtResource("1_64bte")
+_slider = NodePath("screen/SubViewport/Control/VBoxContainer/HSlider")
+_connectedDevices = []
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.043, -0.16, 0.125)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_7tgqf")
+disabled = true
+
+[node name="screen" type="Node3D" parent="." node_paths=PackedStringArray("_sourceViewport", "_screenModel", "_screenCollider")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.043, -0.157, 0.149)
+script = ExtResource("3_bxdvl")
+_sourceViewport = NodePath("SubViewport")
+_screenModel = NodePath("screen_display")
+_screenCollider = NodePath("Area3D")
+
+[node name="Area3D" type="Area3D" parent="screen"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="screen/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00251794, -0.0127217, -0.00941767)
+shape = SubResource("BoxShape3D_7fju0")
+
+[node name="screen_display" type="MeshInstance3D" parent="screen"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00251794, -0.0127217, -0.00941767)
+mesh = SubResource("QuadMesh_4d018")
+
+[node name="SubViewport" type="SubViewport" parent="screen"]
+transparent_bg = true
+
+[node name="Control" type="Control" parent="screen/SubViewport"]
+custom_minimum_size = Vector2(512, 512)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 512.0
+offset_bottom = 512.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="screen/SubViewport/Control"]
+custom_minimum_size = Vector2(512, 512)
+layout_mode = 2
+offset_top = -40.0
+offset_right = 512.0
+offset_bottom = 560.0
+alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="screen/SubViewport/Control/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("5_oh6pj")
+
+[node name="HSlider" type="HSlider" parent="screen/SubViewport/Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+min_value = 0.1
+max_value = 1.0
+step = 0.1
+value = 1.0
+
+[node name="light_switch2" parent="." instance=ExtResource("4_nn2du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.29511, -1.342, -0.011336)
+
+[connection signal="pressed" from="screen/SubViewport/Control/VBoxContainer/TextureButton" to="." method="TriggerPrimaryInteraction"]
+[connection signal="value_changed" from="screen/SubViewport/Control/VBoxContainer/HSlider" to="." method="AdjustDeviceValue"]

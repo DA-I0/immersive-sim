@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://crieyn0svtyvb"]
+
+[ext_resource type="Texture2D" uid="uid://nfffl1f41st3" path="res://assets/textures/desk_02_alt.png" id="1_marnr"]
+[ext_resource type="Texture2D" uid="uid://bmu4vhqxent3j" path="res://assets/textures/desk_02_alt_detail.png" id="2_3jrsi"]
+
+[resource]
+albedo_texture = ExtResource("1_marnr")
+detail_enabled = true
+detail_albedo = ExtResource("2_3jrsi")
+texture_filter = 0

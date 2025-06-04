@@ -1,0 +1,55 @@
+[gd_scene load_steps=10 format=3 uid="uid://c1q1cw1ail5sy"]
+
+[ext_resource type="PackedScene" uid="uid://py4rpwsqa33r" path="res://assets/models/buildings/ab_bookstore/floor_00_floor_01.glb" id="1_0bhpr"]
+[ext_resource type="PackedScene" uid="uid://bfik2l76ew1cc" path="res://assets/models/buildings/ab_bookstore/floor_00_floor_02.glb" id="2_pwiuv"]
+[ext_resource type="PackedScene" uid="uid://byoi24n3sbxvj" path="res://assets/models/buildings/ab_bookstore/floor_00_walls_01.glb" id="3_cx6u6"]
+[ext_resource type="PackedScene" uid="uid://g841xvinpoau" path="res://assets/models/buildings/ab_bookstore/floor_00_walls_02.glb" id="4_qad5h"]
+[ext_resource type="PackedScene" uid="uid://8dixibyt4ojr" path="res://prefabs/characters/character_npc_bookstore_01.tscn" id="6_eh08o"]
+[ext_resource type="PackedScene" uid="uid://ec5b0bh7mi6" path="res://prefabs/triggers/entity_reparent_trigger.tscn" id="7_nwulm"]
+[ext_resource type="PackedScene" uid="uid://7e5e1nrs4cef" path="res://prefabs/props/wall_01/wall_01_1m_2m.tscn" id="10_pmm86"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_c548s"]
+vertices = PackedVector3Array(0.62, 0.483254, 1.05, -1.38, 0.483254, 1.05, -1.18, 0.483254, 1.65, 2.82, 0.483254, 1.65, -2.78, 0.483254, -1.95, -2.78, 0.483254, -0.35, 0.82, 0.483254, 0.05, 2.82, 0.483254, -1.75, -2.78, 0.483254, 0.85, -2.78, 0.483254, 1.65, -2.18, 0.483254, 1.45, -2.38, 0.483254, 0.85)
+polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(5, 4, 6), PackedInt32Array(6, 4, 7), PackedInt32Array(0, 6, 3), PackedInt32Array(3, 6, 7), PackedInt32Array(11, 10, 8), PackedInt32Array(8, 10, 9)]
+geometry_source_geometry_mode = 1
+cell_size = 0.2
+cell_height = 0.2
+agent_height = 1.8
+agent_radius = 0.25
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nwulm"]
+size = Vector3(6.77344, 3.87903, 4.52722)
+
+[node name="Interior" type="NavigationRegion3D"]
+navigation_mesh = SubResource("NavigationMesh_c548s")
+
+[node name="BuildingGeometry" type="Node3D" parent="." groups=["navigation_mesh_source_group"]]
+
+[node name="floor_00_floor_01" parent="BuildingGeometry" instance=ExtResource("1_0bhpr")]
+
+[node name="floor_00_floor_02" parent="BuildingGeometry" instance=ExtResource("2_pwiuv")]
+
+[node name="floor_00_walls_01" parent="BuildingGeometry" instance=ExtResource("3_cx6u6")]
+
+[node name="floor_00_walls_02" parent="BuildingGeometry" instance=ExtResource("4_qad5h")]
+
+[node name="Props" type="Node3D" parent="." groups=["navigation_mesh_source_group"]]
+
+[node name="Wall01_1m_2m" parent="Props" instance=ExtResource("10_pmm86")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.72996, 0.0832538, 0.611491)
+
+[node name="NPCTriggers" type="Node3D" parent="."]
+
+[node name="CharacterNPCBookStore01" parent="NPCTriggers" instance=ExtResource("6_eh08o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75683, 0.25, 1.07944)
+
+[node name="ReparentTriggers" type="Node3D" parent="."]
+
+[node name="EntityReparentTrigger" parent="ReparentTriggers" instance=ExtResource("7_nwulm")]
+
+[node name="CollisionShape3D" parent="ReparentTriggers/EntityReparentTrigger" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00378418, 1.98878, 0.00726318)
+shape = SubResource("BoxShape3D_nwulm")
+debug_color = Color(0.793491, 0.0739923, 1, 0.42)
+
+[editable path="ReparentTriggers/EntityReparentTrigger"]

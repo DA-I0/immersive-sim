@@ -1,0 +1,116 @@
+[gd_scene load_steps=13 format=3 uid="uid://prrstekg8xwd"]
+
+[ext_resource type="Script" uid="uid://cg4ngfe4q0ao0" path="res://code/character/Inventory.cs" id="1_1rasu"]
+[ext_resource type="Script" uid="uid://c70cpu4vd4hlw" path="res://code/character/Movement.cs" id="1_wtth0"]
+[ext_resource type="Script" uid="uid://b71yqd1m5x7ni" path="res://code/character/Interaction.cs" id="2_nd1bv"]
+[ext_resource type="Script" uid="uid://dyl27r5ip6po3" path="res://code/character/PlayerBase.cs" id="2_oys3l"]
+[ext_resource type="Script" uid="uid://budsljwbsqtge" path="res://code/character/CharacterSheet.cs" id="3_puruh"]
+[ext_resource type="Script" uid="uid://p2dp1frvp1va" path="res://code/character/Status.cs" id="5_y7btp"]
+[ext_resource type="PackedScene" uid="uid://bph281bidlewd" path="res://prefabs/character_model.tscn" id="7_k4beh"]
+[ext_resource type="Script" uid="uid://cnw2u7v13pb6h" path="res://code/character/StreamingTrigger.cs" id="8_rfvav"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fi3bt"]
+size = Vector3(0.6, 1.8, 0.4)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fo0uy"]
+transparency = 1
+blend_mode = 2
+albedo_color = Color(1, 0.396078, 1, 0.647059)
+rim_enabled = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_yywjq"]
+material = SubResource("StandardMaterial3D_fo0uy")
+size = Vector3(0.1, 0.15, 0.1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_lj0p5"]
+radius = 20.0
+
+[node name="Character" type="CharacterBody3D" node_paths=PackedStringArray("_camera")]
+process_mode = 1
+collision_layer = 10
+collision_mask = 15
+floor_constant_speed = true
+floor_max_angle = 0.872665
+floor_snap_length = 0.3
+safe_margin = 0.01
+script = ExtResource("1_wtth0")
+_camera = NodePath("Camera")
+_defaultSpeed = 3.0
+_speedMultiplierSprint = 2.3
+_speedMultiplierMax = 1.4
+_speedMultiplierMin = 0.3
+_characterHeight = 1.8
+_leanMax = 0.35
+_leanMaxAngle = 25.0
+
+[node name="CharacterBase" type="Node" parent="."]
+script = ExtResource("2_oys3l")
+_id = "player"
+_canBeSaved = true
+
+[node name="CharacterSheet" type="Node" parent="."]
+script = ExtResource("3_puruh")
+
+[node name="CharacterEquipment" type="Node" parent="."]
+script = ExtResource("1_1rasu")
+
+[node name="CharacterInteraction" type="Node" parent="."]
+script = ExtResource("2_nd1bv")
+_zoomMultiplier = 0.4
+_cameraMaxVerticalAngle = 85.0
+_cameraMaxHorizontalAngle = 120.0
+
+[node name="Timer" type="Timer" parent="CharacterInteraction"]
+one_shot = true
+
+[node name="CharacterStatus" type="Node" parent="."]
+script = ExtResource("5_y7btp")
+
+[node name="Timer" type="Timer" parent="CharacterStatus"]
+
+[node name="Collider" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("BoxShape3D_fi3bt")
+
+[node name="Marker3D" type="Marker3D" parent="Collider"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.96046e-08, 0.1719, 0.294861)
+
+[node name="Camera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, -0.15)
+doppler_tracking = 2
+current = true
+
+[node name="Label" type="Label" parent="Camera"]
+offset_right = 40.0
+offset_bottom = 23.0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+
+[node name="ItemHoldPosition" type="Node3D" parent="Camera"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4, -0.6)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Camera/ItemHoldPosition"]
+visible = false
+mesh = SubResource("BoxMesh_yywjq")
+
+[node name="ItemPlaceTarget" type="Marker3D" parent="Camera"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.5)
+
+[node name="CharacterModel" parent="." instance=ExtResource("7_k4beh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.18557e-08, 0, 0.25)
+visible = false
+
+[node name="NavigationAgent3D" type="NavigationObstacle3D" parent="."]
+radius = 0.5
+
+[node name="StreamingTrigger" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 524290
+monitorable = false
+script = ExtResource("8_rfvav")
+
+[node name="StreamingArea" type="CollisionShape3D" parent="StreamingTrigger"]
+shape = SubResource("SphereShape3D_lj0p5")
+
+[connection signal="timeout" from="CharacterInteraction/Timer" to="CharacterInteraction" method="PlacementCleanup"]
+[connection signal="timeout" from="CharacterStatus/Timer" to="CharacterStatus" method="RegenStamina"]

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://doe17cbk8ktnh"]
+
+[ext_resource type="PackedScene" uid="uid://ctnpuptikvnlh" path="res://assets/models/props/sidewalk/sidewalk_base_1x5.glb" id="1_07v42"]
+[ext_resource type="Material" uid="uid://bcg0dxxapdnjt" path="res://assets/materials/grass_stylised.tres" id="2_x1pwv"]
+
+[node name="GrassTiled1x5" instance=ExtResource("1_07v42")]
+
+[node name="sidewalk_base_1x5" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_x1pwv")

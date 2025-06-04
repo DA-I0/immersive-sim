@@ -1,0 +1,174 @@
+[gd_scene load_steps=7 format=3 uid="uid://cv8oo1c7lvs5k"]
+
+[ext_resource type="PackedScene" uid="uid://dg57jfg5nq2v3" path="res://prefabs/ui/equipment_slot.tscn" id="1_7e8dh"]
+[ext_resource type="Script" path="res://code/ui/CharacterInventoryWindow.cs" id="1_scy7v"]
+[ext_resource type="PackedScene" uid="uid://drkyult83hv72" path="res://ui/system/container_window.tscn" id="2_p2b70"]
+[ext_resource type="Script" path="res://code/ui/CharacterStatusDetailed.cs" id="4_348wf"]
+[ext_resource type="Texture2D" uid="uid://bhgfmje55wy1l" path="res://assets/textures/ui/icons/inv_szkic2.jpg" id="4_d4vx4"]
+[ext_resource type="PackedScene" uid="uid://blljgtweepoi3" path="res://ui/system/item_interaction_menu.tscn" id="5_1cdhq"]
+
+[node name="CharacterInventory" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_scy7v")
+_containerWindowPrefab = ExtResource("2_p2b70")
+
+[node name="PanelContainer" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.3
+anchor_bottom = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.3
+anchor_bottom = 0.5
+
+[node name="SlotBackpack" parent="PanelContainer/VBoxContainer" instance=ExtResource("1_7e8dh")]
+layout_mode = 2
+_slot = 5
+_slotIndex = 8
+
+[node name="SlotHead" parent="PanelContainer/VBoxContainer" instance=ExtResource("1_7e8dh")]
+layout_mode = 2
+_slot = 1
+_slotIndex = 4
+
+[node name="SlotTorso" parent="PanelContainer/VBoxContainer" instance=ExtResource("1_7e8dh")]
+layout_mode = 2
+_slot = 2
+_slotIndex = 5
+
+[node name="SlotLegs" parent="PanelContainer/VBoxContainer" instance=ExtResource("1_7e8dh")]
+layout_mode = 2
+_slot = 3
+_slotIndex = 6
+
+[node name="SlotFeet" parent="PanelContainer/VBoxContainer" instance=ExtResource("1_7e8dh")]
+layout_mode = 2
+_slot = 4
+_slotIndex = 7
+
+[node name="HealthPaperDoll" type="TextureRect" parent="PanelContainer"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3
+anchor_right = 0.7
+anchor_bottom = 0.5
+texture = ExtResource("4_d4vx4")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_right = 0.7
+anchor_bottom = 1.0
+alignment = 1
+
+[node name="Item1" parent="PanelContainer/HBoxContainer" instance=ExtResource("1_7e8dh")]
+layout_mode = 2
+
+[node name="Item2" parent="PanelContainer/HBoxContainer" instance=ExtResource("1_7e8dh")]
+layout_mode = 2
+_slotIndex = 1
+
+[node name="Item3" parent="PanelContainer/HBoxContainer" instance=ExtResource("1_7e8dh")]
+layout_mode = 2
+_slotIndex = 2
+
+[node name="Item4" parent="PanelContainer/HBoxContainer" instance=ExtResource("1_7e8dh")]
+layout_mode = 2
+_slotIndex = 3
+
+[node name="Label" type="Label" parent="PanelContainer"]
+layout_mode = 2
+offset_right = 576.0
+offset_bottom = 23.0
+size_flags_vertical = 0
+text = "player inventory"
+
+[node name="CharacterStatus" type="Panel" parent="PanelContainer"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.7
+anchor_right = 1.0
+anchor_bottom = 0.5
+script = ExtResource("4_348wf")
+
+[node name="InfoControls" type="VBoxContainer" parent="PanelContainer/CharacterStatus"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CharacterName" type="Label" parent="PanelContainer/CharacterStatus/InfoControls"]
+layout_mode = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CharacterHealth" type="HBoxContainer" parent="PanelContainer/CharacterStatus/InfoControls"]
+layout_mode = 2
+
+[node name="HealthHeader" type="Label" parent="PanelContainer/CharacterStatus/InfoControls/CharacterHealth"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "HEADER_HEALTH_SHORT"
+vertical_alignment = 1
+
+[node name="HealthBar" type="ProgressBar" parent="PanelContainer/CharacterStatus/InfoControls/CharacterHealth"]
+layout_mode = 2
+size_flags_horizontal = 3
+value = 50.0
+
+[node name="CharacterStamina" type="HBoxContainer" parent="PanelContainer/CharacterStatus/InfoControls"]
+layout_mode = 2
+
+[node name="StaminaHeader" type="Label" parent="PanelContainer/CharacterStatus/InfoControls/CharacterStamina"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "HEADER_STAMINA_SHORT"
+vertical_alignment = 1
+
+[node name="StaminaBar" type="ProgressBar" parent="PanelContainer/CharacterStatus/InfoControls/CharacterStamina"]
+layout_mode = 2
+size_flags_horizontal = 3
+value = 50.0
+
+[node name="CharacterWeight" type="HBoxContainer" parent="PanelContainer/CharacterStatus/InfoControls"]
+layout_mode = 2
+
+[node name="WeightHeader" type="Label" parent="PanelContainer/CharacterStatus/InfoControls/CharacterWeight"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "HEADER_WEIGHT_SHORT"
+vertical_alignment = 1
+
+[node name="WeightValue" type="Label" parent="PanelContainer/CharacterStatus/InfoControls/CharacterWeight"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "x/x"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="ContainerWindows" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="WindowList" type="VBoxContainer" parent="ContainerWindows"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ItemInteractionMenu" parent="." instance=ExtResource("5_1cdhq")]
+layout_mode = 0

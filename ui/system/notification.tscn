@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://ckca18s651hcn"]
+
+[ext_resource type="Script" path="res://code/ui/Notification.cs" id="1_1i3v1"]
+
+[node name="Notification" type="PanelContainer"]
+offset_right = 156.0
+offset_bottom = 23.0
+mouse_filter = 2
+script = ExtResource("1_1i3v1")
+
+[node name="Background" type="Panel" parent="."]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Content" type="Label" parent="."]
+layout_mode = 2
+text = "notification_content"

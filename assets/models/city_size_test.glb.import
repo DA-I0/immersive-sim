@@ -1,0 +1,199 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://pkdbdyvqkngt"
+path="res://.godot/imported/city_size_test.glb-d014e701417fd5e5db5a67fe4a814f4a.scn"
+
+[deps]
+
+source_file="res://assets/models/city_size_test.glb"
+dest_files=["res://.godot/imported/city_size_test.glb-d014e701417fd5e5db5a67fe4a814f4a.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+_subresources={
+"nodes": {
+"PATH:G-__659703": {
+"generate/occluder": 1
+},
+"PATH:G-__660567": {
+"generate/occluder": 1
+},
+"PATH:G-__660783": {
+"generate/occluder": 1
+},
+"PATH:G-__660810": {
+"generate/occluder": 1
+},
+"PATH:G-__660900": {
+"generate/occluder": 1
+},
+"PATH:G-__661152": {
+"generate/occluder": 1
+},
+"PATH:G-__661764": {
+"generate/occluder": 1
+},
+"PATH:G-__661827": {
+"generate/occluder": 1
+},
+"PATH:G-__694389": {
+"generate/occluder": 1
+},
+"PATH:G-__695235": {
+"generate/occluder": 1
+},
+"PATH:G-__695559": {
+"generate/occluder": 1
+},
+"PATH:G-__697737": {
+"generate/occluder": 1
+},
+"PATH:G-__697773": {
+"generate/occluder": 1
+},
+"PATH:G-__699717": {
+"generate/occluder": 1
+},
+"PATH:G-__699933": {
+"generate/occluder": 1
+},
+"PATH:G-__700905": {
+"generate/occluder": 1
+},
+"PATH:G-__700923": {
+"generate/occluder": 1
+},
+"PATH:G-__700932": {
+"generate/occluder": 1
+},
+"PATH:G-__700950": {
+"generate/occluder": 1
+},
+"PATH:G-__702003": {
+"generate/occluder": 1
+},
+"PATH:G-__702588": {
+"generate/occluder": 1
+},
+"PATH:G-__702597": {
+"generate/occluder": 1
+},
+"PATH:G-__702840": {
+"generate/occluder": 1
+},
+"PATH:G-__704001": {
+"generate/occluder": 1
+},
+"PATH:G-__704352": {
+"generate/occluder": 1
+},
+"PATH:G-__704370": {
+"generate/occluder": 1
+},
+"PATH:G-__706107": {
+"generate/occluder": 1
+},
+"PATH:G-__706125": {
+"generate/occluder": 1
+},
+"PATH:G-__706332": {
+"generate/occluder": 1
+},
+"PATH:G-__706773": {
+"generate/occluder": 1
+},
+"PATH:G-__706899": {
+"generate/occluder": 1
+},
+"PATH:G-__707232": {
+"generate/occluder": 1
+},
+"PATH:G-high_detail_012": {
+"generate/occluder": 1
+},
+"PATH:G-high_detail_017": {
+"generate/occluder": 1
+},
+"PATH:G-high_detail_018": {
+"generate/occluder": 1
+},
+"PATH:G-high_detail_019": {
+"generate/occluder": 1
+},
+"PATH:G-high_detail_020": {
+"generate/occluder": 1
+},
+"PATH:G-high_detail_021": {
+"generate/occluder": 1
+},
+"PATH:G-high_detail_022": {
+"generate/occluder": 1
+},
+"PATH:bookstore_exterior": {
+"generate/occluder": 1
+},
+"PATH:company1": {
+"generate/occluder": 1
+},
+"PATH:company2": {
+"generate/occluder": 1
+},
+"PATH:company4": {
+"generate/occluder": 1
+},
+"PATH:company5": {
+"generate/occluder": 1
+},
+"PATH:company6": {
+"generate/occluder": 1
+},
+"PATH:entrance#1": {
+"generate/occluder": 1
+},
+"PATH:exterior": {
+"generate/occluder": 1
+},
+"PATH:exterior#10": {
+"generate/occluder": 1
+},
+"PATH:exterior#13": {
+"generate/occluder": 1
+},
+"PATH:exterior#2": {
+"generate/occluder": 1
+},
+"PATH:exterior#5": {
+"generate/occluder": 1
+},
+"PATH:flower_shop_exterior": {
+"generate/occluder": 1
+},
+"PATH:wall_cover_01#1_1192": {
+"generate/occluder": 1
+}
+}
+}
+gltf/naming_version=1
+gltf/embedded_image_handling=1

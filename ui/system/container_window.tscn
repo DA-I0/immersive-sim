@@ -1,0 +1,119 @@
+[gd_scene load_steps=3 format=3 uid="uid://drkyult83hv72"]
+
+[ext_resource type="Script" path="res://code/ui/ContainerWindow.cs" id="1_kyr0b"]
+[ext_resource type="PackedScene" uid="uid://cjq3ac23dv6cy" path="res://prefabs/ui/item_listing.tscn" id="2_vfkq7"]
+
+[node name="ContainerWindow" type="Control"]
+custom_minimum_size = Vector2(400, 300)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kyr0b")
+_itemInfoPrefab = ExtResource("2_vfkq7")
+
+[node name="Panel" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(400, 300)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="VerticalAligner" type="VBoxContainer" parent="Panel"]
+layout_mode = 2
+
+[node name="HeaderContainer" type="Control" parent="Panel/VerticalAligner"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="ContainerName" type="Label" parent="Panel/VerticalAligner/HeaderContainer"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+text = "container_name"
+vertical_alignment = 1
+
+[node name="ContainerSpace" type="Label" parent="Panel/VerticalAligner/HeaderContainer"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.75
+anchor_bottom = 1.0
+grow_horizontal = 2
+size_flags_horizontal = 10
+text = "Space: x/y"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ContainerWeight" type="Label" parent="Panel/VerticalAligner/HeaderContainer"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.75
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+size_flags_horizontal = 3
+text = "x kg"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="FieldsContainer" type="Control" parent="Panel/VerticalAligner"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="FieldName" type="Button" parent="Panel/VerticalAligner/FieldsContainer"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.4
+anchor_bottom = 1.0
+text = "HEADER_ITEMS"
+
+[node name="FieldItemType" type="Button" parent="Panel/VerticalAligner/FieldsContainer"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_right = 0.6
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+text = "HEADER_ITEM_TYPE"
+
+[node name="FieldSize" type="Button" parent="Panel/VerticalAligner/FieldsContainer"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.6
+anchor_right = 0.8
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+text = "HEADER_SIZE"
+
+[node name="FieldWeight" type="Button" parent="Panel/VerticalAligner/FieldsContainer"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.8
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+text = "HEADER_WEIGHT"
+
+[node name="ItemList" type="VBoxContainer" parent="Panel/VerticalAligner"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 2
+offset_right = 18.0
+offset_bottom = 31.0
+text = "X"
+
+[connection signal="pressed" from="Panel/VerticalAligner/FieldsContainer/FieldName" to="." method="SetOrder" binds= [0]]
+[connection signal="pressed" from="Panel/VerticalAligner/FieldsContainer/FieldItemType" to="." method="SetOrder" binds= [-1]]
+[connection signal="pressed" from="Panel/VerticalAligner/FieldsContainer/FieldSize" to="." method="SetOrder" binds= [1]]
+[connection signal="pressed" from="Panel/VerticalAligner/FieldsContainer/FieldWeight" to="." method="SetOrder" binds= [2]]
+[connection signal="pressed" from="Button" to="." method="CloseContainer"]

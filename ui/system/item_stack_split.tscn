@@ -1,0 +1,72 @@
+[gd_scene load_steps=2 format=3 uid="uid://b3xy6vdumj7h"]
+
+[ext_resource type="Script" path="res://code/ui/ItemStackSplit.cs" id="1_hvdfo"]
+
+[node name="ItemStackSplit" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hvdfo")
+
+[node name="Window" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_top = 0.5
+anchor_right = 0.6
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ControlPositioner" type="VBoxContainer" parent="Window"]
+layout_mode = 2
+alignment = 1
+
+[node name="Header" type="Label" parent="Window/ControlPositioner"]
+layout_mode = 2
+text = "Split stack - <item_name>"
+horizontal_alignment = 1
+
+[node name="SplitControls" type="HBoxContainer" parent="Window/ControlPositioner"]
+layout_mode = 2
+
+[node name="OldStackValue" type="Label" parent="Window/ControlPositioner/SplitControls"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SplitSlider" type="HSlider" parent="Window/ControlPositioner/SplitControls"]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 1.0
+max_value = 24.0
+value = 1.0
+rounded = true
+
+[node name="NewStackValue" type="Label" parent="Window/ControlPositioner/SplitControls"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonPositioner" type="HBoxContainer" parent="Window/ControlPositioner"]
+layout_mode = 2
+alignment = 1
+
+[node name="Cancel" type="Button" parent="Window/ControlPositioner/ButtonPositioner"]
+layout_mode = 2
+text = "Cancel"
+
+[node name="Confirm" type="Button" parent="Window/ControlPositioner/ButtonPositioner"]
+layout_mode = 2
+text = "Confirm"
+
+[connection signal="value_changed" from="Window/ControlPositioner/SplitControls/SplitSlider" to="." method="UpdateSplitAmount"]
+[connection signal="pressed" from="Window/ControlPositioner/ButtonPositioner/Cancel" to="." method="CancelSplit"]
+[connection signal="pressed" from="Window/ControlPositioner/ButtonPositioner/Confirm" to="." method="ConfirmSplit"]

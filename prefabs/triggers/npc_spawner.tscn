@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://d10qrfvpfsk5j"]
+
+[ext_resource type="Script" uid="uid://bsoa34e3x46kj" path="res://code/NPCSpawner.cs" id="1_sf1th"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r35up"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4giox"]
+albedo_color = Color(1, 0.572549, 0, 1)
+
+[sub_resource type="PrismMesh" id="PrismMesh_b1lj1"]
+material = SubResource("StandardMaterial3D_4giox")
+size = Vector3(0.2, 0.2, 0.2)
+
+[node name="NPCSpawner" type="Area3D"]
+collision_layer = 524288
+collision_mask = 524298
+script = ExtResource("1_sf1th")
+_npcPresetID = "all_npcs"
+
+[node name="TriggerCollider" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_r35up")
+
+[node name="TriggerMarker" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+gi_mode = 0
+mesh = SubResource("PrismMesh_b1lj1")

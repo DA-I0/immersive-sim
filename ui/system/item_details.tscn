@@ -1,0 +1,70 @@
+[gd_scene load_steps=4 format=3 uid="uid://dt5ltwii5pnte"]
+
+[ext_resource type="Texture2D" uid="uid://cf2rgdr581xup" path="res://assets/textures/ui/icons/backpack.png" id="1_1t2im"]
+[ext_resource type="Script" path="res://code/ui/ItemDetails.cs" id="1_p8i4g"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_clyy2"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+
+[node name="ItemDetails" type="PanelContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_clyy2")
+script = ExtResource("1_p8i4g")
+
+[node name="VerticalContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="MainInfoContainer" type="HBoxContainer" parent="VerticalContainer"]
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="VerticalContainer/MainInfoContainer"]
+custom_minimum_size = Vector2(2, 0)
+layout_mode = 2
+
+[node name="TextDetails" type="VBoxContainer" parent="VerticalContainer/MainInfoContainer"]
+layout_mode = 2
+
+[node name="ItemName" type="Label" parent="VerticalContainer/MainInfoContainer/TextDetails"]
+layout_mode = 2
+text = "<item_name>"
+
+[node name="ItemType" type="Label" parent="VerticalContainer/MainInfoContainer/TextDetails"]
+layout_mode = 2
+text = "<item_type>"
+
+[node name="ItemSize" type="Label" parent="VerticalContainer/MainInfoContainer/TextDetails"]
+layout_mode = 2
+text = "Size: x"
+
+[node name="ItemWeight" type="Label" parent="VerticalContainer/MainInfoContainer/TextDetails"]
+layout_mode = 2
+text = "Weight: xkg"
+
+[node name="Spacer2" type="Control" parent="VerticalContainer/MainInfoContainer"]
+custom_minimum_size = Vector2(2, 0)
+layout_mode = 2
+
+[node name="ItemIcon" type="TextureRect" parent="VerticalContainer/MainInfoContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("1_1t2im")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Spacer3" type="Control" parent="VerticalContainer/MainInfoContainer"]
+custom_minimum_size = Vector2(2, 0)
+layout_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="VerticalContainer"]
+layout_mode = 2
+
+[node name="ItemDescription" type="RichTextLabel" parent="VerticalContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "<item_description>"
+fit_content = true

@@ -1,0 +1,43 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://ca0nnfx7m3vms"
+path="res://.godot/imported/railing_01_bollard.glb-cc969f2ae4826e9afef5a12f7b11f157.scn"
+
+[deps]
+
+source_file="res://assets/models/props/railing_01/railing_01_bollard.glb"
+dest_files=["res://.godot/imported/railing_01_bollard.glb-cc969f2ae4826e9afef5a12f7b11f157.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+_subresources={
+"nodes": {
+"PATH:railing_01_bollard": {
+"mesh_instance/visibility_range_end": 100.0
+}
+}
+}
+gltf/naming_version=1
+gltf/embedded_image_handling=1

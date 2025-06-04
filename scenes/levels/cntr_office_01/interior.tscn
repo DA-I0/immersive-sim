@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://ce4qpr7ynip4a"]
+
+[ext_resource type="PackedScene" uid="uid://cujxa0t7q5lcy" path="res://assets/models/buildings/cntr_office/floor_00_floor.glb" id="1_i0lvh"]
+[ext_resource type="PackedScene" uid="uid://ec5b0bh7mi6" path="res://prefabs/triggers/entity_reparent_trigger.tscn" id="2_22dbw"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_c548s"]
+geometry_source_geometry_mode = 1
+agent_height = 1.75
+agent_radius = 0.25
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dywix"]
+size = Vector3(18.749, 1.93823, 8.17599)
+
+[node name="Interior" type="NavigationRegion3D"]
+navigation_mesh = SubResource("NavigationMesh_c548s")
+
+[node name="BuildingGeometry" type="Node3D" parent="." groups=["navigation_mesh_source_group"]]
+
+[node name="floor_00_floor2" parent="BuildingGeometry" instance=ExtResource("1_i0lvh")]
+
+[node name="ReparentTriggers" type="Node3D" parent="."]
+
+[node name="EntityReparentTrigger" parent="ReparentTriggers" instance=ExtResource("2_22dbw")]
+
+[node name="CollisionShape3D" parent="ReparentTriggers/EntityReparentTrigger" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.0356, -0.0277104, 7.12893)
+shape = SubResource("BoxShape3D_dywix")
+debug_color = Color(0.793491, 0.0739923, 1, 0.42)
+
+[editable path="ReparentTriggers/EntityReparentTrigger"]

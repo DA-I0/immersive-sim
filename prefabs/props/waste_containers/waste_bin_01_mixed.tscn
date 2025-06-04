@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://bce6g7t7t4128"]
+
+[ext_resource type="PackedScene" uid="uid://cqrq337nw0a4o" path="res://assets/models/props/waste_containers/waste_bin_01_mixed.glb" id="1_b54c2"]
+[ext_resource type="Script" path="res://code/TrashBin.cs" id="2_f376q"]
+[ext_resource type="Material" uid="uid://b2jh5nsoi03p6" path="res://assets/materials/props/waste_containers/waste_bin_01_mixed.tres" id="3_o3nqq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ef41y"]
+size = Vector3(0.43, 0.1, 0.28)
+
+[node name="WasteBin01Mixed" instance=ExtResource("1_b54c2")]
+script = ExtResource("2_f376q")
+
+[node name="waste_bin_01_mixed" parent="." index="0"]
+surface_material_override/0 = ExtResource("3_o3nqq")
+
+[node name="DeathZone" type="Area3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.549176, 0)
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DeathZone" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000640869, 0, -0.0104614)
+shape = SubResource("BoxShape3D_ef41y")

@@ -1,0 +1,74 @@
+[gd_scene load_steps=9 format=3 uid="uid://dy7h54rwd7575"]
+
+[ext_resource type="PackedScene" uid="uid://cwfo20aii2a6s" path="res://prefabs/triggers/sub_level_trigger.tscn" id="1_4obja"]
+[ext_resource type="PackedScene" uid="uid://dqe05k0iasoxm" path="res://assets/models/buildings/wrh_store_medium_07/exterior_roof.glb" id="2_kc0y1"]
+[ext_resource type="PackedScene" uid="uid://dho1rklo015y1" path="res://assets/models/buildings/wrh_store_medium_07/exterior_walls.glb" id="3_xqvdn"]
+[ext_resource type="PackedScene" uid="uid://d1tbnnrycepj2" path="res://prefabs/props/stairs_01/stairs_01_corner_out.tscn" id="4_xuuyf"]
+[ext_resource type="PackedScene" uid="uid://y388amsj31fd" path="res://prefabs/props/stairs_01/stairs_01_1m.tscn" id="5_7r73k"]
+[ext_resource type="PackedScene" uid="uid://ceh3tb52c278w" path="res://prefabs/props/wall_01/wall_01_1m_5m.tscn" id="6_2cm7y"]
+[ext_resource type="PackedScene" uid="uid://7e5e1nrs4cef" path="res://prefabs/props/wall_01/wall_01_1m_2m.tscn" id="7_r2emr"]
+[ext_resource type="PackedScene" uid="uid://dyfy0ytdbqkpo" path="res://prefabs/props/wall_01/wall_01_1m_1m.tscn" id="8_3q7wh"]
+
+[node name="WrhStoreMedium07" type="Node3D"]
+
+[node name="LevelSpawner" parent="." instance=ExtResource("1_4obja")]
+_levelID = "wrh_store_medium_07/Interior"
+
+[node name="ExteriorGeometry" type="Node3D" parent="."]
+
+[node name="exterior_roof" parent="ExteriorGeometry" instance=ExtResource("2_kc0y1")]
+
+[node name="exterior_walls" parent="ExteriorGeometry" instance=ExtResource("3_xqvdn")]
+
+[node name="Stairs01CornerOut" parent="ExteriorGeometry" instance=ExtResource("4_xuuyf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.7, -0.15, -16.35)
+
+[node name="Stairs01CornerOut2" parent="ExteriorGeometry" instance=ExtResource("4_xuuyf")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4.7, -0.15, -16.35)
+
+[node name="Stairs01_1m" parent="ExteriorGeometry" instance=ExtResource("5_7r73k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.7, -0.15, -16.35)
+
+[node name="Stairs01CornerOut3" parent="ExteriorGeometry" instance=ExtResource("4_xuuyf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.35725, -0.15, -16.35)
+
+[node name="Stairs01CornerOut4" parent="ExteriorGeometry" instance=ExtResource("4_xuuyf")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.35725, -0.15, -16.35)
+
+[node name="Stairs01_1m2" parent="ExteriorGeometry" instance=ExtResource("5_7r73k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.35725, -0.15, -16.35)
+
+[node name="Wall01_1m_5m" parent="ExteriorGeometry" instance=ExtResource("6_2cm7y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.45022, -0.59655, -16.2515)
+
+[node name="Wall01_1m_5m2" parent="ExteriorGeometry" instance=ExtResource("6_2cm7y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.249, -0.597, -16.252)
+
+[node name="Wall01_1m_5m3" parent="ExteriorGeometry" instance=ExtResource("6_2cm7y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.201, -0.597, -16.252)
+
+[node name="Wall01_1m_2m" parent="ExteriorGeometry" instance=ExtResource("7_r2emr")]
+transform = Transform3D(1.01, 0, 0, 0, 1, 0, 0, 0, 1, 11.4502, -0.59655, -16.2515)
+
+[node name="Wall01_1m_2m2" parent="ExteriorGeometry" instance=ExtResource("7_r2emr")]
+transform = Transform3D(1.02, 0, 0, 0, 1, 0, 0, 0, 1, 13.47, -0.597, -16.251)
+
+[node name="Wall01_1m_2m3" parent="ExteriorGeometry" instance=ExtResource("7_r2emr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.751, -0.597, -16.252)
+
+[node name="Wall01_1m_2m5" parent="ExteriorGeometry" instance=ExtResource("7_r2emr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.201, -0.597, -16.252)
+
+[node name="Wall01_1m_2m6" parent="ExteriorGeometry" instance=ExtResource("7_r2emr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.201, -0.597, -16.252)
+
+[node name="Wall01_1m_2m4" parent="ExteriorGeometry" instance=ExtResource("7_r2emr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.751, -0.597, -16.252)
+
+[node name="Wall01_1m_1m" parent="ExteriorGeometry" instance=ExtResource("8_3q7wh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.999, -4.2, -0.597, -16.252)
+
+[node name="Wall01_1m_1m2" parent="ExteriorGeometry" instance=ExtResource("8_3q7wh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.999, -15.499, -0.597, -16.252)
+
+[node name="UnloadedDetails" type="Node3D" parent="."]

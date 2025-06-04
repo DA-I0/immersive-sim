@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://cqk4rky7tcmc4"]
+
+[ext_resource type="Script" path="res://code/TrashBin.cs" id="1_uem0n"]
+[ext_resource type="PackedScene" uid="uid://ch13kg4ot2yic" path="res://assets/models/props/trash_bin.glb" id="2_6fwa7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r7tvr"]
+size = Vector3(0.25, 0.1, 0.15)
+
+[node name="TrashBin" type="Node3D"]
+script = ExtResource("1_uem0n")
+
+[node name="Model" parent="." instance=ExtResource("2_6fwa7")]
+
+[node name="DeathZone" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06, 0)
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DeathZone"]
+shape = SubResource("BoxShape3D_r7tvr")
+
+[node name="NavigationObstacle3D" type="NavigationObstacle3D" parent="."]
+radius = 0.3
+affect_navigation_mesh = true
+carve_navigation_mesh = true

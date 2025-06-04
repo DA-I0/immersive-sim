@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://cb2fcat0sacks"]
+
+[ext_resource type="Script" path="res://code/devices/Light.cs" id="1_3l88l"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_f757h"]
+size = Vector3(0.1, 0.05, 0.1)
+
+[node name="light" type="Node3D" node_paths=PackedStringArray("_lightSource")]
+script = ExtResource("1_3l88l")
+_lightSource = NodePath("light")
+
+[node name="model" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.02, 0)
+mesh = SubResource("BoxMesh_f757h")
+
+[node name="light" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0795655, 0)
+light_color = Color(0.905882, 0.854902, 0.788235, 1)
+light_energy = 2.0
+shadow_enabled = true
+distance_fade_enabled = true
+distance_fade_shadow = 80.0
+distance_fade_length = 110.0
+omni_attenuation = 2.0

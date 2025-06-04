@@ -1,0 +1,75 @@
+[gd_scene load_steps=3 format=3 uid="uid://dbdr86w6ku6tn"]
+
+[ext_resource type="Script" path="res://code/ui/ShopDisplay.cs" id="1_mevty"]
+[ext_resource type="PackedScene" uid="uid://xkvst2exns8p" path="res://ui/system/shop_product_entry.tscn" id="1_qvn51"]
+
+[node name="ShopDisplay" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mevty")
+_productInfoPrefab = ExtResource("1_qvn51")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.25
+anchor_right = 0.75
+anchor_bottom = 1.0
+color = Color(0, 0, 0, 0.705882)
+
+[node name="ControlList" type="VBoxContainer" parent="Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StoreHeader" type="Label" parent="Background/ControlList"]
+layout_mode = 2
+text = "STORE_HEADER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ProductList" type="VBoxContainer" parent="Background/ControlList"]
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="Background/ControlList"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CartPriceTotal" type="Label" parent="Background/ControlList"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+text = "Total: $x"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="StoreOperations" type="HBoxContainer" parent="Background/ControlList"]
+layout_mode = 2
+alignment = 2
+
+[node name="Cancel" type="Button" parent="Background/ControlList/StoreOperations"]
+layout_mode = 2
+text = "BUTTON_EXIT"
+
+[node name="Control" type="Control" parent="Background/ControlList/StoreOperations"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Reset" type="Button" parent="Background/ControlList/StoreOperations"]
+layout_mode = 2
+text = "BUTTON_RESET"
+
+[node name="Confirm" type="Button" parent="Background/ControlList/StoreOperations"]
+layout_mode = 2
+text = "BUTTON_CONFIRM"
+
+[connection signal="pressed" from="Background/ControlList/StoreOperations/Cancel" to="." method="CancelPurchase"]
+[connection signal="pressed" from="Background/ControlList/StoreOperations/Reset" to="." method="ResetShopState"]
+[connection signal="pressed" from="Background/ControlList/StoreOperations/Confirm" to="." method="ConfirmPurchase"]

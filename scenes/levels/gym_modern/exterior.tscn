@@ -1,0 +1,80 @@
+[gd_scene load_steps=14 format=3 uid="uid://buia7erdxryju"]
+
+[ext_resource type="PackedScene" uid="uid://b6tatf31tisan" path="res://assets/models/buildings/gym_modern/exterior_support_column.glb" id="1_ojhcj"]
+[ext_resource type="PackedScene" uid="uid://cwfo20aii2a6s" path="res://prefabs/triggers/sub_level_trigger.tscn" id="2_cxp1t"]
+[ext_resource type="Material" uid="uid://b53ltvam1rk4r" path="res://assets/materials/dev/dev_azure.tres" id="2_t8fk3"]
+[ext_resource type="PackedScene" uid="uid://bpvdllv01ds23" path="res://assets/models/buildings/gym_modern/exterior_walls.glb" id="2_wr2l7"]
+[ext_resource type="Material" uid="uid://cd374gk86tfva" path="res://assets/materials/dev_glass_opaque.tres" id="3_f1i18"]
+[ext_resource type="PackedScene" uid="uid://b56oi63pyc5p6" path="res://assets/models/buildings/gym_modern/roof.glb" id="3_gaqd7"]
+[ext_resource type="Material" uid="uid://c11j5xw4qn4lv" path="res://assets/materials/dev/dev_gray_very_light.tres" id="4_0txui"]
+[ext_resource type="Material" uid="uid://c0hj7haymkpjh" path="res://assets/materials/dev/dev_gray_light.tres" id="6_20vdy"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_xoaf6"]
+material = ExtResource("3_f1i18")
+size = Vector2(14.25, 3)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_rnm7e"]
+material = ExtResource("3_f1i18")
+size = Vector2(31.25, 3)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_7xbnf"]
+material = ExtResource("3_f1i18")
+size = Vector2(23.05, 3)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_qsbrk"]
+material = ExtResource("3_f1i18")
+size = Vector2(2.95, 3)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_52a57"]
+material = ExtResource("3_f1i18")
+size = Vector2(3, 2.5)
+
+[node name="GymModern" type="Node3D"]
+
+[node name="LevelSpawner" parent="." instance=ExtResource("2_cxp1t")]
+_levelID = "gym_modern/Interior"
+
+[node name="ExteriorGeometry" type="Node3D" parent="."]
+
+[node name="exterior_support_column2" parent="ExteriorGeometry" instance=ExtResource("1_ojhcj")]
+
+[node name="exterior_support_column" parent="ExteriorGeometry/exterior_support_column2" index="0"]
+surface_material_override/0 = ExtResource("2_t8fk3")
+
+[node name="exterior_walls2" parent="ExteriorGeometry" instance=ExtResource("2_wr2l7")]
+
+[node name="exterior_walls" parent="ExteriorGeometry/exterior_walls2" index="0"]
+surface_material_override/0 = ExtResource("2_t8fk3")
+surface_material_override/1 = ExtResource("4_0txui")
+
+[node name="roof2" parent="ExteriorGeometry" instance=ExtResource("3_gaqd7")]
+
+[node name="roof" parent="ExteriorGeometry/roof2" index="0"]
+surface_material_override/0 = ExtResource("2_t8fk3")
+surface_material_override/2 = ExtResource("6_20vdy")
+
+[node name="UnloadedDetails" type="Node3D" parent="."]
+
+[node name="TempWindow" type="MeshInstance3D" parent="UnloadedDetails"]
+transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 17.9626, 6, -3.3692)
+mesh = SubResource("PlaneMesh_xoaf6")
+
+[node name="TempWindow2" type="MeshInstance3D" parent="UnloadedDetails"]
+transform = Transform3D(-1, -8.74228e-08, 3.82138e-15, 0, -4.37114e-08, -1, 8.74228e-08, -1, 4.37114e-08, 1.8876, 6, -10.8922)
+mesh = SubResource("PlaneMesh_rnm7e")
+
+[node name="TempWindow3" type="MeshInstance3D" parent="UnloadedDetails"]
+transform = Transform3D(-1, -8.74228e-08, 3.82138e-15, 0, -4.37114e-08, -1, 8.74228e-08, -1, 4.37114e-08, -2.2124, 2, -10.8922)
+mesh = SubResource("PlaneMesh_7xbnf")
+
+[node name="TempWindow4" type="MeshInstance3D" parent="UnloadedDetails"]
+transform = Transform3D(-1, -8.74228e-08, 3.82138e-15, 0, -4.37114e-08, -1, 8.74228e-08, -1, 4.37114e-08, 11.7876, 2, -10.8922)
+mesh = SubResource("PlaneMesh_qsbrk")
+
+[node name="TempWindow5" type="MeshInstance3D" parent="UnloadedDetails"]
+transform = Transform3D(-1, -8.74228e-08, 3.82138e-15, 0, -4.37114e-08, -1, 8.74228e-08, -1, 4.37114e-08, 15.9126, 2.25, -6.8922)
+mesh = SubResource("PlaneMesh_52a57")
+
+[editable path="ExteriorGeometry/exterior_support_column2"]
+[editable path="ExteriorGeometry/exterior_walls2"]
+[editable path="ExteriorGeometry/roof2"]

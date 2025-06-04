@@ -1,0 +1,69 @@
+[gd_scene load_steps=9 format=3 uid="uid://0l7gdx67p8kv"]
+
+[ext_resource type="PackedScene" uid="uid://cke7g2djk68tr" path="res://prefabs/test_level_transition.tscn" id="1_k48la"]
+[ext_resource type="PackedScene" uid="uid://dd1q54vu0dfvj" path="res://prefabs/items/containers/test_container.tscn" id="2_6tw62"]
+[ext_resource type="PackedScene" uid="uid://cd5a8xw1eycwk" path="res://prefabs/items/misc/test_item.tscn" id="3_dj1a0"]
+[ext_resource type="PackedScene" uid="uid://be3ghth1dbsqe" path="res://prefabs/items/consumables/dr_oopsie.tscn" id="4_r26m1"]
+[ext_resource type="PackedScene" uid="uid://mjlgbkt6mc4y" path="res://prefabs/items/clothes/pants_1.tscn" id="5_2vvgi"]
+[ext_resource type="PackedScene" uid="uid://bsibdj5c8a6c3" path="res://prefabs/items/containers/backpack_1.tscn" id="6_a3k6v"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3v1to"]
+size = Vector3(100, 0.1, 100)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_t82c7"]
+size = Vector2(100, 100)
+
+[node name="Another_Test_Map" type="Node3D"]
+process_mode = 1
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
+shape = SubResource("BoxShape3D_3v1to")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_t82c7")
+
+[node name="TestLevelTransition" parent="." instance=ExtResource("1_k48la")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -5.5)
+_targetLevel = "another_test_map2"
+_targetSpawnPoint = "SpawnPoint1"
+
+[node name="TestLevelTransition2" parent="." instance=ExtResource("1_k48la")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, -5.5)
+_targetLevel = "test_map"
+
+[node name="TestContainer" parent="." instance=ExtResource("2_6tw62")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.613, 0, -0.562)
+_objectID = "tc_02"
+
+[node name="TestItem2" parent="TestContainer/Contents" index="0" instance=ExtResource("3_dj1a0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.61094, 0.55, -0.213577)
+_objectID = "ti_02123"
+
+[node name="DrOopsie" parent="TestContainer/Contents" index="1" instance=ExtResource("4_r26m1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.61146, 0.55, -0.455856)
+_objectID = "oop_01321"
+
+[node name="Pants" parent="TestContainer/Contents" index="2" instance=ExtResource("5_2vvgi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0.5, -1)
+_objectID = "p_01123"
+
+[node name="Backpack2" parent="TestContainer/Contents" index="3" instance=ExtResource("6_a3k6v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5805, 0.542965, -0.708235)
+_objectID = "bp_1_21231"
+
+[node name="Backpack3" parent="TestContainer/Contents" index="4" instance=ExtResource("6_a3k6v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5805, 0.542965, -0.708235)
+_objectID = "bp_1_312312"
+
+[node name="Backpack4" parent="TestContainer/Contents" index="5" instance=ExtResource("6_a3k6v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5805, 0.542965, -0.708235)
+_objectID = "bp_1_41212"
+
+[node name="Backpack5" parent="TestContainer/Contents" index="6" instance=ExtResource("6_a3k6v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5805, 0.542965, -0.708235)
+_objectID = "wbp_1_5312"
+
+[editable path="TestContainer"]

@@ -1,0 +1,179 @@
+[gd_scene load_steps=10 format=3 uid="uid://b3yvl0nh86uio"]
+
+[ext_resource type="PackedScene" uid="uid://dmgvg5hc36rt4" path="res://assets/models/props/benches/bench_02.glb" id="1_wai26"]
+[ext_resource type="Material" uid="uid://b5i8t0xammn0b" path="res://assets/materials/dev/dev_orange.tres" id="2_aikv0"]
+[ext_resource type="Material" uid="uid://c0hj7haymkpjh" path="res://assets/materials/dev/dev_gray_light.tres" id="3_g0prp"]
+[ext_resource type="Script" uid="uid://bn0xglhed4ret" path="res://code/interactables/Chair.cs" id="4_2oh3f"]
+[ext_resource type="Script" uid="uid://c3e3jru1ujuv5" path="res://code/interactables/NPCInteractionTarget.cs" id="5_7vm7o"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xuuws"]
+size = Vector3(0.5, 0.4, 0.4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_akv0a"]
+size = Vector3(0.4, 1, 1.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fubs4"]
+albedo_color = Color(1, 0, 1, 1)
+
+[sub_resource type="PrismMesh" id="PrismMesh_4oq74"]
+material = SubResource("StandardMaterial3D_fubs4")
+size = Vector3(0.2, 0.2, 0.2)
+
+[node name="Bench02" instance=ExtResource("1_wai26")]
+
+[node name="bench_02" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_aikv0")
+surface_material_override/1 = ExtResource("3_g0prp")
+
+[node name="Seat" type="Node3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 0, 0)
+script = ExtResource("4_2oh3f")
+
+[node name="InteractionCollider" type="StaticBody3D" parent="Seat" index="0"]
+collision_layer = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Seat/InteractionCollider" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.750049, 0.000189207)
+shape = SubResource("BoxShape3D_xuuws")
+
+[node name="SeatPositionMarker" type="Marker3D" parent="Seat" index="1"]
+
+[node name="ExitPositionMarker" type="Marker3D" parent="Seat" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, -0.8)
+
+[node name="NPCUsable" type="Area3D" parent="Seat" index="3" node_paths=PackedStringArray("_interactionPosition")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.8)
+collision_layer = 524304
+collision_mask = 524306
+script = ExtResource("5_7vm7o")
+_interactionType = 1
+_duration = 60.0
+_conditionName = "action_Sit_mid"
+_interactionPosition = NodePath("../SeatPositionMarker")
+_staminaChange = 70
+_npcPresetID = "all_npcs"
+
+[node name="TriggerCollider" type="CollisionShape3D" parent="Seat/NPCUsable" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0.5)
+shape = SubResource("BoxShape3D_akv0a")
+
+[node name="TriggerMarker" type="MeshInstance3D" parent="Seat/NPCUsable" index="1"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+gi_mode = 0
+mesh = SubResource("PrismMesh_4oq74")
+
+[node name="Seat2" type="Node3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 0, 0)
+script = ExtResource("4_2oh3f")
+
+[node name="InteractionCollider" type="StaticBody3D" parent="Seat2" index="0"]
+collision_layer = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Seat2/InteractionCollider" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.750049, 0.000189207)
+shape = SubResource("BoxShape3D_xuuws")
+
+[node name="SeatPositionMarker" type="Marker3D" parent="Seat2" index="1"]
+
+[node name="ExitPositionMarker" type="Marker3D" parent="Seat2" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, -0.8)
+
+[node name="NPCUsable" type="Area3D" parent="Seat2" index="3" node_paths=PackedStringArray("_interactionPosition")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.8)
+collision_layer = 524304
+collision_mask = 524306
+script = ExtResource("5_7vm7o")
+_interactionType = 1
+_duration = 60.0
+_conditionName = "action_Sit_mid"
+_interactionPosition = NodePath("../SeatPositionMarker")
+_staminaChange = 70
+_npcPresetID = "all_npcs"
+
+[node name="TriggerCollider" type="CollisionShape3D" parent="Seat2/NPCUsable" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0.5)
+shape = SubResource("BoxShape3D_akv0a")
+
+[node name="TriggerMarker" type="MeshInstance3D" parent="Seat2/NPCUsable" index="1"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+gi_mode = 0
+mesh = SubResource("PrismMesh_4oq74")
+
+[node name="Seat3" type="Node3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, 0, 0)
+script = ExtResource("4_2oh3f")
+
+[node name="InteractionCollider" type="StaticBody3D" parent="Seat3" index="0"]
+collision_layer = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Seat3/InteractionCollider" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.750049, 0.000189207)
+shape = SubResource("BoxShape3D_xuuws")
+
+[node name="SeatPositionMarker" type="Marker3D" parent="Seat3" index="1"]
+
+[node name="ExitPositionMarker" type="Marker3D" parent="Seat3" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, -0.8)
+
+[node name="NPCUsable" type="Area3D" parent="Seat3" index="3" node_paths=PackedStringArray("_interactionPosition")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.8)
+collision_layer = 524304
+collision_mask = 524306
+script = ExtResource("5_7vm7o")
+_interactionType = 1
+_duration = 60.0
+_conditionName = "action_Sit_mid"
+_interactionPosition = NodePath("../SeatPositionMarker")
+_staminaChange = 70
+_npcPresetID = "all_npcs"
+
+[node name="TriggerCollider" type="CollisionShape3D" parent="Seat3/NPCUsable" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0.5)
+shape = SubResource("BoxShape3D_akv0a")
+
+[node name="TriggerMarker" type="MeshInstance3D" parent="Seat3/NPCUsable" index="1"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+gi_mode = 0
+mesh = SubResource("PrismMesh_4oq74")
+
+[node name="Seat4" type="Node3D" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75, 0, 0)
+script = ExtResource("4_2oh3f")
+
+[node name="InteractionCollider" type="StaticBody3D" parent="Seat4" index="0"]
+collision_layer = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Seat4/InteractionCollider" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.750049, 0.000189207)
+shape = SubResource("BoxShape3D_xuuws")
+
+[node name="SeatPositionMarker" type="Marker3D" parent="Seat4" index="1"]
+
+[node name="ExitPositionMarker" type="Marker3D" parent="Seat4" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, -0.8)
+
+[node name="NPCUsable" type="Area3D" parent="Seat4" index="3" node_paths=PackedStringArray("_interactionPosition")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.8)
+collision_layer = 524304
+collision_mask = 524306
+script = ExtResource("5_7vm7o")
+_interactionType = 1
+_duration = 60.0
+_conditionName = "action_Sit_mid"
+_interactionPosition = NodePath("../SeatPositionMarker")
+_staminaChange = 70
+_npcPresetID = "all_npcs"
+
+[node name="TriggerCollider" type="CollisionShape3D" parent="Seat4/NPCUsable" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0.5)
+shape = SubResource("BoxShape3D_akv0a")
+
+[node name="TriggerMarker" type="MeshInstance3D" parent="Seat4/NPCUsable" index="1"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+gi_mode = 0
+mesh = SubResource("PrismMesh_4oq74")
+
+[connection signal="body_exited" from="Seat/NPCUsable" to="Seat/NPCUsable" method="ClearUser"]
+[connection signal="body_exited" from="Seat2/NPCUsable" to="Seat2/NPCUsable" method="ClearUser"]
+[connection signal="body_exited" from="Seat3/NPCUsable" to="Seat3/NPCUsable" method="ClearUser"]
+[connection signal="body_exited" from="Seat4/NPCUsable" to="Seat4/NPCUsable" method="ClearUser"]

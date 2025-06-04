@@ -1,0 +1,97 @@
+[gd_scene load_steps=2 format=3 uid="uid://d1r3ph3xu113x"]
+
+[ext_resource type="Script" path="res://code/ui/SaveMenu.cs" id="1_r3phj"]
+
+[node name="SaveLoadMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchor_left = 0.25
+anchor_right = 0.75
+anchor_bottom = 1.0
+offset_top = 10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r3phj")
+_inMenu = true
+
+[node name="SaveList" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.75
+anchor_bottom = 1.0
+
+[node name="NewSave" type="PanelContainer" parent="SaveList"]
+layout_mode = 2
+
+[node name="SaveName" type="LineEdit" parent="SaveList/NewSave"]
+layout_mode = 2
+placeholder_text = "SAVE_NAME"
+
+[node name="SaveInfo" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.75
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="SaveData" type="VBoxContainer" parent="SaveInfo"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+
+[node name="Name" type="Label" parent="SaveInfo/SaveData"]
+layout_mode = 2
+text = "save_name"
+horizontal_alignment = 1
+
+[node name="ActiveMap" type="Label" parent="SaveInfo/SaveData"]
+layout_mode = 2
+text = "active_map"
+
+[node name="CurrentDate" type="Label" parent="SaveInfo/SaveData"]
+layout_mode = 2
+text = "current_date"
+
+[node name="Buttons" type="VBoxContainer" parent="SaveInfo"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -68.5
+offset_top = -101.0
+offset_right = 68.5
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Save" type="Button" parent="SaveInfo/Buttons"]
+layout_mode = 2
+text = "BUTTON_SAVE"
+
+[node name="Load" type="Button" parent="SaveInfo/Buttons"]
+layout_mode = 2
+text = "BUTTON_LOAD"
+
+[node name="Delete" type="Button" parent="SaveInfo/Buttons"]
+layout_mode = 2
+text = "BUTTON_DELETE"
+
+[node name="Return" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -31.0
+offset_right = 144.0
+grow_vertical = 0
+text = "BUTTON_RETURN"
+
+[connection signal="focus_entered" from="SaveList/NewSave/SaveName" to="." method="SelectSaveState" binds= [-1]]
+[connection signal="text_changed" from="SaveList/NewSave/SaveName" to="." method="UpdateSaveButtons" unbinds=1]
+[connection signal="pressed" from="SaveInfo/Buttons/Save" to="." method="SaveGame"]
+[connection signal="pressed" from="SaveInfo/Buttons/Load" to="." method="LoadGame"]
+[connection signal="pressed" from="SaveInfo/Buttons/Delete" to="." method="DeleteSave"]
+[connection signal="pressed" from="Return" to="." method="Return"]

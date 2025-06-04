@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://clkvsrvejn1fq"]
+
+[ext_resource type="PackedScene" uid="uid://cpx6bt50ndv2h" path="res://assets/models/props/curb/sidewalk_curb_corner_in_sharp.glb" id="1_htbkf"]
+[ext_resource type="Material" uid="uid://cblau8rx6hdm0" path="res://assets/materials/walkways/curb.tres" id="2_qkbv2"]
+
+[node name="CurbDefaultCornerInSharp" instance=ExtResource("1_htbkf")]
+
+[node name="sidewalk_curb_corner_in_sharp" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_qkbv2")

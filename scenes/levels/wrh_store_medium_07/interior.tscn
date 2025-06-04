@@ -1,0 +1,41 @@
+[gd_scene load_steps=11 format=3 uid="uid://ctg3t6pj631k4"]
+
+[ext_resource type="PackedScene" uid="uid://dqdwd6xh2gw8e" path="res://assets/models/buildings/wrh_store_medium_07/floor_00_floor_01.glb" id="1_3qqjy"]
+[ext_resource type="PackedScene" uid="uid://cdvsretqcgij8" path="res://assets/models/buildings/wrh_store_medium_07/floor_00_floor_02.glb" id="2_ci4qe"]
+[ext_resource type="PackedScene" uid="uid://bvcc6iwsepjpg" path="res://assets/models/buildings/wrh_store_medium_07/floor_00_walls_01.glb" id="3_v0n2d"]
+[ext_resource type="PackedScene" uid="uid://d3ark0vskf4o1" path="res://assets/models/buildings/wrh_store_medium_07/floor_00_walls_02.glb" id="4_h5tw6"]
+[ext_resource type="PackedScene" uid="uid://bw71ahqua0qs6" path="res://assets/models/buildings/wrh_store_medium_07/floor_00_walls_03.glb" id="5_0s741"]
+[ext_resource type="PackedScene" uid="uid://bdb2gf68vkeqr" path="res://assets/models/buildings/wrh_store_medium_07/floor_00_walls_04.glb" id="6_htuqk"]
+[ext_resource type="PackedScene" uid="uid://3igjhbpby1sn" path="res://assets/models/buildings/wrh_store_medium_07/floor_00_walls_05.glb" id="7_q7vqd"]
+[ext_resource type="PackedScene" uid="uid://dpq42na12xcuy" path="res://assets/models/buildings/wrh_store_medium_07/floor_00_walls_06.glb" id="8_rd64v"]
+[ext_resource type="PackedScene" uid="uid://bg1uysi12341p" path="res://assets/models/buildings/wrh_store_medium_07/temp_interior_details.glb" id="9_s0tps"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_c548s"]
+vertices = PackedVector3Array(6.74999, 3.55, -5.60005, 6.49999, 3.55, -7.10005, 3.24999, 3.55, -7.10005, 2.99999, 3.55, -5.60005, 8.74999, 3.55, -0.850048, -0.500011, 3.55, -5.60005, -0.500011, 3.55, 5.64995, 10.5, 3.55, 5.64995, 8.74999, 3.55, -5.60005, 10.5, 3.55, -0.600048, 6.49999, 0.3, -5.35005, 6.49999, 0.3, -7.10005, 3.49999, 0.3, -7.10005, 3.24999, 0.3, -5.35005, 6.99999, 0.3, -0.100048, 10.25, 0.3, -0.350048, 10.25, 0.3, -5.35005, -0.500011, 0.3, -5.35005, -0.500011, 0.3, 5.39995, 6.99999, 0.3, 5.39995, 7.24999, 6.8, -5.35005, 7.24999, 6.8, -4.10005, 8.99999, 6.8, -3.85005, 10.5, 6.8, -5.35005, 10.25, 6.8, 5.39995, 9.49999, 6.8, 0.149952, 6.24999, 6.8, 0.149952, -10.25, 6.8, 5.39995, 6.24999, 6.8, -6.85005, 3.49999, 6.8, -6.85005, 3.24999, 6.8, -5.35005, 10.5, 6.8, -0.350048, 8.74999, 6.8, -0.350048, 9.99999, 6.8, -0.100048, -10.25, 6.8, -5.35005)
+polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(3, 4, 5), PackedInt32Array(5, 4, 7), PackedInt32Array(5, 7, 6), PackedInt32Array(0, 8, 4), PackedInt32Array(4, 9, 7), PackedInt32Array(3, 0, 4), PackedInt32Array(11, 10, 12), PackedInt32Array(12, 10, 13), PackedInt32Array(13, 10, 14), PackedInt32Array(15, 14, 16), PackedInt32Array(16, 14, 10), PackedInt32Array(13, 14, 17), PackedInt32Array(17, 14, 19), PackedInt32Array(17, 19, 18), PackedInt32Array(21, 20, 22), PackedInt32Array(22, 20, 23), PackedInt32Array(25, 24, 26), PackedInt32Array(26, 24, 27), PackedInt32Array(29, 28, 30), PackedInt32Array(30, 28, 26), PackedInt32Array(33, 32, 31), PackedInt32Array(31, 32, 22), PackedInt32Array(31, 22, 23), PackedInt32Array(30, 26, 34), PackedInt32Array(34, 26, 27), PackedInt32Array(25, 33, 24), PackedInt32Array(32, 33, 25)]
+geometry_source_geometry_mode = 1
+agent_height = 1.75
+agent_radius = 0.25
+
+[node name="Interior" type="NavigationRegion3D"]
+navigation_mesh = SubResource("NavigationMesh_c548s")
+
+[node name="BuildingGeometry" type="Node3D" parent="." groups=["navigation_mesh_source_group"]]
+
+[node name="floor_00_floor_01" parent="BuildingGeometry" instance=ExtResource("1_3qqjy")]
+
+[node name="floor_00_floor_02" parent="BuildingGeometry" instance=ExtResource("2_ci4qe")]
+
+[node name="floor_00_walls_01" parent="BuildingGeometry" instance=ExtResource("3_v0n2d")]
+
+[node name="floor_00_walls_02" parent="BuildingGeometry" instance=ExtResource("4_h5tw6")]
+
+[node name="floor_00_walls_03" parent="BuildingGeometry" instance=ExtResource("5_0s741")]
+
+[node name="floor_00_walls_04" parent="BuildingGeometry" instance=ExtResource("6_htuqk")]
+
+[node name="floor_00_walls_05" parent="BuildingGeometry" instance=ExtResource("7_q7vqd")]
+
+[node name="floor_00_walls_06" parent="BuildingGeometry" instance=ExtResource("8_rd64v")]
+
+[node name="temp_interior_details" parent="BuildingGeometry" instance=ExtResource("9_s0tps")]

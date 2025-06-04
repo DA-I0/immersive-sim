@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://sdflig6ubc4h"]
+
+[ext_resource type="Texture2D" uid="uid://xjkoxm7jhx3n" path="res://assets/textures/pixel_art/walkways/sidewalk.png" id="1_nch0d"]
+
+[resource]
+albedo_color = Color(0.675233, 0.646102, 0.606226, 1)
+albedo_texture = ExtResource("1_nch0d")
+texture_filter = 0

@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://cmxdcbx1sadqk"]
+
+[ext_resource type="PackedScene" uid="uid://cwfo20aii2a6s" path="res://prefabs/triggers/sub_level_trigger.tscn" id="1_wymue"]
+[ext_resource type="PackedScene" uid="uid://bw2pwpotoh8cd" path="res://assets/models/buildings/bs_store_medium_04/exterior_walls.glb" id="2_838ay"]
+[ext_resource type="PackedScene" uid="uid://bc8ouqt2os72q" path="res://assets/models/buildings/bs_store_medium_04/temp_details.glb" id="3_cyiql"]
+[ext_resource type="PackedScene" uid="uid://chhxag3257c4l" path="res://prefabs/props/sidewalk_02/sidewalk_base_1x2.tscn" id="4_w5tnf"]
+[ext_resource type="PackedScene" uid="uid://clqtn8yxgb1o5" path="res://prefabs/props/sidewalk_02/sidewalk_base_1x1.tscn" id="5_rtbg5"]
+
+[node name="BsStoreMedium04" type="Node3D"]
+
+[node name="LevelSpawner" parent="." instance=ExtResource("1_wymue")]
+_levelID = "bs_store_medium_04/Interior"
+
+[node name="ExteriorGeometry" type="Node3D" parent="."]
+
+[node name="exterior_walls" parent="ExteriorGeometry" instance=ExtResource("2_838ay")]
+
+[node name="temp_details" parent="ExteriorGeometry" instance=ExtResource("3_cyiql")]
+
+[node name="SidewalkBase1x2" parent="ExteriorGeometry" instance=ExtResource("4_w5tnf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.304, -0.051, -4.55)
+
+[node name="SidewalkBase1x1" parent="ExteriorGeometry" instance=ExtResource("5_rtbg5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.696, -0.051, -4.55)
+
+[node name="UnloadedDetails" type="Node3D" parent="."]

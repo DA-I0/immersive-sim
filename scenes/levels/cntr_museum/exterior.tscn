@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://crge07skfwe3y"]
+
+[ext_resource type="PackedScene" uid="uid://btf1yn6jpevkw" path="res://assets/models/buildings/cntr_museum/balconies_temp.glb" id="1_1hcvg"]
+[ext_resource type="PackedScene" uid="uid://bh3vnkhr3fjse" path="res://assets/models/buildings/cntr_museum/chimney.glb" id="2_hbcyl"]
+[ext_resource type="PackedScene" uid="uid://s1ku62m8ygru" path="res://assets/models/buildings/cntr_museum/exterior_walls.glb" id="3_k7i3g"]
+[ext_resource type="PackedScene" uid="uid://cwfo20aii2a6s" path="res://prefabs/triggers/sub_level_trigger.tscn" id="10_5l17c"]
+
+[node name="CntrMuseum" type="Node3D"]
+
+[node name="ExteriorGeometry" type="Node3D" parent="."]
+
+[node name="balconies_temp" parent="ExteriorGeometry" instance=ExtResource("1_1hcvg")]
+
+[node name="chimney" parent="ExteriorGeometry" instance=ExtResource("2_hbcyl")]
+
+[node name="chimney2" parent="ExteriorGeometry" instance=ExtResource("2_hbcyl")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="exterior_walls" parent="ExteriorGeometry" instance=ExtResource("3_k7i3g")]
+
+[node name="LevelSpawner" parent="." instance=ExtResource("10_5l17c")]
+_levelID = "cntr_museum/Interior"
+
+[node name="UnloadedDetails" type="Node3D" parent="."]

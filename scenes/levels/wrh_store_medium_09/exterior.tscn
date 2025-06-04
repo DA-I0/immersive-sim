@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://cn8f7wj7oiwet"]
+
+[ext_resource type="PackedScene" uid="uid://cwfo20aii2a6s" path="res://prefabs/triggers/sub_level_trigger.tscn" id="1_h1wwc"]
+[ext_resource type="PackedScene" uid="uid://bwui1v312nxpv" path="res://assets/models/buildings/wrh_store_medium_09/exterior_walls.glb" id="2_3km5j"]
+[ext_resource type="PackedScene" uid="uid://5daxcf38mtxg" path="res://prefabs/props/stairs_03/stairs_03_corner_out.tscn" id="4_eeppr"]
+[ext_resource type="PackedScene" uid="uid://be0ldjs0odsbq" path="res://prefabs/props/stairs_03/stairs_03_1m.tscn" id="5_tl8hh"]
+[ext_resource type="PackedScene" uid="uid://ckgpaxq7spmas" path="res://prefabs/props/stairs_03/stairs_03_2m.tscn" id="6_rlfyt"]
+[ext_resource type="PackedScene" uid="uid://djg3g1rqhqmnq" path="res://prefabs/props/sidewalk_01/sidewalk_default_base_2x5.tscn" id="7_s3u0x"]
+
+[node name="WrhStoreMedium09" type="Node3D"]
+
+[node name="LevelSpawner" parent="." instance=ExtResource("1_h1wwc")]
+_levelID = "wrh_store_medium_09/Interior"
+
+[node name="ExteriorGeometry" type="Node3D" parent="."]
+
+[node name="exterior_walls" parent="ExteriorGeometry" instance=ExtResource("2_3km5j")]
+
+[node name="Stairs02CornerOut" parent="ExteriorGeometry" instance=ExtResource("4_eeppr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.74897, -0.4, -4.85)
+
+[node name="Stairs02_1m2" parent="ExteriorGeometry" instance=ExtResource("5_tl8hh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.74897, -0.4, -4.85)
+
+[node name="Stairs02_2m" parent="ExteriorGeometry" instance=ExtResource("6_rlfyt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.74897, -0.4, -4.85)
+
+[node name="Stairs02_2m3" parent="ExteriorGeometry" instance=ExtResource("6_rlfyt")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.74897, -0.4, -2.85)
+
+[node name="Stairs02_2m2" parent="ExteriorGeometry" instance=ExtResource("6_rlfyt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.74897, -0.4, -4.85)
+
+[node name="SidewalkDefaultBase2x5" parent="ExteriorGeometry" instance=ExtResource("7_s3u0x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.74897, 0.4, -4.85)
+
+[node name="UnloadedDetails" type="Node3D" parent="."]

@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://df1nvyp1wkvoy"]
+
+[ext_resource type="PackedScene" uid="uid://b5f0c21vdshnl" path="res://assets/models/buildings/wrh_store_medium_06/floor_00_floor.glb" id="1_82de5"]
+[ext_resource type="PackedScene" uid="uid://qklkrmvkt8lj" path="res://assets/models/buildings/wrh_store_medium_06/floor_01_floor.glb" id="2_dq513"]
+[ext_resource type="PackedScene" uid="uid://cy5nm2lnaxebo" path="res://assets/models/buildings/wrh_store_medium_06/floor_02_floor.glb" id="3_4ivau"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_c548s"]
+vertices = PackedVector3Array(-2.75, 0.75, -3.1, -2.75, 0.5, 2.9, 0.75, 0.5, 2.9, 0.75, 0.75, -3.1)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+geometry_source_geometry_mode = 1
+agent_height = 1.75
+agent_radius = 0.25
+
+[node name="Interior" type="NavigationRegion3D"]
+navigation_mesh = SubResource("NavigationMesh_c548s")
+
+[node name="BuildingGeometry" type="Node3D" parent="." groups=["navigation_mesh_source_group"]]
+
+[node name="floor_00_floor" parent="BuildingGeometry" instance=ExtResource("1_82de5")]
+
+[node name="floor_01_floor" parent="BuildingGeometry" instance=ExtResource("2_dq513")]
+
+[node name="floor_02_floor" parent="BuildingGeometry" instance=ExtResource("3_4ivau")]

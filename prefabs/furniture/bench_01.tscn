@@ -1,0 +1,79 @@
+[gd_scene load_steps=4 format=3 uid="uid://dlb7xlfd34cnx"]
+
+[ext_resource type="PackedScene" uid="uid://cwlknbc6wjf7r" path="res://assets/models/furniture/bench_01.glb" id="1_ut7xe"]
+[ext_resource type="Script" path="res://code/interactables/Chair.cs" id="2_5l3iq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5gc07"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[node name="Bench_01" type="Node3D"]
+
+[node name="Model" parent="." instance=ExtResource("1_ut7xe")]
+
+[node name="Seat" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75, 0, 0)
+script = ExtResource("2_5l3iq")
+
+[node name="InteractionCollider" type="StaticBody3D" parent="Seat"]
+collision_layer = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Seat/InteractionCollider"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, -0.1)
+shape = SubResource("BoxShape3D_5gc07")
+
+[node name="SeatPositionMarker" type="Marker3D" parent="Seat"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.2)
+
+[node name="ExitPositionMarker" type="Marker3D" parent="Seat"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, -0.8)
+
+[node name="Seat2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, 0, 0)
+script = ExtResource("2_5l3iq")
+
+[node name="InteractionCollider" type="StaticBody3D" parent="Seat2"]
+collision_layer = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Seat2/InteractionCollider"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, -0.1)
+shape = SubResource("BoxShape3D_5gc07")
+
+[node name="SeatPositionMarker" type="Marker3D" parent="Seat2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.2)
+
+[node name="ExitPositionMarker" type="Marker3D" parent="Seat2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, -0.8)
+
+[node name="Seat3" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 0, 0)
+script = ExtResource("2_5l3iq")
+
+[node name="InteractionCollider" type="StaticBody3D" parent="Seat3"]
+collision_layer = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Seat3/InteractionCollider"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, -0.1)
+shape = SubResource("BoxShape3D_5gc07")
+
+[node name="SeatPositionMarker" type="Marker3D" parent="Seat3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.2)
+
+[node name="ExitPositionMarker" type="Marker3D" parent="Seat3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, -0.8)
+
+[node name="Seat4" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75, 0, 0)
+script = ExtResource("2_5l3iq")
+
+[node name="InteractionCollider" type="StaticBody3D" parent="Seat4"]
+collision_layer = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Seat4/InteractionCollider"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, -0.1)
+shape = SubResource("BoxShape3D_5gc07")
+
+[node name="SeatPositionMarker" type="Marker3D" parent="Seat4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.2)
+
+[node name="ExitPositionMarker" type="Marker3D" parent="Seat4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, -0.8)

@@ -1,0 +1,41 @@
+[gd_scene load_steps=9 format=3 uid="uid://cbaamv1s4xsj0"]
+
+[ext_resource type="PackedScene" uid="uid://cwfo20aii2a6s" path="res://prefabs/triggers/sub_level_trigger.tscn" id="1_kcm56"]
+[ext_resource type="PackedScene" uid="uid://cjdgg75h8swjt" path="res://assets/models/buildings/konbini_01/exterior_header.glb" id="2_idg1q"]
+[ext_resource type="PackedScene" uid="uid://caxakh82477a6" path="res://assets/models/buildings/konbini_01/exterior_roof.glb" id="3_hmkeu"]
+[ext_resource type="PackedScene" uid="uid://du2xe5xyajyy1" path="res://assets/models/buildings/konbini_01/exterior_walls.glb" id="4_yalfl"]
+[ext_resource type="PackedScene" uid="uid://jibywngaqstn" path="res://assets/models/buildings/konbini_01/temp_props.glb" id="5_6lef1"]
+[ext_resource type="Material" uid="uid://cd374gk86tfva" path="res://assets/materials/dev_glass_opaque.tres" id="12_dlh4p"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_pm2eg"]
+size = Vector2(2, 2.7)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_otyig"]
+size = Vector2(1.75, 1.5)
+
+[node name="Konbini01" type="Node3D"]
+
+[node name="LevelSpawner" parent="." instance=ExtResource("1_kcm56")]
+_levelID = "konbini_01/Interior"
+
+[node name="ExteriorGeometry" type="Node3D" parent="."]
+
+[node name="exterior_header" parent="ExteriorGeometry" instance=ExtResource("2_idg1q")]
+
+[node name="exterior_roof" parent="ExteriorGeometry" instance=ExtResource("3_hmkeu")]
+
+[node name="exterior_walls" parent="ExteriorGeometry" instance=ExtResource("4_yalfl")]
+
+[node name="temp_props" parent="ExteriorGeometry" instance=ExtResource("5_6lef1")]
+
+[node name="UnloadedDetails" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="UnloadedDetails"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -1.3, 1.35, -3.313)
+mesh = SubResource("PlaneMesh_pm2eg")
+surface_material_override/0 = ExtResource("12_dlh4p")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="UnloadedDetails"]
+transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, 5.461, 1.95, -2.225)
+mesh = SubResource("PlaneMesh_otyig")
+surface_material_override/0 = ExtResource("12_dlh4p")

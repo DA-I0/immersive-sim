@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://8sug075vwep7"]
+
+[ext_resource type="PackedScene" uid="uid://df3dxyclefues" path="res://assets/models/buildings/bs_store_medium_06/floor_00_floor.glb" id="1_4tomp"]
+[ext_resource type="PackedScene" uid="uid://dn7gss3atcwqo" path="res://assets/models/buildings/bs_store_medium_06/floor_00_walls.glb" id="2_8hu5i"]
+[ext_resource type="Script" uid="uid://ch01c7865ldya" path="res://code/systems/EntityReparentTrigger.cs" id="3_2ajfd"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_c548s"]
+vertices = PackedVector3Array(-0.999999, 0.5, 2.9, -0.999999, 0.5, 5.9, 3.75, 0.5, 5.9, -4.75, 0.5, -5.85, -4.75, 0.5, 2.9, 3.75, 0.5, -5.85)
+polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(0, 4, 3), PackedInt32Array(2, 0, 5), PackedInt32Array(5, 0, 3)]
+geometry_source_geometry_mode = 1
+agent_height = 1.75
+agent_radius = 0.25
+
+[node name="Interior" type="NavigationRegion3D"]
+navigation_mesh = SubResource("NavigationMesh_c548s")
+
+[node name="BuildingGeometry" type="Node3D" parent="." groups=["navigation_mesh_source_group"]]
+
+[node name="floor_00_floor2" parent="BuildingGeometry" instance=ExtResource("1_4tomp")]
+
+[node name="floor_00_walls2" parent="BuildingGeometry" instance=ExtResource("2_8hu5i")]
+
+[node name="ReparentTriggers" type="Node3D" parent="."]
+
+[node name="EntityReparentTrigger" type="Area3D" parent="ReparentTriggers"]
+script = ExtResource("3_2ajfd")
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="ReparentTriggers/EntityReparentTrigger"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.24306, 0)
+depth = 2.5
+polygon = PackedVector2Array(-1.255, 6.255, 4.255, 6.255, 4.255, -6.355, -5.26, -6.355, -5.26, 3.255, -1.255, 3.255)
+debug_color = Color(0.793491, 0.0739923, 1, 0.42)

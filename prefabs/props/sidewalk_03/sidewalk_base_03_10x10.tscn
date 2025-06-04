@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dchkuhjm30i8w"]
+
+[ext_resource type="PackedScene" uid="uid://d0a1gr4w2udv1" path="res://assets/models/props/sidewalk/sidewalk_base_10x10.glb" id="1_gfqwg"]
+[ext_resource type="Material" uid="uid://bp6112nu7ggaq" path="res://assets/materials/pixel_art/brick_ground_01.tres" id="2_o181e"]
+
+[node name="SidewalkBase03_10x10" instance=ExtResource("1_gfqwg")]
+
+[node name="sidewalk_base_10x10" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_o181e")

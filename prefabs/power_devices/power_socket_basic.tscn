@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://dfcivmamjo1qi"]
+
+[ext_resource type="PackedScene" uid="uid://bd1mhdj83eepu" path="res://assets/models/props/power_devices/power_socket_basic.glb" id="1_aqhqt"]
+[ext_resource type="Material" uid="uid://b8q6n32h7jocq" path="res://assets/materials/power_devices/power_socket_basic.tres" id="2_eowfh"]
+[ext_resource type="Script" uid="uid://bmjftoefn3wia" path="res://code/interactables/PowerPoint.cs" id="3_qp5hy"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_28xij"]
+size = Vector3(0.05, 0.05, 0.006)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_02uti"]
+size = Vector3(0.02, 0.02, 0.01)
+
+[node name="PowerSocketBasic" type="Node3D"]
+
+[node name="Model" parent="." instance=ExtResource("1_aqhqt")]
+
+[node name="power_socket_basic" parent="Model" index="0"]
+surface_material_override/0 = ExtResource("2_eowfh")
+
+[node name="Collider" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.002)
+
+[node name="CollisionShape" type="CollisionShape3D" parent="Collider"]
+shape = SubResource("BoxShape3D_28xij")
+
+[node name="PlugPosition" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.01)
+collision_layer = 0
+collision_mask = 4
+monitorable = false
+script = ExtResource("3_qp5hy")
+
+[node name="CollisionShape" type="CollisionShape3D" parent="PlugPosition"]
+shape = SubResource("BoxShape3D_02uti")
+debug_color = Color(0.74902, 0.462745, 0, 1)
+
+[connection signal="body_entered" from="PlugPosition" to="PlugPosition" method="ItemBodyEntered"]
+[connection signal="body_exited" from="PlugPosition" to="PlugPosition" method="ItemBodyExited"]
+
+[editable path="Model"]

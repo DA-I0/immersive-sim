@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://dfau0c84tc4kv"]
+
+[ext_resource type="PackedScene" uid="uid://kvv6ufbmu3o1" path="res://assets/models/building_parts/door/door_frame_single.glb" id="1_4kgjv"]
+[ext_resource type="PackedScene" uid="uid://colpcksokm1ay" path="res://assets/models/building_parts/door/door_01.glb" id="2_5j5hc"]
+[ext_resource type="Material" uid="uid://c0hj7haymkpjh" path="res://assets/materials/dev/dev_gray_light.tres" id="2_h2iho"]
+[ext_resource type="Script" uid="uid://ckxfd2cyrhs4m" path="res://code/interactables/Door.cs" id="3_ukyq7"]
+[ext_resource type="Material" uid="uid://b5i8t0xammn0b" path="res://assets/materials/dev/dev_orange.tres" id="5_g4l60"]
+
+[node name="DoorSingle01" type="Node3D"]
+
+[node name="DoorFrame" parent="." instance=ExtResource("1_4kgjv")]
+
+[node name="door_frame_single" parent="DoorFrame" index="0"]
+surface_material_override/0 = ExtResource("2_h2iho")
+
+[node name="Door" parent="." instance=ExtResource("2_5j5hc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.491, 1.087, -0.06)
+collision_layer = 3
+script = ExtResource("3_ukyq7")
+_doorAxis = 1
+_openRange = -90.0
+_useInNPCNavigation = true
+
+[node name="door_01" parent="Door" index="0"]
+surface_material_override/0 = ExtResource("2_h2iho")
+surface_material_override/1 = ExtResource("5_g4l60")
+
+[node name="NavigationRegion3D" type="NavigationLink3D" parent="."]
+start_position = Vector3(0, 0, -1)
+end_position = Vector3(0, 0, 1)
+
+[node name="CornerProofing" type="NavigationObstacle3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7, 0, 0)
+radius = 0.05
+affect_navigation_mesh = true
+
+[node name="CornerProofing2" type="NavigationObstacle3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, 0, 0)
+radius = 0.05
+affect_navigation_mesh = true
+
+[editable path="DoorFrame"]
+[editable path="Door"]

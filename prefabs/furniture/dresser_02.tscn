@@ -1,0 +1,199 @@
+[gd_scene load_steps=12 format=3 uid="uid://dxy0tynt7vway"]
+
+[ext_resource type="PackedScene" uid="uid://bdf22tq8xnal3" path="res://assets/models/furniture/dresser_01/dresser_01.glb" id="1_g3jr3"]
+[ext_resource type="Script" path="res://code/interactables/Door.cs" id="2_ikybw"]
+[ext_resource type="PackedScene" uid="uid://sats6j3ig3uo" path="res://assets/models/furniture/dresser_02/dresser_02_inside.glb" id="2_tu1by"]
+[ext_resource type="Script" path="res://code/interactables/ToggleSwitch.cs" id="4_bvv7u"]
+[ext_resource type="PackedScene" uid="uid://cs34huek4xm46" path="res://assets/models/furniture/dresser_02/dresser_02_drawer.glb" id="4_ploav"]
+[ext_resource type="PackedScene" uid="uid://0o0q4aq30lkj" path="res://assets/models/furniture/desk_02/desk_02_drawer_rail.glb" id="6_jsrfg"]
+[ext_resource type="PackedScene" uid="uid://nx4e1nk88g0t" path="res://assets/models/furniture/dresser_02/dresser_02_door_right.glb" id="7_5jdhp"]
+[ext_resource type="PackedScene" uid="uid://8pldxg2infm4" path="res://assets/models/furniture/dresser_02/dresser_02_door_left.glb" id="8_kadyw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wuf3c"]
+size = Vector3(0.3, 0.12, 0.015)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mjnj5"]
+size = Vector3(0.26, 0.01, 0.42)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rg86o"]
+size = Vector3(0.37, 0.6, 0.015)
+
+[node name="Dresser01" type="Node3D"]
+
+[node name="Model" parent="." instance=ExtResource("1_g3jr3")]
+
+[node name="SubModel" parent="." instance=ExtResource("2_tu1by")]
+
+[node name="Drawer" parent="." instance=ExtResource("4_ploav")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.11, -0.01)
+script = ExtResource("2_ikybw")
+_doorAxis = 5
+_openRange = -0.3
+
+[node name="InteractionCollider" type="Node3D" parent="Drawer" node_paths=PackedStringArray("_connectedDevices")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06, -0.22)
+script = ExtResource("4_bvv7u")
+_connectedDevices = [NodePath(".."), NodePath("../../Rails1")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Drawer/InteractionCollider"]
+collision_layer = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Drawer/InteractionCollider/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.01, 0.005)
+shape = SubResource("BoxShape3D_wuf3c")
+
+[node name="BottomCollider" type="CollisionShape3D" parent="Drawer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.001, 0.007, 0)
+shape = SubResource("BoxShape3D_mjnj5")
+
+[node name="Drawer2" parent="." instance=ExtResource("4_ploav")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.23, -0.01)
+script = ExtResource("2_ikybw")
+_doorAxis = 5
+_openRange = -0.3
+
+[node name="InteractionCollider" type="Node3D" parent="Drawer2" node_paths=PackedStringArray("_connectedDevices")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06, -0.22)
+script = ExtResource("4_bvv7u")
+_connectedDevices = [NodePath(".."), NodePath("../../Rails2")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Drawer2/InteractionCollider"]
+collision_layer = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Drawer2/InteractionCollider/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.01, 0.005)
+shape = SubResource("BoxShape3D_wuf3c")
+
+[node name="BottomCollider" type="CollisionShape3D" parent="Drawer2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.001, 0.007, 0)
+shape = SubResource("BoxShape3D_mjnj5")
+
+[node name="Drawer3" parent="." instance=ExtResource("4_ploav")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, -0.01)
+script = ExtResource("2_ikybw")
+_doorAxis = 5
+_openRange = -0.3
+
+[node name="InteractionCollider" type="Node3D" parent="Drawer3" node_paths=PackedStringArray("_connectedDevices")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06, -0.22)
+script = ExtResource("4_bvv7u")
+_connectedDevices = [NodePath(".."), NodePath("../../Rails3")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Drawer3/InteractionCollider"]
+collision_layer = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Drawer3/InteractionCollider/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.01, 0.005)
+shape = SubResource("BoxShape3D_wuf3c")
+
+[node name="BottomCollider" type="CollisionShape3D" parent="Drawer3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.001, 0.007, 0)
+shape = SubResource("BoxShape3D_mjnj5")
+
+[node name="Drawer4" parent="." instance=ExtResource("4_ploav")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.47, -0.01)
+script = ExtResource("2_ikybw")
+_doorAxis = 5
+_openRange = -0.3
+
+[node name="InteractionCollider" type="Node3D" parent="Drawer4" node_paths=PackedStringArray("_connectedDevices")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06, -0.22)
+script = ExtResource("4_bvv7u")
+_connectedDevices = [NodePath(".."), NodePath("../../Rails4")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Drawer4/InteractionCollider"]
+collision_layer = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Drawer4/InteractionCollider/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.01, 0.005)
+shape = SubResource("BoxShape3D_wuf3c")
+
+[node name="BottomCollider" type="CollisionShape3D" parent="Drawer4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.001, 0.007, 0)
+shape = SubResource("BoxShape3D_mjnj5")
+
+[node name="Drawer5" parent="." instance=ExtResource("4_ploav")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.59, -0.01)
+script = ExtResource("2_ikybw")
+_doorAxis = 5
+_openRange = -0.3
+
+[node name="InteractionCollider" type="Node3D" parent="Drawer5" node_paths=PackedStringArray("_connectedDevices")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06, -0.22)
+script = ExtResource("4_bvv7u")
+_connectedDevices = [NodePath(".."), NodePath("../../Rails5")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Drawer5/InteractionCollider"]
+collision_layer = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Drawer5/InteractionCollider/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.01, 0.005)
+shape = SubResource("BoxShape3D_wuf3c")
+
+[node name="BottomCollider" type="CollisionShape3D" parent="Drawer5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.001, 0.00700003, 0)
+shape = SubResource("BoxShape3D_mjnj5")
+
+[node name="Rails1" parent="." instance=ExtResource("6_jsrfg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.11, -0.01)
+script = ExtResource("2_ikybw")
+_doorAxis = 5
+_openRange = -0.15
+
+[node name="Rails2" parent="." instance=ExtResource("6_jsrfg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.23, -0.01)
+script = ExtResource("2_ikybw")
+_doorAxis = 5
+_openRange = -0.15
+
+[node name="Rails3" parent="." instance=ExtResource("6_jsrfg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, -0.01)
+script = ExtResource("2_ikybw")
+_doorAxis = 5
+_openRange = -0.15
+
+[node name="Rails4" parent="." instance=ExtResource("6_jsrfg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.47, -0.01)
+script = ExtResource("2_ikybw")
+_doorAxis = 5
+_openRange = -0.15
+
+[node name="Rails5" parent="." instance=ExtResource("6_jsrfg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.59, -0.01)
+script = ExtResource("2_ikybw")
+_doorAxis = 5
+_openRange = -0.15
+
+[node name="DoorRight" parent="." instance=ExtResource("7_5jdhp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.530143, 0.399832, -0.219978)
+script = ExtResource("2_ikybw")
+_doorAxis = 1
+_openRange = 90.0
+
+[node name="InteractionCollider" type="Node3D" parent="DoorRight" node_paths=PackedStringArray("_connectedDevices")]
+script = ExtResource("4_bvv7u")
+_connectedDevices = [NodePath("..")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="DoorRight/InteractionCollider"]
+collision_layer = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DoorRight/InteractionCollider/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.185, 0, -0.005)
+shape = SubResource("BoxShape3D_rg86o")
+
+[node name="DoorLeft" parent="." instance=ExtResource("8_kadyw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.53, 0.4, -0.22)
+script = ExtResource("2_ikybw")
+_doorAxis = 1
+_openRange = -90.0
+
+[node name="InteractionCollider" type="Node3D" parent="DoorLeft" node_paths=PackedStringArray("_connectedDevices")]
+script = ExtResource("4_bvv7u")
+_connectedDevices = [NodePath("..")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="DoorLeft/InteractionCollider"]
+collision_layer = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DoorLeft/InteractionCollider/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.185, 0, -0.005)
+shape = SubResource("BoxShape3D_rg86o")

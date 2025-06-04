@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bgoo3agjgvmmd"]
+
+[ext_resource type="PackedScene" uid="uid://cagt2ycgiycby" path="res://assets/models/props/fence_01/post.glb" id="1_mrl8c"]
+[ext_resource type="Material" uid="uid://kvjym43dl8yy" path="res://assets/materials/dev/dev_green.tres" id="2_hyql2"]
+
+[node name="Post" instance=ExtResource("1_mrl8c")]
+
+[node name="post" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_hyql2")

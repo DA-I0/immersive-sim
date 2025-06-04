@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://vs7kepxhnbk4"]
+
+[ext_resource type="PackedScene" uid="uid://clhvtu41ku7pn" path="res://assets/models/building_parts/windows/window_0.8m_02_frame_double.glb" id="1_2rqj5"]
+[ext_resource type="PackedScene" uid="uid://bcwhqi1hw3nv4" path="res://prefabs/building_parts/windows/window_base_08m_02_left.tscn" id="2_1nsid"]
+[ext_resource type="PackedScene" uid="uid://cik3cddw2fjx2" path="res://assets/models/building_parts/windows/window_hinge_top.glb" id="2_aa8kd"]
+[ext_resource type="PackedScene" uid="uid://caqqv5r3qbccr" path="res://prefabs/building_parts/windows/window_base_08m_02_right.tscn" id="3_h7l4h"]
+
+[node name="Window08m02Double" type="Node3D"]
+
+[node name="Frame" parent="." instance=ExtResource("1_2rqj5")]
+
+[node name="HingeTop" parent="." instance=ExtResource("2_aa8kd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.769988, 1.56014, 0.025)
+
+[node name="HingeTop2" parent="." instance=ExtResource("2_aa8kd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.77, 1.56, 0.025)
+
+[node name="Window08m02Left" parent="." instance=ExtResource("2_1nsid")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.77, 0.0602781, 0.035)
+
+[node name="Window08m02Right" parent="." instance=ExtResource("3_h7l4h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.77, 0.06, 0.035)

@@ -1,0 +1,29 @@
+[gd_scene load_steps=7 format=3 uid="uid://boig1vfwntj45"]
+
+[ext_resource type="PackedScene" uid="uid://dxlomwggbabrl" path="res://assets/models/buildings/mr_store_medium_07/floor_00_floor.glb" id="1_i33n1"]
+[ext_resource type="PackedScene" uid="uid://cedvyb22jrtsd" path="res://assets/models/buildings/mr_store_medium_07/floor_00_walls_01.glb" id="2_rwm25"]
+[ext_resource type="PackedScene" uid="uid://cn67ybxmkg0c3" path="res://assets/models/buildings/mr_store_medium_07/floor_00_walls_02.glb" id="3_q524l"]
+[ext_resource type="PackedScene" uid="uid://cbbc8gb55ocvk" path="res://assets/models/buildings/mr_store_medium_07/floor_00_walls_03.glb" id="4_wkm0y"]
+[ext_resource type="PackedScene" uid="uid://bdnpii3xb7uxo" path="res://assets/models/buildings/mr_store_medium_07/floor_01_floor.glb" id="5_6dmr4"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_c548s"]
+vertices = PackedVector3Array(-4, 3.5, 1.85, -4, 3.5, 4.1, -3.25, 3.5, 4.1, -3, 3.5, 1.6, -3, 3.5, 4.6, 3, 3.5, 4.6, 3, 3.5, -4.65, -3, 3.5, -4.9, -3.75, 0.5, 2.1, -3.75, 0.5, 3.85, -3, 0.5, 3.85, -3, 0.5, 2.1, -1, 0.5, -2.15, -0.5, 0.5, -1.9, -0.5, 0.5, -2.65, -1, 0.5, -2.4, -2.75, 0.5, 4.35, -1.75, 0.5, 1.35, -2.25, 0.5, 1.1, -1.25, 0.5, -4.65, -2.5, 0.5, -4.9, -2, 0.5, 0.6, -1.25, 0.5, 0.35, -2.75, 0.5, 0.35, 3, 0.5, 4.35, 3, 0.5, 1.35, 3, 0.5, -4.4, -0.5, 0.5, -4.4, -0.5, 0.5, 0.35, 3, 0.5, 0.35)
+polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(2, 0, 4), PackedInt32Array(4, 0, 3), PackedInt32Array(4, 3, 5), PackedInt32Array(7, 6, 3), PackedInt32Array(3, 6, 5), PackedInt32Array(11, 10, 8), PackedInt32Array(8, 10, 9), PackedInt32Array(15, 14, 12), PackedInt32Array(12, 14, 13), PackedInt32Array(18, 17, 11), PackedInt32Array(11, 17, 10), PackedInt32Array(10, 17, 16), PackedInt32Array(20, 19, 15), PackedInt32Array(12, 22, 21), PackedInt32Array(18, 23, 21), PackedInt32Array(21, 23, 12), PackedInt32Array(12, 23, 15), PackedInt32Array(15, 23, 20), PackedInt32Array(25, 24, 17), PackedInt32Array(17, 24, 16), PackedInt32Array(18, 21, 17), PackedInt32Array(14, 27, 26), PackedInt32Array(29, 28, 13), PackedInt32Array(14, 26, 13), PackedInt32Array(13, 26, 29)]
+geometry_source_geometry_mode = 1
+agent_height = 1.75
+agent_radius = 0.25
+
+[node name="Interior" type="NavigationRegion3D"]
+navigation_mesh = SubResource("NavigationMesh_c548s")
+
+[node name="BuildingGeometry" type="Node3D" parent="." groups=["navigation_mesh_source_group"]]
+
+[node name="floor_00_floor" parent="BuildingGeometry" instance=ExtResource("1_i33n1")]
+
+[node name="floor_00_walls_01" parent="BuildingGeometry" instance=ExtResource("2_rwm25")]
+
+[node name="floor_00_walls_02" parent="BuildingGeometry" instance=ExtResource("3_q524l")]
+
+[node name="floor_00_walls_03" parent="BuildingGeometry" instance=ExtResource("4_wkm0y")]
+
+[node name="floor_01_floor" parent="BuildingGeometry" instance=ExtResource("5_6dmr4")]

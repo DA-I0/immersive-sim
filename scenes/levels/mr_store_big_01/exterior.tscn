@@ -1,0 +1,63 @@
+[gd_scene load_steps=9 format=3 uid="uid://hb5kn7gggnun"]
+
+[ext_resource type="PackedScene" uid="uid://c6a72nb461diw" path="res://assets/models/buildings/mr_store_big_01/exterior_walls_01.glb" id="1_00m07"]
+[ext_resource type="PackedScene" uid="uid://c82y55jiqtijf" path="res://assets/models/buildings/mr_store_big_01/exterior_walls_02.glb" id="2_t4365"]
+[ext_resource type="PackedScene" uid="uid://cqbthoweejo5s" path="res://assets/models/buildings/mr_store_big_01/roof.glb" id="3_smcnv"]
+[ext_resource type="PackedScene" uid="uid://bl5jwdtx10klj" path="res://assets/models/buildings/mr_store_big_01/exterior_front_columns.glb" id="4_ufwvx"]
+[ext_resource type="PackedScene" uid="uid://ca74eoua63o15" path="res://prefabs/power_devices/power_socket_basic_triple.tscn" id="7_ovmkr"]
+[ext_resource type="PackedScene" uid="uid://cwfo20aii2a6s" path="res://prefabs/triggers/sub_level_trigger.tscn" id="10_2laq8"]
+[ext_resource type="Material" uid="uid://cd374gk86tfva" path="res://assets/materials/dev_glass_opaque.tres" id="11_2klpi"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_pm2eg"]
+size = Vector2(4, 2.4)
+
+[node name="MRStoreBig01" type="Node3D"]
+
+[node name="LevelSpawner" parent="." instance=ExtResource("10_2laq8")]
+_levelID = "mr_store_big_01/Interior_01"
+
+[node name="LevelSpawner2" parent="." instance=ExtResource("10_2laq8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 11.811)
+_levelID = "mr_store_big_01/Interior_02"
+
+[node name="ExteriorGeometry" type="Node3D" parent="."]
+
+[node name="exterior_walls_01" parent="ExteriorGeometry" instance=ExtResource("1_00m07")]
+
+[node name="exterior_walls_02" parent="ExteriorGeometry" instance=ExtResource("2_t4365")]
+
+[node name="roof" parent="ExteriorGeometry" instance=ExtResource("3_smcnv")]
+
+[node name="exterior_front_columns2" parent="ExteriorGeometry" instance=ExtResource("4_ufwvx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.55, 0, -5)
+
+[node name="exterior_front_columns3" parent="ExteriorGeometry" instance=ExtResource("4_ufwvx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.55, 0, -5)
+
+[node name="exterior_front_columns4" parent="ExteriorGeometry" instance=ExtResource("4_ufwvx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.55, 0, -5)
+
+[node name="exterior_front_columns5" parent="ExteriorGeometry" instance=ExtResource("4_ufwvx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.55, 0, -5)
+
+[node name="UnloadedDetails" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="UnloadedDetails"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 5.05, 5.6, -4.935)
+mesh = SubResource("PlaneMesh_pm2eg")
+surface_material_override/0 = ExtResource("11_2klpi")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="UnloadedDetails"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 5.6, -4.935)
+mesh = SubResource("PlaneMesh_pm2eg")
+surface_material_override/0 = ExtResource("11_2klpi")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="UnloadedDetails"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -5.05, 5.6, -4.935)
+mesh = SubResource("PlaneMesh_pm2eg")
+surface_material_override/0 = ExtResource("11_2klpi")
+
+[node name="Props" type="Node3D" parent="."]
+
+[node name="PowerSocketBasicTriple" parent="Props" instance=ExtResource("7_ovmkr")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.5, 0.4, 12.7545)

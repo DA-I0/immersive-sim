@@ -1,0 +1,38 @@
+[gd_scene load_steps=8 format=3 uid="uid://b5vsnp0lwwdqg"]
+
+[ext_resource type="PackedScene" uid="uid://bw36xmwvqmto" path="res://assets/models/buildings/mr_store_medium_05/exterior_roof.glb" id="1_gy20t"]
+[ext_resource type="PackedScene" uid="uid://blk0p4b0kqkoe" path="res://assets/models/buildings/mr_store_medium_05/exterior_walls.glb" id="2_6pah2"]
+[ext_resource type="PackedScene" uid="uid://sufo4ohioevx" path="res://assets/models/buildings/mr_store_medium_05/exterior_window_still.glb" id="3_h4dr7"]
+[ext_resource type="PackedScene" uid="uid://cwfo20aii2a6s" path="res://prefabs/triggers/sub_level_trigger.tscn" id="13_0k7lh"]
+[ext_resource type="Material" uid="uid://cd374gk86tfva" path="res://assets/materials/dev_glass_opaque.tres" id="14_ay1sq"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_pm2eg"]
+size = Vector2(8, 9.5)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_1i8vu"]
+size = Vector2(2.4, 5.5)
+
+[node name="MRStoreMedium05" type="Node3D"]
+
+[node name="LevelSpawner" parent="." instance=ExtResource("13_0k7lh")]
+_levelID = "mr_store_medium_05/Interior"
+
+[node name="ExteriorGeometry" type="Node3D" parent="."]
+
+[node name="exterior_roof" parent="ExteriorGeometry" instance=ExtResource("1_gy20t")]
+
+[node name="exterior_walls" parent="ExteriorGeometry" instance=ExtResource("2_6pah2")]
+
+[node name="exterior_window_still" parent="ExteriorGeometry" instance=ExtResource("3_h4dr7")]
+
+[node name="UnloadedDetails" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="UnloadedDetails"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -2.22838, 5.23247, -5.4188)
+mesh = SubResource("PlaneMesh_pm2eg")
+surface_material_override/0 = ExtResource("14_ay1sq")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="UnloadedDetails"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 3.81694, 7.25569, -5.21315)
+mesh = SubResource("PlaneMesh_1i8vu")
+surface_material_override/0 = ExtResource("14_ay1sq")

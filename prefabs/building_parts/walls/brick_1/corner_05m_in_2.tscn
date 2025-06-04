@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://blq224c181is6"]
+
+[ext_resource type="PackedScene" uid="uid://cw3rs6b6n3355" path="res://assets/models/building_parts/walls/corner_05m_in.glb" id="1_nfmny"]
+[ext_resource type="Material" uid="uid://cex23krx5xu8h" path="res://assets/materials/pixel_art/bricks_1.tres" id="2_w8mul"]
+
+[node name="corner_05m_in2" instance=ExtResource("1_nfmny")]
+
+[node name="corner_05m_in" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_w8mul")

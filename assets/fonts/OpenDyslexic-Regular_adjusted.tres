@@ -1,0 +1,8 @@
+[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://dj3462k6mpf5r"]
+
+[ext_resource type="FontFile" uid="uid://dg5sr66sh7lqi" path="res://assets/fonts/OpenDyslexic-Regular.otf" id="1_yec8g"]
+
+[resource]
+base_font = ExtResource("1_yec8g")
+spacing_top = -1
+spacing_bottom = -2

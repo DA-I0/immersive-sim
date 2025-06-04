@@ -1,0 +1,100 @@
+[gd_scene load_steps=13 format=3 uid="uid://dkwas1gefxxfk"]
+
+[ext_resource type="PackedScene" uid="uid://cwfo20aii2a6s" path="res://prefabs/triggers/sub_level_trigger.tscn" id="1_reqy8"]
+[ext_resource type="PackedScene" uid="uid://ceaps43sf1217" path="res://assets/models/buildings/wrh_store_medium_05/exterior_walls.glb" id="2_luqkl"]
+[ext_resource type="PackedScene" uid="uid://fxve65mhy1in" path="res://prefabs/props/stairs_03/stairs_03_5m.tscn" id="3_u5035"]
+[ext_resource type="PackedScene" uid="uid://ckgpaxq7spmas" path="res://prefabs/props/stairs_03/stairs_03_2m.tscn" id="4_uj4h6"]
+[ext_resource type="PackedScene" uid="uid://qyo0r7u2xwoc" path="res://prefabs/props/sidewalk_01/sidewalk_default_base_2x2.tscn" id="5_qsbld"]
+[ext_resource type="PackedScene" uid="uid://djg3g1rqhqmnq" path="res://prefabs/props/sidewalk_01/sidewalk_default_base_2x5.tscn" id="6_mpf5c"]
+[ext_resource type="PackedScene" uid="uid://dkf8bt8bxkhd2" path="res://prefabs/props/sidewalk_01/sidewalk_default_base_1x2.tscn" id="7_hr165"]
+[ext_resource type="PackedScene" uid="uid://bd5j6oy4fy60p" path="res://prefabs/props/sidewalk_01/sidewalk_default_base_2x10.tscn" id="8_ugw40"]
+[ext_resource type="PackedScene" uid="uid://b3w8kvnpgougw" path="res://prefabs/props/sidewalk_01/sidewalk_default_base_1x10.tscn" id="9_isg8x"]
+[ext_resource type="PackedScene" uid="uid://dcxdx6ttrkmpj" path="res://prefabs/props/sidewalk_01/sidewalk_default_base_1x1.tscn" id="10_1bh7n"]
+[ext_resource type="PackedScene" uid="uid://7e5e1nrs4cef" path="res://prefabs/props/wall_01/wall_01_1m_2m.tscn" id="11_ygce5"]
+[ext_resource type="PackedScene" uid="uid://dyfy0ytdbqkpo" path="res://prefabs/props/wall_01/wall_01_1m_1m.tscn" id="12_r5g2s"]
+
+[node name="WrhStoreMedium05" type="Node3D"]
+
+[node name="LevelSpawner" parent="." instance=ExtResource("1_reqy8")]
+_levelID = "wrh_store_medium_05/Interior"
+
+[node name="ExteriorGeometry" type="Node3D" parent="."]
+
+[node name="exterior_walls2" parent="ExteriorGeometry" instance=ExtResource("2_luqkl")]
+
+[node name="Walkways" type="Node3D" parent="ExteriorGeometry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04, 0.015, -0.06)
+
+[node name="Stairs02_5m" parent="ExteriorGeometry/Walkways" instance=ExtResource("3_u5035")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 5.71062, -1.31481, -5.48899)
+
+[node name="Stairs02_2m" parent="ExteriorGeometry/Walkways" instance=ExtResource("4_uj4h6")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.710624, -1.31481, -5.48899)
+
+[node name="Stairs02_2m2" parent="ExteriorGeometry/Walkways" instance=ExtResource("4_uj4h6")]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, -3.53938, -0.314807, -7.18999)
+
+[node name="Stairs02_2m3" parent="ExteriorGeometry/Walkways" instance=ExtResource("4_uj4h6")]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, -3.53938, 0.685193, -4.18999)
+
+[node name="Stairs02_2m4" parent="ExteriorGeometry/Walkways" instance=ExtResource("4_uj4h6")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -0.289376, 1.68519, -2.18999)
+
+[node name="SidewalkDefaultBase2x2" parent="ExteriorGeometry/Walkways" instance=ExtResource("5_qsbld")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.53938, 0.485193, -7.18999)
+
+[node name="SidewalkDefaultBase2x4" parent="ExteriorGeometry/Walkways" instance=ExtResource("5_qsbld")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8.96062, -0.513807, -8.48899)
+
+[node name="SidewalkDefaultBase2x11" parent="ExteriorGeometry/Walkways" instance=ExtResource("5_qsbld")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8.96062, -0.513807, -6.48899)
+
+[node name="SidewalkDefaultBase2x3" parent="ExteriorGeometry/Walkways" instance=ExtResource("5_qsbld")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.53938, 1.48519, -4.18999)
+
+[node name="SidewalkDefaultBase2x5" parent="ExteriorGeometry/Walkways" instance=ExtResource("6_mpf5c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.289376, 2.48519, -4.18999)
+
+[node name="SidewalkDefaultBase1x2" parent="ExteriorGeometry/Walkways" instance=ExtResource("7_hr165")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5.71062, 2.48519, -4.18999)
+
+[node name="SidewalkDefaultBase1x4" parent="ExteriorGeometry/Walkways" instance=ExtResource("7_hr165")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3.039, -0.514, -8.489)
+
+[node name="SidewalkDefaultBase1x5" parent="ExteriorGeometry/Walkways" instance=ExtResource("7_hr165")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3.039, -0.514, -6.489)
+
+[node name="SidewalkDefaultBase1x3" parent="ExteriorGeometry/Walkways" instance=ExtResource("7_hr165")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.03938, -0.513807, -5.48899)
+
+[node name="SidewalkDefaultBase2x10" parent="ExteriorGeometry/Walkways" instance=ExtResource("8_ugw40")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.03938, -0.513807, -8.48899)
+
+[node name="SidewalkDefaultBase2x12" parent="ExteriorGeometry/Walkways" instance=ExtResource("8_ugw40")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.039, -1.514, -4.04)
+
+[node name="SidewalkDefaultBase1x10" parent="ExteriorGeometry/Walkways" instance=ExtResource("9_isg8x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.03938, -0.513807, -6.48899)
+
+[node name="SidewalkDefaultBase1x11" parent="ExteriorGeometry/Walkways" instance=ExtResource("9_isg8x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.039, -1.514, -5.04)
+
+[node name="SidewalkBaseBase1x1" parent="ExteriorGeometry/Walkways" instance=ExtResource("10_1bh7n")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.961, -0.515, -5.489)
+
+[node name="SidewalkBaseBase1x2" parent="ExteriorGeometry/Walkways" instance=ExtResource("10_1bh7n")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4.539, -0.514, -6.989)
+
+[node name="Wall01_1m_2m" parent="ExteriorGeometry/Walkways" instance=ExtResource("11_ygce5")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.739358, -1.31381, -4.48899)
+
+[node name="Wall01_1m_1m" parent="ExteriorGeometry/Walkways" instance=ExtResource("12_r5g2s")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.03938, -1.31381, -5.48899)
+
+[node name="Wall01_1m_1m3" parent="ExteriorGeometry/Walkways" instance=ExtResource("12_r5g2s")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -2.73936, -1.31381, -4.48899)
+
+[node name="Wall01_1m_1m2" parent="ExteriorGeometry/Walkways" instance=ExtResource("12_r5g2s")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5.71163, -1.31381, -5.48899)
+
+[node name="UnloadedDetails" type="Node3D" parent="."]

@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://cr267y47ltxlg"]
+
+[ext_resource type="PackedScene" uid="uid://wsnbldgqfot2" path="res://assets/models/door_lock.glb" id="1_8yqqi"]
+[ext_resource type="Script" path="res://code/interactables/InteractiveScreen.cs" id="2_k25yx"]
+[ext_resource type="PackedScene" uid="uid://dxy34bj5vjv0k" path="res://ui/displays/door_lock.tscn" id="3_svdpu"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8u4fl"]
+size = Vector3(0.1, 0.1, 0.01)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6heic"]
+emission_enabled = true
+emission = Color(0.137255, 0.137255, 0.137255, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_c4mwo"]
+material = SubResource("StandardMaterial3D_6heic")
+size = Vector2(0.1, 0.1)
+
+[node name="door_lock" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.648396, 1.49364, 0)
+
+[node name="Model" parent="." instance=ExtResource("1_8yqqi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0407439, -0.175272, 0.109901)
+
+[node name="Screen" type="Node3D" parent="." node_paths=PackedStringArray("_sourceViewport", "_screenModel", "_screenCollider")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.043, -0.157, 0.149)
+script = ExtResource("2_k25yx")
+_sourceViewport = NodePath("UIViewport")
+_screenModel = NodePath("ScreenDisplay")
+_screenCollider = NodePath("ScreenCollider")
+
+[node name="ScreenCollider" type="Area3D" parent="Screen"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.000999331, 0)
+collision_layer = 8
+
+[node name="ColliderShape" type="CollisionShape3D" parent="Screen/ScreenCollider"]
+transform = Transform3D(1, 0, 0, 0, 0.906308, 0.422618, 0, -0.422618, 0.906308, 0, 0, 0)
+shape = SubResource("BoxShape3D_8u4fl")
+
+[node name="ScreenDisplay" type="MeshInstance3D" parent="Screen"]
+transform = Transform3D(1, 0, 0, 0, 0.906308, 0.422618, 0, -0.422618, 0.906308, 0.00251794, 0, -0.00452636)
+mesh = SubResource("QuadMesh_c4mwo")
+
+[node name="UIViewport" type="SubViewport" parent="Screen"]
+transparent_bg = true
+
+[node name="DoorLockScreen" parent="Screen/UIViewport" instance=ExtResource("3_svdpu")]

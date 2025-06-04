@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://ocmsob2lapv5"]
+
+[ext_resource type="Texture2D" uid="uid://417rogqab53u" path="res://assets/textures/pixel_art/half_tiles_monochrome.png" id="1_moefp"]
+[ext_resource type="Texture2D" uid="uid://crfw8ovayfhjn" path="res://assets/textures/pixel_art/half_tiles_monochrome_normal.png" id="2_vb2ak"]
+
+[resource]
+albedo_texture = ExtResource("1_moefp")
+normal_texture = ExtResource("2_vb2ak")
+heightmap_scale = 0.259
+heightmap_texture = ExtResource("2_vb2ak")
+texture_filter = 0
+point_size = 128.0

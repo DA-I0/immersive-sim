@@ -1,0 +1,44 @@
+[gd_scene load_steps=8 format=3 uid="uid://ophxnshq666k"]
+
+[ext_resource type="PackedScene" uid="uid://bf8r2gn2i87ht" path="res://assets/models/buildings/ab_store_medium_01/floor_00_floor_02.glb" id="1_ukwqu"]
+[ext_resource type="PackedScene" uid="uid://8rl4xx841s0l" path="res://assets/models/buildings/ab_store_medium_01/floor_00_walls_04.glb" id="2_ll4ij"]
+[ext_resource type="PackedScene" uid="uid://dj2yo4dd2mo0w" path="res://assets/models/buildings/ab_store_medium_01/floor_00_walls_05.glb" id="3_o75su"]
+[ext_resource type="PackedScene" uid="uid://bq618hk3re320" path="res://assets/models/buildings/ab_store_medium_01/floor_00_walls_06.glb" id="4_6k15f"]
+[ext_resource type="PackedScene" uid="uid://dum7ohupk403f" path="res://assets/models/buildings/ab_store_medium_01/floor_00_walls_07.glb" id="5_35geq"]
+[ext_resource type="PackedScene" uid="uid://ec5b0bh7mi6" path="res://prefabs/triggers/entity_reparent_trigger.tscn" id="6_6ptw2"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_c548s"]
+geometry_parsed_geometry_type = 1
+geometry_source_geometry_mode = 1
+agent_height = 1.75
+agent_radius = 0.25
+
+[node name="Interior_02" type="NavigationRegion3D"]
+navigation_mesh = SubResource("NavigationMesh_c548s")
+
+[node name="BuildingGeometry" type="Node3D" parent="."]
+
+[node name="floor_00_floor_02" parent="BuildingGeometry" instance=ExtResource("1_ukwqu")]
+
+[node name="floor_00_walls_04" parent="BuildingGeometry" instance=ExtResource("2_ll4ij")]
+
+[node name="floor_00_walls_05" parent="BuildingGeometry" instance=ExtResource("3_o75su")]
+
+[node name="floor_00_walls_06" parent="BuildingGeometry" instance=ExtResource("4_6k15f")]
+
+[node name="floor_00_walls_07" parent="BuildingGeometry" instance=ExtResource("5_35geq")]
+
+[node name="Props" type="Node3D" parent="." groups=["navigation_mesh_source_group"]]
+
+[node name="NPCTriggers" type="Node3D" parent="."]
+
+[node name="ReparentTriggers" type="Node3D" parent="."]
+
+[node name="EntityReparentTrigger" parent="ReparentTriggers" instance=ExtResource("6_6ptw2")]
+_topSceneParent = true
+
+[node name="CollisionShape3D" parent="ReparentTriggers/EntityReparentTrigger" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.90503, 1.41534, -0.00821114)
+debug_color = Color(0.793491, 0.0739923, 1, 0.42)
+
+[editable path="ReparentTriggers/EntityReparentTrigger"]

@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://bvklge6lly1yk"]
+
+[ext_resource type="Script" path="res://code/interactables/SelectorSwitch.cs" id="1_i7emb"]
+[ext_resource type="Texture2D" uid="uid://c6mgy6a1venmv" path="res://assets/textures/emptyBar.png" id="2_fqofh"]
+[ext_resource type="Material" uid="uid://bx51uk5arjbcn" path="res://assets/materials/dev/dev_black.tres" id="2_obqkg"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8lyoe"]
+size = Vector3(0.05, 0.05, 0.01)
+
+[sub_resource type="BoxMesh" id="BoxMesh_f757h"]
+material = ExtResource("2_obqkg")
+size = Vector3(0.05, 0.05, 0.01)
+
+[node name="Button1" type="Node3D" node_paths=PackedStringArray("_connectedDevices")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
+script = ExtResource("1_i7emb")
+_switchType = 1
+_connectedDevices = [null]
+
+[node name="Collider" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape" type="CollisionShape3D" parent="Collider"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.01)
+shape = SubResource("BoxShape3D_8lyoe")
+
+[node name="Model" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.01)
+mesh = SubResource("BoxMesh_f757h")
+skeleton = NodePath("../Collider")
+
+[node name="Decal" type="Decal" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0.016)
+size = Vector3(0.05, 0.005, 0.05)
+texture_albedo = ExtResource("2_fqofh")
+texture_emission = ExtResource("2_fqofh")
+emission_energy = 0.1
+upper_fade = 0.321531
+lower_fade = 1e+06

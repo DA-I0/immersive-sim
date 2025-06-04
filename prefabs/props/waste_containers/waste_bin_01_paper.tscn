@@ -1,0 +1,31 @@
+[gd_scene load_steps=7 format=3 uid="uid://b7c7v80ud8qo7"]
+
+[ext_resource type="PackedScene" uid="uid://b3jgsc2v22edj" path="res://assets/models/props/waste_containers/waste_bin_01_paper.glb" id="1_ctmng"]
+[ext_resource type="Script" path="res://code/TrashBin.cs" id="3_0dsrq"]
+[ext_resource type="Texture2D" uid="uid://b5rm5a1wxq810" path="res://assets/textures/props/waste_containers/waste_bin_01_base.png" id="3_b4dup"]
+[ext_resource type="Texture2D" uid="uid://ckhwaa5it0o02" path="res://assets/textures/props/waste_containers/waste_bin_01_details_paper.png" id="4_0pp7j"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8wlbn"]
+albedo_color = Color(0.321569, 0.658824, 0.258824, 1)
+albedo_texture = ExtResource("3_b4dup")
+detail_enabled = true
+detail_albedo = ExtResource("4_0pp7j")
+texture_filter = 0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ef41y"]
+size = Vector3(0.43, 0.1, 0.28)
+
+[node name="WasteBin01Paper" instance=ExtResource("1_ctmng")]
+script = ExtResource("3_0dsrq")
+
+[node name="waste_bin_01_paper" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_8wlbn")
+
+[node name="DeathZone" type="Area3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.549176, 0)
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DeathZone" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000640869, 0, -0.0104614)
+shape = SubResource("BoxShape3D_ef41y")

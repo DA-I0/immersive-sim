@@ -1,0 +1,249 @@
+Movement:
+	✔ Basics traversal @done(24-11-12 17:47)
+	✔ Sprint @done(24-11-12 18:08)
+	✔ Smooth speed control @done(24-11-12 17:48)
+	✔ Jumping @done(24-11-12 17:48)
+	Advanced traversal:
+		☐ Mantling
+		☐ Climbing
+		☐ Wall jump
+		☐ Ledge hang movement
+		✔ Leg tuck when jumping @done(24-11-12 17:48)
+		☐ Landing roll
+		☐ Slide
+		☐ Quick turn
+		✔ Momentum @done(24-12-02 22:03)
+Stance:
+	Basic stances:
+		✔ Standing @done(24-11-12 17:48)
+		✔ Crouch @done(24-11-12 17:48)
+		✔ Prone @done(24-11-25 16:36)
+	✔ Smooth stance control (standing - crouching) @done(24-11-12 17:48)
+	✔ Basic lean @done(24-11-12 19:53)
+	✔ Smooth lean control @done(24-11-12 19:53)
+	✔ Freelook @done(24-11-20 02:19)
+	✔ Slight zoom ("focus") @done(24-11-19 20:16)
+	✔ Peeking (standing on tip toes) @done(24-11-12 20:21)
+Interactions:
+	✔ Primary usable interactions @done(24-11-12 21:48)
+	✔ Secondary usable interactions @done(24-11-29 22:21)
+	✔ Item placement @done(24-11-29 20:40)
+	☐ Item throwing
+	✔ Item hanging @done(25-01-25 18:19)
+	Interactables:
+		✔ Door @done(24-11-15 01:24)
+		✔ Switch @done(24-11-12 21:50)
+		✔ Seat @done(24-11-26 18:56)
+		✘ Bed (not needed, sleep is based on player stance - when prone) @cancelled(24-11-30 22:26)
+		✔ Elevator @done(24-11-15 17:46)
+		✔ Vending machine @done(24-11-19 21:18)
+		✔ Consumable @done(24-11-27 21:45)
+		✔ Interactive screen @done(24-11-15 22:37)
+		✔ Radio (on/off, prev/next station, volume) @done(24-11-26 16:40)
+		✔ Dimmable lights (add screen based switch variant with a slider) @done(24-11-16 16:20)
+		✔ Clock (analog, digital) @done(24-11-18 22:45)
+		✔ Usable containers (clothes, chests, drawers etc; limited capacity) @done(24-11-21 20:10)
+		✔ Trash bin (destroy items thrown inside) @done(24-11-22 18:48)
+		✔ Book/note @done(25-01-10 17:48)
+		✔ Shop @done(25-01-23 17:25)
+		✔ Device power system (connect to power source to work, deactivate without power) @done(25-04-16 18:22)
+Character customization:
+	☐ Character height
+	☐ Height based player max speed (higher faster)?
+	☐ Stats (use Cyberpunk 2020 ones?)
+	✔ Strength based carry weight @done(24-12-06 19:10)
+Equipment system:
+	✔ Use selected item @done(24-11-25 23:05)
+	✔ Pick up/drop @done(24-11-19 18:11)
+	✔ Character equipment slots @done(24-11-21 20:11)
+	✔ Equiping & uneqipping @done(24-11-21 20:11)
+	✔ Quick select from equipped containers @done(24-11-22 00:21)
+	✔ Equipped item weight affecting movement speed @done(24-12-18 20:31)
+	✔ Item stack splitting @done(25-01-14 23:00)
+NPCS:
+	✔ Basic movement @done(25-01-27 23:39)
+	✔ Simple needs system (time and interaction-based degradation, scan environment and walk to a prop to refill) @done(25-01-30 16:05)
+	✔ Check if usable is busy/taken and react appropriately @done(25-01-31 17:26)
+	✔ Door opening (+ auto closing) @done(25-02-04 18:31)
+	✔ Player avoidance @done(25-02-04 20:06)
+World:
+	✔ Day-night cycle @done(24-11-12 23:11)
+	✔ Proper in-game calendar @done(24-11-21 21:07)
+	✔ Time skip (sleep, wait) @done(24-11-20 17:35)
+	NPC spawn controller:
+		✔ Read spawner templates from config files and put them in the database (templates consists of templateID and IDs of npc prefabs that can be spawned from specific spawner) @done(25-04-04 02:31)
+		✔ Randomize spawn location @done(25-03-10 19:37)
+		✔ Randomize NPC template @done(25-04-04 02:31)
+		✔ Dynamically spawn new NPCs around the world @done(25-03-10 19:37)
+		✔ Remove NPCs away from the player @done(25-03-10 19:37)
+		☐ Keep some of the removed NPCs in cache for reuse
+		☐ Reset random NPCs on time skip
+	Building interiors:
+		✔ Dynamically load/unload building interiors @done(25-03-10 21:17)
+		✔ Show/hide "unloaded" details (opaque windows etc.) based on interior status @done(25-03-10 22:01)
+		✔ Entity reparenting @done(25-05-08 14:51)
+			✔ Dropped or placed items @done(25-05-08 14:51)
+			✔ NPCs moving between locations @done(25-05-08 14:51)
+Dialog System:
+	✔ Dialog manager class @done(25-02-10 17:56)
+	✔ Dialog node struct @done(25-01-21 18:58)
+	✔ Basic functionality @done(25-01-21 18:58)
+	☐ Display speaker name
+	☐ Dialog node requirements
+		✔ Variable @done(25-04-29 19:27)
+		✔ Current time @done(25-04-29 19:27)
+		☐ Player status
+			☐ Health
+			✔ Stamina @done(25-04-29 21:48)
+			☐ Skill level
+			☐ Having an item
+			✔ Current money @done(25-04-29 21:48)
+		☐ Mission state
+	☐ Dialog node effects
+		✔ Change variable value @done(25-02-10 17:56)
+		✔ Open shop menu @done(25-02-10 17:56)
+		✔ Advance time @done(25-04-29 17:41)
+		✔ Change player money @done(25-04-29 17:41)
+		☐ Change player inventory
+		☐ Change quest state
+Quest system:
+	☐ Quest manager class
+	✔ Quest states @done(25-02-11 15:59)
+	☐ Quest class
+	☐ Objective class
+Level manager:
+	✔ Level manager class @done(25-02-13 19:23)
+	✔ Player spawning and destruction @done(25-02-13 19:23)
+	✔ Trigger item saved state reload when changing levels @done(25-02-20 19:19)
+	✔ Asynchronous level streaming @done(25-04-09 14:47)
+Save system:
+	✔ Save manager class @done(25-02-12 11:20)
+	Player and NPC state:
+		✔ Position & rotation @done(25-02-06 22:05)
+		✔ Velocity @done(25-02-06 22:05)
+		✔ Health & stamina values @done(25-02-06 22:05)
+		✔ Equipped items @done(25-02-07 19:16)
+		✔ Money @done(25-02-07 19:16)
+	World state:
+		✔ Active location (map/scene player saved at) @done(25-02-20 19:19)
+		✔ Current date & time @done(25-02-06 22:05)
+		✔ Position and state of items @done(25-02-07 18:31)
+		✔ Scene hierarchy position of items @done(25-02-20 19:19)
+		✔ Delay loading of objects parented by inactive scenes @done(25-02-20 19:19)
+		✔ Cache object state of items parented to unloaded scen on location change @done(25-02-20 19:19)
+		☐ State of devices (temporarily, only until level transition?)
+		☐ Item cleanup (delete items dropped in public spaces after x amount of time)
+		✔ Restore saved item state on sublevel load @done(25-04-30 19:21)
+Journal system:
+	☐ Note creation/deletion
+	☐ Note editing and saving
+	☐ Note display
+	☐ Note list
+Work system:
+	✔ Unlock as topic after finding a job posting @done(25-04-29 19:29)
+	✔ Talk to NPC to enable the job @done(25-04-29 19:29)
+	✔ Talk to NPC to start your shift @done(25-04-29 19:50)
+		✔ Limit to specific hours @done(25-04-29 19:29)
+		✔ Stamina requirement @done(25-04-29 21:33)
+	✔ Skip time based on type of job (placeholder for actual work gameplay) @done(25-04-29 17:47)
+	✔ Reward player with money on completion @done(25-04-29 17:47)
+	✔ Decrease player stamina on completion @done(25-04-29 21:33)
+UI:
+	✔ User status (health, stamina etc.) @done(24-11-29 19:02)
+	✔ Detailed user status (health, stamina, equipment weight etc. on inventory screen) @done(22-11-28 17:50)
+	✔ Usable equipment slots @done(22-11-28 01:34)
+	✔ Openable containers @done(24-11-21 20:10)
+	✔ List of all usable interactions @done(24-11-28 21:36)
+	✔ Item info (detailed info on hover from inventory screen; name, durability, weight, description) @done(25-01-16 18:32)
+	✔ Item renaming (limit to containers?) @done(24-11-29 17:33)
+	✔ Readables @done(25-01-10 17:48)
+	✔ Name labels when aiming at items @done(25-01-10 19:59)
+	✔ Interaction icon for crosshair @done(25-03-03 17:28)
+	✔ Shop menu @done(25-01-23 17:25)
+	✔ Main menu @done(25-02-24 19:19)
+	✔ Save menu @done(25-02-25 18:39)
+		✔ Saving @done(25-02-25 16:10)
+		✔ Loading @done(25-02-25 15:46)
+		✔ Deleting @done(25-02-25 15:46)
+		✔ Display save info (file name, map, in-game date) @done(25-02-25 18:39)
+	✔ Settings menu @done(25-02-28 21:24)
+		✔ General @done(25-02-28 21:24)
+		✔ Video @done(25-02-28 21:24)
+		✔ Audio @done(25-02-25 20:06)
+		✔ Controls @done(25-02-27 23:10)
+	✔ Pause menu @done(25-02-24 18:19)
+	Notification system:
+		✔ Notification manager @done(25-02-21 19:40)
+		✔ Display info message for set duration of time @done(25-02-21 18:34)
+		☐ Option to toggle each notification type
+		✔ Inform about money changes @done(25-02-21 21:26)
+		✔ Inform about inventory changes @done(25-02-21 19:46)
+		✔ Inform about saving/loading @done(25-02-21 18:34)
+		☐ Inform about entering new area (building, shop, named area)
+Assets:
+	Building parts:
+		✔ Door @done(25-01-09 04:05)
+		✔ Walls @done(25-01-09 04:05)
+		✔ Windows @done(25-01-09 04:05)
+	Furniture:
+		✔ Bed @done(25-01-09 04:05)
+		✔ Bench @done(25-01-09 04:05)
+		✔ Chair @done(25-01-15 18:30)
+		✔ Desk @done(25-01-09 04:05)
+		✔ Wardrobe @done(25-01-09 04:05)
+		✔ Nightstand @done(25-01-13 16:38)
+	Props:
+		✔ Light switch @done(25-01-13 17:22)
+		☐ Radio
+		✔ Trash bin @done(25-03-27 20:10)
+		✔ Vending machine @done(25-04-01 14:32)
+		✔ Chest/container @done(25-01-09 04:05)
+	Consumables:
+		✔ Drink @done(25-01-09 04:05)
+		☐ Energy bar
+		✔ Medkit @done(25-01-09 15:29)
+		✔ Painkillers @done(25-01-24 18:56)
+	Equipment:
+		✔ Backpack @done(25-01-09 04:05)
+		☐ Shirt
+		☐ Pants
+		☐ Shoes
+		☐ Hat
+	Usable items:
+		✔ Flashlight @done(25-01-09 04:05)
+		☐ Lighter
+Test map:
+	☐ Overworld
+		☐ Geometry
+		☐ Detailing
+		☐ NPC interactables
+	☐ Generic store
+		✔ Geometry @done(25-04-04 16:18)
+		☐ Detailing
+		✔ Shop functionality @done(25-04-04 16:18)
+		☐ NPC interactables
+	☐ Book store
+		✔ Geometry @done(25-04-04 16:18)
+		☐ Detailing
+		✔ Shop functionality @done(25-04-04 16:18)
+		☐ NPC interactables
+	☐ Pharmacy
+		✔ Geometry @done(25-04-04 19:17)
+		☐ Detailing
+		✔ Shop functionality @done(25-04-04 19:17)
+		☐ NPC interactables
+	☐ Bar
+		☐ Geometry
+		☐ Detailing
+		☐ Shop functionality
+		☐ NPC interactables
+	☐ Restaurant
+		☐ Geometry
+		☐ Detailing
+		☐ Shop functionality
+		☐ NPC interactables
+	☐ Clothing store
+		☐ Geometry
+		☐ Detailing
+		☐ Shop functionality
+		☐ NPC interactables

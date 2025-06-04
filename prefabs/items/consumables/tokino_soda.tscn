@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://dqcrxe67mqev8"]
+
+[ext_resource type="Script" path="res://code/interactables/items/Consumable.cs" id="1_2c7fl"]
+[ext_resource type="PackedScene" uid="uid://cx5lkdrswdriu" path="res://assets/models/props/can.glb" id="2_w3js1"]
+[ext_resource type="Texture2D" uid="uid://0mwrj6sqd8ks" path="res://assets/textures/items/consumables/tokino_soda.png" id="3_q025g"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_dtec8"]
+height = 0.12
+radius = 0.035
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f7etm"]
+size = Vector3(0.05, 0.12, 0.05)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sicu5"]
+albedo_texture = ExtResource("3_q025g")
+texture_filter = 0
+
+[node name="TokinoSoda" type="RigidBody3D"]
+collision_layer = 4
+collision_mask = 5
+script = ExtResource("1_2c7fl")
+_templateID = "tokino_soda"
+
+[node name="Collider" type="CollisionShape3D" parent="."]
+shape = SubResource("CylinderShape3D_dtec8")
+
+[node name="SecondaryCollider" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_f7etm")
+
+[node name="Model" parent="." instance=ExtResource("2_w3js1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.06, 0)
+
+[node name="can" parent="Model" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_sicu5")
+
+[editable path="Model"]

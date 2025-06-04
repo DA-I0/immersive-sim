@@ -1,0 +1,66 @@
+[gd_scene load_steps=12 format=3 uid="uid://576bnnn33v31"]
+
+[ext_resource type="PackedScene" uid="uid://cm46ooi4w4ue4" path="res://assets/models/buildings/bs_store_medium_01/exterior_walls.glb" id="1_73xgp"]
+[ext_resource type="PackedScene" uid="uid://dghwsyi0d1srk" path="res://assets/models/buildings/bs_store_medium_01/roof.glb" id="2_cge6k"]
+[ext_resource type="Material" uid="uid://b5i8t0xammn0b" path="res://assets/materials/dev/dev_orange.tres" id="2_o0rwu"]
+[ext_resource type="PackedScene" uid="uid://cgjrp4f1xr7cg" path="res://assets/models/buildings/bs_store_medium_01/roof_logo.glb" id="3_musyn"]
+[ext_resource type="Material" uid="uid://cmgvdn03psf5u" path="res://assets/materials/dev/dev_gray.tres" id="4_o3y3x"]
+[ext_resource type="PackedScene" uid="uid://d2whkue2b4iqq" path="res://assets/models/buildings/bs_store_medium_01/step.glb" id="4_oomtt"]
+[ext_resource type="PackedScene" uid="uid://cwfo20aii2a6s" path="res://prefabs/triggers/sub_level_trigger.tscn" id="5_jue02"]
+[ext_resource type="Material" uid="uid://c0hj7haymkpjh" path="res://assets/materials/dev/dev_gray_light.tres" id="7_2jn2w"]
+[ext_resource type="PackedScene" uid="uid://dfau0c84tc4kv" path="res://prefabs/building_parts/door/door_single_01.tscn" id="8_qqet4"]
+[ext_resource type="Material" uid="uid://cd374gk86tfva" path="res://assets/materials/dev_glass_opaque.tres" id="9_qrbhr"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_5rvtd"]
+material = ExtResource("9_qrbhr")
+size = Vector2(19, 2.5)
+
+[node name="BSStoreMedium01" type="Node3D"]
+
+[node name="ExteriorGeometry" type="Node3D" parent="."]
+
+[node name="exterior_walls" parent="ExteriorGeometry" groups=["navigation_mesh_source_group"] instance=ExtResource("1_73xgp")]
+
+[node name="exterior_walls" parent="ExteriorGeometry/exterior_walls" index="0"]
+surface_material_override/0 = ExtResource("2_o0rwu")
+
+[node name="roof" parent="ExteriorGeometry" instance=ExtResource("2_cge6k")]
+
+[node name="roof" parent="ExteriorGeometry/roof" index="0"]
+surface_material_override/0 = ExtResource("2_o0rwu")
+surface_material_override/1 = ExtResource("4_o3y3x")
+
+[node name="roof_logo" parent="ExteriorGeometry" instance=ExtResource("3_musyn")]
+
+[node name="roof_logo" parent="ExteriorGeometry/roof_logo" index="0"]
+surface_material_override/0 = ExtResource("2_o0rwu")
+
+[node name="step" parent="ExteriorGeometry" groups=["navigation_mesh_source_group"] instance=ExtResource("4_oomtt")]
+
+[node name="step" parent="ExteriorGeometry/step" index="0"]
+surface_material_override/0 = ExtResource("7_2jn2w")
+
+[node name="DoorSingle01" parent="ExteriorGeometry" instance=ExtResource("8_qqet4")]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -11.6982, 0.3, -5.2011)
+
+[node name="NavigationRegion3D" parent="ExteriorGeometry/DoorSingle01" index="2"]
+end_position = Vector3(0, 0.5, 1)
+
+[node name="LevelSpawner" parent="." instance=ExtResource("5_jue02")]
+_levelID = "bs_store_medium_01/Interior"
+
+[node name="UnloadedDetails" type="Node3D" parent="."]
+
+[node name="TempWindow" type="MeshInstance3D" parent="UnloadedDetails"]
+transform = Transform3D(-1, -8.74228e-08, 3.82137e-15, 0, -4.37114e-08, -1, 8.74228e-08, -1, 4.37114e-08, -0.2, 1.958, -6.443)
+mesh = SubResource("PlaneMesh_5rvtd")
+
+[node name="ReparentTriggers" type="Node3D" parent="."]
+
+[editable path="ExteriorGeometry/exterior_walls"]
+[editable path="ExteriorGeometry/roof"]
+[editable path="ExteriorGeometry/roof_logo"]
+[editable path="ExteriorGeometry/step"]
+[editable path="ExteriorGeometry/DoorSingle01"]
+[editable path="ExteriorGeometry/DoorSingle01/DoorFrame"]
+[editable path="ExteriorGeometry/DoorSingle01/Door"]

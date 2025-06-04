@@ -1,0 +1,35 @@
+[gd_scene load_steps=8 format=3 uid="uid://il0ai86fyrux"]
+
+[ext_resource type="PackedScene" uid="uid://buf22amk6x3pj" path="res://assets/models/buildings/ab_bookstore/exterior_roof.glb" id="1_pl5yh"]
+[ext_resource type="PackedScene" uid="uid://bgkyoabp3g0bi" path="res://assets/models/buildings/ab_bookstore/exterior_walls.glb" id="2_crl60"]
+[ext_resource type="PackedScene" uid="uid://be0ldjs0odsbq" path="res://prefabs/props/stairs_03/stairs_03_1m.tscn" id="3_6tfxn"]
+[ext_resource type="PackedScene" uid="uid://dfau0c84tc4kv" path="res://prefabs/building_parts/door/door_single_01.tscn" id="5_5likt"]
+[ext_resource type="PackedScene" uid="uid://cwfo20aii2a6s" path="res://prefabs/triggers/sub_level_trigger.tscn" id="8_yeame"]
+[ext_resource type="Material" uid="uid://cd374gk86tfva" path="res://assets/materials/dev_glass_opaque.tres" id="9_vgm84"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_5rvtd"]
+material = ExtResource("9_vgm84")
+size = Vector2(4.5, 2)
+
+[node name="AB_Bookstore" type="Node3D"]
+
+[node name="LevelSpawner" parent="." instance=ExtResource("8_yeame")]
+_levelID = "ab_bookstore/Interior"
+
+[node name="ExteriorGeometry" type="Node3D" parent="."]
+
+[node name="exterior_roof2" parent="ExteriorGeometry" instance=ExtResource("1_pl5yh")]
+
+[node name="exterior_walls2" parent="ExteriorGeometry" instance=ExtResource("2_crl60")]
+
+[node name="Stairs02_1m" parent="ExteriorGeometry" instance=ExtResource("3_6tfxn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.18, -0.786, -2.5)
+
+[node name="DoorSingle01" parent="ExteriorGeometry" instance=ExtResource("5_5likt")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -2.68, 0.214, -2.36)
+
+[node name="UnloadedDetails" type="Node3D" parent="."]
+
+[node name="TempWindow" type="MeshInstance3D" parent="UnloadedDetails"]
+transform = Transform3D(-1, -8.74228e-08, 3.82137e-15, 0, -4.37114e-08, -1, 8.74228e-08, -1, 4.37114e-08, 0.63, 2.2, -2.364)
+mesh = SubResource("PlaneMesh_5rvtd")

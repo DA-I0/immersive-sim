@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://ce5i6x682p5mu"]
+
+[ext_resource type="PackedScene" uid="uid://cggraytkw0rtj" path="res://assets/models/furniture/desk_02/desk_02.glb" id="1_ru4go"]
+[ext_resource type="Script" path="res://code/interactables/Door.cs" id="2_v5grl"]
+[ext_resource type="PackedScene" uid="uid://t4840h2whi0o" path="res://assets/models/furniture/desk_02/desk_02_drawer.glb" id="3_mq6xf"]
+[ext_resource type="PackedScene" uid="uid://0o0q4aq30lkj" path="res://assets/models/furniture/desk_02/desk_02_drawer_rail.glb" id="5_mb3dq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mjnj5"]
+size = Vector3(0.26, 0.01, 0.42)
+
+[node name="Desk02" type="Node3D"]
+
+[node name="Model" parent="." instance=ExtResource("1_ru4go")]
+
+[node name="Drawer" parent="." instance=ExtResource("3_mq6xf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.38, 0.57, -0.005)
+script = ExtResource("2_v5grl")
+_doorAxis = 5
+_openRange = -0.3
+
+[node name="BottomCollider" type="CollisionShape3D" parent="Drawer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00700003, -0.005)
+shape = SubResource("BoxShape3D_mjnj5")
+
+[node name="Drawer2" parent="." instance=ExtResource("3_mq6xf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.38, 0.43, -0.005)
+script = ExtResource("2_v5grl")
+_doorAxis = 5
+_openRange = -0.3
+
+[node name="BottomCollider" type="CollisionShape3D" parent="Drawer2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.007, -0.005)
+shape = SubResource("BoxShape3D_mjnj5")
+
+[node name="desk_02_drawer_rail" parent="." instance=ExtResource("5_mb3dq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.38, 0.43, -0.005)
+script = ExtResource("2_v5grl")
+_doorAxis = 5
+_openRange = -0.15
+
+[node name="desk_02_drawer_rail2" parent="." instance=ExtResource("5_mb3dq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.38, 0.57, -0.005)
+script = ExtResource("2_v5grl")
+_doorAxis = 5
+_openRange = -0.15

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bg5s8bsrtutk0"]
+
+[ext_resource type="PackedScene" uid="uid://bgsldafn2o5s2" path="res://assets/models/props/wall_01/wall_01_1m_10m.glb" id="1_cxdv4"]
+[ext_resource type="Material" uid="uid://bqvrjaaxri3vm" path="res://assets/materials/concrete_placeholder.tres" id="2_nv80a"]
+
+[node name="Wall01_1m_10m" instance=ExtResource("1_cxdv4")]
+
+[node name="wall_01_1m_10m" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_nv80a")

@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://cyrgeo824rgnc"]
+
+[ext_resource type="PackedScene" uid="uid://bf81wuu8vbnu8" path="res://assets/models/props/wall_03/wall_03_corner_out_sharp.glb" id="1_c00jp"]
+[ext_resource type="Material" uid="uid://bqvrjaaxri3vm" path="res://assets/materials/concrete_placeholder.tres" id="2_cbwlc"]
+[ext_resource type="Material" uid="uid://cex23krx5xu8h" path="res://assets/materials/pixel_art/bricks_1.tres" id="3_lvp2c"]
+
+[node name="Wall03CornerOutSharp" instance=ExtResource("1_c00jp")]
+
+[node name="wall_03_corner_out_sharp" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_cbwlc")
+surface_material_override/1 = ExtResource("3_lvp2c")

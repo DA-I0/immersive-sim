@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=3 uid="uid://bulbvrt1jh4v3"]
+
+[ext_resource type="PackedScene" uid="uid://d3hgkaijh8v7j" path="res://assets/models/door_ring.glb" id="1_i2pjp"]
+[ext_resource type="Script" path="res://code/interactables/InteractiveScreen.cs" id="2_8501l"]
+[ext_resource type="PackedScene" uid="uid://ymfw2k5iksfs" path="res://ui/displays/door_ring.tscn" id="3_m1ete"]
+[ext_resource type="AudioStream" uid="uid://dikl5qdmbmekr" path="res://assets/audio/ring.ogg" id="4_amkog"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8u4fl"]
+size = Vector3(0.06, 0.1, 0.01)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6heic"]
+transparency = 1
+emission_enabled = true
+emission = Color(0.137255, 0.137255, 0.137255, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_c4mwo"]
+material = SubResource("StandardMaterial3D_6heic")
+size = Vector2(0.05, 0.1)
+
+[node name="door_ring" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.648396, 1.49364, 0)
+
+[node name="Model" parent="." instance=ExtResource("1_i2pjp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0407439, -0.175272, 0.109901)
+
+[node name="Screen" type="Node3D" parent="." node_paths=PackedStringArray("_sourceViewport", "_screenModel", "_screenCollider")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.043, -0.157, 0.149)
+script = ExtResource("2_8501l")
+_sourceViewport = NodePath("UIViewport")
+_screenModel = NodePath("ScreenDisplay")
+_screenCollider = NodePath("ScreenCollider")
+
+[node name="ScreenCollider" type="Area3D" parent="Screen"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.000999331, 0)
+collision_layer = 8
+
+[node name="ColliderShape" type="CollisionShape3D" parent="Screen/ScreenCollider"]
+transform = Transform3D(1, 0, 0, 0, 0.906308, 0.422618, 0, -0.422618, 0.906308, 0, 0, 0)
+shape = SubResource("BoxShape3D_8u4fl")
+
+[node name="ScreenDisplay" type="MeshInstance3D" parent="Screen"]
+transform = Transform3D(1, 0, 0, 0, 0.906308, 0.422618, 0, -0.422618, 0.906308, 0.00251794, 0, -0.00452636)
+mesh = SubResource("QuadMesh_c4mwo")
+
+[node name="UIViewport" type="SubViewport" parent="Screen"]
+transparent_bg = true
+size = Vector2i(256, 512)
+
+[node name="DoorRingScreen" parent="Screen/UIViewport" node_paths=PackedStringArray("_audioSource") instance=ExtResource("3_m1ete")]
+_audioSource = NodePath("")
+
+[node name="SpatialAudio3D" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0492332, -0.103831, -0.192362)
+stream = ExtResource("4_amkog")
+volume_db = -30.0

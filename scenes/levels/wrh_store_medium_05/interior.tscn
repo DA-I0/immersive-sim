@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://b866wdr6uctpr"]
+
+[ext_resource type="PackedScene" uid="uid://8afx8qnd24mu" path="res://assets/models/buildings/wrh_store_medium_05/floor_00_floor.glb" id="1_f1unb"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_c548s"]
+vertices = PackedVector3Array(-2.75, 0.75, -3.1, -2.75, 0.5, 2.9, 0.75, 0.5, 2.9, 0.75, 0.75, -3.1)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+geometry_source_geometry_mode = 1
+agent_height = 1.75
+agent_radius = 0.25
+
+[node name="Interior" type="NavigationRegion3D"]
+navigation_mesh = SubResource("NavigationMesh_c548s")
+
+[node name="BuildingGeometry" type="Node3D" parent="." groups=["navigation_mesh_source_group"]]
+
+[node name="floor_00_floor" parent="BuildingGeometry" instance=ExtResource("1_f1unb")]
+
+[node name="floor_00_floor2" parent="BuildingGeometry" instance=ExtResource("1_f1unb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.6, 0)
+
+[node name="floor_00_floor3" parent="BuildingGeometry" instance=ExtResource("1_f1unb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.2, 0)

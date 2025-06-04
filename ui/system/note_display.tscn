@@ -1,0 +1,91 @@
+[gd_scene load_steps=2 format=3 uid="uid://bx5edcyygl26m"]
+
+[ext_resource type="Script" uid="uid://dfjmiqxuhwnba" path="res://code/ui/NoteDisplay.cs" id="1_8wx84"]
+
+[node name="NoteDisplay" type="Control" node_paths=PackedStringArray("_noteContent", "_notePage", "_previousPage", "_nextPage")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8wx84")
+_noteContent = NodePath("Container/ControlList/NoteContent")
+_notePage = NodePath("Container/ControlList/HBoxContainer/PageNumber")
+_previousPage = NodePath("Container/ControlList/HBoxContainer/PreviousPage")
+_nextPage = NodePath("Container/ControlList/HBoxContainer/NextPage")
+
+[node name="Container" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 0.25
+anchor_right = 0.75
+anchor_bottom = 1.0
+
+[node name="Background" type="ColorRect" parent="Container"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.111197, 0.111197, 0.111197, 1)
+
+[node name="ControlList" type="VBoxContainer" parent="Container"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NoteContent" type="RichTextLabel" parent="Container/ControlList"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "note_content"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Container/ControlList"]
+layout_mode = 2
+alignment = 1
+
+[node name="PreviousPage" type="Button" parent="Container/ControlList/HBoxContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+text = "BUTTON_PREVIOUS"
+
+[node name="Spacer" type="Control" parent="Container/ControlList/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PageNumber" type="Label" parent="Container/ControlList/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Spacer2" type="Control" parent="Container/ControlList/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="NextPage" type="Button" parent="Container/ControlList/HBoxContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+text = "BUTTON_NEXT"
+
+[node name="CloseNote" type="Button" parent="Container"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -18.0
+offset_bottom = 31.0
+grow_horizontal = 0
+text = "X"
+
+[connection signal="pressed" from="Container/ControlList/HBoxContainer/PreviousPage" to="." method="ChangePage" binds= [-1]]
+[connection signal="pressed" from="Container/ControlList/HBoxContainer/NextPage" to="." method="ChangePage" binds= [1]]
+[connection signal="pressed" from="Container/CloseNote" to="." method="CloseNote"]

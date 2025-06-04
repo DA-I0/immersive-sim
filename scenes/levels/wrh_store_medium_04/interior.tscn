@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://bljfkbie2lpox"]
+
+[ext_resource type="PackedScene" uid="uid://cdm1mrngcsxo8" path="res://assets/models/buildings/wrh_store_medium_04/floor_00_floor.glb" id="1_hflf8"]
+[ext_resource type="PackedScene" uid="uid://bdlgq0yni3fmj" path="res://assets/models/buildings/wrh_store_medium_04/floor_00_walls_01.glb" id="2_qlmtm"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_c548s"]
+vertices = PackedVector3Array(-2.75, 0.75, -3.1, -2.75, 0.5, 2.9, 0.75, 0.5, 2.9, 0.75, 0.75, -3.1)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+geometry_source_geometry_mode = 1
+agent_height = 1.75
+agent_radius = 0.25
+
+[node name="Interior" type="NavigationRegion3D"]
+navigation_mesh = SubResource("NavigationMesh_c548s")
+
+[node name="BuildingGeometry" type="Node3D" parent="." groups=["navigation_mesh_source_group"]]
+
+[node name="floor_00_floor" parent="BuildingGeometry" instance=ExtResource("1_hflf8")]
+
+[node name="floor_00_walls_01" parent="BuildingGeometry" instance=ExtResource("2_qlmtm")]
+
+[node name="floor_00_floor2" parent="BuildingGeometry" instance=ExtResource("1_hflf8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.6, 0)
+
+[node name="floor_00_walls_02" parent="BuildingGeometry" instance=ExtResource("2_qlmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.6, 0)
+
+[node name="floor_00_floor3" parent="BuildingGeometry" instance=ExtResource("1_hflf8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.2, 0)
+
+[node name="floor_00_walls_03" parent="BuildingGeometry" instance=ExtResource("2_qlmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.2, 0)

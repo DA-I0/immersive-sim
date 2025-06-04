@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dfd443hqw1ii8"]
+
+[ext_resource type="Texture2D" uid="uid://dnebau0502sk4" path="res://assets/textures/pixel_art/walkways/stairs_03.png" id="1_88egk"]
+
+[resource]
+albedo_texture = ExtResource("1_88egk")
+texture_filter = 0

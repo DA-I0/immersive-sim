@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwvye6hxpq8np"]
+
+[ext_resource type="PackedScene" uid="uid://doonfxi041yqr" path="res://assets/models/buildings/mr_store_big_01/floor_01_floor.glb" id="1_jr3b2"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_c548s"]
+geometry_source_geometry_mode = 1
+agent_height = 1.75
+agent_radius = 0.25
+
+[node name="Interior_01" type="NavigationRegion3D"]
+navigation_mesh = SubResource("NavigationMesh_c548s")
+
+[node name="BuildingGeometry" type="Node3D" parent="." groups=["navigation_mesh_source_group"]]
+
+[node name="floor_01_floor2" parent="BuildingGeometry" instance=ExtResource("1_jr3b2")]

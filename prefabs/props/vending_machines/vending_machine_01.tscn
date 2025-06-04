@@ -1,0 +1,298 @@
+[gd_scene load_steps=23 format=3 uid="uid://wl7mgh3o22d"]
+
+[ext_resource type="Script" uid="uid://mclaea12c0xj" path="res://code/devices/VendingMachine.cs" id="1_18bbt"]
+[ext_resource type="Script" uid="uid://c3e3jru1ujuv5" path="res://code/interactables/NPCInteractionTarget.cs" id="5_bke4a"]
+[ext_resource type="PackedScene" uid="uid://bs432wnmw8gy1" path="res://assets/models/props/vending_machines/vending_machine_01.glb" id="6_758xf"]
+[ext_resource type="Material" uid="uid://cmgvdn03psf5u" path="res://assets/materials/dev/dev_gray.tres" id="6_qwbpx"]
+[ext_resource type="Material" uid="uid://do0r46420kjd1" path="res://assets/materials/dev/dev_blue.tres" id="7_7svh2"]
+[ext_resource type="PackedScene" uid="uid://flgdpto58amx" path="res://assets/models/props/vending_machines/vending_machine_support.glb" id="7_qkl6q"]
+[ext_resource type="Material" uid="uid://wgi0pjhj3rd3" path="res://assets/materials/dev_wood.tres" id="8_3wcj8"]
+[ext_resource type="Material" uid="uid://e1bdhs4vq8e8" path="res://assets/materials/dev_glass_clear.tres" id="8_p25h1"]
+[ext_resource type="Material" uid="uid://d38jj2u7tlwgi" path="res://assets/materials/void.tres" id="9_pqdgr"]
+[ext_resource type="PackedScene" uid="uid://bvklge6lly1yk" path="res://prefabs/power_devices/vending_machine_button_01.tscn" id="10_51uky"]
+[ext_resource type="Material" uid="uid://kvjym43dl8yy" path="res://assets/materials/dev/dev_green.tres" id="10_mo3ca"]
+[ext_resource type="Script" uid="uid://dm7mkhxqcpjt5" path="res://code/interactables/items/PowerPlug.cs" id="12_2kew7"]
+[ext_resource type="Material" uid="uid://bx51uk5arjbcn" path="res://assets/materials/dev/dev_black.tres" id="13_76qq1"]
+[ext_resource type="Script" uid="uid://c1j14usw1v5tk" path="res://addons/verlet_rope_4/VerletRope.cs" id="14_kdssd"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_jcoql"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ha8h6"]
+transparency = 1
+albedo_color = Color(0.729412, 0.729412, 0, 0.52549)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_03lq4"]
+size = Vector3(0.75, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fubs4"]
+albedo_color = Color(1, 0, 1, 1)
+
+[sub_resource type="PrismMesh" id="PrismMesh_4oq74"]
+material = SubResource("StandardMaterial3D_fubs4")
+size = Vector3(0.2, 0.2, 0.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_76qq1"]
+size = Vector3(0.02, 0.02, 0.02)
+
+[sub_resource type="BoxMesh" id="BoxMesh_257m4"]
+size = Vector3(0.02, 0.02, 0.02)
+
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_76qq1"]
+resource_local_to_scene = true
+metadata/creation_stamp = 3575107432472
+
+[node name="VendingMachine01" type="Node3D"]
+script = ExtResource("1_18bbt")
+_storeID = "vending_machine_01"
+_maxSpawnOffset = Vector2(0.2, 0.05)
+
+[node name="Model" type="Node3D" parent="."]
+
+[node name="vending_machine_01" parent="Model" instance=ExtResource("6_758xf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0504732, 0)
+
+[node name="vending_machine_01" parent="Model/vending_machine_01" index="0"]
+surface_material_override/0 = ExtResource("6_qwbpx")
+surface_material_override/1 = ExtResource("7_7svh2")
+surface_material_override/2 = ExtResource("8_p25h1")
+surface_material_override/3 = ExtResource("9_pqdgr")
+surface_material_override/4 = ExtResource("10_mo3ca")
+
+[node name="vending_machine_support" parent="Model" instance=ExtResource("7_qkl6q")]
+transform = Transform3D(0.999285, 0, 0.0378123, 0, 1, 0, -0.0378123, 0, 0.999285, 0.368751, 0, 0)
+
+[node name="vending_machine_support" parent="Model/vending_machine_support" index="0"]
+surface_material_override/0 = ExtResource("8_3wcj8")
+
+[node name="vending_machine_support2" parent="Model" instance=ExtResource("7_qkl6q")]
+transform = Transform3D(0.999391, 0, -0.0348995, 0, 1, 0, 0.0348995, 0, 0.999391, -0.334318, 0, 0.00810559)
+
+[node name="vending_machine_support" parent="Model/vending_machine_support2" index="0"]
+surface_material_override/0 = ExtResource("8_3wcj8")
+
+[node name="ProductSlots" type="Node3D" parent="."]
+
+[node name="Slot1" type="Marker3D" parent="ProductSlots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 1.58071, -0.23)
+gizmo_extents = 0.1
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ProductSlots/Slot1"]
+mesh = SubResource("BoxMesh_jcoql")
+surface_material_override/0 = SubResource("StandardMaterial3D_ha8h6")
+
+[node name="Slot2" type="Marker3D" parent="ProductSlots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 1.58071, -0.23)
+gizmo_extents = 0.1
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ProductSlots/Slot2"]
+mesh = SubResource("BoxMesh_jcoql")
+surface_material_override/0 = SubResource("StandardMaterial3D_ha8h6")
+
+[node name="Slot3" type="Marker3D" parent="ProductSlots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 1.58071, -0.23)
+gizmo_extents = 0.1
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ProductSlots/Slot3"]
+mesh = SubResource("BoxMesh_jcoql")
+surface_material_override/0 = SubResource("StandardMaterial3D_ha8h6")
+
+[node name="Slot4" type="Marker3D" parent="ProductSlots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.58071, -0.23)
+gizmo_extents = 0.1
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ProductSlots/Slot4"]
+mesh = SubResource("BoxMesh_jcoql")
+surface_material_override/0 = SubResource("StandardMaterial3D_ha8h6")
+
+[node name="Slot5" type="Marker3D" parent="ProductSlots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 1.58071, -0.23)
+gizmo_extents = 0.1
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ProductSlots/Slot5"]
+mesh = SubResource("BoxMesh_jcoql")
+surface_material_override/0 = SubResource("StandardMaterial3D_ha8h6")
+
+[node name="Slot6" type="Marker3D" parent="ProductSlots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 1.361, -0.23)
+gizmo_extents = 0.1
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ProductSlots/Slot6"]
+mesh = SubResource("BoxMesh_jcoql")
+surface_material_override/0 = SubResource("StandardMaterial3D_ha8h6")
+
+[node name="Slot7" type="Marker3D" parent="ProductSlots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 1.361, -0.23)
+gizmo_extents = 0.1
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ProductSlots/Slot7"]
+mesh = SubResource("BoxMesh_jcoql")
+surface_material_override/0 = SubResource("StandardMaterial3D_ha8h6")
+
+[node name="Slot8" type="Marker3D" parent="ProductSlots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 1.361, -0.23)
+gizmo_extents = 0.1
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ProductSlots/Slot8"]
+mesh = SubResource("BoxMesh_jcoql")
+surface_material_override/0 = SubResource("StandardMaterial3D_ha8h6")
+
+[node name="Slot9" type="Marker3D" parent="ProductSlots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.361, -0.23)
+gizmo_extents = 0.1
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ProductSlots/Slot9"]
+mesh = SubResource("BoxMesh_jcoql")
+surface_material_override/0 = SubResource("StandardMaterial3D_ha8h6")
+
+[node name="Slot10" type="Marker3D" parent="ProductSlots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 1.361, -0.23)
+gizmo_extents = 0.1
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ProductSlots/Slot10"]
+mesh = SubResource("BoxMesh_jcoql")
+surface_material_override/0 = SubResource("StandardMaterial3D_ha8h6")
+
+[node name="Slot11" type="Marker3D" parent="ProductSlots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 1.14053, -0.23)
+gizmo_extents = 0.1
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ProductSlots/Slot11"]
+mesh = SubResource("BoxMesh_jcoql")
+surface_material_override/0 = SubResource("StandardMaterial3D_ha8h6")
+
+[node name="Slot12" type="Marker3D" parent="ProductSlots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 1.14053, -0.23)
+gizmo_extents = 0.1
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ProductSlots/Slot12"]
+mesh = SubResource("BoxMesh_jcoql")
+surface_material_override/0 = SubResource("StandardMaterial3D_ha8h6")
+
+[node name="Slot13" type="Marker3D" parent="ProductSlots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 1.14053, -0.23)
+gizmo_extents = 0.1
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ProductSlots/Slot13"]
+mesh = SubResource("BoxMesh_jcoql")
+surface_material_override/0 = SubResource("StandardMaterial3D_ha8h6")
+
+[node name="Slot14" type="Marker3D" parent="ProductSlots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.14053, -0.23)
+gizmo_extents = 0.1
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ProductSlots/Slot14"]
+mesh = SubResource("BoxMesh_jcoql")
+surface_material_override/0 = SubResource("StandardMaterial3D_ha8h6")
+
+[node name="Slot15" type="Marker3D" parent="ProductSlots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 1.14053, -0.23)
+gizmo_extents = 0.1
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ProductSlots/Slot15"]
+mesh = SubResource("BoxMesh_jcoql")
+surface_material_override/0 = SubResource("StandardMaterial3D_ha8h6")
+
+[node name="ProductButtons" type="Node3D" parent="."]
+
+[node name="Button1" parent="ProductButtons" instance=ExtResource("10_51uky")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.225, 1.305, -0.275)
+
+[node name="Button2" parent="ProductButtons" instance=ExtResource("10_51uky")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.275, 1.305, -0.275)
+
+[node name="Button3" parent="ProductButtons" instance=ExtResource("10_51uky")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.325, 1.305, -0.275)
+
+[node name="Button4" parent="ProductButtons" instance=ExtResource("10_51uky")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.225, 1.255, -0.275)
+
+[node name="Button5" parent="ProductButtons" instance=ExtResource("10_51uky")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.275, 1.255, -0.275)
+
+[node name="Button6" parent="ProductButtons" instance=ExtResource("10_51uky")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.325, 1.255, -0.275)
+
+[node name="Button7" parent="ProductButtons" instance=ExtResource("10_51uky")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.225, 1.205, -0.275)
+
+[node name="Button8" parent="ProductButtons" instance=ExtResource("10_51uky")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.275, 1.205, -0.275)
+
+[node name="Button9" parent="ProductButtons" instance=ExtResource("10_51uky")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.325, 1.205, -0.275)
+
+[node name="Button10" parent="ProductButtons" instance=ExtResource("10_51uky")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.225, 1.155, -0.275)
+
+[node name="Button11" parent="ProductButtons" instance=ExtResource("10_51uky")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.275, 1.155, -0.275)
+
+[node name="Button12" parent="ProductButtons" instance=ExtResource("10_51uky")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.325, 1.155, -0.275)
+
+[node name="Button13" parent="ProductButtons" instance=ExtResource("10_51uky")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.225, 1.105, -0.275)
+
+[node name="Button14" parent="ProductButtons" instance=ExtResource("10_51uky")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.275, 1.105, -0.275)
+
+[node name="Button15" parent="ProductButtons" instance=ExtResource("10_51uky")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.325, 1.105, -0.275)
+
+[node name="SpawnPoint" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.100742, 0.42247, -0.220733)
+
+[node name="NPCUsable" type="Area3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.05, -1)
+collision_layer = 524304
+collision_mask = 524306
+script = ExtResource("5_bke4a")
+_duration = 15.0
+_conditionName = "action_Think"
+_staminaChange = 70
+_npcPresetID = "all_npcs"
+
+[node name="TriggerCollider" type="CollisionShape3D" parent="NPCUsable"]
+shape = SubResource("BoxShape3D_03lq4")
+
+[node name="TriggerMarker" type="MeshInstance3D" parent="NPCUsable"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+gi_mode = 0
+mesh = SubResource("PrismMesh_4oq74")
+
+[node name="PowerPlug" type="RigidBody3D" parent="." node_paths=PackedStringArray("_parentDevice")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.530027, 0.194743, 0)
+collision_layer = 4
+collision_mask = 5
+mass = 0.2
+script = ExtResource("12_2kew7")
+_parentDevice = NodePath("..")
+_templateID = "power_plug"
+
+[node name="Collider" type="CollisionShape3D" parent="PowerPlug"]
+shape = SubResource("BoxShape3D_76qq1")
+
+[node name="Model" type="MeshInstance3D" parent="PowerPlug"]
+mesh = SubResource("BoxMesh_257m4")
+
+[node name="CableConnection" type="Marker3D" parent="PowerPlug"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.00997509)
+
+[node name="PowerCable" type="MeshInstance3D" parent="." node_paths=PackedStringArray("AttachEnd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.232257, 0.470796, 0.297188)
+material_override = ExtResource("13_76qq1")
+mesh = SubResource("ImmediateMesh_76qq1")
+script = ExtResource("14_kdssd")
+AttachEnd = NodePath("../PowerPlug/CableConnection")
+RopeLength = 1.5
+RopeWidth = 0.002
+SimulationParticles = 5
+RopeCollisionBehavior = 1
+metadata/_custom_type_script = "uid://c1j14usw1v5tk"
+
+[connection signal="body_exited" from="NPCUsable" to="NPCUsable" method="ClearUser"]
+
+[editable path="Model/vending_machine_01"]
+[editable path="Model/vending_machine_support"]
+[editable path="Model/vending_machine_support2"]

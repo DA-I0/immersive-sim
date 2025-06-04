@@ -1,0 +1,80 @@
+[gd_scene load_steps=9 format=3 uid="uid://dxy34bj5vjv0k"]
+
+[ext_resource type="Script" path="res://code/ui/displays/ElectronicLock.cs" id="1_jy127"]
+[ext_resource type="Texture2D" uid="uid://cwwgifg0jaq7o" path="res://assets/textures/ui/door_lock_closed.png" id="2_e1uhg"]
+[ext_resource type="Texture2D" uid="uid://m8mt7f5rip0j" path="res://assets/textures/ui/door_lock_open.png" id="3_qoeb4"]
+[ext_resource type="Texture2D" uid="uid://bhnyohfryqgsm" path="res://assets/textures/ui/door_electronic_lock_category_lock.png" id="4_6u2qv"]
+[ext_resource type="Texture2D" uid="uid://cyhq00y0886r2" path="res://assets/textures/ui/door_electronic_lock_category_lock_selected.png" id="5_w8v3w"]
+[ext_resource type="Texture2D" uid="uid://d1elvvc2i0dcu" path="res://assets/textures/ui/door_electronic_lock_category_camera.png" id="8_a6idd"]
+[ext_resource type="Texture2D" uid="uid://cke3ikq6v78ww" path="res://assets/textures/ui/door_lock_closed_selected.png" id="8_bcctj"]
+[ext_resource type="Texture2D" uid="uid://bujd8qr7puu4q" path="res://assets/textures/ui/door_electronic_lock_category_camera_selected.png" id="9_oavv0"]
+
+[node name="DoorLockScreen" type="Control" node_paths=PackedStringArray("_mainButton", "_lockButton", "_cameraButton", "_cameraFeed")]
+custom_minimum_size = Vector2(512, 512)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 512.0
+offset_bottom = 512.0
+script = ExtResource("1_jy127")
+_textures = Array[Texture2D]([ExtResource("2_e1uhg"), ExtResource("3_qoeb4")])
+_textureColors = PackedColorArray(0.774012, 0.405589, 9.62615e-07, 1, 0.381256, 0.592227, 0.145235, 1)
+_mainButton = NodePath("VBoxContainer/MainButton")
+_lockButton = NodePath("VBoxContainer/HBoxContainer/ToggleLock")
+_cameraButton = NodePath("VBoxContainer/HBoxContainer/ToggleCamera")
+_cameraFeed = NodePath("VBoxContainer/VideoFeed")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+clip_contents = true
+layout_mode = 1
+offset_right = 524.0
+offset_bottom = 904.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+alignment = 1
+
+[node name="ToggleLock" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+texture_normal = ExtResource("4_6u2qv")
+texture_hover = ExtResource("5_w8v3w")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="ToggleCamera" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+texture_normal = ExtResource("8_a6idd")
+texture_hover = ExtResource("9_oavv0")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="SthElse?" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+texture_normal = ExtResource("8_a6idd")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="MainButton" type="TextureButton" parent="VBoxContainer"]
+custom_minimum_size = Vector2(384, 384)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture_normal = ExtResource("2_e1uhg")
+texture_hover = ExtResource("8_bcctj")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="VideoFeed" type="TextureRect" parent="VBoxContainer"]
+custom_minimum_size = Vector2(384, 384)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/ToggleLock" to="." method="ToggleLock"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/ToggleCamera" to="." method="ToggleCameraView"]
+[connection signal="pressed" from="VBoxContainer/MainButton" to="." method="ToggleDoor"]

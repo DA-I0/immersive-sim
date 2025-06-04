@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://11tpo75wdr7f"]
+
+[ext_resource type="PackedScene" uid="uid://c3xdix4q1yjte" path="res://assets/models/buildings/konbini_01/floor_00_floor.glb" id="1_dcl87"]
+[ext_resource type="PackedScene" uid="uid://b7s67rjlt851j" path="res://assets/models/buildings/konbini_01/floor_00_walls_01.glb" id="2_465l6"]
+[ext_resource type="PackedScene" uid="uid://bkyw4hpf7chej" path="res://assets/models/buildings/konbini_01/floor_00_walls_02.glb" id="3_x6441"]
+[ext_resource type="PackedScene" uid="uid://cbtwrqecijyxp" path="res://assets/models/buildings/konbini_01/floor_00_walls_03.glb" id="4_ht24s"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_c548s"]
+vertices = PackedVector3Array(-2.85, 0.5, 2.45, -4.85, 0.5, 2.45, -4.85, 0.5, 2.95, 4.9, 0.5, 2.95, -3.35, 0.5, 0.7, -3.35, 0.5, -2.8, -4.85, 0.5, -2.3, -4.85, 0.5, 1.45, -2.6, 0.5, 1.45, -2.85, 0.5, 0.95, -2.6, 0.5, -2.8, 4.9, 0.5, -3.05)
+polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(5, 4, 6), PackedInt32Array(6, 4, 7), PackedInt32Array(3, 0, 8), PackedInt32Array(9, 8, 4), PackedInt32Array(4, 8, 7), PackedInt32Array(9, 10, 8), PackedInt32Array(8, 10, 11), PackedInt32Array(8, 11, 3)]
+geometry_source_geometry_mode = 1
+agent_height = 1.75
+agent_radius = 0.25
+
+[node name="Interior" type="NavigationRegion3D"]
+navigation_mesh = SubResource("NavigationMesh_c548s")
+
+[node name="BuildingGeometry" type="Node3D" parent="." groups=["navigation_mesh_source_group"]]
+
+[node name="floor_00_floor" parent="BuildingGeometry" instance=ExtResource("1_dcl87")]
+
+[node name="floor_00_walls_01" parent="BuildingGeometry" instance=ExtResource("2_465l6")]
+
+[node name="floor_00_walls_02" parent="BuildingGeometry" instance=ExtResource("3_x6441")]
+
+[node name="floor_00_walls_03" parent="BuildingGeometry" instance=ExtResource("4_ht24s")]

@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://dvyheomsrnkfw"]
+
+[ext_resource type="Script" uid="uid://mpwyebu8kmia" path="res://code/interactables/items/Flashlight.cs" id="1_bhe75"]
+[ext_resource type="PackedScene" uid="uid://dy5324a4go8n8" path="res://assets/models/equipment/flashlight_1.glb" id="1_giw6g"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3fvnb"]
+size = Vector3(0.04, 0.04, 0.223)
+
+[node name="Flashlight" type="RigidBody3D"]
+collision_layer = 4
+collision_mask = 5
+script = ExtResource("1_bhe75")
+_templateID = "flashlight_1"
+
+[node name="Collider" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0106934)
+shape = SubResource("BoxShape3D_3fvnb")
+
+[node name="Model" parent="." instance=ExtResource("1_giw6g")]
+
+[node name="LightSource" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.12)
+spot_range = 20.0

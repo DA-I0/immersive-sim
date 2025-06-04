@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgaf6lfhj3gap"]
+
+[ext_resource type="PackedScene" uid="uid://cdf476r87lamt" path="res://assets/models/props/curb/sidewalk_curb_5m.glb" id="1_m6365"]
+[ext_resource type="Material" uid="uid://cblau8rx6hdm0" path="res://assets/materials/walkways/curb.tres" id="2_mjdrd"]
+
+[node name="CurbDefault5m" instance=ExtResource("1_m6365")]
+
+[node name="sidewalk_curb_5m" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_mjdrd")

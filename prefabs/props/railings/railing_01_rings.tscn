@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://c56l452xgb1fe"]
+
+[ext_resource type="PackedScene" uid="uid://bf7p4bob4i5y0" path="res://assets/models/props/railing_01/railing_01_rings.glb" id="1_vf6vf"]
+[ext_resource type="Material" uid="uid://cmgvdn03psf5u" path="res://assets/materials/dev/dev_gray.tres" id="2_00tay"]
+
+[node name="Railing01Rings" instance=ExtResource("1_vf6vf")]
+
+[node name="railing_01_rings_staright" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_00tay")

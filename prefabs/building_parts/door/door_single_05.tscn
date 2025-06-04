@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://cj0ff6ghtcf5x"]
+
+[ext_resource type="PackedScene" uid="uid://kvv6ufbmu3o1" path="res://assets/models/building_parts/door/door_frame_single.glb" id="1_4j16y"]
+[ext_resource type="PackedScene" uid="uid://dvyp1lwc7yl3l" path="res://assets/models/building_parts/door/door_05.glb" id="2_xpcnd"]
+[ext_resource type="Script" path="res://code/interactables/ToggleSwitch.cs" id="3_3anfx"]
+[ext_resource type="Script" path="res://code/interactables/Door.cs" id="3_wlnji"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_o6pdn"]
+size = Vector3(0.965, 2.18, 0.06)
+
+[node name="DoorSingle05" type="Node3D"]
+
+[node name="DoorFrame" parent="." instance=ExtResource("1_4j16y")]
+
+[node name="Door" parent="." instance=ExtResource("2_xpcnd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.491, 1.087, -0.06)
+script = ExtResource("3_wlnji")
+_doorAxis = 1
+_openRange = -90.0
+
+[node name="InteractionTrigger" type="Node3D" parent="Door" node_paths=PackedStringArray("_connectedDevices")]
+script = ExtResource("3_3anfx")
+_connectedDevices = [NodePath("..")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Door/InteractionTrigger"]
+collision_layer = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Door/InteractionTrigger/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.49, 0.003, 0.015)
+shape = SubResource("BoxShape3D_o6pdn")

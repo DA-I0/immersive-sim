@@ -1,0 +1,57 @@
+[gd_scene load_steps=3 format=3 uid="uid://xkvst2exns8p"]
+
+[ext_resource type="Script" path="res://code/ui/ShopItemEntry.cs" id="1_afr3m"]
+[ext_resource type="Theme" uid="uid://cvm7gtsi6sma4" path="res://themes/store_buttons.tres" id="2_4dgio"]
+
+[node name="ShopItemEntry" type="HBoxContainer"]
+script = ExtResource("1_afr3m")
+
+[node name="ItemName" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+text = "item_name"
+
+[node name="ItemCategory" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "item_category"
+
+[node name="ItemPrice" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+text = "item_price"
+horizontal_alignment = 2
+
+[node name="LessTen" type="Button" parent="."]
+layout_mode = 2
+theme = ExtResource("2_4dgio")
+text = "-10"
+
+[node name="LessOne" type="Button" parent="."]
+layout_mode = 2
+theme = ExtResource("2_4dgio")
+text = "-1"
+
+[node name="ItemsToBuy" type="LineEdit" parent="."]
+layout_mode = 2
+text = "0"
+alignment = 2
+virtual_keyboard_type = 2
+
+[node name="MoreOne" type="Button" parent="."]
+layout_mode = 2
+theme = ExtResource("2_4dgio")
+text = "+1"
+
+[node name="MoreTen" type="Button" parent="."]
+layout_mode = 2
+theme = ExtResource("2_4dgio")
+text = "+10"
+
+[connection signal="pressed" from="LessTen" to="." method="ChangeItemAmount" binds= [-10, true]]
+[connection signal="pressed" from="LessOne" to="." method="ChangeItemAmount" binds= [-1, true]]
+[connection signal="text_submitted" from="ItemsToBuy" to="." method="SetItemAmount"]
+[connection signal="pressed" from="MoreOne" to="." method="ChangeItemAmount" binds= [1, true]]
+[connection signal="pressed" from="MoreTen" to="." method="ChangeItemAmount" binds= [10, true]]

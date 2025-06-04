@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bt8urajnp156s"]
+
+[ext_resource type="PackedScene" uid="uid://cwfo20aii2a6s" path="res://prefabs/triggers/sub_level_trigger.tscn" id="1_5wt4x"]
+[ext_resource type="PackedScene" uid="uid://ywf8tlg6f41s" path="res://assets/models/buildings/wrh_store_medium_10/exterior_walls.glb" id="2_ilmxe"]
+
+[node name="WrhStoreMedium10" type="Node3D"]
+
+[node name="LevelSpawner" parent="." instance=ExtResource("1_5wt4x")]
+_levelID = "wrh_store_medium_10/Interior"
+
+[node name="ExteriorGeometry" type="Node3D" parent="."]
+
+[node name="exterior_walls2" parent="ExteriorGeometry" instance=ExtResource("2_ilmxe")]
+
+[node name="UnloadedDetails" type="Node3D" parent="."]

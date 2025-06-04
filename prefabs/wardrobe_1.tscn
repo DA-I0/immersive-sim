@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://21lxwm5vl8sw"]
+
+[ext_resource type="PackedScene" uid="uid://8t20er8nkgdn" path="res://assets/models/furniture/wardrobe_01/wardrobe_01_body.glb" id="1_7jsag"]
+[ext_resource type="PackedScene" uid="uid://bs6uxf7q7mmcf" path="res://assets/models/furniture/wardrobe_01/wardrobe_01_door_big.glb" id="2_uk25d"]
+[ext_resource type="Script" path="res://code/interactables/Door.cs" id="3_fv8iv"]
+[ext_resource type="PackedScene" uid="uid://bejh7dug03bcn" path="res://assets/models/furniture/wardrobe_01/wardrobe_01_door_small.glb" id="4_04c62"]
+
+[node name="wardrobe_1" type="Node3D"]
+
+[node name="wardrobe_1_body" parent="." instance=ExtResource("1_7jsag")]
+
+[node name="wardrobe_1_door_big" parent="." instance=ExtResource("2_uk25d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.455, 0.59, 0.37)
+script = ExtResource("3_fv8iv")
+_doorAxis = 3
+_openRange = -0.91
+
+[node name="wardrobe_1_door_big2" parent="." instance=ExtResource("2_uk25d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.455, 0.59, 0.32)
+script = ExtResource("3_fv8iv")
+_doorAxis = 3
+_openRange = 0.91
+
+[node name="wardrobe_1_door_small" parent="." instance=ExtResource("4_04c62")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.455, 0.05, 0.37)
+script = ExtResource("3_fv8iv")
+_doorAxis = 3
+_openRange = -0.9
+
+[node name="wardrobe_1_door_small2" parent="." instance=ExtResource("4_04c62")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.455, 0.05, 0.32)
+script = ExtResource("3_fv8iv")
+_doorAxis = 3
+_openRange = 0.9

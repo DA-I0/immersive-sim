@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://di8570xe35vtt"]
+
+[ext_resource type="PackedScene" uid="uid://qjkbguxeubga" path="res://assets/models/buildings/bs_store_medium_06/exterior_elevator_walls.glb" id="1_5wtc7"]
+[ext_resource type="PackedScene" uid="uid://biunmpmf54ef4" path="res://assets/models/buildings/bs_store_medium_06/exterior_roof_front.glb" id="2_dsdjd"]
+[ext_resource type="PackedScene" uid="uid://dh48bnj5sbr5w" path="res://assets/models/buildings/bs_store_medium_06/exterior_walls.glb" id="3_ybos4"]
+[ext_resource type="PackedScene" uid="uid://wm8n2hnktupj" path="res://assets/models/buildings/bs_store_medium_06/fire_escape.glb" id="4_338ur"]
+[ext_resource type="PackedScene" uid="uid://cwfo20aii2a6s" path="res://prefabs/triggers/sub_level_trigger.tscn" id="9_myt3p"]
+
+[node name="BSStoreMedium06" type="Node3D"]
+
+[node name="ExteriorGeometry" type="Node3D" parent="."]
+
+[node name="exterior_elevator_walls" parent="ExteriorGeometry" instance=ExtResource("1_5wtc7")]
+
+[node name="exterior_roof_front" parent="ExteriorGeometry" instance=ExtResource("2_dsdjd")]
+
+[node name="exterior_walls" parent="ExteriorGeometry" instance=ExtResource("3_ybos4")]
+
+[node name="fire_escape" parent="ExteriorGeometry" instance=ExtResource("4_338ur")]
+
+[node name="LevelSpawner" parent="." instance=ExtResource("9_myt3p")]
+_levelID = "bs_store_medium_06/Interior"
+
+[node name="UnloadedDetails" type="Node3D" parent="."]

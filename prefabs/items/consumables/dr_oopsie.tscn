@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://be3ghth1dbsqe"]
+
+[ext_resource type="Script" path="res://code/interactables/items/Consumable.cs" id="1_gghe1"]
+[ext_resource type="PackedScene" uid="uid://cx5lkdrswdriu" path="res://assets/models/props/can.glb" id="2_opmx7"]
+[ext_resource type="Texture2D" uid="uid://ckcdq2b5e5sq7" path="res://assets/textures/items/consumables/dr_oopsie.png" id="3_8ss2h"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_dtec8"]
+height = 0.12
+radius = 0.035
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f7etm"]
+size = Vector3(0.05, 0.12, 0.05)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3b4h2"]
+albedo_texture = ExtResource("3_8ss2h")
+texture_filter = 0
+
+[node name="DrOopsie" type="RigidBody3D"]
+collision_layer = 4
+collision_mask = 5
+script = ExtResource("1_gghe1")
+_templateID = "dr_oopsie"
+
+[node name="Collider" type="CollisionShape3D" parent="."]
+shape = SubResource("CylinderShape3D_dtec8")
+
+[node name="SecondaryCollider" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_f7etm")
+
+[node name="Model" parent="." instance=ExtResource("2_opmx7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.06, 0)
+
+[node name="can" parent="Model" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_3b4h2")
+
+[editable path="Model"]

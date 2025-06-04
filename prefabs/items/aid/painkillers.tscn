@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://b7jghjbs6su4v"]
+
+[ext_resource type="Script" uid="uid://cg57ky3tg3ttr" path="res://code/interactables/items/Consumable.cs" id="1_nfbnv"]
+[ext_resource type="PackedScene" uid="uid://c5mxlejhb885c" path="res://assets/models/equipment/painkillers.glb" id="2_4idw0"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_donr5"]
+height = 0.06
+radius = 0.021
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tpbfq"]
+size = Vector3(0.025, 0.06, 0.025)
+
+[node name="Painkillers" type="RigidBody3D"]
+collision_layer = 4
+collision_mask = 5
+script = ExtResource("1_nfbnv")
+_templateID = "painkillers"
+
+[node name="Collider" type="CollisionShape3D" parent="."]
+shape = SubResource("CylinderShape3D_donr5")
+
+[node name="Collider2" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_tpbfq")
+
+[node name="Model" parent="." instance=ExtResource("2_4idw0")]

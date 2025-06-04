@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://s2758jr8wpn3"]
+
+[ext_resource type="PackedScene" uid="uid://cg2fped18fbuk" path="res://assets/models/props/railing_01/railing_01_rings_angled.glb" id="1_cfr2f"]
+[ext_resource type="Material" uid="uid://cmgvdn03psf5u" path="res://assets/materials/dev/dev_gray.tres" id="2_iuet1"]
+
+[node name="Railing01RingsAngled" instance=ExtResource("1_cfr2f")]
+
+[node name="railing_01_rings_angled" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_iuet1")

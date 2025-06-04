@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://5daxcf38mtxg"]
+
+[ext_resource type="PackedScene" uid="uid://dp312oigftf1d" path="res://assets/models/props/stairs_03/stairs_03_corner_out.glb" id="1_2tixo"]
+[ext_resource type="Material" uid="uid://cf03dk74t577y" path="res://assets/materials/walkways/stairs_02.tres" id="2_l8cxp"]
+
+[node name="Stairs03CornerOut" instance=ExtResource("1_2tixo")]
+
+[node name="stairs_03_corner_out" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_l8cxp")

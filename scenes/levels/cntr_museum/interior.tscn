@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://c0b3cqfokdcws"]
+
+[ext_resource type="PackedScene" uid="uid://ec5b0bh7mi6" path="res://prefabs/triggers/entity_reparent_trigger.tscn" id="1_nt0lr"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_c548s"]
+geometry_source_geometry_mode = 1
+agent_height = 1.75
+agent_radius = 0.25
+vertices_per_polygon = 12.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ttg3o"]
+
+[node name="Interior" type="NavigationRegion3D"]
+navigation_mesh = SubResource("NavigationMesh_c548s")
+
+[node name="BuildingGeometry" type="Node3D" parent="." groups=["navigation_mesh_source_group"]]
+
+[node name="ReparentTriggers" type="Node3D" parent="."]
+
+[node name="EntityReparentTrigger" parent="ReparentTriggers" instance=ExtResource("1_nt0lr")]
+
+[node name="CollisionShape3D" parent="ReparentTriggers/EntityReparentTrigger" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00378418, 1.98878, 0.00726318)
+shape = SubResource("BoxShape3D_ttg3o")
+debug_color = Color(0.793491, 0.0739923, 1, 0.42)
+
+[editable path="ReparentTriggers/EntityReparentTrigger"]

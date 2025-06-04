@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://cke7g2djk68tr"]
+
+[ext_resource type="Script" path="res://code/interactables/LevelTransitionTrigger.cs" id="1_8abs6"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_krj35"]
+size = Vector3(1, 2, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6lnbo"]
+albedo_color = Color(0.427451, 0.6, 0.341176, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_xmutf"]
+material = SubResource("StandardMaterial3D_6lnbo")
+size = Vector3(1, 2, 0.1)
+
+[node name="TestLevelTransition" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+script = ExtResource("1_8abs6")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_krj35")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_xmutf")

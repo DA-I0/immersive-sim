@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://dbdmsx0vt3d1v"]
+
+[ext_resource type="PackedScene" uid="uid://cwfo20aii2a6s" path="res://prefabs/triggers/sub_level_trigger.tscn" id="1_bjlb8"]
+[ext_resource type="PackedScene" uid="uid://dxycfsa8ajwf6" path="res://assets/models/buildings/wrh_store_medium_11/exterior_walls_01.glb" id="2_mlvce"]
+[ext_resource type="PackedScene" uid="uid://dfsbnqlad72v1" path="res://assets/models/buildings/wrh_store_medium_11/exterior_walls_02.glb" id="3_glx34"]
+[ext_resource type="PackedScene" uid="uid://dpa33h4285gqq" path="res://assets/models/buildings/wrh_store_medium_11/landing_wall.glb" id="4_3w4ly"]
+
+[node name="WrhStoreMedium11" type="Node3D"]
+
+[node name="LevelSpawner" parent="." instance=ExtResource("1_bjlb8")]
+_levelID = "wrh_store_medium_11/Interior"
+
+[node name="ExteriorGeometry" type="Node3D" parent="."]
+
+[node name="exterior_walls_01" parent="ExteriorGeometry" instance=ExtResource("2_mlvce")]
+
+[node name="exterior_walls_02" parent="ExteriorGeometry" instance=ExtResource("3_glx34")]
+
+[node name="landing_wall" parent="ExteriorGeometry" instance=ExtResource("4_3w4ly")]
+
+[node name="landing_wall2" parent="ExteriorGeometry" instance=ExtResource("4_3w4ly")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.3, 0)
+
+[node name="UnloadedDetails" type="Node3D" parent="."]

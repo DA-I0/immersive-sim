@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://bdc7evscp2ogr"]
+
+[ext_resource type="PackedScene" uid="uid://d3p3151fec6g6" path="res://assets/models/props/waste_containers/waste_container_big_02.glb" id="1_fqlki"]
+[ext_resource type="Material" uid="uid://kvjym43dl8yy" path="res://assets/materials/dev/dev_green.tres" id="2_m434j"]
+[ext_resource type="Material" uid="uid://bx51uk5arjbcn" path="res://assets/materials/dev/dev_black.tres" id="3_ehagf"]
+
+[node name="WasteContainerBig02" instance=ExtResource("1_fqlki")]
+
+[node name="waste_container_big_02" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_m434j")
+surface_material_override/1 = ExtResource("3_ehagf")

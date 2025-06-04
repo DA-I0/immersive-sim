@@ -1,0 +1,78 @@
+[gd_scene load_steps=14 format=3 uid="uid://c6ujtmjaw0eg"]
+
+[ext_resource type="PackedScene" uid="uid://c1axm3hy2lomo" path="res://assets/models/buildings/cntr_store_02/exterior_roof.glb" id="1_gmhjj"]
+[ext_resource type="Material" uid="uid://c11j5xw4qn4lv" path="res://assets/materials/dev/dev_gray_very_light.tres" id="2_h21lm"]
+[ext_resource type="Material" uid="uid://bx51uk5arjbcn" path="res://assets/materials/dev/dev_black.tres" id="3_j2k0d"]
+[ext_resource type="Material" uid="uid://do0r46420kjd1" path="res://assets/materials/dev/dev_blue.tres" id="4_yrdpd"]
+[ext_resource type="PackedScene" uid="uid://dm0etkrbo5xqr" path="res://assets/models/buildings/cntr_store_02/exterior_walls.glb" id="5_b02m8"]
+[ext_resource type="PackedScene" uid="uid://clwgudl332vnp" path="res://assets/models/buildings/cntr_store_02/window_front_entrance.glb" id="6_3xtli"]
+[ext_resource type="Material" uid="uid://b5i8t0xammn0b" path="res://assets/materials/dev/dev_orange.tres" id="7_toja0"]
+[ext_resource type="Material" uid="uid://e1bdhs4vq8e8" path="res://assets/materials/dev_glass_clear.tres" id="8_npb40"]
+[ext_resource type="PackedScene" uid="uid://cwfo20aii2a6s" path="res://prefabs/triggers/sub_level_trigger.tscn" id="9_32qsm"]
+[ext_resource type="Material" uid="uid://cd374gk86tfva" path="res://assets/materials/dev_glass_opaque.tres" id="10_fur55"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_pm2eg"]
+size = Vector2(4.4, 3.17)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_n7m5l"]
+size = Vector2(1.2, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_5clo6"]
+size = Vector2(6, 2)
+
+[node name="CntrStore02" type="Node3D"]
+
+[node name="LevelSpawner" parent="." instance=ExtResource("9_32qsm")]
+_levelID = "cntr_store_02/Interior"
+
+[node name="ExteriorGeometry" type="Node3D" parent="."]
+
+[node name="exterior_roof" parent="ExteriorGeometry" instance=ExtResource("1_gmhjj")]
+
+[node name="exterior_roof" parent="ExteriorGeometry/exterior_roof" index="0"]
+surface_material_override/0 = ExtResource("2_h21lm")
+surface_material_override/1 = ExtResource("3_j2k0d")
+surface_material_override/2 = ExtResource("4_yrdpd")
+
+[node name="exterior_walls" parent="ExteriorGeometry" instance=ExtResource("5_b02m8")]
+
+[node name="exterior_walls" parent="ExteriorGeometry/exterior_walls" index="0"]
+surface_material_override/0 = ExtResource("4_yrdpd")
+
+[node name="window_front_entrance" parent="ExteriorGeometry" instance=ExtResource("6_3xtli")]
+
+[node name="frame" parent="ExteriorGeometry/window_front_entrance" index="0"]
+surface_material_override/0 = ExtResource("7_toja0")
+
+[node name="glass" parent="ExteriorGeometry/window_front_entrance" index="1"]
+surface_material_override/0 = ExtResource("8_npb40")
+
+[node name="glass_001" parent="ExteriorGeometry/window_front_entrance" index="2"]
+surface_material_override/0 = ExtResource("8_npb40")
+
+[node name="glass_002" parent="ExteriorGeometry/window_front_entrance" index="3"]
+surface_material_override/0 = ExtResource("8_npb40")
+
+[node name="glass_003" parent="ExteriorGeometry/window_front_entrance" index="4"]
+surface_material_override/0 = ExtResource("8_npb40")
+
+[node name="UnloadedDetails" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="UnloadedDetails"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.4, 1.689, -4.06)
+mesh = SubResource("PlaneMesh_pm2eg")
+surface_material_override/0 = ExtResource("10_fur55")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="UnloadedDetails"]
+transform = Transform3D(1, -4.37114e-08, -3.68705e-15, 0, -4.37114e-08, 1, -4.37114e-08, -1, -4.37114e-08, -3.3, 2.75, -4.06)
+mesh = SubResource("PlaneMesh_n7m5l")
+surface_material_override/0 = ExtResource("10_fur55")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="UnloadedDetails"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 6.5, -4.026)
+mesh = SubResource("PlaneMesh_5clo6")
+surface_material_override/0 = ExtResource("10_fur55")
+
+[editable path="ExteriorGeometry/exterior_roof"]
+[editable path="ExteriorGeometry/exterior_walls"]
+[editable path="ExteriorGeometry/window_front_entrance"]

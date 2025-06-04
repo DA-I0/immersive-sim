@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://dt5t4w83k601d"]
+
+[ext_resource type="Script" path="res://code/interactables/items/BaseItem.cs" id="1_q4a65"]
+[ext_resource type="Texture2D" uid="uid://dncogcw7rx4vc" path="res://assets/textures/douchan.png" id="2_7y5dk"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fpflf"]
+size = Vector3(0.8, 1, 0.01)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i71ll"]
+albedo_texture = ExtResource("2_7y5dk")
+
+[sub_resource type="QuadMesh" id="QuadMesh_rorvm"]
+material = SubResource("StandardMaterial3D_i71ll")
+size = Vector2(0.8, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_esxo5"]
+size = Vector2(0.8, 1)
+
+[node name="Poster" type="RigidBody3D"]
+collision_layer = 4
+collision_mask = 5
+script = ExtResource("1_q4a65")
+_templateID = "poster"
+
+[node name="Collider" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_fpflf")
+
+[node name="Model" type="MeshInstance3D" parent="."]
+mesh = SubResource("QuadMesh_rorvm")
+
+[node name="Model2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("PlaneMesh_esxo5")

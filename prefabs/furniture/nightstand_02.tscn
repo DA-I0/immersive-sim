@@ -1,0 +1,75 @@
+[gd_scene load_steps=8 format=3 uid="uid://b7ogvbmrfdflm"]
+
+[ext_resource type="PackedScene" uid="uid://bxb8kydgefuj6" path="res://assets/models/furniture/nightstand_02.glb" id="1_pxxut"]
+[ext_resource type="Script" path="res://code/interactables/Door.cs" id="2_y3y03"]
+[ext_resource type="PackedScene" uid="uid://t4840h2whi0o" path="res://assets/models/furniture/desk_02/desk_02_drawer.glb" id="3_iyo5u"]
+[ext_resource type="Script" path="res://code/interactables/ToggleSwitch.cs" id="4_1wbjf"]
+[ext_resource type="PackedScene" uid="uid://0o0q4aq30lkj" path="res://assets/models/furniture/desk_02/desk_02_drawer_rail.glb" id="5_f77jv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wuf3c"]
+size = Vector3(0.3, 0.14, 0.015)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mjnj5"]
+size = Vector3(0.26, 0.01, 0.42)
+
+[node name="Nightstand02" type="Node3D"]
+
+[node name="Model" parent="." instance=ExtResource("1_pxxut")]
+
+[node name="Drawer" type="AnimatableBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.01, 0.43, -0.005)
+script = ExtResource("2_y3y03")
+_doorAxis = 5
+_openRange = -0.3
+
+[node name="Model" parent="Drawer" instance=ExtResource("3_iyo5u")]
+
+[node name="InteractionCollider" type="Node3D" parent="Drawer" node_paths=PackedStringArray("_connectedDevices")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06, -0.22)
+script = ExtResource("4_1wbjf")
+_connectedDevices = [NodePath(".."), NodePath("../../desk_02_drawer_rail")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Drawer/InteractionCollider"]
+collision_layer = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Drawer/InteractionCollider/StaticBody3D"]
+shape = SubResource("BoxShape3D_wuf3c")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Drawer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.007, -0.005)
+shape = SubResource("BoxShape3D_mjnj5")
+
+[node name="Drawer2" type="AnimatableBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.01, 0.57, -0.005)
+script = ExtResource("2_y3y03")
+_doorAxis = 5
+_openRange = -0.3
+
+[node name="Model" parent="Drawer2" instance=ExtResource("3_iyo5u")]
+
+[node name="InteractionCollider" type="Node3D" parent="Drawer2" node_paths=PackedStringArray("_connectedDevices")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06, -0.22)
+script = ExtResource("4_1wbjf")
+_connectedDevices = [NodePath(".."), NodePath("../../desk_02_drawer_rail2")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Drawer2/InteractionCollider"]
+collision_layer = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Drawer2/InteractionCollider/StaticBody3D"]
+shape = SubResource("BoxShape3D_wuf3c")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Drawer2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.007, -0.005)
+shape = SubResource("BoxShape3D_mjnj5")
+
+[node name="desk_02_drawer_rail" parent="." instance=ExtResource("5_f77jv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.01, 0.43, -0.005)
+script = ExtResource("2_y3y03")
+_doorAxis = 5
+_openRange = -0.15
+
+[node name="desk_02_drawer_rail2" parent="." instance=ExtResource("5_f77jv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.01, 0.57, -0.005)
+script = ExtResource("2_y3y03")
+_doorAxis = 5
+_openRange = -0.15

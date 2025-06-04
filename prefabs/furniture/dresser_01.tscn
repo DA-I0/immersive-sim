@@ -1,0 +1,104 @@
+[gd_scene load_steps=9 format=3 uid="uid://bwmwahm3q2l1"]
+
+[ext_resource type="PackedScene" uid="uid://bdf22tq8xnal3" path="res://assets/models/furniture/dresser_01/dresser_01.glb" id="1_cf71o"]
+[ext_resource type="Script" path="res://code/interactables/Door.cs" id="2_h83v4"]
+[ext_resource type="PackedScene" uid="uid://dd4pjdyaod4by" path="res://assets/models/furniture/dresser_01/dresser_01_drawer_support.glb" id="2_xfmhj"]
+[ext_resource type="PackedScene" uid="uid://dax7cvpcx8bpf" path="res://assets/models/furniture/dresser_01/dresser_01_drawer.glb" id="3_l66xd"]
+[ext_resource type="Script" path="res://code/interactables/ToggleSwitch.cs" id="4_kupun"]
+[ext_resource type="PackedScene" uid="uid://vkb7us3obq0u" path="res://assets/models/furniture/dresser_01/dresser_01_drawer_rails.glb" id="5_alkv1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wuf3c"]
+size = Vector3(1.06, 0.2, 0.015)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mjnj5"]
+size = Vector3(1.02, 0.01, 0.42)
+
+[node name="Dresser01" type="Node3D"]
+
+[node name="Model" parent="." instance=ExtResource("1_cf71o")]
+
+[node name="SubModel" parent="." instance=ExtResource("2_xfmhj")]
+
+[node name="Drawer" parent="." instance=ExtResource("3_l66xd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.11, -0.005)
+script = ExtResource("2_h83v4")
+_doorAxis = 5
+_openRange = -0.3
+
+[node name="InteractionCollider" type="Node3D" parent="Drawer" node_paths=PackedStringArray("_connectedDevices")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06, -0.22)
+script = ExtResource("4_kupun")
+_connectedDevices = [NodePath(".."), NodePath("../../Rails01")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Drawer/InteractionCollider"]
+collision_layer = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Drawer/InteractionCollider/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03, 0)
+shape = SubResource("BoxShape3D_wuf3c")
+
+[node name="BottomCollider" type="CollisionShape3D" parent="Drawer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000761747, 0.007, -0.005)
+shape = SubResource("BoxShape3D_mjnj5")
+
+[node name="Drawer2" parent="." instance=ExtResource("3_l66xd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.31, -0.005)
+script = ExtResource("2_h83v4")
+_doorAxis = 5
+_openRange = -0.3
+
+[node name="InteractionCollider" type="Node3D" parent="Drawer2" node_paths=PackedStringArray("_connectedDevices")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06, -0.22)
+script = ExtResource("4_kupun")
+_connectedDevices = [NodePath(".."), NodePath("../../Rails02")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Drawer2/InteractionCollider"]
+collision_layer = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Drawer2/InteractionCollider/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03, 0)
+shape = SubResource("BoxShape3D_wuf3c")
+
+[node name="BottomCollider" type="CollisionShape3D" parent="Drawer2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000761747, 0.007, -0.005)
+shape = SubResource("BoxShape3D_mjnj5")
+
+[node name="Drawer3" parent="." instance=ExtResource("3_l66xd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.51, -0.005)
+script = ExtResource("2_h83v4")
+_doorAxis = 5
+_openRange = -0.3
+
+[node name="InteractionCollider" type="Node3D" parent="Drawer3" node_paths=PackedStringArray("_connectedDevices")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06, -0.22)
+script = ExtResource("4_kupun")
+_connectedDevices = [NodePath(".."), NodePath("../../Rails03")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Drawer3/InteractionCollider"]
+collision_layer = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Drawer3/InteractionCollider/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03, 0)
+shape = SubResource("BoxShape3D_wuf3c")
+
+[node name="BottomCollider" type="CollisionShape3D" parent="Drawer3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000761747, 0.00700003, -0.005)
+shape = SubResource("BoxShape3D_mjnj5")
+
+[node name="Rails01" parent="." instance=ExtResource("5_alkv1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.11, -0.005)
+script = ExtResource("2_h83v4")
+_doorAxis = 5
+_openRange = -0.15
+
+[node name="Rails02" parent="." instance=ExtResource("5_alkv1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.31, -0.005)
+script = ExtResource("2_h83v4")
+_doorAxis = 5
+_openRange = -0.15
+
+[node name="Rails03" parent="." instance=ExtResource("5_alkv1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.51, -0.005)
+script = ExtResource("2_h83v4")
+_doorAxis = 5
+_openRange = -0.15

@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://bvqs2rf33x82p"]
+
+[ext_resource type="Texture2D" uid="uid://dhs4ia56ctquo" path="res://assets/textures/decals/clock_hand.png" id="1_pib45"]
+[ext_resource type="Script" path="res://code/devices/AnalogClock.cs" id="1_qr0m2"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_1fc6w"]
+top_radius = 0.2
+bottom_radius = 0.2
+height = 0.05
+radial_segments = 32
+rings = 0
+
+[node name="Clock" type="Node3D"]
+script = ExtResource("1_qr0m2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_1fc6w")
+
+[node name="HourHand" type="Decal" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.027, 0, 0)
+size = Vector3(0.01, 0.01, 0.15)
+texture_albedo = ExtResource("1_pib45")
+upper_fade = 0.005
+lower_fade = 0.009
+
+[node name="MinuteHand" type="Decal" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.027, 0, 0)
+size = Vector3(0.01, 0.01, 0.25)
+texture_albedo = ExtResource("1_pib45")
+upper_fade = 0.005
+lower_fade = 0.01

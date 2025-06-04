@@ -1,0 +1,57 @@
+[gd_scene load_steps=8 format=3 uid="uid://bw88o1b4jjqmu"]
+
+[ext_resource type="PackedScene" uid="uid://dsaq1q4cp1veq" path="res://assets/models/buildings/bs_store_medium_07/floor_00_floor.glb" id="1_i17is"]
+[ext_resource type="PackedScene" uid="uid://dkhmoeu50q3e1" path="res://assets/models/buildings/bs_store_medium_07/floor_01_floor.glb" id="2_kffgy"]
+[ext_resource type="PackedScene" uid="uid://be0ldjs0odsbq" path="res://prefabs/props/stairs_03/stairs_03_1m.tscn" id="3_1u5qs"]
+[ext_resource type="Script" uid="uid://ch01c7865ldya" path="res://code/systems/EntityReparentTrigger.cs" id="4_eiqyv"]
+[ext_resource type="PackedScene" uid="uid://ec5b0bh7mi6" path="res://prefabs/triggers/entity_reparent_trigger.tscn" id="5_yul18"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_c548s"]
+vertices = PackedVector3Array(-1.75, 2.95, -1.25003, -2, 2.95, -5.00003, -5.5, 2.95, -5.00003, -5.5, 2.95, 4.99997, -1.75, 2.95, 4.99997, -1.5, 1.7, -2.50003, -1, 1.95, -2.25003, -1, 1.2, -3.25003, -1.5, 0.95, -3.50003, -3.25, 0.45, -5.00003, -2, 0.45, -3.50003, -0.250004, 0.45, -3.50003, -0.750004, 0.45, 4.99997, -0.750004, 0.45, -2.52724e-05, -2, 0.45, -0.250025, -3.25, 0.45, -0.500025, -5.5, 0.45, -0.250025, -5.5, 0.45, 4.99997, 5.5, 0.45, -5.00003, -0.250004, 0.45, -1.75003, 5.5, 0.45, -1.50003, -1, 2.7, -1.25003, 5.5, 2.95, 4.99997, 5.5, 2.95, -5.00003, -0.500004, 2.95, -1.25003, -0.500004, 2.95, -5.00003, -0.250004, 0.45, -0.250025, 5.5, 0.45, 4.99997)
+polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 4), PackedInt32Array(2, 4, 3), PackedInt32Array(8, 7, 5), PackedInt32Array(5, 7, 6), PackedInt32Array(10, 9, 8), PackedInt32Array(11, 7, 8), PackedInt32Array(14, 13, 12), PackedInt32Array(15, 14, 16), PackedInt32Array(16, 14, 17), PackedInt32Array(17, 14, 12), PackedInt32Array(8, 9, 11), PackedInt32Array(11, 9, 18), PackedInt32Array(19, 11, 20), PackedInt32Array(20, 11, 18), PackedInt32Array(14, 15, 10), PackedInt32Array(10, 15, 9), PackedInt32Array(6, 21, 5), PackedInt32Array(5, 21, 0), PackedInt32Array(0, 21, 4), PackedInt32Array(4, 24, 22), PackedInt32Array(22, 24, 23), PackedInt32Array(24, 25, 23), PackedInt32Array(4, 21, 24), PackedInt32Array(13, 26, 12), PackedInt32Array(12, 26, 27), PackedInt32Array(27, 26, 20), PackedInt32Array(26, 19, 20)]
+geometry_source_geometry_mode = 1
+agent_height = 1.75
+agent_radius = 0.25
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_40w37"]
+size = Vector3(11.5198, 3.05273, 10.525)
+
+[node name="Interior" type="NavigationRegion3D"]
+navigation_mesh = SubResource("NavigationMesh_c548s")
+
+[node name="BuildingGeometry" type="Node3D" parent="." groups=["navigation_mesh_source_group"]]
+
+[node name="floor_00_floor2" parent="BuildingGeometry" instance=ExtResource("1_i17is")]
+
+[node name="floor_01_floor2" parent="BuildingGeometry" instance=ExtResource("2_kffgy")]
+
+[node name="Stairs" type="Node3D" parent="BuildingGeometry"]
+
+[node name="Stairs02_1m" parent="BuildingGeometry/Stairs" instance=ExtResource("3_1u5qs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.65, 1.7, -0.4)
+
+[node name="Stairs02_1m2" parent="BuildingGeometry/Stairs" instance=ExtResource("3_1u5qs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.65, 0.7, -1.65)
+
+[node name="Stairs02_1m3" parent="BuildingGeometry/Stairs" instance=ExtResource("3_1u5qs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.65, -0.3, -2.9)
+
+[node name="ReparentTriggers" type="Node3D" parent="."]
+
+[node name="EntityReparentTrigger" type="Area3D" parent="ReparentTriggers"]
+script = ExtResource("4_eiqyv")
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="ReparentTriggers/EntityReparentTrigger"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.35, 0)
+depth = 2.7
+polygon = PackedVector2Array(-5.75, 5.255, 5.755, 5.255, 5.755, -5.255, -3.265, -5.255, -3.265, -0.265, -5.75, -0.265)
+debug_color = Color(0.793491, 0.0739923, 1, 0.42)
+
+[node name="EntityReparentTrigger2" parent="ReparentTriggers" instance=ExtResource("5_yul18")]
+
+[node name="CollisionShape3D" parent="ReparentTriggers/EntityReparentTrigger2" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000762939, 4.21611, 0.00205994)
+shape = SubResource("BoxShape3D_40w37")
+debug_color = Color(0.793491, 0.0739923, 1, 0.42)
+
+[editable path="ReparentTriggers/EntityReparentTrigger2"]

@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://ba3fot8sfh2sv"]
+
+[ext_resource type="Script" uid="uid://b66gbpwfijg1s" path="res://code/interactables/ToggleSwitch.cs" id="1_g3pgs"]
+[ext_resource type="Texture2D" uid="uid://c6mgy6a1venmv" path="res://assets/textures/emptyBar.png" id="2_0yvy5"]
+[ext_resource type="PackedScene" uid="uid://ck30ffjiekbjd" path="res://assets/models/props/light_switch_single.glb" id="2_q4sl1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8lyoe"]
+size = Vector3(0.05, 0.05, 0.006)
+
+[node name="light_switch" type="Node3D" node_paths=PackedStringArray("_connectedDevices")]
+script = ExtResource("1_g3pgs")
+_connectedDevices = []
+
+[node name="light_switch_single2" parent="." instance=ExtResource("2_q4sl1")]
+
+[node name="switch" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="switch"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.003)
+shape = SubResource("BoxShape3D_8lyoe")
+
+[node name="Decal" type="Decal" parent="."]
+transform = Transform3D(-0.984808, 0.173648, 7.59041e-09, 0, -4.37114e-08, 1, 0.173648, 0.984808, 4.30473e-08, -0.006, 0, -0.005)
+size = Vector3(0.005, 0.01, 0.01)
+texture_albedo = ExtResource("2_0yvy5")
+texture_emission = ExtResource("2_0yvy5")
+emission_energy = 0.1

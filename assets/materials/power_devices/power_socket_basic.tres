@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://b8q6n32h7jocq"]
+
+[ext_resource type="Texture2D" uid="uid://bmab6ekbqrqhp" path="res://assets/textures/props/power_devices/power_outlet_triple.png" id="1_58b8g"]
+
+[resource]
+albedo_texture = ExtResource("1_58b8g")
+texture_filter = 0

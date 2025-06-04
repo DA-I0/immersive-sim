@@ -1,0 +1,38 @@
+[gd_scene load_steps=10 format=3 uid="uid://dyfd2ewv5sccf"]
+
+[ext_resource type="PackedScene" uid="uid://ufkuibyiussp" path="res://assets/models/buildings/wrh_store_medium_10/floor_00_floor.glb" id="1_ms6l4"]
+[ext_resource type="PackedScene" uid="uid://cmc6fxbkfmspj" path="res://assets/models/buildings/wrh_store_medium_10/floor_00_walls_01.glb" id="2_gjhmj"]
+[ext_resource type="PackedScene" uid="uid://xclw8g72od6f" path="res://assets/models/buildings/wrh_store_medium_10/floor_00_walls_02.glb" id="3_f7vlc"]
+[ext_resource type="PackedScene" uid="uid://cx5141ed28ij1" path="res://assets/models/buildings/wrh_store_medium_10/floor_00_walls_03.glb" id="4_51hv5"]
+[ext_resource type="PackedScene" uid="uid://cfyr4qd4ke5e5" path="res://assets/models/buildings/wrh_store_medium_10/floor_00_walls_04.glb" id="5_tsjwi"]
+[ext_resource type="PackedScene" uid="uid://di0j7mcsddxdc" path="res://assets/models/buildings/wrh_store_medium_10/floor_00_walls_05.glb" id="6_d3sqy"]
+[ext_resource type="PackedScene" uid="uid://c7qsg750c4fse" path="res://assets/models/buildings/wrh_store_medium_10/floor_00_walls_06.glb" id="7_r7eow"]
+[ext_resource type="PackedScene" uid="uid://dam8n1j6rpta3" path="res://assets/models/buildings/wrh_store_medium_10/floor_01_floor.glb" id="8_y1yb4"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_c548s"]
+vertices = PackedVector3Array(-2.75, 0.75, -3.1, -2.75, 0.5, 2.9, 0.75, 0.5, 2.9, 0.75, 0.75, -3.1)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+geometry_source_geometry_mode = 1
+agent_height = 1.75
+agent_radius = 0.25
+
+[node name="Interior" type="NavigationRegion3D"]
+navigation_mesh = SubResource("NavigationMesh_c548s")
+
+[node name="BuildingGeometry" type="Node3D" parent="." groups=["navigation_mesh_source_group"]]
+
+[node name="floor_00_floor" parent="BuildingGeometry" instance=ExtResource("1_ms6l4")]
+
+[node name="floor_00_walls_01" parent="BuildingGeometry" instance=ExtResource("2_gjhmj")]
+
+[node name="floor_00_walls_02" parent="BuildingGeometry" instance=ExtResource("3_f7vlc")]
+
+[node name="floor_00_walls_03" parent="BuildingGeometry" instance=ExtResource("4_51hv5")]
+
+[node name="floor_00_walls_04" parent="BuildingGeometry" instance=ExtResource("5_tsjwi")]
+
+[node name="floor_00_walls_05" parent="BuildingGeometry" instance=ExtResource("6_d3sqy")]
+
+[node name="floor_00_walls_06" parent="BuildingGeometry" instance=ExtResource("7_r7eow")]
+
+[node name="floor_01_floor" parent="BuildingGeometry" instance=ExtResource("8_y1yb4")]

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://ec5b0bh7mi6"]
+
+[ext_resource type="Script" uid="uid://ch01c7865ldya" path="res://code/systems/EntityReparentTrigger.cs" id="1_1n8il"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rlflg"]
+size = Vector3(6.77856, 3.68161, 4.53809)
+
+[node name="EntityReparentTrigger" type="Area3D"]
+collision_layer = 0
+collision_mask = 7
+monitorable = false
+script = ExtResource("1_1n8il")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0020752, 2.05952, -0.0102539)
+shape = SubResource("BoxShape3D_rlflg")

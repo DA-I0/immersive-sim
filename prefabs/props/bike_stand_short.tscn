@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bi5ykgl0iwdeg"]
+
+[ext_resource type="PackedScene" uid="uid://b0n1k13p357w4" path="res://assets/models/props/bike_stand_short.glb" id="1_ax51r"]
+[ext_resource type="Material" uid="uid://c11j5xw4qn4lv" path="res://assets/materials/dev/dev_gray_very_light.tres" id="2_gduky"]
+
+[node name="BikeStandShort" instance=ExtResource("1_ax51r")]
+
+[node name="bike_stand_short" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_gduky")

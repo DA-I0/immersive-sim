@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=3 uid="uid://c1dx74v45dmpp"]
+
+[ext_resource type="Script" uid="uid://611u2eduh8pk" path="res://code/ui/Crosshair.cs" id="1_4sgwo"]
+[ext_resource type="Texture2D" uid="uid://c6mgy6a1venmv" path="res://assets/textures/emptyBar.png" id="2_keuu0"]
+[ext_resource type="Texture2D" uid="uid://c6e2ucmtgccgj" path="res://assets/textures/ui/icons/crosshair_interactable.png" id="3_npatf"]
+
+[node name="Crosshair" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_4sgwo")
+_defaultIcon = ExtResource("2_keuu0")
+_defaultColor = Color(1, 1, 1, 1)
+_interactableIcon = ExtResource("3_npatf")
+_interactableColor = Color(0.0491053, 0.649738, 0.941754, 1)
+
+[node name="Controls" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -5.0
+grow_horizontal = 2
+
+[node name="CrosshairTexture" type="TextureRect" parent="Controls"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("3_npatf")
+expand_mode = 3
+
+[node name="Spacer" type="Control" parent="Controls"]
+layout_mode = 2
+
+[node name="InteractableText" type="PanelContainer" parent="Controls"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Content" type="Label" parent="Controls/InteractableText"]
+layout_mode = 2
+text = "interactable_name"
+horizontal_alignment = 1

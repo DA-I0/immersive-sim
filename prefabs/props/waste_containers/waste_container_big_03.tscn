@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://ku1yffv6r07p"]
+
+[ext_resource type="PackedScene" uid="uid://bji4e5dkmnlcm" path="res://assets/models/props/waste_containers/waste_container_big_03.glb" id="1_fqlki"]
+[ext_resource type="Material" uid="uid://cmgvdn03psf5u" path="res://assets/materials/dev/dev_gray.tres" id="2_2nqun"]
+
+[node name="WasteContainerBig0" instance=ExtResource("1_fqlki")]
+
+[node name="body" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_2nqun")

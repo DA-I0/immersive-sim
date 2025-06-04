@@ -1,0 +1,91 @@
+[gd_scene load_steps=16 format=3 uid="uid://dr5k5rrwtqpiy"]
+
+[ext_resource type="PackedScene" uid="uid://bbvdd4wenttpw" path="res://assets/models/buildings/arcade_01/exterior_entrance_sign.glb" id="1_ljmmx"]
+[ext_resource type="PackedScene" uid="uid://stvx8y5cq0ga" path="res://assets/models/buildings/arcade_01/exterior_roof.glb" id="2_ospl3"]
+[ext_resource type="PackedScene" uid="uid://cpg4ygflsh8gl" path="res://assets/models/buildings/arcade_01/exterior_roof_entrance.glb" id="3_0jhwi"]
+[ext_resource type="PackedScene" uid="uid://clodr2llosksn" path="res://assets/models/buildings/arcade_01/exterior_walls_01.glb" id="4_iwsmn"]
+[ext_resource type="PackedScene" uid="uid://cwfo20aii2a6s" path="res://prefabs/triggers/sub_level_trigger.tscn" id="4_j6ire"]
+[ext_resource type="Material" uid="uid://bx51uk5arjbcn" path="res://assets/materials/dev/dev_black.tres" id="4_k7skd"]
+[ext_resource type="Material" uid="uid://c11j5xw4qn4lv" path="res://assets/materials/dev/dev_gray_very_light.tres" id="5_d6t7p"]
+[ext_resource type="Material" uid="uid://cd374gk86tfva" path="res://assets/materials/dev_glass_opaque.tres" id="5_hk77p"]
+[ext_resource type="Material" uid="uid://c0hj7haymkpjh" path="res://assets/materials/dev/dev_gray_light.tres" id="6_cu7iw"]
+[ext_resource type="PackedScene" uid="uid://dlra543wtsrsy" path="res://assets/models/buildings/arcade_01/exterior_walls_02.glb" id="6_hjltd"]
+[ext_resource type="Material" uid="uid://b5i8t0xammn0b" path="res://assets/materials/dev/dev_orange.tres" id="7_0gxf5"]
+[ext_resource type="PackedScene" uid="uid://ca74eoua63o15" path="res://prefabs/power_devices/power_socket_basic_triple.tscn" id="12_rlcxa"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_pm2eg"]
+size = Vector2(8.5, 6.5)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_1i8vu"]
+size = Vector2(3, 6.5)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_1xrpj"]
+size = Vector2(1.5, 6.5)
+
+[node name="Arcade01" type="Node3D"]
+
+[node name="LevelSpawner" parent="." instance=ExtResource("4_j6ire")]
+_levelID = "arcade_01/Interior"
+
+[node name="ExteriorGeometry" type="Node3D" parent="."]
+
+[node name="exterior_entrance_sign" parent="ExteriorGeometry" instance=ExtResource("1_ljmmx")]
+
+[node name="exterior_roof" parent="ExteriorGeometry" instance=ExtResource("2_ospl3")]
+
+[node name="exterior_roof" parent="ExteriorGeometry/exterior_roof" index="0"]
+surface_material_override/0 = ExtResource("7_0gxf5")
+surface_material_override/1 = ExtResource("4_k7skd")
+
+[node name="exterior_roof_entrance" parent="ExteriorGeometry" instance=ExtResource("3_0jhwi")]
+
+[node name="exterior_roof_entrance" parent="ExteriorGeometry/exterior_roof_entrance" index="0"]
+surface_material_override/0 = ExtResource("6_cu7iw")
+surface_material_override/1 = ExtResource("7_0gxf5")
+
+[node name="exterior_walls_01" parent="ExteriorGeometry" instance=ExtResource("4_iwsmn")]
+
+[node name="exterior_walls_01" parent="ExteriorGeometry/exterior_walls_01" index="0"]
+surface_material_override/0 = ExtResource("5_d6t7p")
+
+[node name="exterior_walls_02" parent="ExteriorGeometry" instance=ExtResource("6_hjltd")]
+
+[node name="exterior_walls_02" parent="ExteriorGeometry/exterior_walls_02" index="0"]
+surface_material_override/0 = ExtResource("7_0gxf5")
+
+[node name="UnloadedDetails" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="UnloadedDetails"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 1.425, 7.918, -5.226)
+mesh = SubResource("PlaneMesh_pm2eg")
+surface_material_override/0 = ExtResource("5_hk77p")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="UnloadedDetails"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 6.974, 7.918, -6.706)
+mesh = SubResource("PlaneMesh_1i8vu")
+surface_material_override/0 = ExtResource("5_hk77p")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="UnloadedDetails"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -4.225, 7.918, -6.706)
+mesh = SubResource("PlaneMesh_1i8vu")
+surface_material_override/0 = ExtResource("5_hk77p")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="UnloadedDetails"]
+transform = Transform3D(2.98023e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, -2.98023e-08, -8.88178e-16, -2.725, 7.918, -5.956)
+mesh = SubResource("PlaneMesh_1xrpj")
+surface_material_override/0 = ExtResource("5_hk77p")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="UnloadedDetails"]
+transform = Transform3D(-1.17225e-07, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 1.17225e-07, 4.70955e-15, 5.47478, 7.918, -5.956)
+mesh = SubResource("PlaneMesh_1xrpj")
+surface_material_override/0 = ExtResource("5_hk77p")
+
+[node name="Props" type="Node3D" parent="."]
+
+[node name="PowerSocketBasicTriple" parent="Props" instance=ExtResource("12_rlcxa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8, 0.4, -6.1)
+
+[editable path="ExteriorGeometry/exterior_roof"]
+[editable path="ExteriorGeometry/exterior_roof_entrance"]
+[editable path="ExteriorGeometry/exterior_walls_01"]
+[editable path="ExteriorGeometry/exterior_walls_02"]

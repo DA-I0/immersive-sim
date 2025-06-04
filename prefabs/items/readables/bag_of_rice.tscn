@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bivhb5ctghp6v"]
+
+[ext_resource type="Script" uid="uid://f4uac506ort6" path="res://code/interactables/items/Note.cs" id="1_7psi8"]
+[ext_resource type="PackedScene" uid="uid://chhbpp5yfy52g" path="res://assets/models/props/book.glb" id="2_64a6d"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fpflf"]
+size = Vector3(0.14, 0.02, 0.21)
+
+[node name="BookBAGOFRICE" type="RigidBody3D"]
+collision_layer = 4
+collision_mask = 5
+script = ExtResource("1_7psi8")
+_templateID = "bag_of_rice"
+
+[node name="Collider" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_fpflf")
+
+[node name="Model" parent="." instance=ExtResource("2_64a6d")]

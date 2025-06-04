@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dqcdjx3yc7skf"]
+
+[ext_resource type="PackedScene" uid="uid://clxrxylpkj8yt" path="res://assets/models/props/ash_tray_standing.glb" id="1_e3qjp"]
+
+[node name="AshTrayStanding" instance=ExtResource("1_e3qjp")]

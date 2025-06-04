@@ -1,0 +1,290 @@
+[gd_scene load_steps=24 format=3 uid="uid://b2vudjxvewu0"]
+
+[ext_resource type="Script" uid="uid://c6b826dw557h1" path="res://code/ui/UIHandler.cs" id="1_1eh4v"]
+[ext_resource type="PackedScene" uid="uid://cv8oo1c7lvs5k" path="res://ui/system/character_inventory.tscn" id="2_s4cs1"]
+[ext_resource type="PackedScene" uid="uid://b6t2dkruyrd6l" path="res://ui/system/time_skip.tscn" id="3_uo6k8"]
+[ext_resource type="PackedScene" uid="uid://dmpdojjkoesf2" path="res://ui/system/item_rename_prompt.tscn" id="4_gq0mq"]
+[ext_resource type="Script" uid="uid://dyourpj5csql3" path="res://code/ui/CharacterStatus.cs" id="5_2wmef"]
+[ext_resource type="PackedScene" uid="uid://b3xy6vdumj7h" path="res://ui/system/item_stack_split.tscn" id="5_shxvm"]
+[ext_resource type="Script" uid="uid://bnfai6p4lfag4" path="res://code/ui/TimeDisplay.cs" id="6_g62rt"]
+[ext_resource type="PackedScene" uid="uid://bx5edcyygl26m" path="res://ui/system/note_display.tscn" id="7_imq6s"]
+[ext_resource type="PackedScene" uid="uid://c1dx74v45dmpp" path="res://ui/system/crosshair.tscn" id="8_bcpvg"]
+[ext_resource type="PackedScene" uid="uid://dt5ltwii5pnte" path="res://ui/system/item_details.tscn" id="10_216cp"]
+[ext_resource type="PackedScene" uid="uid://8m2lj33bjwaw" path="res://ui/system/dialog_display.tscn" id="11_s263w"]
+[ext_resource type="PackedScene" uid="uid://dbdr86w6ku6tn" path="res://ui/system/shop_display.tscn" id="12_hcuvr"]
+[ext_resource type="PackedScene" uid="uid://drlfaam55u8d8" path="res://ui/system/notification_display.tscn" id="13_wmbuw"]
+[ext_resource type="PackedScene" uid="uid://byvjymdjjdoes" path="res://ui/system/pause_menu.tscn" id="14_iwh3p"]
+[ext_resource type="PackedScene" uid="uid://d1r3ph3xu113x" path="res://ui/system/save_load_menu.tscn" id="15_hukpd"]
+[ext_resource type="PackedScene" uid="uid://bv3hv4cfobv4l" path="res://ui/system/settings_menu.tscn" id="16_pwdtk"]
+[ext_resource type="Script" uid="uid://cpcsx30ksdq8k" path="res://code/ui/FPSCounter.cs" id="17_urj26"]
+[ext_resource type="Texture2D" uid="uid://dbfsrnq6b3kei" path="res://assets/textures/ui/loading_screen_widget.png" id="18_8hfcd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7ncei"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xwwlm"]
+bg_color = Color(0.490369, 0.140484, 0.283474, 1)
+
+[sub_resource type="Animation" id="Animation_7mpks"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icon:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_dbgtb"]
+resource_name = "idle"
+length = 2.0
+loop_mode = 1
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icon:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 3.14159, 6.28319]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jbf5j"]
+_data = {
+&"RESET": SubResource("Animation_7mpks"),
+&"idle": SubResource("Animation_dbgtb")
+}
+
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_1eh4v")
+
+[node name="PlayerStatusInfo" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -86.0
+offset_top = -49.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 8
+text = "Health: x
+Stamina : x"
+horizontal_alignment = 2
+
+[node name="CharacterInventory" parent="." instance=ExtResource("2_s4cs1")]
+layout_mode = 1
+
+[node name="TimeSkip" parent="." instance=ExtResource("3_uo6k8")]
+layout_mode = 1
+
+[node name="ItemStackSplit" parent="." instance=ExtResource("5_shxvm")]
+layout_mode = 1
+
+[node name="ItemRenamePrompt" parent="." instance=ExtResource("4_gq0mq")]
+layout_mode = 1
+
+[node name="ItemDetails" parent="." instance=ExtResource("10_216cp")]
+layout_mode = 0
+offset_right = 231.0
+offset_bottom = 139.0
+
+[node name="PlayerStatus" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -44.0
+offset_top = -200.0
+grow_horizontal = 0
+grow_vertical = 0
+script = ExtResource("5_2wmef")
+
+[node name="InfoControls" type="HBoxContainer" parent="PlayerStatus"]
+layout_mode = 2
+
+[node name="HealthBar" type="ProgressBar" parent="PlayerStatus/InfoControls"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+size_flags_stretch_ratio = 2.0
+fill_mode = 3
+show_percentage = false
+
+[node name="Stamina" type="Control" parent="PlayerStatus/InfoControls"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="StaminaPenaltyBar" type="ProgressBar" parent="PlayerStatus/InfoControls/Stamina"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_styles/background = SubResource("StyleBoxFlat_7ncei")
+theme_override_styles/fill = SubResource("StyleBoxFlat_xwwlm")
+fill_mode = 2
+show_percentage = false
+
+[node name="StaminaBar" type="ProgressBar" parent="PlayerStatus/InfoControls/Stamina"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+fill_mode = 3
+show_percentage = false
+
+[node name="TimeDisplay" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+grow_horizontal = 0
+script = ExtResource("6_g62rt")
+
+[node name="TimeControls" type="VBoxContainer" parent="TimeDisplay"]
+layout_mode = 2
+
+[node name="Date" type="Label" parent="TimeDisplay/TimeControls"]
+layout_mode = 2
+text = "day"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Time" type="Label" parent="TimeDisplay/TimeControls"]
+layout_mode = 2
+text = "00:00"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="NoteDisplay" parent="." instance=ExtResource("7_imq6s")]
+layout_mode = 1
+
+[node name="Crosshair" parent="." instance=ExtResource("8_bcpvg")]
+layout_mode = 1
+
+[node name="DialogDisplay" parent="." instance=ExtResource("11_s263w")]
+layout_mode = 1
+
+[node name="ShopDisplay" parent="." instance=ExtResource("12_hcuvr")]
+layout_mode = 1
+
+[node name="NotificationDisplay" parent="." instance=ExtResource("13_wmbuw")]
+layout_mode = 1
+
+[node name="PauseMenu" parent="." instance=ExtResource("14_iwh3p")]
+layout_mode = 1
+
+[node name="SaveLoadMenu" parent="." instance=ExtResource("15_hukpd")]
+layout_mode = 1
+_inMenu = false
+
+[node name="SettingsMenu" parent="." instance=ExtResource("16_pwdtk")]
+layout_mode = 1
+
+[node name="FPSCounter" type="PanelContainer" parent="."]
+process_mode = 3
+z_index = 99
+z_as_relative = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("17_urj26")
+
+[node name="Content" type="Label" parent="FPSCounter"]
+layout_mode = 2
+text = "FPS: x"
+vertical_alignment = 1
+
+[node name="LoadingScreen" type="ColorRect" parent="."]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Icon" type="TextureRect" parent="LoadingScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -96.0
+offset_right = 32.0
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(32, 32)
+texture = ExtResource("18_8hfcd")
+stretch_mode = 4
+
+[node name="Text" type="Label" parent="LoadingScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -110.5
+offset_top = -10.0
+offset_right = 110.5
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "INFO_LOADING"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="LoadingScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="LoadingScreen"]
+process_mode = 2
+libraries = {
+&"": SubResource("AnimationLibrary_jbf5j")
+}
+autoplay = "idle"

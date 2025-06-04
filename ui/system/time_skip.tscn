@@ -1,0 +1,59 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6t2dkruyrd6l"]
+
+[ext_resource type="Script" path="res://code/ui/TimeSkip.cs" id="1_e4wsv"]
+
+[node name="TimeSkip" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_e4wsv")
+
+[node name="Window" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_top = 0.5
+anchor_right = 0.6
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ControlPositioner" type="VBoxContainer" parent="Window"]
+layout_mode = 2
+alignment = 1
+
+[node name="Header" type="Label" parent="Window/ControlPositioner"]
+layout_mode = 2
+text = "Wait"
+horizontal_alignment = 1
+
+[node name="SkipDuration" type="HSlider" parent="Window/ControlPositioner"]
+layout_mode = 2
+min_value = 1.0
+max_value = 24.0
+value = 1.0
+rounded = true
+
+[node name="TargetDate" type="Label" parent="Window/ControlPositioner"]
+layout_mode = 2
+text = "12:12"
+horizontal_alignment = 1
+
+[node name="ButtonPositioner" type="HBoxContainer" parent="Window/ControlPositioner"]
+layout_mode = 2
+alignment = 1
+
+[node name="Cancel" type="Button" parent="Window/ControlPositioner/ButtonPositioner"]
+layout_mode = 2
+text = "Cancel"
+
+[node name="Confirm" type="Button" parent="Window/ControlPositioner/ButtonPositioner"]
+layout_mode = 2
+text = "Confirm"
+
+[connection signal="value_changed" from="Window/ControlPositioner/SkipDuration" to="." method="UpdateTimeSkipDuration"]
+[connection signal="pressed" from="Window/ControlPositioner/ButtonPositioner/Cancel" to="." method="CancelTimeSkip"]
+[connection signal="pressed" from="Window/ControlPositioner/ButtonPositioner/Confirm" to="." method="ConfirmTimeSkip"]

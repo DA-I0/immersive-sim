@@ -1,0 +1,120 @@
+[gd_scene load_steps=18 format=3 uid="uid://rctut352w72b"]
+
+[ext_resource type="PackedScene" uid="uid://dxxads12wt5aa" path="res://assets/models/buildings/cntr_store_01/exterior_stairs.glb" id="1_yxg72"]
+[ext_resource type="Material" uid="uid://b5i8t0xammn0b" path="res://assets/materials/dev/dev_orange.tres" id="2_6mm4k"]
+[ext_resource type="PackedScene" uid="uid://he85jgsiwbie" path="res://assets/models/buildings/cntr_store_01/exterior_stairs_roof.glb" id="2_f11ko"]
+[ext_resource type="Material" uid="uid://cmgvdn03psf5u" path="res://assets/materials/dev/dev_gray.tres" id="3_rrxt2"]
+[ext_resource type="PackedScene" uid="uid://b1jyx0pfu1vx6" path="res://assets/models/buildings/cntr_store_01/exterior_walls.glb" id="3_ywvdc"]
+[ext_resource type="PackedScene" uid="uid://cl4o4e6ddvhxg" path="res://assets/models/buildings/cntr_store_01/roof.glb" id="4_r457j"]
+[ext_resource type="PackedScene" uid="uid://cl1anyndenr7a" path="res://assets/models/buildings/cntr_store_01/display_window.glb" id="5_1rt0p"]
+[ext_resource type="Material" uid="uid://c0hj7haymkpjh" path="res://assets/materials/dev/dev_gray_light.tres" id="5_kvecp"]
+[ext_resource type="PackedScene" uid="uid://cwfo20aii2a6s" path="res://prefabs/triggers/sub_level_trigger.tscn" id="5_v324o"]
+[ext_resource type="Material" uid="uid://cd374gk86tfva" path="res://assets/materials/dev_glass_opaque.tres" id="6_jw8d8"]
+[ext_resource type="Material" uid="uid://c11j5xw4qn4lv" path="res://assets/materials/dev/dev_gray_very_light.tres" id="6_nhnyy"]
+[ext_resource type="Material" uid="uid://e1bdhs4vq8e8" path="res://assets/materials/dev_glass_clear.tres" id="10_cs6cr"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_8bqkk"]
+material = ExtResource("6_jw8d8")
+size = Vector2(4, 3)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_lg1g6"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_q4430"]
+size = Vector2(0.425, 2)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_m1e4m"]
+material = ExtResource("6_jw8d8")
+size = Vector2(6, 3)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_g83ca"]
+material = ExtResource("6_jw8d8")
+size = Vector2(4, 3)
+
+[node name="CntrStore01" type="Node3D"]
+
+[node name="ExteriorGeometry" type="Node3D" parent="."]
+
+[node name="exterior_stairs" parent="ExteriorGeometry" groups=["navigation_mesh_source_group"] instance=ExtResource("1_yxg72")]
+
+[node name="exterior_stairs" parent="ExteriorGeometry/exterior_stairs" index="0"]
+surface_material_override/0 = ExtResource("2_6mm4k")
+surface_material_override/1 = ExtResource("3_rrxt2")
+
+[node name="exterior_stairs_roof" parent="ExteriorGeometry" instance=ExtResource("2_f11ko")]
+
+[node name="exterior_stairs_roof" parent="ExteriorGeometry/exterior_stairs_roof" index="0"]
+surface_material_override/0 = ExtResource("5_kvecp")
+surface_material_override/1 = ExtResource("6_nhnyy")
+
+[node name="exterior_walls" parent="ExteriorGeometry" instance=ExtResource("3_ywvdc")]
+
+[node name="exterior_walls" parent="ExteriorGeometry/exterior_walls" index="0"]
+surface_material_override/0 = ExtResource("3_rrxt2")
+
+[node name="roof" parent="ExteriorGeometry" instance=ExtResource("4_r457j")]
+
+[node name="display_window" parent="ExteriorGeometry" instance=ExtResource("5_1rt0p")]
+
+[node name="display_window" parent="ExteriorGeometry/display_window" index="0"]
+surface_material_override/0 = ExtResource("2_6mm4k")
+
+[node name="frame_front" parent="ExteriorGeometry/display_window" index="1"]
+surface_material_override/0 = ExtResource("2_6mm4k")
+
+[node name="frame_side_l" parent="ExteriorGeometry/display_window" index="2"]
+surface_material_override/0 = ExtResource("2_6mm4k")
+
+[node name="window_arc_glass_front" parent="ExteriorGeometry/display_window" index="3"]
+surface_material_override/0 = ExtResource("10_cs6cr")
+
+[node name="window_arc_glass_front_001" parent="ExteriorGeometry/display_window" index="4"]
+surface_material_override/0 = ExtResource("10_cs6cr")
+
+[node name="window_arc_glass_side_l" parent="ExteriorGeometry/display_window" index="5"]
+surface_material_override/0 = ExtResource("10_cs6cr")
+
+[node name="window_arc_glass_side_r" parent="ExteriorGeometry/display_window" index="6"]
+surface_material_override/0 = ExtResource("10_cs6cr")
+
+[node name="frame_front_001" parent="ExteriorGeometry/display_window" index="7"]
+surface_material_override/0 = ExtResource("2_6mm4k")
+
+[node name="frame_side_r" parent="ExteriorGeometry/display_window" index="8"]
+surface_material_override/0 = ExtResource("2_6mm4k")
+
+[node name="LevelSpawner" parent="." instance=ExtResource("5_v324o")]
+_levelID = "cntr_store_01/Interior"
+
+[node name="UnloadedDetails" type="Node3D" parent="."]
+
+[node name="TempWindow" type="MeshInstance3D" parent="UnloadedDetails"]
+transform = Transform3D(-1, -8.74228e-08, 3.82137e-15, 0, -4.37114e-08, -1, 8.74228e-08, -1, 4.37114e-08, -1.35, 2.2, -6.15)
+mesh = SubResource("PlaneMesh_8bqkk")
+
+[node name="TempWindow4" type="MeshInstance3D" parent="UnloadedDetails"]
+transform = Transform3D(1, 2.13163e-14, 1.69407e-21, 0, -4.37114e-08, -1, -2.13163e-14, 1, -4.37114e-08, -1.90556, 1.59439, 6.61488)
+mesh = SubResource("PlaneMesh_lg1g6")
+surface_material_override/0 = ExtResource("6_jw8d8")
+
+[node name="TempWindow5" type="MeshInstance3D" parent="UnloadedDetails"]
+transform = Transform3D(0.707107, 0.707107, -3.09086e-08, 0, -4.37114e-08, -1, -0.707107, 0.707107, -3.09086e-08, -0.755063, 1.59439, 6.45261)
+mesh = SubResource("PlaneMesh_q4430")
+surface_material_override/0 = ExtResource("6_jw8d8")
+
+[node name="TempWindow6" type="MeshInstance3D" parent="UnloadedDetails"]
+transform = Transform3D(0.707107, -0.707107, 3.09086e-08, 0, -4.37114e-08, -1, 0.707107, 0.707107, -3.09086e-08, -3.03253, 1.59439, 6.45261)
+mesh = SubResource("PlaneMesh_q4430")
+surface_material_override/0 = ExtResource("6_jw8d8")
+
+[node name="TempWindow2" type="MeshInstance3D" parent="UnloadedDetails"]
+transform = Transform3D(-1, -8.74228e-08, 3.82137e-15, 0, -4.37114e-08, -1, 8.74228e-08, -1, 4.37114e-08, -0.453, 7.1, -6.15)
+mesh = SubResource("PlaneMesh_m1e4m")
+
+[node name="TempWindow3" type="MeshInstance3D" parent="UnloadedDetails"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -1.20204, 7.1, 6.21744)
+mesh = SubResource("PlaneMesh_g83ca")
+
+[editable path="ExteriorGeometry/exterior_stairs"]
+[editable path="ExteriorGeometry/exterior_stairs_roof"]
+[editable path="ExteriorGeometry/exterior_walls"]
+[editable path="ExteriorGeometry/display_window"]

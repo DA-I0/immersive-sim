@@ -1,0 +1,16 @@
+[gd_scene load_steps=5 format=3 uid="uid://5wpqepcikr8r"]
+
+[ext_resource type="PackedScene" uid="uid://ctrohb8neg6ty" path="res://assets/models/placeholders/props/umbrella.glb" id="1_3wues"]
+[ext_resource type="Texture2D" uid="uid://brvr6ikt0xatd" path="res://assets/textures/items/misc/umbrella_handle.png" id="2_7ud1r"]
+[ext_resource type="Material" uid="uid://bpsepa4xmmdan" path="res://assets/materials/dev/dev_orange_transculent.tres" id="3_wooky"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q4rpw"]
+albedo_texture = ExtResource("2_7ud1r")
+
+[node name="DecorativeUmbrellaOrange" instance=ExtResource("1_3wues")]
+
+[node name="handle" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_q4rpw")
+
+[node name="top" parent="." index="1"]
+surface_material_override/0 = ExtResource("3_wooky")

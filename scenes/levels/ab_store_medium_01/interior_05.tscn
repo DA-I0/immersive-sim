@@ -1,0 +1,45 @@
+[gd_scene load_steps=8 format=3 uid="uid://3gp4l8fpismn"]
+
+[ext_resource type="PackedScene" uid="uid://sype3dktg7d3" path="res://assets/models/buildings/ab_store_medium_01/floor_01_floor_02.glb" id="1_bqthp"]
+[ext_resource type="PackedScene" uid="uid://d30ovchgkn4pc" path="res://assets/models/buildings/ab_store_medium_01/floor_01_walls_02.glb" id="2_plgvv"]
+[ext_resource type="PackedScene" uid="uid://beg74exuampyb" path="res://assets/models/buildings/ab_store_medium_01/floor_01_walls_03.glb" id="3_oidh7"]
+[ext_resource type="PackedScene" uid="uid://baxmbfkmrd5v0" path="res://assets/models/buildings/ab_store_medium_01/floor_01_walls_04.glb" id="4_bo8wf"]
+[ext_resource type="PackedScene" uid="uid://ec5b0bh7mi6" path="res://prefabs/triggers/entity_reparent_trigger.tscn" id="5_xpja0"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_c548s"]
+geometry_parsed_geometry_type = 1
+geometry_source_geometry_mode = 1
+agent_height = 1.75
+agent_radius = 0.25
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cx65f"]
+size = Vector3(6.04956, 2.7951, 8.40228)
+
+[node name="Interior_05" type="NavigationRegion3D"]
+navigation_mesh = SubResource("NavigationMesh_c548s")
+
+[node name="BuildingGeometry" type="Node3D" parent="."]
+
+[node name="floor_01_floor_02" parent="BuildingGeometry" instance=ExtResource("1_bqthp")]
+
+[node name="floor_01_walls_02" parent="BuildingGeometry" instance=ExtResource("2_plgvv")]
+
+[node name="floor_01_walls_03" parent="BuildingGeometry" instance=ExtResource("3_oidh7")]
+
+[node name="floor_01_walls_04" parent="BuildingGeometry" instance=ExtResource("4_bo8wf")]
+
+[node name="Props" type="Node3D" parent="." groups=["navigation_mesh_source_group"]]
+
+[node name="NPCTriggers" type="Node3D" parent="."]
+
+[node name="ReparentTriggers" type="Node3D" parent="."]
+
+[node name="EntityReparentTrigger" parent="ReparentTriggers" instance=ExtResource("5_xpja0")]
+_topSceneParent = true
+
+[node name="CollisionShape3D" parent="ReparentTriggers/EntityReparentTrigger" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.09904, 4.40052, -1.57356)
+shape = SubResource("BoxShape3D_cx65f")
+debug_color = Color(0.793491, 0.0739923, 1, 0.42)
+
+[editable path="ReparentTriggers/EntityReparentTrigger"]

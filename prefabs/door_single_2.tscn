@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://bw1qd44u43h1q"]
+
+[ext_resource type="PackedScene" uid="uid://kix7lkwscloa" path="res://assets/models/doors/door_single_1.glb" id="1_w484c"]
+[ext_resource type="Script" path="res://code/interactables/Door.cs" id="2_adnpd"]
+[ext_resource type="Script" path="res://code/interactables/ToggleSwitch.cs" id="3_fbiwv"]
+[ext_resource type="Material" uid="uid://do0r46420kjd1" path="res://assets/materials/dev/dev_blue.tres" id="4_l1xp8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_eggjb"]
+size = Vector3(0.1, 0.1, 0.3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_p7sts"]
+material = ExtResource("4_l1xp8")
+size = Vector3(0.1, 0.1, 0.3)
+
+[node name="door_single_1" type="Node3D"]
+
+[node name="door_single_12" parent="." instance=ExtResource("1_w484c")]
+script = ExtResource("2_adnpd")
+_doorAxis = 3
+_openRange = 1.0
+
+[node name="door_lock" type="Node3D" parent="door_single_12" node_paths=PackedStringArray("_connectedDevices")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.432188, 1.23007, 0)
+script = ExtResource("3_fbiwv")
+_connectedDevices = [NodePath("..")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="door_single_12/door_lock"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="door_single_12/door_lock/StaticBody3D"]
+shape = SubResource("BoxShape3D_eggjb")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="door_single_12/door_lock"]
+mesh = SubResource("BoxMesh_p7sts")

@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://cg48kp1ca5k11"]
+
+[ext_resource type="PackedScene" uid="uid://d2g8ia461nehq" path="res://assets/models/buildings/bs_store_medium_07/exterior_walls.glb" id="1_tamd1"]
+[ext_resource type="PackedScene" uid="uid://dfesg8r0jf73x" path="res://assets/models/buildings/bs_store_medium_07/food_stand_temp.glb" id="2_wmvqk"]
+[ext_resource type="PackedScene" uid="uid://ptldxeitjmk0" path="res://prefabs/props/sidewalk_02/sidewalk_base_2x5.tscn" id="3_olxkl"]
+[ext_resource type="PackedScene" uid="uid://5w4vtmytb2l3" path="res://prefabs/props/sidewalk_02/sidewalk_base_1x5.tscn" id="4_xj7dx"]
+[ext_resource type="PackedScene" uid="uid://cwfo20aii2a6s" path="res://prefabs/triggers/sub_level_trigger.tscn" id="5_7dn2o"]
+[ext_resource type="PackedScene" uid="uid://gj2l412h5q4k" path="res://prefabs/props/radio.tscn" id="6_hk1ve"]
+
+[node name="BSStoreMedium07" type="Node3D"]
+
+[node name="ExteriorGeometry" type="Node3D" parent="."]
+
+[node name="exterior_walls" parent="ExteriorGeometry" instance=ExtResource("1_tamd1")]
+
+[node name="food_stand_temp" parent="ExteriorGeometry" instance=ExtResource("2_wmvqk")]
+
+[node name="SidewalkBase2x5" parent="ExteriorGeometry" instance=ExtResource("3_olxkl")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6, -0.2, -0.5)
+
+[node name="SidewalkBase1x5" parent="ExteriorGeometry" instance=ExtResource("4_xj7dx")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 0.999, 0, -1, 0, -4.37114e-08, -4.25, -0.2, -0.5)
+
+[node name="LevelSpawner" parent="." instance=ExtResource("5_7dn2o")]
+_levelID = "bs_store_medium_07/Interior"
+
+[node name="UnloadedDetails" type="Node3D" parent="."]
+
+[node name="Props" type="Node3D" parent="."]
+
+[node name="Radio" parent="Props" instance=ExtResource("6_hk1ve")]
+transform = Transform3D(-0.298941, 0, -0.954272, 0, 1, 0, 0.954272, 0, -0.298941, -5.17227, 0.79995, -0.675409)

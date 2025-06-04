@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://b2ftemq3oc1yu"]
+
+[ext_resource type="Script" uid="uid://ccl7l7q1q3tla" path="res://code/devices/DigitalClock.cs" id="1_foyl0"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_gvfot"]
+size = Vector3(0.2, 0.1, 0.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ffhho"]
+emission_enabled = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_5o0sk"]
+material = SubResource("StandardMaterial3D_ffhho")
+size = Vector2(0.2, 0.1)
+
+[node name="DigitalClock" type="Node3D"]
+script = ExtResource("1_foyl0")
+
+[node name="Model" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0499802, 0)
+mesh = SubResource("BoxMesh_gvfot")
+
+[node name="Display" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0.101)
+mesh = SubResource("QuadMesh_5o0sk")
+
+[node name="DisplayViewport" type="SubViewport" parent="."]
+size = Vector2i(512, 256)
+
+[node name="Background" type="ColorRect" parent="DisplayViewport"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.194349, 0.194349, 0.194349, 1)
+
+[node name="TimeDisplay" type="Label" parent="DisplayViewport"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 128
+text = "12:00"
+horizontal_alignment = 1
+vertical_alignment = 1

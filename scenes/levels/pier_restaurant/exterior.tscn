@@ -1,0 +1,122 @@
+[gd_scene load_steps=8 format=3 uid="uid://c46d42o82te1g"]
+
+[ext_resource type="PackedScene" uid="uid://cwfo20aii2a6s" path="res://prefabs/triggers/sub_level_trigger.tscn" id="1_ll8i6"]
+[ext_resource type="PackedScene" uid="uid://k7dgki171moa" path="res://assets/models/buildings/pier_restaurant/exterior_roof.glb" id="2_t4erp"]
+[ext_resource type="Material" uid="uid://kvjym43dl8yy" path="res://assets/materials/dev/dev_green.tres" id="3_rwbsc"]
+[ext_resource type="PackedScene" uid="uid://ci0aivexqt6dh" path="res://assets/models/buildings/pier_restaurant/exterior_walls.glb" id="3_xv1b2"]
+[ext_resource type="PackedScene" uid="uid://b8ktpre0815uq" path="res://assets/models/buildings/pier_restaurant/window_stylised.glb" id="4_5jq7r"]
+[ext_resource type="Material" uid="uid://e1bdhs4vq8e8" path="res://assets/materials/dev_glass_clear.tres" id="4_gnge3"]
+[ext_resource type="Material" uid="uid://c0hj7haymkpjh" path="res://assets/materials/dev/dev_gray_light.tres" id="6_v8i1p"]
+
+[node name="PierRestaurant" type="Node3D"]
+
+[node name="LevelSpawner" parent="." instance=ExtResource("1_ll8i6")]
+_levelID = "pier_restaurant/Interior"
+
+[node name="ExteriorGeometry" type="Node3D" parent="."]
+
+[node name="exterior_roof" parent="ExteriorGeometry" instance=ExtResource("2_t4erp")]
+
+[node name="exterior_roof" parent="ExteriorGeometry/exterior_roof" index="0"]
+surface_material_override/0 = ExtResource("3_rwbsc")
+surface_material_override/1 = ExtResource("4_gnge3")
+
+[node name="exterior_walls" parent="ExteriorGeometry" instance=ExtResource("3_xv1b2")]
+
+[node name="exterior_walls" parent="ExteriorGeometry/exterior_walls" index="0"]
+surface_material_override/0 = ExtResource("6_v8i1p")
+
+[node name="Windows" type="Node3D" parent="ExteriorGeometry"]
+
+[node name="window_stylised" parent="ExteriorGeometry/Windows" instance=ExtResource("4_5jq7r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 11.82)
+
+[node name="window_stylised" parent="ExteriorGeometry/Windows/window_stylised" index="0"]
+surface_material_override/0 = ExtResource("3_rwbsc")
+surface_material_override/1 = ExtResource("4_gnge3")
+
+[node name="window_stylised2" parent="ExteriorGeometry/Windows" instance=ExtResource("4_5jq7r")]
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, -5.91, 0.5, 10.2364)
+
+[node name="window_stylised" parent="ExteriorGeometry/Windows/window_stylised2" index="0"]
+surface_material_override/0 = ExtResource("3_rwbsc")
+surface_material_override/1 = ExtResource("4_gnge3")
+
+[node name="window_stylised3" parent="ExteriorGeometry/Windows" instance=ExtResource("4_5jq7r")]
+transform = Transform3D(0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, 0.5, -10.2364, 0.5, 5.91)
+
+[node name="window_stylised" parent="ExteriorGeometry/Windows/window_stylised3" index="0"]
+surface_material_override/0 = ExtResource("3_rwbsc")
+surface_material_override/1 = ExtResource("4_gnge3")
+
+[node name="window_stylised4" parent="ExteriorGeometry/Windows" instance=ExtResource("4_5jq7r")]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, -11.82, 0.5, 0)
+
+[node name="window_stylised" parent="ExteriorGeometry/Windows/window_stylised4" index="0"]
+surface_material_override/0 = ExtResource("3_rwbsc")
+surface_material_override/1 = ExtResource("4_gnge3")
+
+[node name="window_stylised5" parent="ExteriorGeometry/Windows" instance=ExtResource("4_5jq7r")]
+transform = Transform3D(-0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, -10.2364, 0.5, -5.91)
+
+[node name="window_stylised" parent="ExteriorGeometry/Windows/window_stylised5" index="0"]
+surface_material_override/0 = ExtResource("3_rwbsc")
+surface_material_override/1 = ExtResource("4_gnge3")
+
+[node name="window_stylised6" parent="ExteriorGeometry/Windows" instance=ExtResource("4_5jq7r")]
+transform = Transform3D(-0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, -0.866025, -5.91, 0.5, -10.2364)
+
+[node name="window_stylised" parent="ExteriorGeometry/Windows/window_stylised6" index="0"]
+surface_material_override/0 = ExtResource("3_rwbsc")
+surface_material_override/1 = ExtResource("4_gnge3")
+
+[node name="window_stylised7" parent="ExteriorGeometry/Windows" instance=ExtResource("4_5jq7r")]
+transform = Transform3D(-0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866025, 5.91, 0.5, -10.2364)
+
+[node name="window_stylised" parent="ExteriorGeometry/Windows/window_stylised7" index="0"]
+surface_material_override/0 = ExtResource("3_rwbsc")
+surface_material_override/1 = ExtResource("4_gnge3")
+
+[node name="window_stylised8" parent="ExteriorGeometry/Windows" instance=ExtResource("4_5jq7r")]
+transform = Transform3D(-0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, -0.5, 10.2364, 0.5, -5.91)
+
+[node name="window_stylised" parent="ExteriorGeometry/Windows/window_stylised8" index="0"]
+surface_material_override/0 = ExtResource("3_rwbsc")
+surface_material_override/1 = ExtResource("4_gnge3")
+
+[node name="window_stylised9" parent="ExteriorGeometry/Windows" instance=ExtResource("4_5jq7r")]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 11.82, 0.5, 0)
+
+[node name="window_stylised" parent="ExteriorGeometry/Windows/window_stylised9" index="0"]
+surface_material_override/0 = ExtResource("3_rwbsc")
+surface_material_override/1 = ExtResource("4_gnge3")
+
+[node name="window_stylised10" parent="ExteriorGeometry/Windows" instance=ExtResource("4_5jq7r")]
+transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, 10.2364, 0.5, 5.91)
+
+[node name="window_stylised" parent="ExteriorGeometry/Windows/window_stylised10" index="0"]
+surface_material_override/0 = ExtResource("3_rwbsc")
+surface_material_override/1 = ExtResource("4_gnge3")
+
+[node name="window_stylised11" parent="ExteriorGeometry/Windows" instance=ExtResource("4_5jq7r")]
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 5.91, 0.5, 10.2364)
+
+[node name="window_stylised" parent="ExteriorGeometry/Windows/window_stylised11" index="0"]
+surface_material_override/0 = ExtResource("3_rwbsc")
+surface_material_override/1 = ExtResource("4_gnge3")
+
+[node name="UnloadedDetails" type="Node3D" parent="."]
+
+[editable path="ExteriorGeometry/exterior_roof"]
+[editable path="ExteriorGeometry/exterior_walls"]
+[editable path="ExteriorGeometry/Windows/window_stylised"]
+[editable path="ExteriorGeometry/Windows/window_stylised2"]
+[editable path="ExteriorGeometry/Windows/window_stylised3"]
+[editable path="ExteriorGeometry/Windows/window_stylised4"]
+[editable path="ExteriorGeometry/Windows/window_stylised5"]
+[editable path="ExteriorGeometry/Windows/window_stylised6"]
+[editable path="ExteriorGeometry/Windows/window_stylised7"]
+[editable path="ExteriorGeometry/Windows/window_stylised8"]
+[editable path="ExteriorGeometry/Windows/window_stylised9"]
+[editable path="ExteriorGeometry/Windows/window_stylised10"]
+[editable path="ExteriorGeometry/Windows/window_stylised11"]

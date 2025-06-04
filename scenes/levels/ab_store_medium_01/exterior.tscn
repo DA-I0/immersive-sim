@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=3 uid="uid://bvxe645vmccc1"]
+
+[ext_resource type="PackedScene" uid="uid://byirq1qcnf0gf" path="res://assets/models/buildings/ab_store_medium_01/exterior_roof.glb" id="2_n1etx"]
+[ext_resource type="PackedScene" uid="uid://8i7kfbgya5l1" path="res://assets/models/buildings/ab_store_medium_01/exterior_walls.glb" id="3_7pl0j"]
+[ext_resource type="PackedScene" uid="uid://cwfo20aii2a6s" path="res://prefabs/triggers/sub_level_trigger.tscn" id="4_ig3xe"]
+[ext_resource type="Material" uid="uid://cd374gk86tfva" path="res://assets/materials/dev_glass_opaque.tres" id="5_6xccy"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_5rvtd"]
+material = ExtResource("5_6xccy")
+size = Vector2(18.7, 2)
+
+[node name="ABStoreMedium01" type="Node3D"]
+
+[node name="LevelSpawner" parent="." instance=ExtResource("4_ig3xe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
+_levelID = "ab_store_medium_01/Interior_01"
+
+[node name="LevelSpawner2" parent="." instance=ExtResource("4_ig3xe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.25, 0, 0)
+_levelID = "ab_store_medium_01/Interior_02"
+
+[node name="LevelSpawner3" parent="." instance=ExtResource("4_ig3xe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 0)
+_levelID = "ab_store_medium_01/Interior_03"
+
+[node name="LevelSpawner4" parent="." instance=ExtResource("4_ig3xe")]
+_levelID = "ab_store_medium_01/Interior_04"
+
+[node name="LevelSpawner5" parent="." instance=ExtResource("4_ig3xe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 3, -2)
+_levelID = "ab_store_medium_01/Interior_05"
+
+[node name="LevelSpawner6" parent="." instance=ExtResource("4_ig3xe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 3, -2)
+_levelID = "ab_store_medium_01/Interior_06"
+
+[node name="LevelSpawner7" parent="." instance=ExtResource("4_ig3xe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 3, -2)
+_levelID = "ab_store_medium_01/Interior_07"
+
+[node name="ExteriorGeometry" type="Node3D" parent="."]
+
+[node name="exterior_roof" parent="ExteriorGeometry" instance=ExtResource("2_n1etx")]
+
+[node name="exterior_walls" parent="ExteriorGeometry" instance=ExtResource("3_7pl0j")]
+
+[node name="UnloadedDetails" type="Node3D" parent="."]
+
+[node name="TempWindow" type="MeshInstance3D" parent="UnloadedDetails"]
+transform = Transform3D(-1, -8.74228e-08, 3.82137e-15, 0, -4.37114e-08, -1, 8.74228e-08, -1, 4.37114e-08, 0, 4.8, -5.878)
+mesh = SubResource("PlaneMesh_5rvtd")

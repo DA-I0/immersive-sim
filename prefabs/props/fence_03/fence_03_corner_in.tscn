@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8q4bfnn3axdf"]
+
+[ext_resource type="PackedScene" uid="uid://ck26rbuerlj4w" path="res://assets/models/props/fence_03/fence_03_corner_in.glb" id="1_voyma"]
+[ext_resource type="Material" uid="uid://bx51uk5arjbcn" path="res://assets/materials/dev/dev_black.tres" id="2_wvuqs"]
+
+[node name="Fence03CornerIn" instance=ExtResource("1_voyma")]
+
+[node name="fence_03_corner_in" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_wvuqs")

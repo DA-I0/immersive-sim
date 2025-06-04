@@ -1,0 +1,65 @@
+[gd_scene load_steps=2 format=3 uid="uid://dmpdojjkoesf2"]
+
+[ext_resource type="Script" path="res://code/ui/ItemRenamePrompt.cs" id="1_412md"]
+
+[node name="ItemRenamePrompt" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_412md")
+
+[node name="ControlPanel" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -55.5
+offset_right = 100.0
+offset_bottom = 55.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="Controls" type="VBoxContainer" parent="ControlPanel"]
+layout_mode = 2
+
+[node name="Header" type="Label" parent="ControlPanel/Controls"]
+layout_mode = 2
+text = "Rename item"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Spacer" type="Control" parent="ControlPanel/Controls"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+
+[node name="NameBox" type="LineEdit" parent="ControlPanel/Controls"]
+layout_mode = 2
+placeholder_text = "New name"
+
+[node name="Spacer2" type="Control" parent="ControlPanel/Controls"]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+
+[node name="Buttons" type="HBoxContainer" parent="ControlPanel/Controls"]
+layout_mode = 2
+alignment = 1
+
+[node name="Cancel" type="Button" parent="ControlPanel/Controls/Buttons"]
+layout_mode = 2
+text = "Cancel"
+
+[node name="Confirm" type="Button" parent="ControlPanel/Controls/Buttons"]
+layout_mode = 2
+text = "Confirm"
+
+[connection signal="pressed" from="ControlPanel/Controls/Buttons/Cancel" to="." method="CancelNameChange"]
+[connection signal="pressed" from="ControlPanel/Controls/Buttons/Confirm" to="." method="ConfirmNameChange"]
