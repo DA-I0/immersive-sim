@@ -59,9 +59,9 @@ namespace ImmersiveSim.Systems
 			get { return (bool)_defaultConfig.GetValue("general", "display_item_interactions"); }
 		}
 
-		public string DefaultControlerPrompts
+		public string DefaultControllerPrompts
 		{
-			get { return (string)_defaultConfig.GetValue("general", "controler_prompts"); }
+			get { return (string)_defaultConfig.GetValue("general", "controller_prompts"); }
 		}
 
 		public int DefaultMaxNotificationNumber
@@ -211,10 +211,10 @@ namespace ImmersiveSim.Systems
 			set { _config.SetValue("display", "display_item_interactions", value); }
 		}
 
-		public string ControlerPrompts
+		public string ControllerPrompts
 		{
-			get { return (string)_config.GetValue("general", "controler_prompts", DefaultControlerPrompts); }
-			set { _config.SetValue("general", "controler_prompts", value); }
+			get { return (string)_config.GetValue("general", "controller_prompts", DefaultControllerPrompts); }
+			set { _config.SetValue("general", "controller_prompts", value); }
 		}
 
 		public int MaxNotificationNumber
@@ -412,7 +412,7 @@ namespace ImmersiveSim.Systems
 			DisplayInteractionKeybinds = DefaultDisplayInteractionKeybinds;
 			DisplayItemInteractions = DefaultDisplayItemInteractions;
 			ActiveInputType = (InputType)DefaultInputType;
-			ControlerPrompts = DefaultControlerPrompts;
+			ControllerPrompts = DefaultControllerPrompts;
 			MaxNotificationNumber = DefaultMaxNotificationNumber;
 			NotificationDisplayTime = DefaultNotificationDisplayTime;
 			DisplayFrameCounter = DefaultDisplayFrameCounter;
