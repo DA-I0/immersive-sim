@@ -12,21 +12,26 @@ Proof of concept for a first-person immersive sim sandbox game.
 - Item shop system.
 - Open world with async sub-level streaming.
 - Interactable props (vending machines, benches, doors).
-- Device power states (electronic devices like vending machines have to be connected to a power socket, player interactable cable).
+- Device power states (electronic devices like vending machines have to be connected to a power socket using an interactable cable).
 - Basic NPCs with placeholder dialogue, navigation and point-of-interest interactions.
 - Very simple "job system" (find a job posting, talk to a potential employer, "work" with appropriate time skip and stamina hit, salary gain).
 - Save/load system.
 - Time and date system.
-- Customisable user settings (UI, graphics, audio, controls)
+- Simple notification system (informs about saving/loading, inventory and money changes).
+- Customisable user settings (UI, graphics, audio, controls).
 
 ### TODO
 - Finish the map.
 - Add more items.
 - Add more interactables.
 - Add more NPC activities.
+- Implement housing system.
 - Implement item throwing.
+- Implement item ownership system.
 - Implement player journal system.
 - Implement quest system.
+- Implement proper character models.
+- Implement door locking system.
 
 ### Credits
 Plugins:
