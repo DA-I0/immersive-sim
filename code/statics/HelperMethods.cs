@@ -289,7 +289,7 @@ namespace ImmersiveSim.Statics
 
 		// public static string GetJoypadType(string targetAction)
 		// {
-		// 	switch (refs.settings.ControlerPrompts)
+		// 	switch (refs.settings.ControllerPrompts)
 		// 	{
 		// 		case "nintendo":
 		// 			return $"ni_{targetAction}";
