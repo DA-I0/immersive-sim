@@ -10,7 +10,7 @@ namespace ImmersiveSim.UI
 
 		public override void _Ready()
 		{
-			_content = GetNode<Label>("Content");
+			_content = GetNode<Label>("MarginContainer/Content");
 			_settings = GetNode<Systems.GameSystem>(ProjectSettings.GetSetting("global/GameSystemPath").ToString()).Settings;
 			_settings.SettingsUpdated += ToggleVisibility;
 		}
