@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://bulbvrt1jh4v3"]
 
 [ext_resource type="PackedScene" uid="uid://d3hgkaijh8v7j" path="res://assets/models/door_ring.glb" id="1_i2pjp"]
-[ext_resource type="Script" path="res://code/interactables/InteractiveScreen.cs" id="2_8501l"]
+[ext_resource type="Script" uid="uid://0b4pkomt5llm" path="res://code/interactables/InteractiveScreen.cs" id="2_8501l"]
 [ext_resource type="PackedScene" uid="uid://ymfw2k5iksfs" path="res://ui/displays/door_ring.tscn" id="3_m1ete"]
-[ext_resource type="AudioStream" uid="uid://dikl5qdmbmekr" path="res://assets/audio/ring.ogg" id="4_amkog"]
+[ext_resource type="AudioStream" uid="uid://dikl5qdmbmekr" path="res://assets/audio/effects/ring.ogg" id="4_amkog"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8u4fl"]
 size = Vector3(0.06, 0.1, 0.01)
