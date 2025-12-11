@@ -2,9 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://yg04eqolgqda" path="res://ui/displays/radio_display.tscn" id="1_aol3e"]
 [ext_resource type="Script" uid="uid://n5tkysg6fohp" path="res://code/devices/Radio.cs" id="1_dhu5h"]
-[ext_resource type="AudioStream" uid="uid://cah4itp2f402c" path="res://assets/audio/Nine_Jack.mp3" id="2_1w737"]
-[ext_resource type="AudioStream" uid="uid://qqb5ngdikwwy" path="res://assets/audio/Trick_style.mp3" id="3_ughej"]
-[ext_resource type="AudioStream" uid="uid://ckfj4etfqd2qy" path="res://assets/audio/カナリアスキップ.mp3" id="4_btmcs"]
+[ext_resource type="AudioStream" uid="uid://cah4itp2f402c" path="res://assets/audio/radio_stations/Nine_Jack.mp3" id="2_1w737"]
+[ext_resource type="AudioStream" uid="uid://qqb5ngdikwwy" path="res://assets/audio/radio_stations/Trick_style.mp3" id="3_ughej"]
+[ext_resource type="AudioStream" uid="uid://ckfj4etfqd2qy" path="res://assets/audio/radio_stations/カナリアスキップ.mp3" id="4_btmcs"]
 [ext_resource type="Script" uid="uid://0b4pkomt5llm" path="res://code/interactables/InteractiveScreen.cs" id="4_tm5oq"]
 [ext_resource type="PackedScene" uid="uid://ba3fot8sfh2sv" path="res://prefabs/light_switch.tscn" id="6_us2ls"]
 
