@@ -135,10 +135,11 @@ Save system:
 		☐ Item cleanup (delete items dropped in public spaces after x amount of time)
 		✔ Restore saved item state on sublevel load @done(25-04-30 19:21)
 Journal system:
-	☐ Note creation/deletion
-	☐ Note editing and saving
-	☐ Note display
-	☐ Note list
+	✔ Note creation/deletion @done(25-12-12 17:51)
+	✔ Note editing and saving @done(25-12-12 19:12)
+	✔ Note display @done(25-12-12 17:51)
+	✔ Note list @done(25-12-12 17:51)
+	✔ Save system compatibility @done(25-12-12 19:43)
 Work system:
 	✔ Unlock as topic after finding a job posting @done(25-04-29 19:29)
 	✔ Talk to NPC to enable the job @done(25-04-29 19:29)

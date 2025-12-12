@@ -18,6 +18,7 @@ Proof of concept for a first-person immersive sim sandbox game.
 - Save/load system.
 - Time and date system.
 - Simple notification system (informs about saving/loading, inventory and money changes).
+- Simple player journal.
 - Customisable user settings (UI, graphics, audio, controls).
 
 ### TODO
@@ -28,7 +29,6 @@ Proof of concept for a first-person immersive sim sandbox game.
 - Implement housing system.
 - Implement item throwing.
 - Implement item ownership system.
-- Implement player journal system.
 - Implement quest system.
 - Implement proper character models.
 - Implement door locking system.
