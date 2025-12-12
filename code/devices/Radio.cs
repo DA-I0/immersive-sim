@@ -100,6 +100,11 @@ namespace ImmersiveSim.Gameplay
 
 		private void ApplyVolume()
 		{
+			if (_audioSource == null)
+			{
+				return;
+			}
+
 			_audioSource.VolumeDb = (_currentState > 0) ? _volume : -100; // might have add baseVolume variable and multiply by _volume
 		}
 	}
