@@ -3,26 +3,25 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dj4pikdt38gxr"
-path.s3tc="res://.godot/imported/bricks_1.png-c0b7c414caa4002e333626a0bf4fcbdc.s3tc.ctex"
+path="res://.godot/imported/bricks_1.png-c0b7c414caa4002e333626a0bf4fcbdc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/textures/pixel_art/bricks_1.png"
-dest_files=["res://.godot/imported/bricks_1.png-c0b7c414caa4002e333626a0bf4fcbdc.s3tc.ctex"]
+dest_files=["res://.godot/imported/bricks_1.png-c0b7c414caa4002e333626a0bf4fcbdc.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
