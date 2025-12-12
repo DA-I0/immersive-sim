@@ -318,3 +318,8 @@ Salary: 300円
 
 Ask inside for more info.",,,
 ITEM_JOB_POSTER_1,Job poster,,,
+HEADER_NOTE_LIST,Note List,,,
+PLACEHOLDER_NOTE_TITLE,New note title,,,
+PLACEHOLDER_NOTE_CONTENT,Put some text here.,,,
+BUTTON_CLOSE,Close,,,
+HEADER_NOTE_TITLE,Title,,,

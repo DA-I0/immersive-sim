@@ -20,6 +20,7 @@ namespace ImmersiveSim.Systems
 		private DialogManager _dialog;
 		private SaveManager _save;
 		private LevelManager _level;
+		private JournalManager _journal;
 		private NPCSpawnController _npcSpawnController;
 		private Timer _npcSpawnTimer;
 		private NotificationManager _notifications;
@@ -87,6 +88,11 @@ namespace ImmersiveSim.Systems
 			get { return _level; }
 		}
 
+		public JournalManager Journal
+		{
+			get { return _journal; }
+		}
+
 		public NPCSpawnController NPCSpawnController
 		{
 			get { return _npcSpawnController; }
@@ -103,6 +109,7 @@ namespace ImmersiveSim.Systems
 			_settings = new Settings(this);
 			_dialog = new DialogManager(this);
 			_save = new SaveManager(this);
+			_journal = new JournalManager();
 			_npcSpawnController = new NPCSpawnController(this);
 			_npcSpawnTimer = new Timer
 			{

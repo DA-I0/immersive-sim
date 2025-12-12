@@ -1,0 +1,121 @@
+[gd_scene load_steps=8 format=3 uid="uid://c7sv1y21f0lik"]
+
+[ext_resource type="Script" uid="uid://bn1myrrepdepe" path="res://code/ui/PlayerJournal.cs" id="1_u3851"]
+[ext_resource type="Texture2D" uid="uid://c13ykq2jlakvw" path="res://assets/textures/ui/icons/journal/new_note_normal.png" id="2_fgick"]
+[ext_resource type="Texture2D" uid="uid://xoebfdor8j37" path="res://assets/textures/ui/icons/journal/new_note_hover.png" id="3_1iuds"]
+[ext_resource type="Texture2D" uid="uid://beqd8skd1ueb1" path="res://assets/textures/ui/icons/journal/new_note_disabled.png" id="4_gyuat"]
+[ext_resource type="Texture2D" uid="uid://bo2wamhqotdl6" path="res://assets/textures/ui/icons/journal/delete_note_normal.png" id="4_xcwgi"]
+[ext_resource type="Texture2D" uid="uid://dw3vtp22si384" path="res://assets/textures/ui/icons/journal/delete_note_hover.png" id="5_1iuds"]
+[ext_resource type="Texture2D" uid="uid://kq0laskb5xbv" path="res://assets/textures/ui/icons/journal/delete_note_disabled.png" id="7_0wfcu"]
+
+[node name="PlayerJournal" type="Control" node_paths=PackedStringArray("_noteList", "_noteTitle", "_noteContent", "_deleteButton")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_u3851")
+_noteList = NodePath("Background/SideBar/NoteList/Notes")
+_noteTitle = NodePath("Background/ActiveNote/Title/NoteTitleField")
+_noteContent = NodePath("Background/ActiveNote/NoteContentField")
+_deleteButton = NodePath("Background/SideBar/NoteListHeader/DeleteNote")
+
+[node name="Background" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="SideBar" type="VBoxContainer" parent="Background"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.25
+anchor_bottom = 1.0
+offset_right = -5.0
+
+[node name="NoteListHeader" type="HBoxContainer" parent="Background/SideBar"]
+layout_mode = 2
+
+[node name="NoteListHeaderLabel" type="Label" parent="Background/SideBar/NoteListHeader"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "HEADER_NOTE_LIST"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Spacer" type="Control" parent="Background/SideBar/NoteListHeader"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="NewNote" type="TextureButton" parent="Background/SideBar/NoteListHeader"]
+layout_mode = 2
+texture_normal = ExtResource("2_fgick")
+texture_hover = ExtResource("3_1iuds")
+texture_disabled = ExtResource("4_gyuat")
+stretch_mode = 5
+
+[node name="DeleteNote" type="TextureButton" parent="Background/SideBar/NoteListHeader"]
+layout_mode = 2
+texture_normal = ExtResource("4_xcwgi")
+texture_hover = ExtResource("5_1iuds")
+texture_disabled = ExtResource("7_0wfcu")
+stretch_mode = 5
+
+[node name="NoteList" type="ScrollContainer" parent="Background/SideBar"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Notes" type="VBoxContainer" parent="Background/SideBar/NoteList"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CloseJournal" type="Button" parent="Background/SideBar"]
+layout_mode = 2
+text = "BUTTON_CLOSE"
+
+[node name="ActiveNote" type="VBoxContainer" parent="Background"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.25
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+
+[node name="Title" type="HBoxContainer" parent="Background/ActiveNote"]
+layout_mode = 2
+
+[node name="TitleHeader" type="Label" parent="Background/ActiveNote/Title"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "HEADER_NOTE_TITLE"
+horizontal_alignment = 1
+
+[node name="Spacer" type="Control" parent="Background/ActiveNote/Title"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+
+[node name="NoteTitleField" type="LineEdit" parent="Background/ActiveNote/Title"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "PLACEHOLDER_NOTE_TITLE"
+emoji_menu_enabled = false
+
+[node name="NoteContentField" type="TextEdit" parent="Background/ActiveNote"]
+layout_mode = 2
+size_flags_vertical = 3
+placeholder_text = "PLACEHOLDER_NOTE_CONTENT"
+emoji_menu_enabled = false
+
+[node name="SaveNote" type="Button" parent="Background/ActiveNote"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "BUTTON_SAVE"
+
+[connection signal="pressed" from="Background/SideBar/NoteListHeader/NewNote" to="." method="CreateNote"]
+[connection signal="pressed" from="Background/SideBar/NoteListHeader/DeleteNote" to="." method="DeleteNote"]
+[connection signal="pressed" from="Background/SideBar/CloseJournal" to="." method="ToggleJournal"]
+[connection signal="pressed" from="Background/ActiveNote/SaveNote" to="." method="SaveNote"]

@@ -3,7 +3,7 @@ namespace ImmersiveSim.Statics // TODO: rename
 	// System
 	public enum CameraState { Idle, Freelook };
 	public enum GameState { Gameplay, Interface, Menu };
-	public enum UIState { None, Inventory, Pause, TimeSkip, Misc, Dialog, SaveLoad, Settings };
+	public enum UIState { None, Inventory, Pause, TimeSkip, Misc, Dialog, SaveLoad, Settings, Journal };
 	public enum QuestState { Unknown, Mentioned, Accepted, Achieved, Completed, Failed };
 
 	// Interactables
