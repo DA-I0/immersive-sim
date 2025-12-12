@@ -40,7 +40,7 @@ size = Vector3(0.02, 0.02, 0.02)
 
 [sub_resource type="ImmediateMesh" id="ImmediateMesh_76qq1"]
 resource_local_to_scene = true
-metadata/creation_stamp = 3575107432472
+metadata/creation_stamp = 3588730531945
 
 [node name="VendingMachine01" type="Node3D"]
 script = ExtResource("1_18bbt")
