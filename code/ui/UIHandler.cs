@@ -31,7 +31,7 @@ namespace ImmersiveSim.UI
 
 		public bool LockKeybindings
 		{
-			get { return _itemRenamePrompt.Visible; }
+			get { return ShouldLockKeybinds(); }
 		}
 
 		public DialogUI DialogUI
@@ -42,6 +42,18 @@ namespace ImmersiveSim.UI
 		internal GameSystem Game
 		{
 			get { return _game; }
+		}
+
+		private bool ShouldLockKeybinds()
+		{
+			Control focusedControl = GetViewport().GuiGetFocusOwner();
+
+			if (focusedControl is LineEdit || focusedControl is TextEdit)
+			{
+				return true;
+			}
+
+			return false;
 		}
 
 		public override void _Ready()
