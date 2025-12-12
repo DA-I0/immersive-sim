@@ -12,9 +12,10 @@ namespace ImmersiveSim.Systems
 			get { return _playerNotes; }
 		}
 
-		public System.Guid CreateNote(string title, string content)
+		public System.Guid CreateNote(string title, string content, string id = "")
 		{
-			PlayerNote newNote = new PlayerNote(string.Empty, title, content);
+			id = (id == "") ? string.Empty : id;
+			PlayerNote newNote = new PlayerNote(id, title, content);
 			PlayerNotes.Add(newNote.ID, newNote);
 			return newNote.ID;
 		}

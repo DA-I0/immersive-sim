@@ -175,6 +175,15 @@ namespace ImmersiveSim.Systems
 				{
 					RegisterItemForSaving(HelperMethods.ParseItemSaveState(saveState, section));
 				}
+
+				if (section.Contains("Note - "))
+				{
+					_game.Journal.CreateNote(
+						(string)saveState.GetValue(section, "title"),
+						(string)saveState.GetValue(section, "content"),
+						(string)saveState.GetValue(section, "id")
+					);
+				}
 			}
 
 			string activeLevel = (string)saveState.GetValue("World", "active_level", "test_map");

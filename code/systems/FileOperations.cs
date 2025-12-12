@@ -176,6 +176,7 @@ namespace ImmersiveSim.Systems
 			InsertWorldDataToSave(gameSystem, ref newSaveState);
 			InsertCharactersToSave(gameSystem, ref newSaveState);
 			InsertItemsToSave(gameSystem, ref newSaveState);
+			InsertPlayerNotesToSave(gameSystem, ref newSaveState);
 
 			newSaveState.Save(Statics.HelperMethods.MakeSavePath(saveID));
 		}
@@ -322,6 +323,16 @@ namespace ImmersiveSim.Systems
 					newSaveState.SetValue($"Item - {item.ObjectID}", "items_within", item.ItemsWithin);
 					newSaveState.SetValue($"Item - {item.ObjectID}", "is_equipped", item.IsEquipped);
 				}
+			}
+		}
+
+		private static void InsertPlayerNotesToSave(GameSystem gameSystem, ref ConfigFile newSaveState)
+		{
+			foreach (PlayerNote note in gameSystem.Journal.PlayerNotes.Values)
+			{
+				newSaveState.SetValue($"Note - {note.ID}", "id", note.ID.ToString());
+				newSaveState.SetValue($"Note - {note.ID}", "title", note.Title);
+				newSaveState.SetValue($"Note - {note.ID}", "content", note.Content);
 			}
 		}
 	}
