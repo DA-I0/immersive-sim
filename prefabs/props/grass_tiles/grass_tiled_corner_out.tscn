@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dhoxssfy8ud2j"]
 
 [ext_resource type="PackedScene" uid="uid://dsadpiusnkubu" path="res://assets/models/props/sidewalk/sidewalk_corner_out.glb" id="1_rorqm"]
-[ext_resource type="Material" uid="uid://bcg0dxxapdnjt" path="res://assets/materials/grass_stylised.tres" id="2_63t37"]
+[ext_resource type="Material" uid="uid://bcg0dxxapdnjt" path="res://assets/materials/grass.tres" id="2_63t37"]
 
 [node name="GrassTiledCornerOut" instance=ExtResource("1_rorqm")]
 

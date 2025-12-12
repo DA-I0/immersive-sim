@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c5j8yoxqowuqr"]
 
 [ext_resource type="PackedScene" uid="uid://d0a1gr4w2udv1" path="res://assets/models/props/sidewalk/sidewalk_base_10x10.glb" id="1_8q003"]
-[ext_resource type="Material" uid="uid://bcg0dxxapdnjt" path="res://assets/materials/grass_stylised.tres" id="2_x15cn"]
+[ext_resource type="Material" uid="uid://bcg0dxxapdnjt" path="res://assets/materials/grass.tres" id="2_x15cn"]
 
 [node name="GrassTiled10x10" instance=ExtResource("1_8q003")]
 
