@@ -58,16 +58,9 @@ namespace ImmersiveSim.Gameplay
 			user.GetNode<Status>("../CharacterStatus").ChangeStamina(StaminaRecovery);
 			_usesLeft--;
 			UpdateItemInfo();
-			CheckIfEmpty(user); // let player get rid of their own trash?
+			CheckIfEmpty(user);
 			MarkAsModified();
-			// _isModified = true;
 		}
-
-		// internal override void RestoreSavedState(GameData.ItemSaveState savedState)
-		// {
-		// 	base.RestoreSavedState(savedState);
-		// 	_usesLeft = savedState.UsesLeft;
-		// }
 
 		protected override void FinishSaveStateRestore()
 		{
@@ -84,7 +77,7 @@ namespace ImmersiveSim.Gameplay
 			}
 
 			user.ClearSelectedItem();
-			Destroy();
+			Destroy(); // change to let player get rid of their own trash?
 		}
 	}
 }

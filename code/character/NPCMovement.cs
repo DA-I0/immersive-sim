@@ -113,7 +113,7 @@ namespace ImmersiveSim.Gameplay
 		public void AdjustToTargetPosition(Node3D target)//Vector3 targetPosition)
 		{
 			// targetPosition.Y += ((CapsuleShape3D)_collider.Shape).Height / 2;
-			GlobalPosition = target.GlobalPosition;//targetPosition;
+			GlobalPosition = target.GlobalPosition;
 			GlobalRotation = target.GlobalRotation;
 		}
 

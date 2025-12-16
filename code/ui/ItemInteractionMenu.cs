@@ -13,15 +13,12 @@ namespace ImmersiveSim.UI
 
 		private UIHandler _ui;
 		private Systems.GameSystem _game;
-		// private Inventory _game.Player.CharInventory;
 		private CharacterInventoryWindow _inventoryWindow;
 
 		public override void _Ready()
 		{
 			_options = GetNode("InteractionList").GetChildren();
 			_ui = GetNode<UIHandler>(ProjectSettings.GetSetting("global/UIHandlerPath").ToString());
-			// string playerNodePath = $"{ProjectSettings.GetSetting("global/PlayerNodePath")}/CharacterEquipment";
-			// _game.Player.CharInventory = GetNode<Inventory>(playerNodePath);
 			_inventoryWindow = GetParent<CharacterInventoryWindow>();
 			_game = GetNode<Systems.GameSystem>(ProjectSettings.GetSetting("global/GameSystemPath").ToString());
 			GetNode<Control>("InteractionList").Resized += RefreshMenuSize;

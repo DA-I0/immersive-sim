@@ -15,7 +15,6 @@ namespace ImmersiveSim.UI
 		private BaseItem _targetItem;
 
 		private UIHandler _ui;
-		// private GameSystem _game;
 
 		public override void _Ready()
 		{
@@ -25,7 +24,6 @@ namespace ImmersiveSim.UI
 			_newStackValue = GetNode<Label>("Window/ControlPositioner/SplitControls/NewStackValue");
 
 			_ui = GetParent<UIHandler>();
-			// _game = GetNode<GameSystem>(ProjectSettings.GetSetting("global/GameSystemPath").ToString());
 			ToggleSplitPrompt(null);
 		}
 

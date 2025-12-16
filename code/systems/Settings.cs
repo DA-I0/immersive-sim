@@ -531,7 +531,7 @@ namespace ImmersiveSim.Systems
 
 			foreach (string action in gameplayInputActions)
 			{
-				Godot.Collections.Array<InputEvent> customKeybinds = (Godot.Collections.Array<InputEvent>)_config.GetValue("controls", action);
+				Godot.Collections.Array<InputEvent> customKeybinds = (Godot.Collections.Array<InputEvent>)_config.GetValue("controls", action); // TODO: add fallback if key bind for action doesn't exist
 				InputMap.ActionEraseEvents(action);
 
 				foreach (InputEvent inputEvent in customKeybinds)

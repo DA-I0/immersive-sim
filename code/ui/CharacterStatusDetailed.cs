@@ -25,18 +25,8 @@ namespace ImmersiveSim.UI
 
 			await ToSignal(GetTree(), SceneTree.SignalName.PhysicsFrame);
 
-			// string playerNodePath = $"{ProjectSettings.GetSetting("global/PlayerNodePath")}/CharacterBase";
-			// CharacterBase character = GetNode<CharacterBase>(playerNodePath); // change how this is found
-			// character.CharStatus.HealthChanged += UpdateHealthDisplay;
-			// character.CharStatus.StaminaChanged += UpdateStaminaDisplay;
-
 			_game = GetNode<Systems.GameSystem>(ProjectSettings.GetSetting("global/GameSystemPath").ToString());
 			_game.NewPlayerSpawned += SetPlayerReferences;
-
-			// _inventory = character.CharInventory;
-			// _inventory.InventoryUpdated += UpdateEquipmentWeight;
-
-			// _characterName.Text = character.CharSheet.CharacterName;
 		}
 
 

@@ -121,7 +121,7 @@ namespace ImmersiveSim.Gameplay
 			{
 				float elevationChange = HelperMethods.RoundFloat(_movementCast.GetCollisionPoint(0).Y - (GlobalPosition.Y - 0.01f));
 
-				if (elevationChange > 0 && elevationChange <= StaticValues.MaxStepHeight)//0.25f)
+				if (elevationChange > 0 && elevationChange <= StaticValues.MaxStepHeight)
 				{
 					Translate(new Vector3(0, elevationChange, 0)); // smooth this somehow
 				}

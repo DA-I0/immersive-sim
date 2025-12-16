@@ -14,18 +14,14 @@ namespace ImmersiveSim.UI
 		private TextureRect _icon;
 
 		private CharacterInventoryWindow _inventoryUI;
-		// private Inventory _game.Player.CharInventory;
 		private GameSystem _game;
 
 		public override void _Ready()
 		{
 			_icon = GetNode<TextureRect>("Icon");
 			_inventoryUI = GetNode<CharacterInventoryWindow>($"{ProjectSettings.GetSetting("global/UIHandlerPath")}/CharacterInventory");
-			// string playerNodePath = $"{ProjectSettings.GetSetting("global/PlayerNodePath")}/CharacterEquipment";
-			// _game.Player.CharInventory = GetNode<Inventory>(playerNodePath);
 			_game = GetNode<GameSystem>(ProjectSettings.GetSetting("global/GameSystemPath").ToString());
 			_game.NewPlayerSpawned += SetPlayerReferences;
-			// UpdateWindowInfo();
 		}
 
 		private void SetPlayerReferences()

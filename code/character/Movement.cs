@@ -124,14 +124,14 @@ namespace ImmersiveSim.Gameplay
 
 			if (Input.IsActionPressed("stance_smooth_height"))
 			{
-				_stanceMultiplier -= mouseEvent.Relative.Y * 0.01f * _character.Game.Settings.StanceSensitivity;//StanceHeightSensitivity;
+				_stanceMultiplier -= mouseEvent.Relative.Y * 0.01f * _character.Game.Settings.StanceSensitivity;
 				_stanceMultiplier = Mathf.Clamp(_stanceMultiplier, 0.4f, 1f);
 				UpdateCharacterCollider();
 			}
 
 			if (Input.IsActionPressed("stance_smooth_lean"))
 			{
-				_leanCurrent += mouseEvent.Relative.X * 0.01f * _character.Game.Settings.LeanSensitivity;//StanceLeanSensitivity;
+				_leanCurrent += mouseEvent.Relative.X * 0.01f * _character.Game.Settings.LeanSensitivity;
 				_resetLean = false;
 				// Lean();
 				return;

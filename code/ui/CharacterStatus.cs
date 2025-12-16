@@ -25,11 +25,6 @@ namespace ImmersiveSim.UI
 
 			_game = GetNode<Systems.GameSystem>(ProjectSettings.GetSetting("global/GameSystemPath").ToString());
 			_game.NewPlayerSpawned += SetPlayerReferences;
-			// string playerNodePath = $"{ProjectSettings.GetSetting("global/PlayerNodePath")}/CharacterStatus";
-			// Status character = GetNode<Status>(playerNodePath); // change how this is found
-			// character.HealthChanged += UpdateHealthDisplay;
-			// character.StaminaChanged += UpdateStaminaDisplay;
-			// character.StaminaPenaltyChanged += UpdateStaminaPenaltyDisplay;
 
 			GetParent<UIHandler>().StateUpdated += ToggleVisibility;
 		}

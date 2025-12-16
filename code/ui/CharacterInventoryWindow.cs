@@ -11,7 +11,6 @@ namespace ImmersiveSim.UI
 		private Control _equipmentSlotList;
 		private Control _containerWindowList;
 		private ItemInteractionMenu _itemInteractionMenu;
-		// private Inventory _game.Player.CharInventory;
 		private Systems.GameSystem _game;
 
 		private UIHandler _ui;
@@ -20,8 +19,6 @@ namespace ImmersiveSim.UI
 		{
 			_equipmentSlotList = GetNode<Control>("PanelContainer/VBoxContainer");
 			_containerWindowList = GetNode<Control>("ContainerWindows/WindowList");
-			// string playerNodePath = $"{ProjectSettings.GetSetting("global/PlayerNodePath")}/CharacterEquipment";
-			// _game.Player.CharInventory = GetNode<Inventory>(playerNodePath);
 			_game = GetNode<Systems.GameSystem>(ProjectSettings.GetSetting("global/GameSystemPath").ToString());
 			_game.NewPlayerSpawned += SetPlayerReferences;
 			_itemInteractionMenu = GetNode<ItemInteractionMenu>("ItemInteractionMenu");
@@ -115,13 +112,11 @@ namespace ImmersiveSim.UI
 		{
 			_game.Player.SetForDestruction += UnsetPlayerReferences;
 			_game.Player.CharInventory.InventoryUpdated += RefreshInventory;
-			// _game.Player.CharInventory.InventoryUpdated += UpdateWindowInfo;
 		}
 
 		private void UnsetPlayerReferences()
 		{
 			_game.Player.CharInventory.InventoryUpdated -= RefreshInventory;
-			// _game.Player.CharInventory.InventoryUpdated -= UpdateWindowInfo;
 		}
 
 		private void ClearAllContainerWindows()
