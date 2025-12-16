@@ -124,8 +124,10 @@ Save system:
 		✔ Health & stamina values @done(25-02-06 22:05)
 		✔ Equipped items @done(25-02-07 19:16)
 		✔ Money @done(25-02-07 19:16)
+		☐ Death
 	World state:
-		✔ Active location (map/scene player saved at) @done(25-02-20 19:19)
+		✔ Active location (exterior map/scene player saved at) @done(25-02-20 19:19)
+		☐ Active sublocation (interior map/scene player is inside of at the time of saving)
 		✔ Current date & time @done(25-02-06 22:05)
 		✔ Position and state of items @done(25-02-07 18:31)
 		✔ Scene hierarchy position of items @done(25-02-20 19:19)
