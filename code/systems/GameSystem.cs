@@ -295,7 +295,7 @@ namespace ImmersiveSim.Systems
 			Time.RestoreSavedState(saveState);
 		}
 
-		internal bool ParseTriggeredAction(string action, CharacterBase targetCharacter = null) // change NPCMovement for CharacterBase or remove
+		internal bool ParseTriggeredAction(string action, CharacterBase targetCharacter = null)
 		{
 			string[] actionParameters = action.Split(':');
 
