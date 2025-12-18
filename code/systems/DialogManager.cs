@@ -108,7 +108,7 @@ namespace ImmersiveSim.Systems
 		{
 			foreach (string requirement in requirements)
 			{
-				if (_game.ParseTriggeredAction(requirement, ParseActionTarget(requirement.Split(':'))) == false)
+				if (_game.ParseChoiceRequirements(requirement, ParseActionTarget(requirement.Split(':'))) == false)
 				{
 					return false;
 				}

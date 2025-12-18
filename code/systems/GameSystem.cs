@@ -295,6 +295,43 @@ namespace ImmersiveSim.Systems
 			Time.RestoreSavedState(saveState);
 		}
 
+		internal bool ParseChoiceRequirements(string action, CharacterBase targetCharacter = null)
+		{
+			string[] actionParameters = action.Split(':');
+
+			switch (actionParameters[0])
+			{
+				case "var":
+					return GameDatabase.CompareVariable(actionParameters[1], actionParameters[2], actionParameters[3]);
+
+				case "quest":
+					// check mission state
+					break;
+
+				case "time":
+					return Time.CompareTime(actionParameters[2], actionParameters[3], actionParameters[4]);
+
+				case "stamina":
+					return HelperMethods.CompareValues(actionParameters[2], targetCharacter.CharStatus.Stamina.ToString(), actionParameters[3]);
+
+				case "stat":
+					// check character's stat (char_id:stat_to_check:comparator:value)
+					break;
+
+				case "money":
+					return HelperMethods.CompareValues(actionParameters[1], targetCharacter.CharInventory.Money.ToString(), actionParameters[2]);
+
+				case "inv":
+					// check inventory
+					break;
+
+				default:
+					break;
+			}
+
+			return true;
+		}
+
 		internal bool ParseTriggeredAction(string action, CharacterBase targetCharacter = null)
 		{
 			string[] actionParameters = action.Split(':');
@@ -312,10 +349,6 @@ namespace ImmersiveSim.Systems
 					{
 						GameDatabase.ModifyVariable(actionParameters[1], actionParameters[2], actionParameters[3]);
 					}
-					else
-					{
-						return GameDatabase.CompareVariable(actionParameters[1], actionParameters[2], actionParameters[3]);
-					}
 					break;
 
 				case "quest":
@@ -327,10 +360,6 @@ namespace ImmersiveSim.Systems
 					{
 						Time.TimeSkip(actionParameters[1], actionParameters[2]);
 					}
-					else
-					{
-						return Time.CompareTime(actionParameters[2], actionParameters[3], actionParameters[4]);
-					}
 					break;
 
 				case "stamina":
@@ -339,12 +368,8 @@ namespace ImmersiveSim.Systems
 						float changeValue = 0;
 						float.TryParse(actionParameters[1], out changeValue);
 						targetCharacter.CharStatus.ChangeStamina(changeValue);
-						break;
 					}
-					else
-					{
-						return HelperMethods.CompareValues(actionParameters[2], targetCharacter.CharStatus.Stamina.ToString(), actionParameters[3]);
-					}
+					break;
 
 				case "money":
 					int moneyAmount = 0;
