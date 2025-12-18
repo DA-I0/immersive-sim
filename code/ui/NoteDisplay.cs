@@ -37,9 +37,9 @@ namespace ImmersiveSim.UI
 			}
 
 			_activeNoteID = noteID;
+			TogglePageButtons();
 			_notePage.Text = (!_previousPage.Disabled || !_nextPage.Disabled) ? $"{_page + 1}" : string.Empty;
 			_noteContent.Text = TranslationServer.Translate($"NOTE_{noteID.ToUpper()}_CONTENT_{_page}");
-			TogglePageButtons();
 			Visible = true;
 		}
 
