@@ -363,10 +363,14 @@ namespace ImmersiveSim.Systems
 					break;
 
 				case "stamina":
-					if (actionParameters[1] != "compare")
+					float changeValue = 0;
+					float.TryParse(actionParameters[1], out changeValue);
+					if (actionParameters[1] == "set")
 					{
-						float changeValue = 0;
-						float.TryParse(actionParameters[1], out changeValue);
+						targetCharacter.CharStatus.SetStamina(changeValue);
+					}
+					else
+					{
 						targetCharacter.CharStatus.ChangeStamina(changeValue);
 					}
 					break;
