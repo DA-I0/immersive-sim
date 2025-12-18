@@ -482,7 +482,7 @@ namespace ImmersiveSim.Gameplay // move from Gameplay to Character?
 
 		public void SetMoney(int value)
 		{
-			_money = value;
+			_money = (value >= 0) ? value : 0;
 		}
 	}
 }
