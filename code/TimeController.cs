@@ -66,6 +66,23 @@ namespace ImmersiveSim.Gameplay
 			DateUpdated?.Invoke(_gameDate);
 		}
 
+		public void TimeSet(string hours, string minutes)
+		{
+			int newHour = 0;
+			int.TryParse(hours, out newHour);
+			int newMinutes = 0;
+			int.TryParse(minutes, out newMinutes);
+
+			TimeSet(newHour, newMinutes);
+		}
+
+		public void TimeSet(int hour, int minutes)
+		{
+			// dim the screen
+			SetDate(new DateTime(_gameDate.Year, _gameDate.Month, _gameDate.Day, hour, minutes, 0));
+			// show the screen
+		}
+
 		public void TimeSkip(string hours, string minutes)
 		{
 			int hoursDuration = 0;
@@ -133,6 +150,7 @@ namespace ImmersiveSim.Gameplay
 		{
 			_gameDate = newDate;
 			UpdateSunPosition();
+			DateUpdated?.Invoke(_gameDate);
 		}
 
 		private void UpdateSunPosition()

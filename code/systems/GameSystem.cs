@@ -356,7 +356,11 @@ namespace ImmersiveSim.Systems
 					break;
 
 				case "time":
-					if (actionParameters[1] != "compare")
+					if (actionParameters[1] == "set")
+					{
+						Time.TimeSet(actionParameters[1], actionParameters[2]);
+					}
+					else
 					{
 						Time.TimeSkip(actionParameters[1], actionParameters[2]);
 					}
