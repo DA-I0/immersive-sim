@@ -371,6 +371,10 @@ namespace ImmersiveSim.Systems
 					}
 					break;
 
+				case "stat":
+					// change character's stat (char_id:stat_to_change:operation:value)
+					break;
+
 				case "money":
 					int moneyAmount = 0;
 					int.TryParse(actionParameters[1], out moneyAmount);
@@ -379,6 +383,14 @@ namespace ImmersiveSim.Systems
 
 				case "inv":
 					// change inventory state
+					break;
+
+				case "move":
+					// teleport character (based on ID?) to another location
+					break;
+
+				case "move_random":
+					// teleport character (based on ID?) to another location (randomise based on some kind of array of possibilities, kept as prefabs in the database?)
 					break;
 
 				default:
