@@ -358,17 +358,17 @@ namespace ImmersiveSim.Systems
 				case "time":
 					if (actionParameters[1] == "set")
 					{
-						Time.TimeSet(actionParameters[1], actionParameters[2]);
+						Time.TimeSet(actionParameters[2], actionParameters[3]);
 					}
 					else
 					{
-						Time.TimeSkip(actionParameters[1], actionParameters[2]);
+						Time.TimeSkip(actionParameters[2], actionParameters[3]);
 					}
 					break;
 
 				case "stamina":
 					float changeValue = 0;
-					float.TryParse(actionParameters[1], out changeValue);
+					float.TryParse(actionParameters[2], out changeValue);
 					if (actionParameters[1] == "set")
 					{
 						targetCharacter.CharStatus.SetStamina(changeValue);
