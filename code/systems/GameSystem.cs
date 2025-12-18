@@ -377,8 +377,15 @@ namespace ImmersiveSim.Systems
 
 				case "money":
 					int moneyAmount = 0;
-					int.TryParse(actionParameters[1], out moneyAmount);
-					targetCharacter.CharInventory.ChangeMoney(moneyAmount);
+					int.TryParse(actionParameters[2], out moneyAmount);
+					if (actionParameters[1] == "set")
+					{
+						targetCharacter.CharInventory.SetMoney(moneyAmount);
+					}
+					else
+					{
+						targetCharacter.CharInventory.ChangeMoney(moneyAmount);
+					}
 					break;
 
 				case "inv":
