@@ -327,7 +327,7 @@ namespace ImmersiveSim.Gameplay
 
 				if (result["collider"].Obj is NPCMovement)
 				{
-					return ((Node)result["collider"].Obj).GetNode("CharacterDialog");
+					return ((Node)result["collider"].Obj).GetNode("CharacterConversation");
 				}
 
 				GD.Print($"-> returning: {((Node)result["collider"].Obj).GetParent().Name}");

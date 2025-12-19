@@ -126,9 +126,9 @@ namespace ImmersiveSim.Statics
 				);
 		}
 
-		public static DialogNode ParseDialogNodeData(ConfigFile itemConfig)
+		public static ConversationNode ParseConversationNodeData(ConfigFile itemConfig)
 		{
-			return new DialogNode(
+			return new ConversationNode(
 				(string)itemConfig.GetValue(string.Empty, "id"),
 				(string)itemConfig.GetValue(string.Empty, "generic_text_id", string.Empty),
 				(string[])itemConfig.GetValue(string.Empty, "requirements", string.Empty),

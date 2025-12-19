@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bx5edcyygl26m" path="res://ui/system/note_display.tscn" id="7_imq6s"]
 [ext_resource type="PackedScene" uid="uid://c1dx74v45dmpp" path="res://ui/system/crosshair.tscn" id="8_bcpvg"]
 [ext_resource type="PackedScene" uid="uid://dt5ltwii5pnte" path="res://ui/system/item_details.tscn" id="10_216cp"]
-[ext_resource type="PackedScene" uid="uid://8m2lj33bjwaw" path="res://ui/system/dialog_display.tscn" id="11_s263w"]
+[ext_resource type="PackedScene" uid="uid://8m2lj33bjwaw" path="res://ui/system/conversation_display.tscn" id="11_s263w"]
 [ext_resource type="PackedScene" uid="uid://dbdr86w6ku6tn" path="res://ui/system/shop_display.tscn" id="12_hcuvr"]
 [ext_resource type="PackedScene" uid="uid://drlfaam55u8d8" path="res://ui/system/notification_display.tscn" id="13_wmbuw"]
 [ext_resource type="PackedScene" uid="uid://byvjymdjjdoes" path="res://ui/system/pause_menu.tscn" id="14_iwh3p"]
@@ -195,7 +195,7 @@ layout_mode = 1
 [node name="NoteDisplay" parent="." instance=ExtResource("7_imq6s")]
 layout_mode = 1
 
-[node name="DialogDisplay" parent="." instance=ExtResource("11_s263w")]
+[node name="ConversationDisplay" parent="." instance=ExtResource("11_s263w")]
 layout_mode = 1
 
 [node name="ShopDisplay" parent="." instance=ExtResource("12_hcuvr")]

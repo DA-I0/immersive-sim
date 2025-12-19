@@ -1,6 +1,6 @@
 namespace ImmersiveSim.GameData
 {
-	public struct DialogNode
+	public struct ConversationNode
 	{
 		public readonly string ID;
 		public readonly string GenericTextID;
@@ -9,7 +9,7 @@ namespace ImmersiveSim.GameData
 		public readonly string NextNodeID;
 		public readonly string[] PlayerReplyIDs;
 
-		public DialogNode(string id, string genericTextID, string[] requirements, string[] effects, string nextNodeID, string[] playerReplyIDs)
+		public ConversationNode(string id, string genericTextID, string[] requirements, string[] effects, string nextNodeID, string[] playerReplyIDs)
 		{
 			ID = id;
 			GenericTextID = genericTextID;

@@ -3,7 +3,7 @@ namespace ImmersiveSim.Statics // TODO: rename
 	// System
 	public enum CameraState { Idle, Freelook };
 	public enum GameState { Gameplay, Interface, Menu };
-	public enum UIState { None, Inventory, Pause, TimeSkip, Misc, Dialog, SaveLoad, Settings, Journal };
+	public enum UIState { None, Inventory, Pause, TimeSkip, Misc, Conversation, SaveLoad, Settings, Journal };
 	public enum QuestState { Unknown, Mentioned, Accepted, Achieved, Completed, Failed };
 
 	// Interactables
@@ -19,7 +19,7 @@ namespace ImmersiveSim.Statics // TODO: rename
 
 	// Characters
 	public enum Stance { Idle, Crouch, Prone, Sitting };
-	public enum NPCState { Idle, Active, Dialog };
+	public enum NPCState { Idle, Active, Conversation };
 	public enum NPCActivityType { Static, Simulation, Schedule, Random };
 
 	// Destructibles

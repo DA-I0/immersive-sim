@@ -7,5 +7,5 @@ namespace ImmersiveSim.Statics
 	public delegate void ValueChanged(float value);
 	public delegate void UIStateUpdated(UIState currentState);
 	public delegate void InteractableTargeted(object interactable);
-	public delegate void DialogNodeData(string source, string content, string[] playerChoices);
+	public delegate void ConversationNodeData(string source, string content, string[] playerChoices);
 }

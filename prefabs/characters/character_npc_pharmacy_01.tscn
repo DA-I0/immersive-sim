@@ -1,14 +1,14 @@
 [gd_scene load_steps=14 format=3 uid="uid://dkeajnc31ctcb"]
 
-[ext_resource type="Script" path="res://code/character/NPCMovement.cs" id="1_d5oai"]
-[ext_resource type="Script" path="res://code/character/NPCBase.cs" id="2_uwdmq"]
-[ext_resource type="Script" path="res://code/character/CharacterSheet.cs" id="3_fk1p0"]
-[ext_resource type="Script" path="res://code/character/Inventory.cs" id="4_raqh8"]
-[ext_resource type="Script" path="res://code/character/Status.cs" id="5_5oov8"]
-[ext_resource type="Script" path="res://code/character/NPCActionControler.cs" id="6_f2qe1"]
-[ext_resource type="Script" path="res://code/interactables/DialogTrigger.cs" id="7_65yqi"]
+[ext_resource type="Script" uid="uid://bt2nhg1d3w01v" path="res://code/character/NPCMovement.cs" id="1_d5oai"]
+[ext_resource type="Script" uid="uid://cca5de45mhgbs" path="res://code/character/NPCBase.cs" id="2_uwdmq"]
+[ext_resource type="Script" uid="uid://budsljwbsqtge" path="res://code/character/CharacterSheet.cs" id="3_fk1p0"]
+[ext_resource type="Script" uid="uid://cg4ngfe4q0ao0" path="res://code/character/Inventory.cs" id="4_raqh8"]
+[ext_resource type="Script" uid="uid://p2dp1frvp1va" path="res://code/character/Status.cs" id="5_5oov8"]
+[ext_resource type="Script" uid="uid://e51kepvtfavs" path="res://code/character/NPCActionControler.cs" id="6_f2qe1"]
+[ext_resource type="Script" uid="uid://cainvdayb6aq4" path="res://code/interactables/ConversationTrigger.cs" id="7_65yqi"]
 [ext_resource type="PackedScene" uid="uid://bph281bidlewd" path="res://prefabs/character_model.tscn" id="8_xqdut"]
-[ext_resource type="Script" path="res://code/Shop.cs" id="9_lrxn5"]
+[ext_resource type="Script" uid="uid://c638b51e2vbty" path="res://code/Shop.cs" id="9_lrxn5"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_si18s"]
 radius = 0.25
@@ -59,9 +59,9 @@ isStatic = true
 [node name="Timer" type="Timer" parent="CharacterActionControler"]
 autostart = true
 
-[node name="CharacterDialog" type="Node" parent="."]
+[node name="CharacterConversation" type="Node" parent="."]
 script = ExtResource("7_65yqi")
-_startingDialogNode = "generic_store_1-1"
+_startingConversationNode = "generic_store_1-1"
 
 [node name="Collider" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)

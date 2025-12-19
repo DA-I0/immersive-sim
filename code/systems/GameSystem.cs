@@ -17,7 +17,7 @@ namespace ImmersiveSim.Systems
 		private UI.UIHandler _ui;
 		private PlayerBase _player;
 		private WorldEnvironment _world;
-		private DialogManager _dialog;
+		private ConversationManager _conversation;
 		private SaveManager _save;
 		private LevelManager _level;
 		private JournalManager _journal;
@@ -73,9 +73,9 @@ namespace ImmersiveSim.Systems
 			get { return _world; }
 		}
 
-		public DialogManager Dialog
+		public ConversationManager Conversation
 		{
-			get { return _dialog; }
+			get { return _conversation; }
 		}
 
 		public SaveManager Save
@@ -107,7 +107,7 @@ namespace ImmersiveSim.Systems
 		{
 			_database = new Database();
 			_settings = new Settings(this);
-			_dialog = new DialogManager(this);
+			_conversation = new ConversationManager(this);
 			_save = new SaveManager(this);
 			_journal = new JournalManager();
 			_npcSpawnController = new NPCSpawnController(this);
@@ -204,7 +204,7 @@ namespace ImmersiveSim.Systems
 		{
 			_ui.StateUpdated += UpdateBackgroundEffect;
 			_level.LevelLoaded += HandleLevelChange;
-			Dialog.SubscribeToEvents();
+			Conversation.SubscribeToEvents();
 			Save.SubscribeToEvents();
 		}
 
@@ -280,7 +280,7 @@ namespace ImmersiveSim.Systems
 
 		private void UpdateBackgroundEffect(UIState newState)
 		{
-			if (newState == UIState.None || newState == UIState.Dialog)
+			if (newState == UIState.None || newState == UIState.Conversation)
 			{
 				_world.Environment.GlowBlendMode = Environment.GlowBlendModeEnum.Softlight; // add background blur in menus
 			}
@@ -340,7 +340,7 @@ namespace ImmersiveSim.Systems
 			{
 				case "shop":
 					Shop _targetStore = targetCharacter.GetNode<Shop>($"../{actionParameters[1]}"); // replace targetNPC with path to the shop node?
-					Dialog.CloseDialog();
+					Conversation.CloseConversation();
 					UI.OpenShopDialog(_targetStore);
 					return false;
 

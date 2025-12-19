@@ -16,7 +16,7 @@ namespace ImmersiveSim.UI
 		private ItemRenamePrompt _itemRenamePrompt;
 		private ItemDetails _itemDetails;
 		private NoteDisplay _noteDisplay;
-		private DialogUI _dialogUI;
+		private ConversationUI _conversationUI;
 		private ShopDisplay _shop;
 		private NotificationDisplay _notifications;
 		private Control _loadingScreen;
@@ -34,9 +34,9 @@ namespace ImmersiveSim.UI
 			get { return ShouldLockKeybinds(); }
 		}
 
-		public DialogUI DialogUI
+		public ConversationUI ConversationUI
 		{
-			get { return _dialogUI; }
+			get { return _conversationUI; }
 		}
 
 		internal GameSystem Game
@@ -64,7 +64,7 @@ namespace ImmersiveSim.UI
 			_itemDetails = GetNode<ItemDetails>("ItemDetails");
 			_playerStatus = GetNode<Label>("PlayerStatusInfo");
 			_noteDisplay = GetNode<NoteDisplay>("NoteDisplay");
-			_dialogUI = GetNode<DialogUI>("DialogDisplay");
+			_conversationUI = GetNode<ConversationUI>("ConversationDisplay");
 			_shop = GetNode<ShopDisplay>("ShopDisplay");
 			_notifications = GetNode<NotificationDisplay>("NotificationDisplay");
 			_loadingScreen = GetNode<Control>("LoadingScreen");

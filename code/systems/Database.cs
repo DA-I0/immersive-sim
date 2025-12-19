@@ -10,7 +10,7 @@ namespace ImmersiveSim.Systems
 	{
 		private readonly Dictionary<string, ItemData> _itemData;
 		private readonly Dictionary<string, StoreData> _storeData;
-		private readonly Dictionary<string, DialogNode> _dialogNodes;
+		private readonly Dictionary<string, ConversationNode> _conversationNodes;
 		private Dictionary<string, string[]> _npcSpawnPresets = new Dictionary<string, string[]>();
 		private readonly string[] _fonts;
 		private Dictionary<string, string> _customValues = new Dictionary<string, string>();
@@ -26,9 +26,9 @@ namespace ImmersiveSim.Systems
 			get { return _storeData; }
 		}
 
-		public Dictionary<string, DialogNode> DialogNodes
+		public Dictionary<string, ConversationNode> ConversationNodes
 		{
-			get { return _dialogNodes; }
+			get { return _conversationNodes; }
 		}
 
 		public Dictionary<string, string[]> NpcSpawnPresets
@@ -50,7 +50,7 @@ namespace ImmersiveSim.Systems
 		{
 			_itemData = FileOperations.LoadBaseItemData();
 			_storeData = FileOperations.LoadBaseStoreData();
-			_dialogNodes = FileOperations.LoadDialogData();
+			_conversationNodes = FileOperations.LoadConversationData();
 			_npcSpawnPresets = FileOperations.LoadNPCSpawnPresets();
 			_fonts = FileOperations.GetFontData();
 			LoadCustomValues();

@@ -4,9 +4,9 @@ using ImmersiveSim.Systems;
 
 namespace ImmersiveSim.Gameplay
 {
-	public partial class DialogTrigger : Node, IInteractable
+	public partial class ConversationTrigger : Node, IInteractable
 	{
-		[Export] private string _startingDialogNode;
+		[Export] private string _startingConversationNode;
 
 		private CharacterBase _character;
 		private NPCMovement _charMovement;
@@ -21,19 +21,19 @@ namespace ImmersiveSim.Gameplay
 
 		public void TriggerPrimaryInteraction(Inventory user)
 		{
-			StartDialog(user);
+			StartConversation(user);
 		}
 
 		public void TriggerSecondaryInteraction(Inventory user)
 		{
-			StartDialog(user);
+			StartConversation(user);
 		}
 
-		private void StartDialog(Inventory user)
+		private void StartConversation(Inventory user)
 		{
-			_charMovement.ChangeActiveState(Statics.NPCState.Dialog);
+			_charMovement.ChangeActiveState(Statics.NPCState.Conversation);
 			_charMovement.LookAt(((Node3D)user.GetParent()).GlobalPosition);
-			_game.Dialog.DisplayDialog(_startingDialogNode, _character);
+			_game.Conversation.DisplayConversation(_startingConversationNode, _character);
 		}
 	}
 }

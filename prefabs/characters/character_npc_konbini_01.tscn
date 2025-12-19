@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://cg4ngfe4q0ao0" path="res://code/character/Inventory.cs" id="4_aijcq"]
 [ext_resource type="Script" uid="uid://p2dp1frvp1va" path="res://code/character/Status.cs" id="5_qqt1n"]
 [ext_resource type="Script" uid="uid://e51kepvtfavs" path="res://code/character/NPCActionControler.cs" id="6_etehb"]
-[ext_resource type="Script" uid="uid://cainvdayb6aq4" path="res://code/interactables/DialogTrigger.cs" id="7_ofbw7"]
+[ext_resource type="Script" uid="uid://cainvdayb6aq4" path="res://code/interactables/ConversationTrigger.cs" id="7_ofbw7"]
 [ext_resource type="PackedScene" uid="uid://bph281bidlewd" path="res://prefabs/character_model.tscn" id="8_kes5t"]
 [ext_resource type="Script" uid="uid://c638b51e2vbty" path="res://code/Shop.cs" id="9_e71ky"]
 
@@ -59,9 +59,9 @@ isStatic = true
 [node name="Timer" type="Timer" parent="CharacterActionControler"]
 autostart = true
 
-[node name="CharacterDialog" type="Node" parent="."]
+[node name="CharacterConversation" type="Node" parent="."]
 script = ExtResource("7_ofbw7")
-_startingDialogNode = "generic_store_1-1"
+_startingConversationNode = "generic_store_1-1"
 
 [node name="Collider" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)

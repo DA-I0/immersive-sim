@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://8m2lj33bjwaw"]
 
-[ext_resource type="Script" path="res://code/ui/DialogUI.cs" id="1_2adar"]
+[ext_resource type="Script" uid="uid://hxnti4qpq28n" path="res://code/ui/ConversationUI.cs" id="1_2adar"]
 
-[node name="DialogDisplay" type="Control"]
+[node name="ConversationDisplay" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -18,7 +18,7 @@ anchor_right = 1.0
 anchor_bottom = 0.2
 color = Color(0, 0, 0, 0.705882)
 
-[node name="DialogDisplay" type="Control" parent="NPCBox"]
+[node name="ConversationDisplay" type="Control" parent="NPCBox"]
 layout_mode = 1
 anchor_left = 0.25
 anchor_right = 0.75
@@ -26,7 +26,7 @@ anchor_bottom = 1.0
 offset_top = 10.0
 offset_bottom = -10.0
 
-[node name="DialogContent" type="RichTextLabel" parent="NPCBox/DialogDisplay"]
+[node name="ConversationContent" type="RichTextLabel" parent="NPCBox/ConversationDisplay"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -36,7 +36,7 @@ grow_vertical = 2
 bbcode_enabled = true
 text = "<placeholder_dialog>"
 
-[node name="NextDialogNode" type="TextureButton" parent="NPCBox/DialogDisplay"]
+[node name="NextConversationNode" type="TextureButton" parent="NPCBox/ConversationDisplay"]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -54,7 +54,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color(0, 0, 0, 0.705882)
 
-[node name="DialogChoices" type="ScrollContainer" parent="PlayerBox"]
+[node name="ConversationChoices" type="ScrollContainer" parent="PlayerBox"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.25
@@ -63,13 +63,12 @@ anchor_bottom = 1.0
 offset_top = 10.0
 offset_bottom = -10.0
 
-[node name="Choices" type="VBoxContainer" parent="PlayerBox/DialogChoices"]
+[node name="Choices" type="VBoxContainer" parent="PlayerBox/ConversationChoices"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="AdvanceDialog" type="Button" parent="PlayerBox/DialogChoices/Choices"]
+[node name="AdvanceConversation" type="Button" parent="PlayerBox/ConversationChoices/Choices"]
 layout_mode = 2
 text = "BUTTON_ADVANCE_DIALOG"
 
-[connection signal="pressed" from="NPCBox/DialogDisplay/NextDialogNode" to="." method="AdvanceDialog"]
-[connection signal="pressed" from="PlayerBox/DialogChoices/Choices/AdvanceDialog" to="." method="TriggerPlayerChoice" binds= [-1]]
+[connection signal="pressed" from="NPCBox/ConversationDisplay/NextConversationNode" to="." method="AdvanceDialog"]

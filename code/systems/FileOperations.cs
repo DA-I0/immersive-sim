@@ -73,11 +73,11 @@ namespace ImmersiveSim.Systems
 			return stores;
 		}
 
-		public static Dictionary<string, DialogNode> LoadDialogData()
+		public static Dictionary<string, ConversationNode> LoadConversationData()
 		{
 			string fileFolder = $"{ProjectSettings.GetSetting("global/ConversationNodeFolder")}";
 			string[] configFiles = GetFileList(fileFolder);
-			Dictionary<string, DialogNode> nodes = new Dictionary<string, DialogNode>();
+			Dictionary<string, ConversationNode> nodes = new Dictionary<string, ConversationNode>();
 
 			for (int index = 0; index < configFiles.Length; index++)
 			{
@@ -86,7 +86,7 @@ namespace ImmersiveSim.Systems
 
 				if (error == Error.Ok)
 				{
-					nodes.Add((string)itemConfig.GetValue(string.Empty, "id"), Statics.HelperMethods.ParseDialogNodeData(itemConfig));
+					nodes.Add((string)itemConfig.GetValue(string.Empty, "id"), Statics.HelperMethods.ParseConversationNodeData(itemConfig));
 				}
 			}
 
