@@ -36,11 +36,11 @@ size = Vector3(0.02, 0.02, 0.02)
 
 [sub_resource type="ImmediateMesh" id="ImmediateMesh_v04vp"]
 resource_local_to_scene = true
-metadata/creation_stamp = 3593763696874
+metadata/creation_stamp = 95302723931020
 
 [node name="VendingMachine01" type="Node3D"]
 script = ExtResource("1_spprq")
-_storeID = "vending_machine_01"
+_shopID = "vending_machine_01"
 _maxSpawnOffset = Vector2(0.2, 0.05)
 
 [node name="Model" type="Node3D" parent="."]

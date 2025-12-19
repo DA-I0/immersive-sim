@@ -118,9 +118,9 @@ namespace ImmersiveSim.Statics
 				);
 		}
 
-		public static StoreData ParseBaseStoreData(ConfigFile itemConfig)
+		public static ShopData ParseBaseShopData(ConfigFile itemConfig)
 		{
-			return new StoreData(
+			return new ShopData(
 				(string)itemConfig.GetValue(string.Empty, "id"),
 				(string[])itemConfig.GetValue(string.Empty, "products", new string[0])
 				);

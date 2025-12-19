@@ -53,24 +53,24 @@ namespace ImmersiveSim.Systems
 			return items;
 		}
 
-		public static Dictionary<string, StoreData> LoadBaseStoreData()
+		public static Dictionary<string, ShopData> LoadBaseShopData()
 		{
-			Dictionary<string, StoreData> stores = new Dictionary<string, StoreData>();
+			Dictionary<string, ShopData> shops = new Dictionary<string, ShopData>();
 
-			string[] configFiles = GetFileList(ProjectSettings.GetSetting("global/StoreDataFolder").ToString());
+			string[] configFiles = GetFileList(ProjectSettings.GetSetting("global/ShopDataFolder").ToString());
 
 			for (int index = 0; index < configFiles.Length; index++)
 			{
-				ConfigFile storeConfig = new ConfigFile();
-				Error error = storeConfig.Load($"{ProjectSettings.GetSetting("global/StoreDataFolder")}/{configFiles[index]}");
+				ConfigFile shopConfig = new ConfigFile();
+				Error error = shopConfig.Load($"{ProjectSettings.GetSetting("global/ShopDataFolder")}/{configFiles[index]}");
 
 				if (error == Error.Ok)
 				{
-					stores.Add((string)storeConfig.GetValue(string.Empty, "id"), Statics.HelperMethods.ParseBaseStoreData(storeConfig));
+					shops.Add((string)shopConfig.GetValue(string.Empty, "id"), Statics.HelperMethods.ParseBaseShopData(shopConfig));
 				}
 			}
 
-			return stores;
+			return shops;
 		}
 
 		public static Dictionary<string, ConversationNode> LoadConversationData()

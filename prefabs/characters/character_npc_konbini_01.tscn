@@ -117,7 +117,7 @@ shape = SubResource("SphereShape3D_8u0am")
 [node name="Shop" type="Node3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 1, 0)
 script = ExtResource("9_e71ky")
-_storeID = "generic_store_01"
+_shopID = "generic_store_01"
 _maxSpawnOffset = Vector2(0.15, 0.4)
 
 [node name="SpawnPoint" type="Marker3D" parent="Shop"]

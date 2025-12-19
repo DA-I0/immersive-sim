@@ -47,11 +47,11 @@ LevelFolderPath="res://scenes"
 ConfigFilePath="user://settings.cfg"
 DefaultConfigFilePath="res://assets/config/default_settings.cfg"
 DefaultFontsFolder="res://assets/fonts"
-StoreDataFolder="res://assets/config/stores"
 NPCPrefabFolder="res://prefabs/characters/"
 PlayerPrefabPath="res://prefabs/characters/character.tscn"
 NPCSpawnPresetFolder="res://assets/config/npc_spawn_presets"
 ConversationNodeFolder="res://assets/config/conversations"
+ShopDataFolder="res://assets/config/shops"
 
 [global_group]
 

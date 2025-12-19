@@ -339,9 +339,9 @@ namespace ImmersiveSim.Systems
 			switch (actionParameters[0])
 			{
 				case "shop":
-					Shop _targetStore = targetCharacter.GetNode<Shop>($"../{actionParameters[1]}"); // replace targetNPC with path to the shop node?
+					Shop _targetShop = targetCharacter.GetNode<Shop>($"../{actionParameters[1]}"); // replace targetNPC with path to the shop node? Make Shop into a singleton class and provide shop_id instead?
 					Conversation.CloseConversation();
-					UI.OpenShopDialog(_targetStore);
+					UI.OpenShopDialog(_targetShop);
 					return false;
 
 				case "var":

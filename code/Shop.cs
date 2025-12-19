@@ -9,7 +9,7 @@ namespace ImmersiveSim.Gameplay
 	{
 		public event ValueChanged CartTotalUpdated;
 
-		[Export] private string _storeID;
+		[Export] private string _shopID;
 		[Export] private Vector2 _maxSpawnOffset;
 
 		private Node3D _spawnPoint;
@@ -17,14 +17,14 @@ namespace ImmersiveSim.Gameplay
 
 		protected GameSystem _game;
 
-		public string StoreID
+		public string ShopID
 		{
-			get { return _storeID; }
+			get { return _shopID; }
 		}
 
 		public string[] ProductList
 		{
-			get { return _game.GameDatabase.Stores[_storeID].Products; }
+			get { return _game.GameDatabase.Shops[_shopID].Products; }
 		}
 
 		public override void _Ready()

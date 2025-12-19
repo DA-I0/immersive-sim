@@ -9,7 +9,7 @@ namespace ImmersiveSim.UI
 	public partial class ShopDisplay : Control
 	{
 		[Export] private PackedScene _productInfoPrefab;
-		private Label _storeHeader;
+		private Label _shopHeader;
 		private Label _cartTotal;
 		private Node _productList;
 		private Button _buyButton;
@@ -20,10 +20,10 @@ namespace ImmersiveSim.UI
 
 		public override void _Ready()
 		{
-			_storeHeader = GetNode<Label>("Background/ControlList/StoreHeader");
+			_shopHeader = GetNode<Label>("Background/ControlList/ShopHeader");
 			_cartTotal = GetNode<Label>("Background/ControlList/CartPriceTotal");
 			_productList = GetNode("Background/ControlList/ProductList");
-			_buyButton = GetNode<Button>("Background/ControlList/StoreOperations/Confirm");
+			_buyButton = GetNode<Button>("Background/ControlList/ShopOperations/Confirm");
 			_game = GetNode<GameSystem>(ProjectSettings.GetSetting("global/GameSystemPath").ToString());
 
 			GetNode<UIHandler>(ProjectSettings.GetSetting("global/UIHandlerPath").ToString()).StateUpdated += CloseOnUIStateChange;
@@ -45,7 +45,7 @@ namespace ImmersiveSim.UI
 			}
 			else
 			{
-				_storeHeader.Text = TranslationServer.Translate($"STORE_{shop.StoreID.ToUpper()}");
+				_shopHeader.Text = TranslationServer.Translate($"SHOP_{shop.ShopID.ToUpper()}");
 				_activeShop = shop;
 				PopulateProductList();
 				UpdateCartTotal();

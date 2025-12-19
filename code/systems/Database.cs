@@ -9,7 +9,7 @@ namespace ImmersiveSim.Systems
 	public class Database
 	{
 		private readonly Dictionary<string, ItemData> _itemData;
-		private readonly Dictionary<string, StoreData> _storeData;
+		private readonly Dictionary<string, ShopData> _shopData;
 		private readonly Dictionary<string, ConversationNode> _conversationNodes;
 		private Dictionary<string, string[]> _npcSpawnPresets = new Dictionary<string, string[]>();
 		private readonly string[] _fonts;
@@ -21,9 +21,9 @@ namespace ImmersiveSim.Systems
 			get { return _itemData; }
 		}
 
-		public Dictionary<string, StoreData> Stores
+		public Dictionary<string, ShopData> Shops
 		{
-			get { return _storeData; }
+			get { return _shopData; }
 		}
 
 		public Dictionary<string, ConversationNode> ConversationNodes
@@ -49,7 +49,7 @@ namespace ImmersiveSim.Systems
 		public Database()
 		{
 			_itemData = FileOperations.LoadBaseItemData();
-			_storeData = FileOperations.LoadBaseStoreData();
+			_shopData = FileOperations.LoadBaseShopData();
 			_conversationNodes = FileOperations.LoadConversationData();
 			_npcSpawnPresets = FileOperations.LoadNPCSpawnPresets();
 			_fonts = FileOperations.GetFontData();
