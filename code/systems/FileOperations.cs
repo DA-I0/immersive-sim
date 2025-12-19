@@ -75,7 +75,7 @@ namespace ImmersiveSim.Systems
 
 		public static Dictionary<string, DialogNode> LoadDialogData()
 		{
-			string fileFolder = $"{ProjectSettings.GetSetting("global/DialogNodeFolder")}";
+			string fileFolder = $"{ProjectSettings.GetSetting("global/ConversationNodeFolder")}";
 			string[] configFiles = GetFileList(fileFolder);
 			Dictionary<string, DialogNode> nodes = new Dictionary<string, DialogNode>();
 

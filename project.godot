@@ -39,7 +39,6 @@ TimeControllerPath="/root/Game/System/WorldTimer"
 GameSystemPath="/root/Game/System"
 UIHandlerPath="/root/Game/UI"
 ItemDataFolder="res://assets/config/item_data"
-DialogNodeFolder="res://assets/config/dialogs"
 ItemPrefabFolder="res://prefabs/items"
 IconsFolder="res://assets/textures/ui/icons"
 SaveFolder="user://saves"
@@ -52,6 +51,7 @@ StoreDataFolder="res://assets/config/stores"
 NPCPrefabFolder="res://prefabs/characters/"
 PlayerPrefabPath="res://prefabs/characters/character.tscn"
 NPCSpawnPresetFolder="res://assets/config/npc_spawn_presets"
+ConversationNodeFolder="res://assets/config/conversations"
 
 [global_group]
 
