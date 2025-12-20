@@ -24,6 +24,7 @@ namespace ImmersiveSim.UI
 			_conversationChoiceList = GetNode<Control>("PlayerBox/ConversationChoices/Choices");
 			_conversationContent = _conversationWindow.GetNode<RichTextLabel>("ConversationDisplay/ConversationContent");
 			_continueButton = _conversationChoiceWindow.GetChild(0).GetChild(0).GetChild<Button>(0);
+			_continueButton.Pressed += () => TriggerPlayerChoice(-1);
 
 			GetNode<GameSystem>(ProjectSettings.GetSetting("global/GameSystemPath").ToString()).Conversation.DisplayConversationNode += DisplayConversation;
 			ToggleVisibility(false);
