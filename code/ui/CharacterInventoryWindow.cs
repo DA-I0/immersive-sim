@@ -22,7 +22,7 @@ namespace ImmersiveSim.UI
 			_game = GetNode<Systems.GameSystem>(ProjectSettings.GetSetting("global/GameSystemPath").ToString());
 			_game.NewPlayerSpawned += SetPlayerReferences;
 			_itemInteractionMenu = GetNode<ItemInteractionMenu>("ItemInteractionMenu");
-			_ui = GetParent<UIHandler>();
+			_ui = GetParent().GetParent<UIHandler>();
 			SubscribeToEvents();
 		}
 

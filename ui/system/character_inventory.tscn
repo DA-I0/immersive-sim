@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://cv8oo1c7lvs5k"]
 
 [ext_resource type="PackedScene" uid="uid://dg57jfg5nq2v3" path="res://prefabs/ui/equipment_slot.tscn" id="1_7e8dh"]
-[ext_resource type="Script" path="res://code/ui/CharacterInventoryWindow.cs" id="1_scy7v"]
+[ext_resource type="Script" uid="uid://btwxkbwxnk7kl" path="res://code/ui/CharacterInventoryWindow.cs" id="1_scy7v"]
 [ext_resource type="PackedScene" uid="uid://drkyult83hv72" path="res://ui/system/container_window.tscn" id="2_p2b70"]
-[ext_resource type="Script" path="res://code/ui/CharacterStatusDetailed.cs" id="4_348wf"]
+[ext_resource type="Script" uid="uid://blmotgrdgabkg" path="res://code/ui/CharacterStatusDetailed.cs" id="4_348wf"]
 [ext_resource type="Texture2D" uid="uid://bhgfmje55wy1l" path="res://assets/textures/ui/icons/inv_szkic2.jpg" id="4_d4vx4"]
 [ext_resource type="PackedScene" uid="uid://blljgtweepoi3" path="res://ui/system/item_interaction_menu.tscn" id="5_1cdhq"]
 

@@ -73,10 +73,6 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="CloseJournal" type="Button" parent="Background/SideBar"]
-layout_mode = 2
-text = "BUTTON_CLOSE"
-
 [node name="ActiveNote" type="VBoxContainer" parent="Background"]
 layout_mode = 1
 anchors_preset = -1
@@ -117,5 +113,4 @@ text = "BUTTON_SAVE"
 
 [connection signal="pressed" from="Background/SideBar/NoteListHeader/NewNote" to="." method="CreateNote"]
 [connection signal="pressed" from="Background/SideBar/NoteListHeader/DeleteNote" to="." method="DeleteNote"]
-[connection signal="pressed" from="Background/SideBar/CloseJournal" to="." method="ToggleJournal"]
 [connection signal="pressed" from="Background/ActiveNote/SaveNote" to="." method="SaveNote"]

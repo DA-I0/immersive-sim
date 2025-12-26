@@ -19,7 +19,7 @@ namespace ImmersiveSim.UI
 		public override void _Ready()
 		{
 			_icon = GetNode<TextureRect>("Icon");
-			_inventoryUI = GetNode<CharacterInventoryWindow>($"{ProjectSettings.GetSetting("global/UIHandlerPath")}/CharacterInventory");
+			_inventoryUI = GetNode<CharacterInventoryWindow>($"{ProjectSettings.GetSetting("global/UIHandlerPath")}/PlayerPersonalUI/CharacterInventory");
 			_game = GetNode<GameSystem>(ProjectSettings.GetSetting("global/GameSystemPath").ToString());
 			_game.NewPlayerSpawned += SetPlayerReferences;
 		}

@@ -26,7 +26,7 @@ namespace ImmersiveSim.UI
 			_itemWeight = GetNode<Label>("ItemWeight");
 
 			_game = GetNode<GameSystem>(ProjectSettings.GetSetting("global/GameSystemPath").ToString());
-			_inventoryUI = GetNode<CharacterInventoryWindow>($"{ProjectSettings.GetSetting("global/UIHandlerPath")}/CharacterInventory");
+			_inventoryUI = GetNode<CharacterInventoryWindow>($"{ProjectSettings.GetSetting("global/UIHandlerPath")}/PlayerPersonalUI/CharacterInventory");
 		}
 
 		public override void _Input(InputEvent @event)

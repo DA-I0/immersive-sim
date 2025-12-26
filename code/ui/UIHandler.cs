@@ -88,6 +88,14 @@ namespace ImmersiveSim.UI
 			StateUpdated?.Invoke(_uiState);
 		}
 
+		internal void ChangeUIState(UIState newState)
+		{
+			if (_uiState != newState)
+			{
+				SetUIState(newState);
+			}
+		}
+
 		public void OpenContainer(Gameplay.Container target)
 		{
 			if (_uiState != UIState.Inventory)

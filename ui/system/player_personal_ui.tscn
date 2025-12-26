@@ -1,0 +1,50 @@
+[gd_scene load_steps=4 format=3 uid="uid://d3avt7pgc6kip"]
+
+[ext_resource type="Script" uid="uid://c8xb36uytalo3" path="res://code/ui/PersonalPlayerUI.cs" id="1_fnoys"]
+[ext_resource type="PackedScene" uid="uid://cv8oo1c7lvs5k" path="res://ui/system/character_inventory.tscn" id="2_t6pom"]
+[ext_resource type="PackedScene" uid="uid://c7sv1y21f0lik" path="res://ui/system/player_journal.tscn" id="3_rj2p1"]
+
+[node name="PlayerPersonalUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fnoys")
+
+[node name="CategoryButtons" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_right = 0.1
+anchor_bottom = 1.0
+grow_horizontal = 0
+
+[node name="PlayerInventory" type="Button" parent="CategoryButtons"]
+layout_mode = 2
+text = "INV"
+
+[node name="PlayerJournal" type="Button" parent="CategoryButtons"]
+layout_mode = 2
+text = "NOTE"
+
+[node name="Spacer" type="Control" parent="CategoryButtons"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ClosePersonalUI" type="Button" parent="CategoryButtons"]
+layout_mode = 2
+text = "X"
+
+[node name="CharacterInventory" parent="." instance=ExtResource("2_t6pom")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_right = 0.9
+
+[node name="PlayerJournal" parent="." instance=ExtResource("3_rj2p1")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_right = 0.9

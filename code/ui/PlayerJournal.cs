@@ -19,7 +19,7 @@ namespace ImmersiveSim.UI
 
 		public override void _Ready()
 		{
-			_ui = GetParent<UIHandler>();
+			_ui = GetParent().GetParent<UIHandler>();
 			_journal = GetNode<Systems.GameSystem>(ProjectSettings.GetSetting("global/GameSystemPath").ToString()).Journal;
 			SubscribeToEvents();
 		}

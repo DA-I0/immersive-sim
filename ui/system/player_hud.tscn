@@ -1,11 +1,10 @@
-[gd_scene load_steps=25 format=3 uid="uid://b2vudjxvewu0"]
+[gd_scene load_steps=24 format=3 uid="uid://b2vudjxvewu0"]
 
 [ext_resource type="Script" uid="uid://c6b826dw557h1" path="res://code/ui/UIHandler.cs" id="1_1eh4v"]
-[ext_resource type="PackedScene" uid="uid://cv8oo1c7lvs5k" path="res://ui/system/character_inventory.tscn" id="2_s4cs1"]
-[ext_resource type="PackedScene" uid="uid://c7sv1y21f0lik" path="res://ui/system/player_journal.tscn" id="3_dbgtb"]
 [ext_resource type="PackedScene" uid="uid://b6t2dkruyrd6l" path="res://ui/system/time_skip.tscn" id="3_uo6k8"]
 [ext_resource type="PackedScene" uid="uid://dmpdojjkoesf2" path="res://ui/system/item_rename_prompt.tscn" id="4_gq0mq"]
 [ext_resource type="Script" uid="uid://dyourpj5csql3" path="res://code/ui/CharacterStatus.cs" id="5_2wmef"]
+[ext_resource type="PackedScene" uid="uid://d3avt7pgc6kip" path="res://ui/system/player_personal_ui.tscn" id="5_8hfcd"]
 [ext_resource type="PackedScene" uid="uid://b3xy6vdumj7h" path="res://ui/system/item_stack_split.tscn" id="5_shxvm"]
 [ext_resource type="Script" uid="uid://bnfai6p4lfag4" path="res://code/ui/TimeDisplay.cs" id="6_g62rt"]
 [ext_resource type="PackedScene" uid="uid://bx5edcyygl26m" path="res://ui/system/note_display.tscn" id="7_imq6s"]
@@ -172,7 +171,7 @@ vertical_alignment = 1
 [node name="Crosshair" parent="." instance=ExtResource("8_bcpvg")]
 layout_mode = 1
 
-[node name="CharacterInventory" parent="." instance=ExtResource("2_s4cs1")]
+[node name="PlayerPersonalUI" parent="." instance=ExtResource("5_8hfcd")]
 layout_mode = 1
 
 [node name="TimeSkip" parent="." instance=ExtResource("3_uo6k8")]
@@ -188,9 +187,6 @@ layout_mode = 1
 layout_mode = 0
 offset_right = 233.0
 offset_bottom = 141.0
-
-[node name="PlayerJournal" parent="." instance=ExtResource("3_dbgtb")]
-layout_mode = 1
 
 [node name="NoteDisplay" parent="." instance=ExtResource("7_imq6s")]
 layout_mode = 1
