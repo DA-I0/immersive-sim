@@ -8,4 +8,7 @@ namespace ImmersiveSim.Statics
 	public delegate void UIStateUpdated(UIState currentState);
 	public delegate void InteractableTargeted(object interactable);
 	public delegate void ConversationNodeData(string source, string content, string[] playerChoices);
+	public delegate void OpenContainer(Gameplay.Container target, bool isTemporary);
+	public delegate void OpenNote(string target);
+	public delegate void OpenShop(Gameplay.Shop target);
 }

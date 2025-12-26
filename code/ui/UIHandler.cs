@@ -8,16 +8,16 @@ namespace ImmersiveSim.UI
 	public partial class UIHandler : Control
 	{
 		public event UIStateUpdated StateUpdated;
+		public event OpenContainer OpenContainerUI;
+		public event OpenNote OpenNoteUI;
+		public event OpenShop OpenShopUI;
 
 		private UIState _uiState;
 
-		private CharacterInventoryWindow _inventoryWindow;
 		private ItemStackSplit _itemStackSplitPrompt;
 		private ItemRenamePrompt _itemRenamePrompt;
 		private ItemDetails _itemDetails;
-		private NoteDisplay _noteDisplay;
 		private ConversationUI _conversationUI;
-		private ShopDisplay _shop;
 		private NotificationDisplay _notifications;
 		private Control _loadingScreen;
 
@@ -58,14 +58,11 @@ namespace ImmersiveSim.UI
 
 		public override void _Ready()
 		{
-			_inventoryWindow = GetNode<CharacterInventoryWindow>("CharacterInventory");
 			_itemStackSplitPrompt = GetNode<ItemStackSplit>("ItemStackSplit");
 			_itemRenamePrompt = GetNode<ItemRenamePrompt>("ItemRenamePrompt");
 			_itemDetails = GetNode<ItemDetails>("ItemDetails");
 			_playerStatus = GetNode<Label>("PlayerStatusInfo");
-			_noteDisplay = GetNode<NoteDisplay>("NoteDisplay");
 			_conversationUI = GetNode<ConversationUI>("ConversationDisplay");
-			_shop = GetNode<ShopDisplay>("ShopDisplay");
 			_notifications = GetNode<NotificationDisplay>("NotificationDisplay");
 			_loadingScreen = GetNode<Control>("LoadingScreen");
 
@@ -98,7 +95,7 @@ namespace ImmersiveSim.UI
 				SetUIState(UIState.Inventory);
 			}
 
-			_inventoryWindow.OpenContainer(target);
+			OpenContainerUI?.Invoke(target, true);
 		}
 
 		public void OpenItemStackSplitPrompt(BaseItem item)
@@ -123,12 +120,12 @@ namespace ImmersiveSim.UI
 				SetUIState(UIState.Misc);
 			}
 
-			_noteDisplay.OpenNote(item.TemplateID);
+			OpenNoteUI?.Invoke(item.TemplateID);
 		}
 
 		public void OpenShopDialog(Shop shop)
 		{
-			_shop.ToggleShopDisplay(shop);
+			OpenShopUI?.Invoke(shop);
 		}
 
 		public void DisplayNotification(string content)
@@ -138,7 +135,7 @@ namespace ImmersiveSim.UI
 
 		private void SubscribeToEvents()
 		{
-			_noteDisplay.NoteClosed += RestoreUIState;
+			GetNode<NoteDisplay>("NoteDisplay").NoteClosed += RestoreUIState;
 			_game.Level.UpcomingLevelChange += () => ToggleLoadingScreen(true);
 			_game.Level.LevelLoaded += () => ToggleLoadingScreen(false);
 		}

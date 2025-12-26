@@ -106,6 +106,7 @@ namespace ImmersiveSim.UI
 		private void SubscribeToEvents()
 		{
 			_ui.StateUpdated += ToggleInventory;
+			_ui.OpenContainerUI += OpenContainer;
 		}
 
 		private void SetPlayerReferences()

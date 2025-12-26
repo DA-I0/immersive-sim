@@ -25,8 +25,7 @@ namespace ImmersiveSim.UI
 			_productList = GetNode("Background/ControlList/ProductList");
 			_buyButton = GetNode<Button>("Background/ControlList/ShopOperations/Confirm");
 			_game = GetNode<GameSystem>(ProjectSettings.GetSetting("global/GameSystemPath").ToString());
-
-			GetNode<UIHandler>(ProjectSettings.GetSetting("global/UIHandlerPath").ToString()).StateUpdated += CloseOnUIStateChange;
+			SubscribeToEvents();
 		}
 
 		public override void _Input(InputEvent @event)
@@ -60,6 +59,12 @@ namespace ImmersiveSim.UI
 			_cartTotal.Text = $"{TranslationServer.Translate("HEADER_TOTAL_PRICE")} {HelperMethods.GetFormattedPrice(totalPrice)}\nAvailable money: {HelperMethods.GetFormattedPrice(_game.Player.CharInventory.Money)}";
 
 			_buyButton.Disabled = (totalPrice > _game.Player.CharInventory.Money);
+		}
+
+		private void SubscribeToEvents()
+		{
+			_game.UI.StateUpdated += CloseOnUIStateChange;
+			_game.UI.OpenShopUI += ToggleShopDisplay;
 		}
 
 		private void ConfirmPurchase()
