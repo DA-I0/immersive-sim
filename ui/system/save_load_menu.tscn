@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://d1r3ph3xu113x"]
 
-[ext_resource type="Script" path="res://code/ui/SaveMenu.cs" id="1_r3phj"]
+[ext_resource type="Script" uid="uid://c1eqmj186u8q7" path="res://code/ui/SaveMenu.cs" id="1_r3phj"]
 
 [node name="SaveLoadMenu" type="Control"]
 process_mode = 3
