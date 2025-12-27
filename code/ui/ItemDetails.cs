@@ -22,7 +22,7 @@ namespace ImmersiveSim.UI
 			_itemIcon = GetNode<TextureRect>("VerticalContainer/MainInfoContainer/ItemIcon");
 			_itemDescription = GetNode<RichTextLabel>("VerticalContainer/ItemDescription");
 
-			GetNode<UIHandler>(ProjectSettings.GetSetting("global/UIHandlerPath").ToString()).StateUpdated += HideOutsideInventory;
+			GetNode<UIManager>(ProjectSettings.GetSetting("global/UIHandlerPath").ToString()).StateUpdated += HideOutsideInventory;
 		}
 
 		public void ToggleItemDetails(BaseItem sourceItem)

@@ -5,7 +5,7 @@ using ImmersiveSim.Systems;
 
 namespace ImmersiveSim.UI
 {
-	public partial class UIHandler : Control
+	public partial class UIManager : Control
 	{
 		public event UIStateUpdated StateUpdated;
 		public event OpenContainer OpenContainerUI;

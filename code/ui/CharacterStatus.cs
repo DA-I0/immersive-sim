@@ -26,7 +26,7 @@ namespace ImmersiveSim.UI
 			_game = GetNode<Systems.GameSystem>(ProjectSettings.GetSetting("global/GameSystemPath").ToString());
 			_game.NewPlayerSpawned += SetPlayerReferences;
 
-			GetParent<UIHandler>().StateUpdated += ToggleVisibility;
+			GetParent<UIManager>().StateUpdated += ToggleVisibility;
 		}
 
 		private void SetPlayerReferences()

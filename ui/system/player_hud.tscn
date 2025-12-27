@@ -1,6 +1,6 @@
 [gd_scene load_steps=24 format=3 uid="uid://b2vudjxvewu0"]
 
-[ext_resource type="Script" uid="uid://c6b826dw557h1" path="res://code/ui/UIHandler.cs" id="1_1eh4v"]
+[ext_resource type="Script" uid="uid://c6b826dw557h1" path="res://code/ui/UIManager.cs" id="1_1eh4v"]
 [ext_resource type="PackedScene" uid="uid://b6t2dkruyrd6l" path="res://ui/system/time_skip.tscn" id="3_uo6k8"]
 [ext_resource type="PackedScene" uid="uid://dmpdojjkoesf2" path="res://ui/system/item_rename_prompt.tscn" id="4_gq0mq"]
 [ext_resource type="Script" uid="uid://dyourpj5csql3" path="res://code/ui/CharacterStatus.cs" id="5_2wmef"]

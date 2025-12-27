@@ -14,12 +14,12 @@ namespace ImmersiveSim.UI
 
 		private System.Guid _activeNoteID = System.Guid.Empty;
 
-		private UIHandler _ui;
+		private UIManager _ui;
 		private Systems.JournalManager _journal;
 
 		public override void _Ready()
 		{
-			_ui = GetParent().GetParent<UIHandler>();
+			_ui = GetParent().GetParent<UIManager>();
 			_journal = GetNode<Systems.GameSystem>(ProjectSettings.GetSetting("global/GameSystemPath").ToString()).Journal;
 			SubscribeToEvents();
 		}

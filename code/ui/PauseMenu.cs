@@ -5,11 +5,11 @@ namespace ImmersiveSim.UI
 {
 	public partial class PauseMenu : Control
 	{
-		private UIHandler _ui;
+		private UIManager _ui;
 
 		public override void _Ready()
 		{
-			_ui = GetParent<UIHandler>();
+			_ui = GetParent<UIManager>();
 			_ui.StateUpdated += ActOnUIStateChange;
 		}
 

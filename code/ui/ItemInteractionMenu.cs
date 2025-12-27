@@ -11,14 +11,14 @@ namespace ImmersiveSim.UI
 		private Array<Node> _options;
 		private bool _isSelected = false;
 
-		private UIHandler _ui;
+		private UIManager _ui;
 		private Systems.GameSystem _game;
 		private CharacterInventoryWindow _inventoryWindow;
 
 		public override void _Ready()
 		{
 			_options = GetNode("InteractionList").GetChildren();
-			_ui = GetNode<UIHandler>(ProjectSettings.GetSetting("global/UIHandlerPath").ToString());
+			_ui = GetNode<UIManager>(ProjectSettings.GetSetting("global/UIHandlerPath").ToString());
 			_inventoryWindow = GetParent<CharacterInventoryWindow>();
 			_game = GetNode<Systems.GameSystem>(ProjectSettings.GetSetting("global/GameSystemPath").ToString());
 			GetNode<Control>("InteractionList").Resized += RefreshMenuSize;

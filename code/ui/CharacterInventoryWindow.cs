@@ -13,7 +13,7 @@ namespace ImmersiveSim.UI
 		private ItemInteractionMenu _itemInteractionMenu;
 		private Systems.GameSystem _game;
 
-		private UIHandler _ui;
+		private UIManager _ui;
 
 		public override void _Ready()
 		{
@@ -22,7 +22,7 @@ namespace ImmersiveSim.UI
 			_game = GetNode<Systems.GameSystem>(ProjectSettings.GetSetting("global/GameSystemPath").ToString());
 			_game.NewPlayerSpawned += SetPlayerReferences;
 			_itemInteractionMenu = GetNode<ItemInteractionMenu>("ItemInteractionMenu");
-			_ui = GetParent().GetParent<UIHandler>();
+			_ui = GetParent().GetParent<UIManager>();
 			SubscribeToEvents();
 		}
 

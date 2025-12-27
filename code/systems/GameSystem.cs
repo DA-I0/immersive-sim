@@ -14,7 +14,7 @@ namespace ImmersiveSim.Systems
 		private Database _database;
 		private Settings _settings;
 		private TimeController _time;
-		private UI.UIHandler _ui;
+		private UI.UIManager _ui;
 		private PlayerBase _player;
 		private WorldEnvironment _world;
 		private ConversationManager _conversation;
@@ -58,7 +58,7 @@ namespace ImmersiveSim.Systems
 			get { return _time; }
 		}
 
-		public UI.UIHandler UI
+		public UI.UIManager UI
 		{
 			get { return _ui; }
 		}
@@ -192,7 +192,7 @@ namespace ImmersiveSim.Systems
 		private async void SetupReferences()
 		{
 			_time = GetNode<TimeController>(ProjectSettings.GetSetting("global/TimeControllerPath").ToString());
-			_ui = GetNode<UI.UIHandler>(ProjectSettings.GetSetting("global/UIHandlerPath").ToString());
+			_ui = GetNode<UI.UIManager>(ProjectSettings.GetSetting("global/UIHandlerPath").ToString());
 			_world = GetNode<WorldEnvironment>("../WorldEnvironment");
 			_level = GetNode<LevelManager>("../ActiveLevel");
 

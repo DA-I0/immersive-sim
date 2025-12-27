@@ -17,8 +17,8 @@ namespace ImmersiveSim.UI
 
 		public override void _Ready()
 		{
-			GetNode<UIHandler>(ProjectSettings.GetSetting("global/UIHandlerPath").ToString()).StateUpdated += CloseNoteFromUIChange;
-			GetNode<UIHandler>(ProjectSettings.GetSetting("global/UIHandlerPath").ToString()).OpenNoteUI += OpenNote;
+			GetNode<UIManager>(ProjectSettings.GetSetting("global/UIHandlerPath").ToString()).StateUpdated += CloseNoteFromUIChange;
+			GetNode<UIManager>(ProjectSettings.GetSetting("global/UIHandlerPath").ToString()).OpenNoteUI += OpenNote;
 			Visible = false;
 		}
 

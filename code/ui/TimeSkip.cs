@@ -10,7 +10,7 @@ namespace ImmersiveSim.UI
 		private Label _targetDate;
 		private Button _confirmationButton;
 
-		private UIHandler _ui;
+		private UIManager _ui;
 		private GameSystem _game;
 
 		public override void _Ready()
@@ -18,7 +18,7 @@ namespace ImmersiveSim.UI
 			_skipDuration = GetNode<HSlider>("Window/ControlPositioner/SkipDuration");
 			_targetDate = GetNode<Label>("Window/ControlPositioner/TargetDate");
 			_confirmationButton = GetNode<Button>("Window/ControlPositioner/ButtonPositioner/Confirm");
-			_ui = GetParent<UIHandler>();
+			_ui = GetParent<UIManager>();
 			_ui.StateUpdated += ToggleWindow;
 			_game = GetNode<GameSystem>(ProjectSettings.GetSetting("global/GameSystemPath").ToString());
 		}

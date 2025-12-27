@@ -13,7 +13,7 @@ namespace ImmersiveSim.UI
 			_date = GetNode<Label>("TimeControls/Date");
 			_time = GetNode<Label>("TimeControls/Time");
 			GetNode<Gameplay.TimeController>(ProjectSettings.GetSetting("global/TimeControllerPath").ToString()).DateUpdated += UpdateDateTimeInfo;
-			GetParent<UIHandler>().StateUpdated += ToggleDisplay;
+			GetParent<UIManager>().StateUpdated += ToggleDisplay;
 		}
 
 		private void UpdateDateTimeInfo(System.DateTime newDate)
