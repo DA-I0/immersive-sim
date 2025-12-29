@@ -11,4 +11,5 @@ namespace ImmersiveSim.Statics
 	public delegate void OpenContainer(Gameplay.Container target, bool isTemporary);
 	public delegate void OpenNote(string target);
 	public delegate void OpenShop(Gameplay.Shop target);
+	public delegate void OpenItemDetails(Gameplay.BaseItem target);
 }

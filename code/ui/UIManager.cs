@@ -11,12 +11,12 @@ namespace ImmersiveSim.UI
 		public event OpenContainer OpenContainerUI;
 		public event OpenNote OpenNoteUI;
 		public event OpenShop OpenShopUI;
+		public event OpenItemDetails ItemSelected;
 
 		private UIState _uiState;
 
 		private ItemStackSplit _itemStackSplitPrompt;
 		private ItemRenamePrompt _itemRenamePrompt;
-		private ItemDetails _itemDetails;
 		private ConversationUI _conversationUI;
 		private NotificationDisplay _notifications;
 		private Control _loadingScreen;
@@ -60,7 +60,6 @@ namespace ImmersiveSim.UI
 		{
 			_itemStackSplitPrompt = GetNode<ItemStackSplit>("ItemStackSplit");
 			_itemRenamePrompt = GetNode<ItemRenamePrompt>("ItemRenamePrompt");
-			_itemDetails = GetNode<ItemDetails>("ItemDetails");
 			_playerStatus = GetNode<Label>("PlayerStatusInfo");
 			_conversationUI = GetNode<ConversationUI>("ConversationDisplay");
 			_notifications = GetNode<NotificationDisplay>("NotificationDisplay");
@@ -118,7 +117,7 @@ namespace ImmersiveSim.UI
 
 		public void ToggleItemDetails(BaseItem item)
 		{
-			_itemDetails.ToggleItemDetails(item);
+			ItemSelected?.Invoke(item);
 		}
 
 		public void OpenNote(BaseItem item)
