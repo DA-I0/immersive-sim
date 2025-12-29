@@ -40,6 +40,11 @@ namespace ImmersiveSim.Gameplay
 			_usesLeft = Uses;
 		}
 
+		internal void SetDuplicateUses(int usesLeft)
+		{
+			_usesLeft = usesLeft;
+		}
+
 		public override void UseItem(Inventory user)
 		{
 			base.UseItem(user);

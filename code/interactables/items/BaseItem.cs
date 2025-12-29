@@ -236,13 +236,25 @@ namespace ImmersiveSim.Gameplay
 			ChangeParent(newParent, true, setVisible, false);
 		}
 
-		public virtual void SplitStack(int newStackSize) // splitting consumables doesn't update their UI entry until reentering inventory
+		public virtual void SplitStack(int newStackSize)
 		{
-			BaseItem newItem = this.Duplicate(7) as BaseItem;
-			GetParent().AddChild(newItem);
+			BaseItem newItem = _game.SpawnItem(TemplateID);
 			ChangeStack(-newStackSize);
 			newItem.SetStack(newStackSize);
+
+			if (newItem is Consumable consumableItem)
+			{
+				consumableItem.SetDuplicateUses(((Consumable)this).UsesLeft);
+			}
+
+			if (ParentContainer != null)
+			{
 			ParentContainer.AddItem(newItem, true);
+		}
+			else
+			{
+				newItem.ChangeParent(GetParent(), true, false, false);
+			}
 		}
 
 		public void Drop()
@@ -438,6 +450,7 @@ namespace ImmersiveSim.Gameplay
 		protected void UpdateItemInfo()
 		{
 			ItemUpdated?.Invoke();
+			ParentContainer?.RefreshContainer();
 		}
 
 		protected void MarkAsModified()
