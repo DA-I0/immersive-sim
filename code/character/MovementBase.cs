@@ -167,6 +167,11 @@ namespace ImmersiveSim.Gameplay
 
 		public void TriggerAction(string action)
 		{
+			if (action == null)
+			{
+				return;
+			}
+
 			if (action.Contains("action_"))
 			{
 				PlayInteractionAction(action.Replace("action_", string.Empty));

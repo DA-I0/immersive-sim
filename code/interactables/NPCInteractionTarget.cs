@@ -65,8 +65,18 @@ namespace ImmersiveSim.Gameplay
 
 		public void NPCInteract(NPCBase user)
 		{
+			if (user == null)
+			{
+				_user = null;
+			}
+
+			if (_user == null)
+			{
+				return;
+			}
+
 			_user = user;
-			user.CharMovement.AdjustToTargetPosition(InteractionPointPosition);
+			_user.CharMovement.AdjustToTargetPosition(InteractionPointPosition);
 			_interactionStart = _game.Time.CurrentDate;
 
 			if (_interactionDuration == NPCInteractionDuration.ActionBased)

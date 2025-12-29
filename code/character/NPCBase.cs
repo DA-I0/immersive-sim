@@ -52,7 +52,7 @@ namespace ImmersiveSim.Gameplay
 		{
 			// if (IsQueuedForDeletion())
 			// {
-			// 	_game.NPCSpawnController.RemoveNPCOnDestruction(this);
+			_game.NPCSpawnController.RemoveNPCOnDestruction(CharMovement);
 			// }
 		}
 

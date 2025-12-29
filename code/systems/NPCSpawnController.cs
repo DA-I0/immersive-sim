@@ -119,7 +119,7 @@ namespace ImmersiveSim.Systems
 
 		private void ClearOrphanedCacheEntries()
 		{
-			List<CharacterBody3D> emptyEntries = _npcCache.FindAll(npc => npc == null);
+			List<CharacterBody3D> emptyEntries = _npcCache.FindAll(npc => npc == null || npc.GlobalPosition.DistanceTo(_game.Player.BaseMovement.GlobalPosition) > _game.Settings.StreamingDistance);
 
 			foreach (CharacterBody3D entry in emptyEntries)
 			{

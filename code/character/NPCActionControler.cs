@@ -230,6 +230,7 @@ namespace ImmersiveSim.Gameplay
 
 			if (_subscribedToInteractionDelegate)
 			{
+				ClearAsInteractionTarget();
 				_interactionTarget.InteractionComplete -= InteractionComplete;
 			}
 		}

@@ -3,7 +3,7 @@ using ImmersiveSim.Statics;
 
 namespace ImmersiveSim.Gameplay
 {
-	public partial class NPCMovement : MovementBase, Interfaces.IMovement, Interfaces.IReparentableEntity
+	public partial class NPCMovement : MovementBase, Interfaces.IMovement
 	{
 		public event StatusUpdate TargetReached;
 
@@ -16,7 +16,6 @@ namespace ImmersiveSim.Gameplay
 		private NPCActionControler _actionControler;
 
 		private Timer _doorTimer = new Timer();
-		private Timer _parentResetTimer = new Timer();
 
 		private ShapeCast3D _doorCast;
 
@@ -151,10 +150,6 @@ namespace ImmersiveSim.Gameplay
 		{
 			AddChild(_doorTimer);
 			_doorTimer.Timeout += ResetDoorCollisions;
-
-			AddChild(_parentResetTimer);
-			_parentResetTimer.OneShot = true;
-			_parentResetTimer.Timeout += ResetParentToMainScene;
 		}
 
 		private void SetupDoorCast()
@@ -205,27 +200,6 @@ namespace ImmersiveSim.Gameplay
 			{
 				RemoveCollisionExceptionWith(_lastUsedDoor);
 				_lastUsedDoor = null;
-			}
-		}
-
-		public void ReparentToSubscene(Node newParent)
-		{
-			_parentResetTimer?.Stop();
-			Reparent(newParent, true);
-		}
-
-		public void ResetParentToMainScene()
-		{
-			GD.Print($"parent reset in progress for {Name}");
-			Reparent(_character.Game.Level.ActiveScene, true);
-		}
-
-		public void TriggerParentReset()
-		{
-			if (_parentResetTimer.IsInsideTree())
-			{
-				GD.Print($"triggering parent reset for {Name}");
-				_parentResetTimer?.Start(StaticValues.EntityParentResetDelay);
 			}
 		}
 	}
