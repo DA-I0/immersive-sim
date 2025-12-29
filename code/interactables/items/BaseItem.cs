@@ -249,8 +249,8 @@ namespace ImmersiveSim.Gameplay
 
 			if (ParentContainer != null)
 			{
-			ParentContainer.AddItem(newItem, true);
-		}
+				ParentContainer.AddItem(newItem, true);
+			}
 			else
 			{
 				newItem.ChangeParent(GetParent(), true, false, false);
