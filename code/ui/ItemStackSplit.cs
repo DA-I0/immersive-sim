@@ -24,6 +24,7 @@ namespace ImmersiveSim.UI
 			_newStackValue = GetNode<Label>("Window/ControlPositioner/SplitControls/NewStackValue");
 
 			_ui = GetParent<UIManager>();
+			_ui.ItemStackSplit += ToggleSplitPrompt;
 			ToggleSplitPrompt(null);
 		}
 
