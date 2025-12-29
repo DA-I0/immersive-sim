@@ -9,7 +9,7 @@ albedo_color = Color(1, 0.572549, 0, 1)
 
 [sub_resource type="PrismMesh" id="PrismMesh_b1lj1"]
 material = SubResource("StandardMaterial3D_4giox")
-size = Vector3(0.2, 0.2, 0.2)
+size = Vector3(0.2, 0.3, 0.2)
 
 [node name="NPCSpawner" type="Area3D"]
 collision_layer = 524288

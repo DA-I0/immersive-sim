@@ -30,7 +30,7 @@ albedo_color = Color(1, 0, 1, 1)
 
 [sub_resource type="PrismMesh" id="PrismMesh_4oq74"]
 material = SubResource("StandardMaterial3D_fubs4")
-size = Vector3(0.2, 0.2, 0.2)
+size = Vector3(0.2, 0.3, 0.2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_76qq1"]
 size = Vector3(0.02, 0.02, 0.02)
@@ -40,7 +40,7 @@ size = Vector3(0.02, 0.02, 0.02)
 
 [sub_resource type="ImmediateMesh" id="ImmediateMesh_76qq1"]
 resource_local_to_scene = true
-metadata/creation_stamp = 95042006043555
+metadata/creation_stamp = 169103398684129
 
 [node name="VendingMachine01" type="Node3D"]
 script = ExtResource("1_18bbt")

@@ -17,7 +17,7 @@ albedo_color = Color(1, 0, 1, 1)
 
 [sub_resource type="PrismMesh" id="PrismMesh_4oq74"]
 material = SubResource("StandardMaterial3D_fubs4")
-size = Vector3(0.2, 0.2, 0.2)
+size = Vector3(0.2, 0.3, 0.2)
 
 [node name="Bench_01" instance=ExtResource("1_7w31x")]
 
