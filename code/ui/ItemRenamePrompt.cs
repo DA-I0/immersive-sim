@@ -1,4 +1,3 @@
-using System;
 using Godot;
 using ImmersiveSim.Gameplay;
 
@@ -14,6 +13,8 @@ namespace ImmersiveSim.UI
 		{
 			_newNameBox = GetNode<LineEdit>("ControlPanel/Controls/NameBox");
 			ToggleRenamePrompt(null);
+
+			GetNode<UIManager>(ProjectSettings.GetSetting("global/UIHandlerPath").ToString()).ItemRename += ToggleRenamePrompt;
 		}
 
 		public override void _Input(InputEvent @event)
