@@ -103,6 +103,7 @@ namespace ImmersiveSim.Gameplay
 						ReparentItem(item);
 					}
 
+					ItemModified();
 					return true;
 				}
 			}
@@ -114,6 +115,7 @@ namespace ImmersiveSim.Gameplay
 			if (ItemsWithin.Contains(item))
 			{
 				item.ChangeParent(_game.Level.ActiveScene);
+				ItemModified();
 				return true;
 			}
 			else
