@@ -321,7 +321,6 @@ namespace ImmersiveSim.Gameplay
 			{
 				if (result["collider"].Obj is IInteractable && result["collider"].Obj is not NPCInteractionTarget)
 				{
-					GD.Print($"-> returning: {((Node)result["collider"].Obj).Name}");
 					return (Node)result["collider"].Obj;
 				}
 
@@ -330,7 +329,6 @@ namespace ImmersiveSim.Gameplay
 					return ((Node)result["collider"].Obj).GetNode("CharacterConversation");
 				}
 
-				GD.Print($"-> returning: {((Node)result["collider"].Obj).GetParent().Name}");
 				return ((Node)result["collider"].Obj).GetParent();
 			}
 
